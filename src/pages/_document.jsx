@@ -13,7 +13,6 @@ export default function MyDocument() {
             <meta name="twitter:creator" content="@JanjyTapYT" />
             <meta name="twitter:title" content={config.siteMetadata.title} />
             <meta name="twitter:description" content={config.siteMetadata.description} />
-            <meta name="twitter:image" content={config.siteMetadata.image} />
             <meta property="og:type" content="website" />
             <meta property="og:site_name" content={config.siteMetadata.title} />
             <meta property="og:title" content={config.siteMetadata.title} />
