@@ -10,6 +10,7 @@ export default function Projects() {
     const router = useRouter()
     const [isOpen, setIsOpen] = useState(false)
     const [project, setProject] = useState(null)
+    const [loading, setLoading] = useState(false)
     
     const { data: _projects } = swr('/api/projects', 60000);
     const projects = _projects ? _projects : null;
@@ -59,7 +60,7 @@ export default function Projects() {
                 ) : <></>
             ) : (
                 <div className="flex flex-col justify-center items-center">
-                <h1 className="font-display text-2xl font-semibold text-black dark:text-white text-center">No Projects Found</h1>
+                <i className="fal fa-spinner-third fa-spin" /> <span className="text-xl font-semibold">Loading Projects...</span>
                 </div>
                 )}
             </div>
