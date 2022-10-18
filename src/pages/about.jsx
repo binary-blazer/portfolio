@@ -47,7 +47,7 @@ export default function About() {
                         <div className="pb-2 py-2">
                         <div className="flex flex-col items-center justify-center w-full flex-1 px-20 text-center mx-auto">
                         <p className="text-black dark:text-white text-2xl padding-2 font-bold mx-auto">Im a <span className="text-white text-underline-2px font-semibold mt-4 text-2xl mx-auto">{config.AboutMePage.developerGrade}</span>,</p>
-                        <p className="text-black dark:text-white text-2xl padding-2 font-bold mx-auto">from <span className="text-white text-underline-2px font-semibold mt-4 text-2xl mx-auto">{config.AboutMePage.yourLand}</span>.
+                        <p className="text-black dark:text-white text-2xl padding-2 font-bold mx-auto">from <span className="text-white text-underline-2px font-semibold mt-4 text-2xl mx-auto">{config.AboutMePage.yourLand}</span>.</p>
                         </div>
                         <br />
                         <div className="pb-4 py-4">
