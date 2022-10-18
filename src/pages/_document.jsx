@@ -19,9 +19,9 @@ export default function MyDocument() {
             <meta property="og:title" content={config.siteMetadata.title} />
             <meta property="og:description" content={config.siteMetadata.description} />
             <meta property="og:url" content={config.siteMetadata.url} />
+            <meta property="image" content={config.siteMetadata.image} />
             <meta name="description" content={config.siteMetadata.description} />
             <meta name="theme-color" content={config.siteMetadata.themeColor} />
-            <link rel="icon" href={config.siteMetadata.image} type="image/x-icon" /> 
             <link rel="canonical" href={config.siteMetadata.url} />
             <meta name="publisher" content="2022, JanjyTapYT" />
             <meta name="author" content="me@janjytapyt.me" />
