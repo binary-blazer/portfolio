@@ -71,6 +71,10 @@ body {
     text-underline-offset: 0.6rem;
 }
 
+.repsonsiveText {
+    font-size:2vw;
+}
+
 .color-layout {
     --color: #;
     left: 0;
