@@ -1,0 +1,37 @@
+export default async (req, res) => {
+    const data = [
+        { name: "HTML", src: "/images/html.svg" },
+        { name: "Bootstrap", src: "/images/bootstrap.svg" },
+        { name: "CSS", src: "/images/css.svg" },
+        { name: "Javascript", src: "/images/javascript.svg" },
+        { name: "Node.js", src: "/images/nodejs.svg" },
+        { name: "Sass", src: "/images/sass.svg" },
+        { name: "C#", src: "/images/csharp.svg" },
+        { name: "Mongo DB", src: "/images/mongodb.svg" },
+        { name: "Prisma", src: "/images/prisma.svg" },
+        { name: "PHP", src: "/images/php.svg" },
+        { name: "TailwindCSS", src: "/images/tailwindcss.svg" },
+        { name: "Next.js", src: "/images/nextjs.svg" },
+        { name: "MySQL", src: "/images/mysql.svg" },
+        { name: "Express", src: "/images/expressjs.svg" },
+        { name: "Fastify", src: "/images/fastify.svg" },
+        { name: "React", src: "/images/react.svg" },
+        { name: "Bulma", src: "/images/bulmacss.svg" },
+        { name: "Git", src: "/images/git.svg" },
+        { name: "Alpine.js", src: "/images/alpinejs.svg" },
+        { name: "Yarn", src: "/images/yarn.svg" },
+        { name: "Sails.js", src: "/images/sailsjs.png" },
+        { name: "Figma", src: "/images/figma.svg" },
+        { name: "Photoshop CC", src: "/images/photoshop.svg" },
+        { name: "Github", src: "/images/github.svg" },
+        { name: "Firebase", src: "/images/firebase.svg" },
+        { name: "Heroku", src: "/images/heroku.svg" },
+        { name: "pnpm", src: "/images/pnpm.svg" },
+        { name: "Webpack", src: "/images/webpack.svg" },
+        { name: "Iconscout", src: "/images/iconscout.png" },
+        { name: "Typescript", src: "/images/typescript.svg" },
+        { name: "Nest.js", src: "/images/nestjs.svg" },
+    ]
+
+    res.status(200).json(data)
+};

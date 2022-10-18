@@ -1,0 +1,81 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    background: #f5f5f5;
+    color: #000;
+    overflow-x: hidden !important;
+}
+
+.dark body {
+    background: #050505;
+    color: #fff;
+    overflow-x: hidden !important;
+}
+
+* {
+    font-family: 'Lexend Deca', sans-serif;
+    cursor: none !important;
+}
+
+.weight-900 {
+    font-weight: 900;
+}
+
+.weight-800 {
+    font-weight: 800;
+}
+
+.weight-700 {
+    font-weight: 700;
+}
+
+.weight-600 {
+    font-weight: 600;
+}
+
+.weight-500 {
+    font-weight: 500;
+}
+
+.weight-400 {
+    font-weight: 400;
+}
+
+.weight-300 {
+    font-weight: 300;
+}
+
+.weight-200 {
+    font-weight: 200;
+}
+
+.weight-100 {
+    font-weight: 100;
+}
+
+.padding {
+    padding: 12px 15px;
+}
+
+.padding-2 {
+    padding: 3px 5px;
+}
+
+.color-layout {
+    --color: #;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    max-width: 100%;
+    width: 100%;
+    filter: blur(44px);
+    opacity: 25%;
+    z-index: -1;
+    position: fixed;
+}
+
+.layout-blue {
+    background: radial-gradient(at 150% 0%, #0055ff 0, transparent 50%);
+}
