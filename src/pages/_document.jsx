@@ -19,7 +19,6 @@ export default function MyDocument() {
             <meta property="og:title" content={config.siteMetadata.title} />
             <meta property="og:description" content={config.siteMetadata.description} />
             <meta property="og:url" content={config.siteMetadata.url} />
-            <meta property="image" content={config.siteMetadata.image} />
             <meta name="description" content={config.siteMetadata.description} />
             <meta name="theme-color" content={config.siteMetadata.themeColor} />
             <link rel="canonical" href={config.siteMetadata.url} />
