@@ -57,7 +57,7 @@ export default function Home() {
 
       
       <main className="flex flex-col items-center justify-center w-full flex-1 px-20 text-center">
-      <div className="h-[40rem] flex flex-col justify-center items-center mb-72">
+      <div className="h-[33rem] flex flex-col justify-center items-center mb-72">
       <h1 className="mx-auto max-w-4xl font-semibold text-5xl font-semibold sm:text-7xl text-black dark:text-white text-center">Hi there, Im <span className="text-primary">JanjyTapYT</span> <br />I'm a <span className="text-primary">Full Stack Developer</span> and <span className="text-primary">Designer</span></h1>
       <div className="flex flex-row justify-center items-center mt-10">
       <button onClick={() => router.push('/contact')} className="bg-primary shadow-2xl shadow-primary text-white font-display font-semibold text-lg px-10 py-3 rounded-md mr-5">Contact Me</button>

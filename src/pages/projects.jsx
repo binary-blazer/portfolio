@@ -28,7 +28,8 @@ export default function Projects() {
         </Head>
         <br />
         
-        <div className="flex flex-col items-center justify-center w-full flex-1 px-20 text-center">
+        <div className="mb-10 flex flex-col py-20 mx-auto">
+        <div className="flex flex-col items-center justify-center w-full flex-10 px-10 text-center">
             <h1 className="text-5xl font-semibold">
                 Projects
             </h1>
@@ -62,6 +63,7 @@ export default function Projects() {
                 </div>
                 )}
             </div>
+        </div>
         </div>
         </motion.div>
         </>

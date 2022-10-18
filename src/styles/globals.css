@@ -63,6 +63,14 @@ body {
     padding: 3px 5px;
 }
 
+.text-underline-2px {
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 2px;
+    text-decoration-color: #0055ff;
+    text-underline-offset: 0.6rem;
+}
+
 .color-layout {
     --color: #;
     left: 0;

@@ -54,9 +54,19 @@ export default function Contact() {
         <title>Contact | { config.siteMetadata.title }</title>
         <link rel="icon" href={config.siteMetadata.favicon} type="image/x-icon" />
         </Head>
-        <div className="flex flex-col items-center justify-center min-h-screen py-6">
-            <div className="flex flex-col items-center justify-center w-full max-w-2xl px-4 py-8 space-y-4 bg-white dark:bg-black rounded-lg shadow-lg">
-            <h1 className="text-3xl font-bold text-black dark:text-white">Contact</h1>
+
+        <div className="mb-10 flex flex-col py-20 mx-auto">
+        <div className="flex flex-col items-center justify-center w-full flex-10 px-10 text-center">
+            <h1 className="text-5xl font-semibold">
+                Contect
+            </h1>
+            <p className="text-xl text-white/50 font-normal text-center mb-5">
+                If you have any questions, please feel free to contact me.
+                </p>
+            <br />
+            <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-1 gap-40 py-6 justify-center">
+            <div className="flex flex-col items-center justify-center min-h-screen py-6">
+            <div className="flex flex-col position-center items-center justify-center w-full max-w-2xl px-4 py-8 space-y-4 bg-gray-300/50 dark:bg-zinc-900/50 rounded-lg shadow-lg">
             <form className="flex flex-col w-full space-y-4" onSubmit={handleSubmit}>
                 <Input
                     type="text"
@@ -103,6 +113,9 @@ export default function Contact() {
                                 </p>}
 
             </div>
+        </div>
+        </div>
+        </div>
         </div>
         </motion.div>
     )
