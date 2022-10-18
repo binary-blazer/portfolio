@@ -43,7 +43,7 @@ export default function About() {
             <br />
                         <div className="w-full h-[30rem] relative">
                         <Image style={{ zIndex: 0 }} src={config.siteMetadata.authorImage} width="111" className="rounded-full hover:scale-[1.02]" height="111" />
-                        <h1 className="text-3xl font-bold mt-2 padding-2 margin">Hey, im <span className="text-white text-underline-2px font-semibold mt-4 text-3xl text-primary">{config.siteMetadata.author}</span>,</h1>
+                        <h1 className="text-3xl font-bold mt-2 padding-2 margin">Hey, im <span className="text-white font-semibold mt-4 text-3xl text-primary">{config.siteMetadata.author}</span>,</h1>
                         <div className="pb-2 py-2">
                         <div className="flex flex-col items-center justify-center w-full flex-1 px-20 text-center">
                         <p className="text-black dark:text-white text-2xl padding-2 font-bold margin">Im a <span className="text-white text-underline-2px font-semibold mt-4 text-2xl">{config.AboutMePage.developerGrade}</span> from <span className="text-white text-underline-2px font-semibold mt-4 text-2xl">{config.AboutMePage.yourLand}</span>.</p>

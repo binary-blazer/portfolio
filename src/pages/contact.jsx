@@ -64,9 +64,8 @@ export default function Contact() {
                 If you have any questions, please feel free to contact me.
                 </p>
             <br />
-            <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-1 gap-40 py-6 justify-center">
-            <div className="flex flex-col items-center justify-center min-h-screen py-6">
-            <div className="flex flex-col position-center items-center justify-center w-full max-w-2xl px-4 py-8 space-y-4 bg-gray-300/50 dark:bg-zinc-900/50 rounded-lg shadow-lg">
+
+            <div className="flex flex-col mt-16 position-center items-center justify-center w-full max-w-2xl px-4 py-8 space-y-4 bg-gray-300/50 dark:bg-zinc-900/50 rounded-lg shadow-lg">
             <form className="flex flex-col w-full space-y-4" onSubmit={handleSubmit}>
                 <Input
                     type="text"
@@ -111,10 +110,7 @@ export default function Contact() {
                                 <i className="fa fa-check-circle" />
                                 Message sent successfully
                                 </p>}
-
             </div>
-        </div>
-        </div>
         </div>
         </div>
         </motion.div>
