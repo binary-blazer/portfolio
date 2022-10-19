@@ -14,7 +14,7 @@ module.exports = {
 
     AboutMePage: {
         yourLand: 'Germany',
-        developerGrade: 'Full Stack Developer',
+        developerGrade: 'Fullstack Developer',
         developerGrade2: 'Full Stack',
     },
 

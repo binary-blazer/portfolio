@@ -71,6 +71,10 @@ body {
     text-underline-offset: 0.6rem;
 }
 
+.text-padding {
+    padding: 1 10rem;
+}
+
 .color-layout {
     --color: #;
     left: 0;
