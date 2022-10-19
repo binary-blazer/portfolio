@@ -43,11 +43,11 @@ export default function About() {
             <br />
                         <div className="w-full h-[40rem] relative mx-auto">
                         <Image style={{ zIndex: 0 }} src={config.siteMetadata.authorImage} width="111" className="rounded-full hover:scale-[1.02]" height="111" />
-                        <h1 className="text-3xl font-bold mt-2 padding-2 mx-auto max-w-sm">Hey, im <span className="text-white font-semibold mt-4 text-3xl text-primary mx-auto max-w-sm">{config.siteMetadata.author}</span>,</h1>
+                        <h1 className="text-3xl font-bold mt-2 padding-2 mx-auto max-w-sm text-black dark:text-white">Hey, im <span className="text-black dark:text-white font-semibold mt-4 text-3xl text-primary mx-auto max-w-sm">{config.siteMetadata.author}</span>,</h1>
                         <div className="pb-2 py-2">
                         <div className="flex flex-col items-center justify-center w-full flex-1 px-20 text-center mx-auto">
-                        <p className="text-black dark:text-white text-2xl padding-2 font-bold max-w-sm text-padding">Im a <span className="text-white text-underline-2px font-semibold mt-4 text-2xl max-w-sm">{config.AboutMePage.developerGrade}</span>,</p>
-                        <p className="text-black dark:text-white text-2xl padding-2 font-bold max-w-sm">from <span className="text-white text-underline-2px font-semibold mt-4 text-2xl max-w-sm">{config.AboutMePage.yourLand}</span>.</p>
+                        <p className="text-black dark:text-white text-2xl padding-2 font-bold max-w-sm text-padding">Im a <span className="text-black dark:text-white text-underline-2px font-semibold mt-4 text-2xl max-w-sm">{config.AboutMePage.developerGrade}</span>,</p>
+                        <p className="text-black dark:text-white text-2xl padding-2 font-bold max-w-sm">from <span className="text-black dark:text-white text-underline-2px font-semibold mt-4 text-2xl max-w-sm">{config.AboutMePage.yourLand}</span>.</p>
                         </div>
                         <br />
                         <div className="pb-4 py-4">
