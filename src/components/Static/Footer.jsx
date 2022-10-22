@@ -8,16 +8,7 @@ import config from "../../../site.config.js";
 
 export default function Footer() {
     const router = useRouter();
-    let [heartColor, setHeartColor] = useState('#4F3DFE');
-
-    function randomColor() {
-        let color = '#';
-        let letters = '0123456789ABCDEF';
-        for (let i = 0; i < 6; i++) {
-            color += letters[Math.floor(Math.random() * 16)];
-        }
-        return color;
-    }
+    let [heartColor, setHeartColor] = useState('#FF0000');
 
     const socials = [
         {
@@ -54,9 +45,9 @@ export default function Footer() {
                     ))}
                 </div>
                  <div className="flex flex-col lg:flex-row items-center justify-between gap-4">
-                  <p className="text-lg text-zinc-400">© 2019 - {new Date().getFullYear()} {config.siteMetadata.author}. All rights reserved.</p>
+                  <p className="text-lg text-zinc-400">© 2020 - {new Date().getFullYear()} {config.siteMetadata.author}. All rights reserved.</p>
                    <div className="text-right">
-                    <p className="text-lg text-zinc-400 select-none">Made with <i onClick={() => { setHeartColor(randomColor()) }} className="fas fa-heart" style={{ color: heartColor, cursor: 'pointer' }} /> by <a onClick={() => router.push('https://janjytapyt.me')} className="text-zinc-400 hover:text-primary hover:dark:text-white">JanjyTapYT</a></p>
+                    <p className="text-lg text-zinc-400 select-none">Made with <i className="fas fa-heart" style={{ color: heartColor, cursor: 'pointer' }} /> by <a onClick={() => router.push('https://janjytapyt.me')} className="text-zinc-400 hover:text-primary hover:dark:text-white">JanjyTapYT</a></p>
                 </div>
             </div>
         </div>

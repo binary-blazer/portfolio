@@ -16,7 +16,7 @@ body {
 
 * {
     font-family: 'Lexend Deca', sans-serif;
-    cursor: none !important;
+    cursor: auto !important;
 }
 
 .weight-900 {
