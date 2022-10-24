@@ -19,7 +19,7 @@ module.exports = {
     },
 
     contact: {	
-        webhook: 'https://discord.com/api/webhooks/996454141197025391/gtwGkipX_Ce6x16PVvPjqzDTE6y9FpRmCJrcRVijtITF7gz4rivb7j6INBjy3brkp0yu'
+        webhook: process.env.webhook
     },
 
     social: {
