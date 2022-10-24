@@ -18,10 +18,6 @@ module.exports = {
         developerGrade2: 'Full Stack',
     },
 
-    contact: {	
-        webhook: process.env.webhook
-    },
-
     social: {
         twitter: 'https://twitter.com/JanjyTapYT',
         github: 'https://github.com/JanjyTapYT',
