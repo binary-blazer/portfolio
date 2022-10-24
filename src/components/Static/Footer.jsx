@@ -46,9 +46,19 @@ export default function Footer() {
                 </div>
                  <div className="flex flex-col lg:flex-row items-center justify-between gap-4">
                   <p className="text-lg text-zinc-400">© 2020 - {new Date().getFullYear()} {config.siteMetadata.author}. All rights reserved.</p>
+                   {/*
+                   
+                   Dont touch this!
+                   
+                   */}
                    <div className="text-right">
                     <p className="text-lg text-zinc-400 select-none">Made with <i className="fas fa-heart" style={{ color: heartColor, cursor: 'pointer' }} /> by <a onClick={() => router.push('https://janjytapyt.me')} className="text-zinc-400 hover:text-primary hover:dark:text-white">JanjyTapYT</a></p>
                 </div>
+                  {/*
+                  
+                   Dont touch this!
+                   
+                   */}
             </div>
         </div>
             </div>
