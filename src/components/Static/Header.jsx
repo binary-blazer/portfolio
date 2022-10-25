@@ -110,7 +110,7 @@ export default function Header() {
             <div style={{ zIndex: 9999 }} className="p-6 bg-white dark:bg-[#0B0A1F] h-full fixed w-full top-0 left-0">
                 <div className="flex justify-between w-full items-center">
                 <div className="flex items-center gap-4">
-                     <Link href="/">
+                     <Link href="/" onClick={() => setIsOpen(!isOpen)}>
                          <a className="text-2xl font-bold transition-all duration-200 text-white">{config.siteMetadata.author}</a>
                      </Link>
                  </div>
