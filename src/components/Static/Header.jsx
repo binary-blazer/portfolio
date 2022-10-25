@@ -75,6 +75,13 @@ export default function Header() {
                          </a>
                          </div>
                          </div>
+                         <div className="ml-4 relative flex-shrink-0">
+                         <div className="flex items-center gap-4">
+                         <div onClick={() => toggleTheme()} className="bg-primary shadow-2xl shadow-primary text-2xl text-white hover:text-white hover:dark:text-white cursor-pointer w-12 h-12 flex items-center justify-center rounded-lg transition-all duration-200">
+                         {isTheme === 'dark' ? <i className="fas fa-moon" /> : <i className="fas fa-sun" />}
+                     </div>
+                 </div>
+                 </div>
                          <div className="-mr-2 -my-2 md:hidden">
                          <button
                              onClick={() => setIsOpen(!isOpen)}
@@ -85,14 +92,6 @@ export default function Header() {
                              <i className="fa-solid fa-bars" />
                          </button>
                          </div>
- 
-                         <div className="ml-4 relative flex-shrink-0">
-                         <div className="flex items-center gap-4">
-                         <div onClick={() => toggleTheme()} className="bg-primary shadow-2xl shadow-primary text-2xl text-white hover:text-white hover:dark:text-white cursor-pointer w-12 h-12 flex items-center justify-center rounded-lg transition-all duration-200">
-                         {isTheme === 'dark' ? <i className="fas fa-moon" /> : <i className="fas fa-sun" />}
-                     </div>
-                 </div>
-                 </div>
              </div>
              </div>
              </div>
@@ -110,14 +109,17 @@ export default function Header() {
             <div style={{ zIndex: 9999 }} className="p-6 bg-white dark:bg-[#0B0A1F] h-full fixed w-full top-0 left-0">
                 <div className="flex justify-between w-full items-center">
                 <div className="flex items-center gap-4">
-                     <Link href="/" onClick={() => setIsOpen(!isOpen)}>
+                     <Link href="/" onClick={() => {
+                        setIsOpen(!isOpen)
+                        document.documentElement.classList.remove('overflow-hidden');
+                    }}>
                          <a className="text-2xl font-bold transition-all duration-200 text-white">{config.siteMetadata.author}</a>
                      </Link>
                  </div>
                     <p onClick={() => {
                         setIsOpen(!isOpen)
                         document.documentElement.classList.remove('overflow-hidden');
-                    }} className="cursor-pointer hover:bg-[#0B0A1F]-700 transition-all duration-200 w-12 h-12 flex justify-center items-center bg-primary rounded-xl">
+                    }} className="cursor-pointer text-white hover:bg-[#0B0A1F]-700 transition-all duration-200 w-12 h-12 flex justify-center items-center bg-primary rounded-xl">
                         <i className="fal fa-times text-xl" />
                     </p>
                 </div>
