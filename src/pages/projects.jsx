@@ -31,10 +31,10 @@ export default function Projects() {
         
         <div className="mb-10 flex flex-col py-20 mx-auto">
         <div className="flex flex-col items-center justify-center w-full flex-10 px-10 text-center">
-            <h1 className="text-5xl font-semibold text-underline-2px">
+            <h1 className="text-5xl font-semibold text-underline-2px button-text">
                 Projects
             </h1>
-            <p className="text-xl text-gray-600/90 dark:text-white/50 font-bold text-center mb-5 mt-3">
+            <p className="text-xl text-gray-600/90 dark:text-white/50 font-bold text-center mb-5 mt-3 button-text">
                 Here are some of my projects
                 </p>
             <br />
@@ -43,7 +43,7 @@ export default function Projects() {
                 projects ? (
                     projects?.map((p, i) => (
                         <motion.div
-                        whileHover={{ scale: 1.03 }}
+                        whileHover={{ scale: 1.05 }}
                         >
                             <div className="cursor-pointer w-full flex flex-col bg-gray-300/50 dark:bg-zinc-900/50 p-4 rounded-lg justify-center items-center">
                         <div className="w-full relative md:mt-2">
@@ -56,19 +56,19 @@ export default function Projects() {
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                         >
-                        {p.github === true ? <button onClick={() => router.push(p.githubLink)} target="_blank" className="bg-primary shadow-2xl shadow-primary text-white font-display font-semibold text-lg px-5 py-2 rounded-md mr-5 button" href={p.githubLink}><i className="fa-brands fa-github" /> Github</button> : null}
+                        {p.github === true ? <button onClick={() => router.push(p.githubLink)} target="_blank" className="bg-primary shadow-2xl shadow-primary text-white font-display font-semibold text-lg px-5 py-2 rounded-md mr-5 button button-text" href={p.githubLink}><i className="fa-brands fa-github" /> Github</button> : null}
                          </motion.div>
                         <motion.div
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                         >
-                        {p.website === true ? <button onClick={() => router.push(p.websiteLink)} target="_blank" className="bg-primary shadow-2xl shadow-primary text-white font-display font-semibold text-lg px-5 py-2 rounded-md button" href={p.websiteLink}><i className="fa-solid fa-globe" /> Website</button> : null}
+                        {p.website === true ? <button onClick={() => router.push(p.websiteLink)} target="_blank" className="bg-primary shadow-2xl shadow-primary text-white font-display font-semibold text-lg px-5 py-2 rounded-md button button-text" href={p.websiteLink}><i className="fa-solid fa-globe" /> Website</button> : null}
                         </motion.div>
                         <motion.div
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                         >
-                        {p.invite === true ? <button onClick={() => router.push(p.inviteLink)} target="_blank" className="bg-primary shadow-2xl shadow-primary text-white font-display font-semibold text-lg px-5 py-2 rounded-md button" href={p.inviteLink}><i className="fa-brands fa-discord" /> Invite</button> : null}
+                        {p.invite === true ? <button onClick={() => router.push(p.inviteLink)} target="_blank" className="bg-primary shadow-2xl shadow-primary text-white font-display font-semibold text-lg px-5 py-2 rounded-md button button-text" href={p.inviteLink}><i className="fa-brands fa-discord" /> Invite</button> : null}
                         </motion.div>
                         </div>
                         </div>
@@ -77,7 +77,7 @@ export default function Projects() {
                 ) : <></>
             ) : (
                 <div className="flex flex-col justify-center items-center">
-                <i className="fal fa-spinner-third fa-spin" /> <span className="text-xl font-semibold">Loading Projects...</span>
+                <i className="fal fa-spinner-third fa-spin" /> <span className="text-xl font-semibold button-text">Loading Projects...</span>
                 </div>
                 )}
             </div>

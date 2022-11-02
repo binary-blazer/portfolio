@@ -1,5 +1,4 @@
 import { Transition } from "@headlessui/react";
-import Button from "components/Global/Button";
 import { useTheme } from "../../context/theme.js";
 import useSWR from "hooks/swr";
 import Link from "next/link";
@@ -98,7 +97,7 @@ export default function Header() {
                              onClick={() => router.push(config.social.github)}
                              target="_blank"
                              rel="noopener noreferrer"
-                             className="whitespace-nowrap text-base font-semibold text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100"
+                             className="whitespace-nowrap text-base font-semibold text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100 button-text"
                          >
                              <i className="fa-brands fa-github" /> GitHub
                          </a>
@@ -162,7 +161,7 @@ export default function Header() {
             <div className="pt-5 pb-6 px-5">
             <div className="flex items-center justify-between">
             <div>
-            <h1 className="text-2xl font-bold text-gray-900 dark:text-gray-100">{config.siteMetadata.author}</h1>
+            <h1 className="text-2xl font-bold text-gray-900 dark:text-gray-100 button-text">{config.siteMetadata.author}</h1>
             </div>
             <motion.div
             whileHover={{ scale: 1.05 }}
@@ -193,7 +192,7 @@ export default function Header() {
             : "text-gray-900 dark:text-gray-100"
             }`}
             >
-            <i className={`${router.pathname === page.href ? page.icon.active : page.icon.default} text-black dark:text-white`} />
+            <i className={`${router.pathname === page.href ? page.icon.active : page.icon.default} text-black dark:text-white button-text`} />
             <span className="ml-3 text-base font-bold">
             {page.name}
             </span>
@@ -212,7 +211,7 @@ export default function Header() {
             onClick={() => router.push(config.social.discord)}
             className="bg-primary shadow-2xl shadow-primary text-2xl w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white hover:bg-primary dark:bg-primary dark:hover:bg-primary"
             >
-            <h1 className="text-white dark:text-white">
+            <h1 className="text-white dark:text-white button-text">
             <i className="fab fa-discord" /> Discord Server
             </h1>
             </a>

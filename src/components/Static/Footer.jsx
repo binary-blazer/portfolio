@@ -1,5 +1,4 @@
-import { Transition } from "@headlessui/react";
-import Button from "components/Global/Button";
+import { Transition } from "@headlessui/react"
 import useSWR from "hooks/swr";
 import Link from "next/link";
 import { useRouter } from "next/router"
@@ -42,7 +41,7 @@ export default function Footer() {
                         <a
                             key={social.name}
                             onClick={() => router.push(social.href)}
-                            className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors duration-200"
+                            className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors duration-200 button-text"
                             href={social.href}
                         >
                             <span className="sr-only">{social.name}</span>
@@ -52,14 +51,14 @@ export default function Footer() {
                     ))}
                 </div>
                  <div className="flex flex-col lg:flex-row items-center justify-between gap-4">
-                  <p className="text-lg text-zinc-400">© 2020 - {new Date().getFullYear()} {config.siteMetadata.author}. All rights reserved.</p>
+                  <p className="text-lg text-zinc-400 button-text">© 2020 - {new Date().getFullYear()} {config.siteMetadata.author}. All rights reserved.</p>
                    {/*
                    
                    Dont touch this!
                    
                    */}
                    <div className="text-right">
-                   <motion.div whileHover={{ scale: 1.05 }}> <p className="text-lg text-zinc-400 select-none">Made with <i className="fas fa-heart" style={{ color: heartColor, cursor: 'pointer' }} /> by <button onClick={() => router.push('https://janjytapyt.me')} className="text-zinc-400 hover:text-primary hover:dark:text-white button" href="https://janjytapyt.me"><motion.div whileTap={{ scale: 0.95 }}>JanjyTapYT</motion.div></button></p></motion.div>
+                   <motion.div whileHover={{ scale: 1.05 }}> <p className="text-lg text-zinc-400 select-none button-text">Made with <i className="fas fa-heart" style={{ color: heartColor, cursor: 'pointer' }} /> by <button onClick={() => router.push('https://janjytapyt.me')} className="text-zinc-400 hover:text-primary hover:dark:text-white button" href="https://janjytapyt.me"><motion.div whileTap={{ scale: 0.95 }}>JanjyTapYT</motion.div></button></p></motion.div>
                 </div>
                   {/*
                   

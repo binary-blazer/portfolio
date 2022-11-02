@@ -37,30 +37,30 @@ export default function Home() {
       
       <main className="flex flex-col items-center justify-center text-center">
       <div className="h-[33rem] flex flex-col justify-center items-center mb-72">
-      <h1 className="mx-auto max-w-4xl font-semibold text-5xl font-semibold sm:text-7xl text-black dark:text-white text-center">Hi there, Im <span className="text-primary">JanjyTapYT</span> <div className="mt-3"> I'm a <span className="text-underline-2px">Full Stack Developer</span></div></h1>
-      <h1 className="mx-auto max-w-4xl font-semibold text-5xl font-semibold sm:text-7xl text-black dark:text-white text-center"><div className="mt-3"> and <span className="text-underline-2px mt-2">Designer</span></div></h1>
+      <h1 className="mx-auto max-w-4xl font-semibold text-5xl font-semibold sm:text-7xl text-black dark:text-white text-center button-text">Hi there, Im <span className="text-primary">JanjyTapYT</span> <div className="mt-3"> I'm a <span className="text-underline-2px">Full Stack Developer</span></div></h1>
+      <h1 className="mx-auto max-w-4xl font-semibold text-5xl font-semibold sm:text-7xl text-black dark:text-white text-center button-text"><div className="mt-3"> and <span className="text-underline-2px mt-2">Designer</span></div></h1>
       <div className="flex flex-row justify-center items-center mt-10">
       <motion.div
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
       >
-      <button onClick={() => router.push('/contact')} className="bg-primary shadow-2xl shadow-primary text-white font-display font-semibold text-lg px-10 py-3 rounded-md mr-5 button" href="/contact"><i className="fas fa-envelope mr-2"></i> Contact Me</button>
+      <button onClick={() => router.push('/contact')} className="bg-primary shadow-2xl shadow-primary text-white font-display font-semibold text-lg px-10 py-3 rounded-md mr-5 button buttn-text" href="/contact"><i className="fas fa-envelope mr-2"></i> Contact Me</button>
       </motion.div>
       <motion.div
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
       >
-      <button onClick={() => router.push('/about')} className="bg-primary shadow-2xl shadow-primary text-white font-display font-semibold text-lg px-10 py-3 rounded-md button" href="/about"><i className="fas fa-user mr-2"></i> About Me</button>
+      <button onClick={() => router.push('/about')} className="bg-primary shadow-2xl shadow-primary text-white font-display font-semibold text-lg px-10 py-3 rounded-md button button-text" href="/about"><i className="fas fa-user mr-2"></i> About Me</button>
       </motion.div>
       </div>
       </div>
       </main>
 
       <div className="flex flex-col items-center justify-center w-full px-10 text-center">
-            <h1 className="text-5xl font-bold text-underline-2px">
+            <h1 className="text-5xl font-bold text-underline-2px button-text">
                 Projects
             </h1>
-            <p className="text-xl text-gray-600/90 dark:text-white/50 font-bold text-center mb-5 mt-3">
+            <p className="text-xl text-gray-600/90 dark:text-white/50 font-bold text-center mb-5 mt-3 button-text">
                 Here are some of my projects
                 </p>
             <br />
@@ -69,7 +69,7 @@ export default function Home() {
                 projects ? (
                     projects?.map((p, i) => (
                       <motion.div
-                      whileHover={{ scale: 1.03 }}
+                      whileHover={{ scale: 1.05 }}
                       >
                           <div className="cursor-pointer w-full flex flex-col bg-gray-300/50 dark:bg-zinc-900/50 p-4 rounded-lg justify-center items-center">
                       <div className="w-full relative md:mt-2">
@@ -82,19 +82,19 @@ export default function Home() {
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                       >
-                      {p.github === true ? <button onClick={() => router.push(p.githubLink)} target="_blank" className="bg-primary shadow-2xl shadow-primary text-white font-display font-semibold text-lg px-5 py-2 rounded-md mr-5 button" href={p.githubLink}><i className="fa-brands fa-github" /> Github</button> : null}
+                      {p.github === true ? <button onClick={() => router.push(p.githubLink)} target="_blank" className="bg-primary shadow-2xl shadow-primary text-white font-display font-semibold text-lg px-5 py-2 rounded-md mr-5 button button-text" href={p.githubLink}><i className="fa-brands fa-github" /> Github</button> : null}
                        </motion.div>
                       <motion.div
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                       >
-                      {p.website === true ? <button onClick={() => router.push(p.websiteLink)} target="_blank" className="bg-primary shadow-2xl shadow-primary text-white font-display font-semibold text-lg px-5 py-2 rounded-md button" href={p.websiteLink}><i className="fa-solid fa-globe" /> Website</button> : null}
+                      {p.website === true ? <button onClick={() => router.push(p.websiteLink)} target="_blank" className="bg-primary shadow-2xl shadow-primary text-white font-display font-semibold text-lg px-5 py-2 rounded-md button button-text" href={p.websiteLink}><i className="fa-solid fa-globe" /> Website</button> : null}
                       </motion.div>
                       <motion.div
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                       >
-                      {p.invite === true ? <button onClick={() => router.push(p.inviteLink)} target="_blank" className="bg-primary shadow-2xl shadow-primary text-white font-display font-semibold text-lg px-5 py-2 rounded-md button" href={p.inviteLink}><i className="fa-brands fa-discord" /> Invite</button> : null}
+                      {p.invite === true ? <button onClick={() => router.push(p.inviteLink)} target="_blank" className="bg-primary shadow-2xl shadow-primary text-white font-display font-semibold text-lg px-5 py-2 rounded-md button button-text" href={p.inviteLink}><i className="fa-brands fa-discord" /> Invite</button> : null}
                       </motion.div>
                       </div>
                       </div>
@@ -103,7 +103,7 @@ export default function Home() {
                 ) : <></>
             ) : (
               <div className="flex flex-col justify-center items-center">
-              <i className="fal fa-spinner-third fa-spin" /> <span className="text-xl font-semibold">Loading Projects...</span>
+              <i className="fal fa-spinner-third fa-spin" /> <span className="text-xl font-semibold button-text">Loading Projects...</span>
               </div>
               )}
             </div>
@@ -114,16 +114,16 @@ export default function Home() {
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
       >
-      <button onClick={() => router.push('/projects')} className="bg-primary shadow-2xl shadow-primary text-white font-display font-semibold text-lg px-10 py-3 rounded-md button" href="/projects"><i className="fas fa-project-diagram mr-2"></i> View All Projects</button>
+      <button onClick={() => router.push('/projects')} className="bg-primary shadow-2xl shadow-primary text-white font-display font-semibold text-lg px-10 py-3 rounded-md button button-text" href="/projects"><i className="fas fa-project-diagram mr-2"></i> View All Projects</button>
       </motion.div>
       </div>
 
 
       <div className="flex flex-col items-center justify-center w-full flex-2 px-20 text-center mt-20">
-            <h1 className="text-5xl font-bold text-underline-2px">
+            <h1 className="text-5xl font-bold text-underline-2px button-text">
                 Skills
             </h1>
-            <p className="text-xl text-gray-600/90 dark:text-white/50 font-bold text-center mb-5 mt-3">
+            <p className="text-xl text-gray-600/90 dark:text-white/50 font-bold text-center mb-5 mt-3 button-text">
                Here are all technologies and languages i use.
                 </p>
             <br />
@@ -150,7 +150,7 @@ export default function Home() {
                           style={{ fill: "#fff!important;" }}
                         />
                       </div>
-                      <p className="text-md text-black dark:text-white font-semibold">{_.name}</p>
+                      <p className="text-md text-black dark:text-white font-semibold button-text">{_.name}</p>
                     </div>
                   </div>
                   </motion.div>

@@ -1,8 +1,6 @@
 import Head from 'next/head'
 import { useState } from 'react'
 import config from '../../site.config'
-import Button from 'components/Global/Button'
-import Input from 'components/Global/Input'
 import axios from 'axios'
 import { motion } from 'framer-motion'
 import { useRouter } from 'next/router'
@@ -57,10 +55,10 @@ export default function Contact() {
 
         <div className="mb-10 flex flex-col py-20 mx-auto">
         <div className="flex flex-col items-center justify-center w-full flex-10 px-10 text-center">
-            <h1 className="text-5xl font-semibold text-underline-2px">
+            <h1 className="text-5xl font-semibold text-underline-2px button-text">
                 Contact
             </h1>
-            <p className="text-xl text-gray-600/90 dark:text-white/50 font-bold text-center mb-5 mt-3">
+            <p className="text-xl text-gray-600/90 dark:text-white/50 font-bold text-center mb-5 mt-3 button-text">
                 If you have any questions, please feel free to contact me.
                 </p>
             <br />
@@ -145,23 +143,23 @@ export default function Contact() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 1.3 }}
                 >
-                {success && (
-                    <div className="flex flex-col items-center justify-center w-full max-w-md px-4 py-8 space-y-4 bg-green-500/10 rounded-lg shadow-lg">
-                    <p className="text-lg text-green-500 font-bold text-center">
-                    <i className="fas fa-check-circle text-green-500" /> Thank you for your message!
-                    </p>
-                    </div>
-                )}
-                {error && (
-                    <div className="flex flex-col items-center justify-center w-full max-w-md px-4 py-8 space-y-4 bg-red-500/10 rounded-lg shadow-lg">
-                    <p className="text-lg text-red-500 font-bold text-center">
-                        <i className="fas fa-times-circle text-red-500" /> {errorMessage}
-                    </p>
-                    </div>
-                )}
                 {!success && !error && (
                     <div />
-                            )}
+                )}
+                {!error && success && (
+                    <div className="flex flex-col items-center justify-center w-full max-w-md px-4 py-8 space-y-4 bg-green-500/10 rounded-lg shadow-lg">
+                    <p className="text-lg text-green-500 font-bold text-center button-text">
+                    <i className="fas fa-check-circle text-green-500 button-text" /> Thank you for your message!
+                    </p>
+                    </div>
+                )}
+                {!success && error && (
+                    <div className="flex flex-col items-center justify-center w-full max-w-md px-4 py-8 space-y-4 bg-red-500/10 rounded-lg shadow-lg">
+                    <p className="text-lg text-red-500 font-bold text-center button-text">
+                        <i className="fas fa-times-circle text-red-500 button-text" /> {errorMessage}
+                    </p>
+                    </div>
+                )}
                 </motion.div>
             </div>
             </div>
