@@ -57,59 +57,109 @@ export default function Contact() {
 
         <div className="mb-10 flex flex-col py-20 mx-auto">
         <div className="flex flex-col items-center justify-center w-full flex-10 px-10 text-center">
-            <h1 className="text-5xl font-semibold">
-                Contect
+            <h1 className="text-5xl font-semibold text-underline-2px">
+                Contact
             </h1>
-            <p className="text-xl text-white/50 font-normal text-center mb-5">
+            <p className="text-xl text-gray-600/90 dark:text-white/50 font-bold text-center mb-5 mt-3">
                 If you have any questions, please feel free to contact me.
                 </p>
             <br />
 
             <div className="flex flex-col mt-16 position-center items-center justify-center w-full max-w-2xl px-4 py-8 space-y-4 bg-gray-300/50 dark:bg-zinc-900/50 rounded-lg shadow-lg">
             <form className="flex flex-col w-full space-y-4" onSubmit={handleSubmit}>
-                <Input
+                <div className="flex flex-col w-full space-y-4">
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 0.5 }}
+                >
+                <motion.div
+                    whileHover={{ scale: 1.02 }}
+                    >
+                <input
                     type="text"
                     name="name"
+                    id="name"
                     placeholder="Name"
-                    startsWith={<i className="fa fa-user" />}
+                    className="w-full px-4 py-2 rounded-lg transition-all duration-200 group text-white bg-gray-400/10 dark:bg-gray-500/5 dark:hover:bg-gray-500/10 hover:bg-gray-400/20 active:bg-gray-400/30 active:outline-none focus:outline-none active:ring-2 active:ring-primary active:ring-opacity-50 focus:ring-2 focus:ring-primary focus:ring-opacity-50 text-gray-900/50 dark:text-white"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                 />
-                <Input
+                </motion.div>
+                </motion.div>
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 0.7 }}
+                >
+                    <motion.div
+                    whileHover={{ scale: 1.02 }}
+                    >
+                <input
                     type="email"
                     name="email"
+                    id="email"
                     placeholder="Email"
-                    startsWith={<i className="fa fa-envelope" />}
+                    className="w-full px-4 py-2 rounded-lg transition-all duration-200 group text-white bg-gray-400/10 dark:bg-gray-500/5 dark:hover:bg-gray-500/10 hover:bg-gray-400/20 active:bg-gray-400/30 active:outline-none focus:outline-none active:ring-2 active:ring-primary active:ring-opacity-50 focus:ring-2 focus:ring-primary focus:ring-opacity-50 text-gray-900/50 dark:text-white"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                 />
-                <Input 
-                    name="message" 
-                    wrapper="textarea" 
+                </motion.div>
+                </motion.div>
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 0.9 }}
+                >
+                    <motion.div
+                    whileHover={{ scale: 1.02 }}
+                    >
+                <textarea
+                    name="message"
+                    id="message"
                     placeholder="Message"
-                    startsWith={<i className="fa fa-comment" />} 
+                    className="w-full px-4 py-2 rounded-lg transition-all duration-200 group text-white bg-gray-400/10 dark:bg-gray-500/5 dark:hover:bg-gray-500/10 hover:bg-gray-400/20 active:bg-gray-400/30 active:outline-none focus:outline-none active:ring-2 active:ring-primary active:ring-opacity-50 focus:ring-2 focus:ring-primary focus:ring-opacity-50 text-gray-900/50 dark:text-white"
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
-                    />
-                <Button type="submit" disabled={loading}>
-                {loading && <i className="fal fa-spinner-third fa-spin" />}
-                                {!loading && (
-                                    <>
-                                        <i className="fa fa-paper-plane" />
-                                        <span> Send</span>
-                                    </>
-                                )}
-                </Button>
+                />
+                </motion.div>
+                </motion.div>
+                </div>
+                <motion.button
+                    type="submit"
+                    disabled={loading}
+                    className="min-h-[44px] relative overflow-hidden px-4 py-2 rounded-lg shadow-2xl shadow-primary transition-all duration-200 bg-primary group text-white button"
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.95 }}
+                >
+                {loading ? (
+                    <i className="fas fa-spinner fa-spin" />
+                ) : (
+                    'Submit'
+                )}
+                    <motion.div
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.5, delay: 1.1 }}
+                    >
+                        {success && <i className="fa fa-check" /> && <span className="ml-2">Successfuly send!</span>}
+                    </motion.div>
+                </motion.button>
                 </form>
-                {!success && !error && <div />}
-                            {!success && error && <p className="bg-red-500/5 px-4 py-2 rounded-lg shadow-xl text-red-500 italic flex items-center gap-2">
-                                <i className="fa fa-exclamation-circle" />
-                                {errorMessage}
-                            </p>}
-                            {success && <p className="bg-green-500/5 px-4 py-2 rounded-lg shadow-xl text-green-500 italic flex items-center gap-2">
-                                <i className="fa fa-check-circle" />
-                                Message sent successfully
-                                </p>}
+                <div className="mt-20">
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 1.3 }}
+                >
+                {error && (
+                <div className="flex flex-col items-center justify-center w-full space-y-2">
+                    <i className="fa fa-exclamation-triangle text-red-500" />
+                    <p className="text-red-500">{errorMessage || "Something went wrong"}</p>
+                    </div>
+                )}
+                </motion.div>
+            </div>
             </div>
         </div>
         </div>

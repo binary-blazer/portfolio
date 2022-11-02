@@ -24,6 +24,7 @@ module.exports = {
         linkedin: 'https://www.linkedin.com/in/janjytapyt/',
         instagram: 'https://www.instagram.com/janjytap.yt/',
         facebook: 'https://www.facebook.com/janjytapyt',
+        discord: 'https://discord.gg/4Z7Y4Z7',
     },
 
     pages: [

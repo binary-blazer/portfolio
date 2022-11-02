@@ -19,6 +19,14 @@ body {
     cursor: auto !important;
 }
 
+.button {
+    cursor: pointer !important;
+}
+
+.button-text {
+    user-select: none
+}
+
 .weight-900 {
     font-weight: 900;
 }
