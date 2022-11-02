@@ -137,13 +137,6 @@ export default function Contact() {
                 ) : (
                     'Submit'
                 )}
-                    <motion.div
-                    initial={{ opacity: 0, x: 20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.5, delay: 1.1 }}
-                    >
-                        {success && <i className="fa fa-check" /> && <span className="ml-2">Successfuly send!</span>}
-                    </motion.div>
                 </motion.button>
                 </form>
                 <div className="mt-20">
@@ -152,6 +145,16 @@ export default function Contact() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 1.3 }}
                 >
+                {success && (
+                    <div className="flex flex-col items-center justify-center w-full max-w-md px-4 py-8 space-y-4 bg-green-500/10 rounded-lg shadow-lg">
+                    <i className="fas fa-check-circle text-4xl text-green-500" />
+                    <p className="text-lg text-green-500 font-bold text-center">
+                        <i className="fas fa-check-circle text-4xl text-green-500" />
+                        <br />
+                        Thank you for your message!
+                    </p>
+                    </div>
+                )}
                 {error && (
                 <div className="flex flex-col items-center justify-center w-full space-y-2">
                     <i className="fa fa-exclamation-triangle text-red-500" />
