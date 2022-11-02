@@ -43,7 +43,7 @@ export default function Projects() {
                 projects ? (
                     projects?.map((p, i) => (
                         <motion.div
-                        whileHover={{ scale: 1.02 }}
+                        whileHover={{ scale: 1.05 }}
                         >
                             <div className="cursor-pointer w-full flex flex-col bg-gray-300/50 dark:bg-zinc-900/50 p-4 rounded-lg justify-center items-center">
                         <div className="w-full relative md:mt-2">
