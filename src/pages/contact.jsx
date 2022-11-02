@@ -149,7 +149,6 @@ export default function Contact() {
                     <div className="flex flex-col items-center justify-center w-full max-w-md px-4 py-8 space-y-4 bg-green-500/10 rounded-lg shadow-lg">
                     <i className="fas fa-check-circle text-4xl text-green-500" />
                     <p className="text-lg text-green-500 font-bold text-center">
-                        <i className="fas fa-check-circle text-4xl text-green-500" />
                         <br />
                         Thank you for your message!
                     </p>
