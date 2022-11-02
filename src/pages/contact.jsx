@@ -147,17 +147,15 @@ export default function Contact() {
                 >
                 {success && (
                     <div className="flex flex-col items-center justify-center w-full max-w-md px-4 py-8 space-y-4 bg-green-500/10 rounded-lg shadow-lg">
-                    <i className="fas fa-check-circle text-4xl text-green-500" />
                     <p className="text-lg text-green-500 font-bold text-center">
-                        Thank you for your message!
+                    <i className="fas fa-check-circle text-green-500" /> Thank you for your message!
                     </p>
                     </div>
                 )}
                 {error && (
                     <div className="flex flex-col items-center justify-center w-full max-w-md px-4 py-8 space-y-4 bg-red-500/10 rounded-lg shadow-lg">
-                    <i className="fas fa-times-circle text-4xl text-red-500" />
                     <p className="text-lg text-red-500 font-bold text-center">
-                        {errorMessage}
+                        <i className="fas fa-times-circle text-red-500" /> {errorMessage}
                     </p>
                     </div>
                 )}
