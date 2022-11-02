@@ -49,8 +49,8 @@ export default function Projects() {
                         <div className="w-full relative md:mt-2">
                         <Image src={p.image} width="1024" className="rounded-lg" height="512" />
                         </div>
-                        <h1 className="text-2xl font-semibold md:mt-2">{p.name}</h1>
-                        <p className="text-black dark:text-white text-sm">{p.description}</p>
+                        <h1 className="text-2xl font-semibold md:mt-2 button-text">{p.name}</h1>
+                        <p className="text-black dark:text-white text-sm button-text">{p.description}</p>
                         <div className="flex flex-row justify-center items-center mt-3">
                         <motion.div
                         whileHover={{ scale: 1.05 }}
