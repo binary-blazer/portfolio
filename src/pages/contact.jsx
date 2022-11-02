@@ -159,6 +159,9 @@ export default function Contact() {
                     </p>
                     </div>
                 )}
+                {!success && !error && (
+                    <div />
+                            )}
                 </motion.div>
             </div>
             </div>
