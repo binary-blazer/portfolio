@@ -154,9 +154,11 @@ export default function Contact() {
                     </div>
                 )}
                 {error && (
-                <div className="flex flex-col items-center justify-center w-full space-y-2">
-                    <i className="fa fa-exclamation-triangle text-red-500" />
-                    <p className="text-red-500">{errorMessage || "Something went wrong"}</p>
+                    <div className="flex flex-col items-center justify-center w-full max-w-md px-4 py-8 space-y-4 bg-red-500/10 rounded-lg shadow-lg">
+                    <i className="fas fa-times-circle text-4xl text-red-500" />
+                    <p className="text-lg text-red-500 font-bold text-center">
+                        {errorMessage}
+                    </p>
                     </div>
                 )}
                 </motion.div>
