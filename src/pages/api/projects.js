@@ -15,19 +15,6 @@ export default async (req, res) => {
         },
         { 
           id: 2,
-          image: "https://cdn.discordapp.com/attachments/960208290506215456/992524631636459560/T3.png", 
-          slug: "TrestHost",
-          name: "TrestHost", 
-          github: false,
-          githubLink: "",
-          website: true,
-          websiteLink: "https://tresthost.com",
-          invite: false,
-          inviteLink: "",
-          description: "The best hosting provider for Discord bots.", 
-        },
-        { 
-          id: 3,
           image: "https://cdn.discordapp.com/attachments/971049189377179718/1031863674903728128/Design_ohne_Titel2.png", 
           slug: "Janjyfy",
           name: "Janjyfy", 
@@ -42,7 +29,7 @@ export default async (req, res) => {
           description: "A Discord Moderation bot.", 
         },
         { 
-          id: 4,
+          id: 6,
           image: "https://cdn.discordapp.com/attachments/971049189377179718/1031863899244482692/unknown.png", 
           slug: "portfolio",
           name: "My Portfolio", 
@@ -68,7 +55,7 @@ export default async (req, res) => {
           description: "Do you want to sell your resources? Then you are right here. Bluefox Resources is a platform where you can sell your resources. You can also buy resources from other developers. We have a lot of categories, so you can find what you are looking for.",
         },
         { 
-          id: 6,
+          id: 3,
           image: "https://cdn.discordapp.com/attachments/952628698807414785/963460672811835442/Stoneclane_List_Banner.png", 
           slug: "Stoneclane-Botlist",
           name: "Stoneclane Botlist", 
