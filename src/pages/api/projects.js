@@ -26,7 +26,7 @@ export default async (req, res) => {
           inviteLink: "",
           invite: true,
           inviteLink: "https://discord.com/api/oauth2/authorize?client_id=995397263130112081&permissions=8&scope=bot%20applications.commands",
-          description: "A Discord Moderation bot.", 
+          description: "A Discord Moderation bot. This bot is easy to use and it is open source.", 
         },
         { 
           id: 3,
@@ -39,7 +39,7 @@ export default async (req, res) => {
           websiteLink: "https://stoneclane.xyz",
           invite: false,
           inviteLink: "",
-          description: "Do you want to grow your discord bot / server? Then you are right here. Stoneclane Botlist is a platform where you can promote your discord bot / server. You can also find new discord bots / servers. We have a lot of categories, so you can find what you are looking for.", 
+          description: "Do you want to grow your discord bot / server? Then you are right here.", 
         },
         { 
           id: 5,
@@ -52,7 +52,7 @@ export default async (req, res) => {
           websiteLink: "",
           invite: false,
           inviteLink: "",
-          description: "Do you want to sell your resources? Then you are right here. Bluefox Resources is a platform where you can sell your resources. You can also buy resources from other developers. We have a lot of categories, so you can find what you are looking for.",
+          description: "Do you want to sell your resources? Then you are right here.",
         },
         { 
           id: 6,
@@ -65,7 +65,7 @@ export default async (req, res) => {
           websiteLink: "https://janjytapyt.me",
           invite: false,
           inviteLink: "",
-          description: "My Portfolio Website.",
+          description: "My Portfolio Website. It Is insane cool and it is open source on GitHub.",
         }
     ]
 
