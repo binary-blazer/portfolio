@@ -37,8 +37,8 @@ export default function Home() {
       
       <main className="flex flex-col items-center justify-center text-center">
       <div className="h-[33rem] flex flex-col justify-center items-center mb-72">
-      <h1 className="mx-auto max-w-4xl font-semibold text-5xl font-semibold sm:text-7xl text-black dark:text-white text-center button-text">Hi there, Im <span className="text-primary">JanjyTapYT</span> <div className="mt-3"> I'm a <span className="text-underline-2px">Full Stack Developer</span></div></h1>
-      <h1 className="mx-auto max-w-4xl font-semibold text-5xl font-semibold sm:text-7xl text-black dark:text-white text-center button-text"><div className="mt-3"> and <span className="text-underline-2px mt-2">Designer</span></div></h1>
+      <h1 className="mx-auto max-w-4xl font-semibold text-5xl font-semibold sm:text-7xl text-black dark:text-white text-center button-text">Hi there, Im <span className="text-primary">{config.siteMetadata.author}</span> <div className="mt-3"> I'm a <span className="text-underline-2px">Full Stack Developer</span></div></h1>
+      <h1 className="mx-auto max-w-4xl font-semibold text-5xl font-semibold sm:text-7xl text-black dark:text-white text-center button-text"><div className="mt-3"> from <span className="text-underline-2px mt-2">Germany</span></div></h1>
       <div className="flex flex-row justify-center items-center mt-10">
       <motion.div
         whileHover={{ scale: 1.1 }}
