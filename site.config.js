@@ -14,7 +14,7 @@ module.exports = {
 
     AboutMePage: {
         yourLand: 'Germany',
-        developerGrade: 'Fullstack Developer',
+        developerGrade: 'Full Stack Developer',
         developerGrade2: 'Full Stack',
     },
 
@@ -65,8 +65,4 @@ module.exports = {
             current: false,
         }
     ],
-
-    skills: [
-        
-    ]
 }
