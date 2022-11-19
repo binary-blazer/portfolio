@@ -123,7 +123,7 @@ export default function Home() {
                 </p>
             <br />
 
-        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 w-full gap-2 items-center mt-2">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 w-full gap-2 items-center mt-2">
           {_skills
             ? skills
               ? skills.map((_, __) => (
