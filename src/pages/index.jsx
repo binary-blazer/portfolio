@@ -142,7 +142,8 @@ export default function Home() {
                           height="24"
                           style={{ fill: "#fff!important;" }}
                         />
-                      </div>
+                        </div>
+                       </div>
                       <p className="text-md text-black dark:text-white font-semibold button-text">{_.name}</p>
                     </div>
                   </div>
