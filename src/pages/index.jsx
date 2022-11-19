@@ -20,7 +20,13 @@ export default function Home() {
   const projects = projectsData ? projectsData.slice(0, 3) : null;
 
   return (
-    <>
+    <> 
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.5 }}
+        >
      <div className="flex flex-col items-center">
       <Head>
         <title>{config.siteMetadata.title}</title>
@@ -169,6 +175,7 @@ export default function Home() {
         </div>
       </div>
       </div>
+     </motion.div>
     </>
   )
 }
