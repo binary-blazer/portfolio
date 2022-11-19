@@ -88,7 +88,6 @@ export default function Home() {
                       </motion.div>
                       </div>
                       </div>
-                      </motion.div>
                     ))
                 ) : <></>
             ) : (
@@ -140,7 +139,6 @@ export default function Home() {
                       <p className="text-md text-black dark:text-white font-semibold button-text">{_.name}</p>
                     </div>
                   </div>
-                  </motion.div>
                 ))
               : Array.from({ length: 20 }).map((_, __) => (
                 <div
