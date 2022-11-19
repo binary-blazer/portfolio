@@ -57,7 +57,7 @@ export default function Footer() {
                    Dont touch this!
                    
                    */}
-                   <div className="text-center mt-2">
+                   <div className="text-center mt-1">
                    <p className="text-lg text-zinc-400 select-none button-text">Made with <i className="fas fa-heart" style={{ color: heartColor, cursor: 'pointer' }} /> by <button onClick={() => router.push('https://janjytapyt.me')} className="text-zinc-400 hover:text-primary hover:dark:text-white button" href="https://janjytapyt.me"><motion.div whileTap={{ scale: 0.95 }}>JanjyTapYT</motion.div></button></p>
                 </div>
                   {/*
