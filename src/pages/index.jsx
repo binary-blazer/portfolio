@@ -132,7 +132,7 @@ export default function Home() {
                     className="cursor-pointer bg-gray-300/50 dark:bg-zinc-900/50 p-2 px-4 outline outline-black/60 dark:outline-white/50 hover:bg-gray-400/50 dark:hover:bg-gray-700/50 hover:outline-primary/90 shadow-lg transition-all duration-200 rounded-lg w-full hover:scale-[1.03]"
                   >
                     <div className="flex justify-between items-center w-full">
-                     <div className="bg-black rounded-md hover:bg-primary h-[30px]">
+                     <div className="bg-black rounded-md hover:bg-primary h-[30px] w-[30px]">
                       <div className="flex justify-center items-center h-[26px]">
                         <img
                           alt="Loading..."
