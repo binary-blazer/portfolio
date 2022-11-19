@@ -22,15 +22,6 @@ export default function Home() {
   return (
     <>
      <div className="flex flex-col items-center">
-      
-       
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        transition={{ duration: 0.5 }}
-        >
-
       <Head>
         <title>{config.siteMetadata.title}</title>
         <link rel="icon" href={config.siteMetadata.favicon} type="image/x-icon" />
@@ -177,7 +168,6 @@ export default function Home() {
               ))}
         </div>
       </div>
-      </motion.div>
       </div>
     </>
   )
