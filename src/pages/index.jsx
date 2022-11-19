@@ -61,10 +61,7 @@ export default function Home() {
             {_projectsData ? (
                 projects ? (
                     projects?.map((p, i) => (
-                      <motion.div
-                      whileHover={{ scale: 1.05 }}
-                      >
-                          <div className="cursor-pointer w-full flex flex-col bg-gray-300/50 dark:bg-zinc-900/50 p-4 rounded-lg justify-center items-center">
+                          <div className="cursor-pointer w-full flex flex-col bg-gray-300/50 dark:bg-zinc-900/50 p-4 rounded-lg justify-center items-center hover:scale-[1.03]">
                       <div className="w-full relative md:mt-2">
                       <Image src={p.image} width="1024" className="rounded-lg" height="512" />
                       </div>
@@ -125,12 +122,9 @@ export default function Home() {
           {_skills
             ? skills
               ? skills.map((_, __) => (
-                 <motion.div
-                  whileHover={{ scale: 1.05 }}
-                  >
                   <div
                     key={__}
-                    className="cursor-pointer bg-gray-300/50 dark:bg-zinc-900/50 p-2 px-4 hover:bg-gray-400/50 dark:hover:bg-gray-700/50 shadow-lg transition-all duration-200 rounded-lg w-full"
+                    className="cursor-pointer bg-gray-300/50 dark:bg-zinc-900/50 p-2 px-4 hover:bg-gray-400/50 dark:hover:bg-gray-700/50 shadow-lg transition-all duration-200 rounded-lg w-full hover:scale-[1.03]"
                   >
                     <div className="flex justify-between items-center w-full">
                       <div className="flex justify-center items-center h-[26px]">
