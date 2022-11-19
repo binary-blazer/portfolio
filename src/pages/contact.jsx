@@ -81,7 +81,6 @@ export default function Contact() {
                     onChange={(e) => setName(e.target.value)}
                 />
                 </motion.div>
-                </motion.div>
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -97,7 +96,6 @@ export default function Contact() {
                     onChange={(e) => setEmail(e.target.value)}
                 />
                 </motion.div>
-                </motion.div>
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -111,7 +109,6 @@ export default function Contact() {
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
                 />
-                </motion.div>
                 </motion.div>
                 </div>
                 <motion.button
