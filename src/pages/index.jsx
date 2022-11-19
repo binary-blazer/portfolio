@@ -137,7 +137,7 @@ export default function Home() {
                         <img
                           alt="Loading..."
                           src={_.src}
-                          className="rounded-md mr-2"
+                          className="rounded-md mt-2"
                           width="24"
                           height="24"
                           style={{ fill: "#fff!important;" }}
