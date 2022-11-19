@@ -21,12 +21,6 @@ export default function Home() {
 
   return (
     <>
-    <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        >
-     {/* <div className="flex flex-col items-center justify-center min-h-screen py-2"> */}
      <div className="flex flex-col items-center">
       <Head>
         <title>{config.siteMetadata.title}</title>
@@ -183,7 +177,6 @@ export default function Home() {
         </div>
       </div>
       </div>
-    </motion.div>
     </>
   )
 }
