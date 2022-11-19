@@ -174,8 +174,8 @@ export default function Home() {
               ))}
         </div>
       </div>
-       </motion.div>
       </div>
+     </motion.div>
     </>
   )
 }
