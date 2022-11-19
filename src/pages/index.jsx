@@ -27,6 +27,7 @@ export default function Home() {
         exit={{ opacity: 0 }}
         transition={{ duration: 0.5 }}
         >
+      {/* <div className="flex flex-col items-center justify-center min-h-screen py-2"> */}
      <div className="flex flex-col items-center">
       <Head>
         <title>{config.siteMetadata.title}</title>
