@@ -50,7 +50,7 @@ export default function Footer() {
                         </motion.div>
                     ))}
                 </div>
-                 <div className="flex flex-col lg:flex-row items-center justify-between gap-4 mt-4 mr-4">
+                 <div className="items-center justify-between gap-4 mt-4 mr-4">
                   <p className="text-1xl text-zinc-400 button-text">© 2020 - {new Date().getFullYear()} {config.siteMetadata.author}. All rights reserved.</p>
                    {/*
                    
