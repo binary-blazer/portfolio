@@ -62,11 +62,11 @@ export default function Home() {
       <div className="h-[43rem] flex flex-col justify-center items-center mb-72">
         {config.IndexPage.lanyard.enabled && (
             <div className="flex items-center space-x-2 mb-2">
-            <div className="w-20 h-20">
+            <div className="w-20 h-20 relative">
               {lanyardAvatar == null ? (
-                <Image className="rounded-full bg-white/10 button-text" src={`https://cdn.discordapp.com/attachments/971049189377179718/1044214018618953769/unknown.png`} layout="fill" height={700} width={700} />
+                <Image className="rounded-full bg-white/10 button-text mr-20" src={`https://cdn.discordapp.com/attachments/971049189377179718/1044214018618953769/unknown.png`} layout="fill" height={700} width={700} />
               ) : (
-                <Image className="rounded-full bg-white/10 button-text" src={`https://cdn.discordapp.com/avatars/${config.IndexPage.lanyard.id}/${lanyardAvatar}.png`} layout="fill" height={700} width={700} />
+                <Image className="rounded-full bg-white/10 button-text mr-20" src={`https://cdn.discordapp.com/avatars/${config.IndexPage.lanyard.id}/${lanyardAvatar}.png`} layout="fill" height={700} width={700} />
               )}
               <div className="absolute bottom-0 right-0 w-6 h-6 rounded-full bg-[#000000]">
                 <div className="w-full h-full relative">
