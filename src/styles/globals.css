@@ -5,13 +5,11 @@
 body {
     background: #f5f5f5;
     color: #000;
-    overflow-x: hidden !important;
 }
 
 .dark body {
     background: #050505;
     color: #fff;
-    overflow-x: hidden !important;
 }
 
 * {
