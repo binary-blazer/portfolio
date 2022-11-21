@@ -27,7 +27,7 @@ module.exports = {
 
     github: {
         enabled: true,
-        accessToken: "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",
+        accessToken: process.env.GITHUB_ACCESS_TOKEN,
         username: 'JanjyTapYT',
     },
 
