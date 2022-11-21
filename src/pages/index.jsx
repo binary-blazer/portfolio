@@ -76,7 +76,7 @@ export default function Home() {
               </div>
             </div>
             <div>
-              <h1 className="text-zinc-800 dark:text-zinc-200 transition-all duration-300 cursor-pointer text-4xl leading-none font-semibold weight-900 button-text">{lanyardUsername} <span className="text-zinc-400 font-bold mr-1 button-text">#{lanyardDiscriminator}</span></h1>
+              <h1 className="text-zinc-800 dark:text-zinc-200 transition-all duration-300 cursor-pointer text-3xl leading-none font-semibold weight-900 button-text">{lanyardUsername} <span className="text-zinc-400 font-bold mr-1 button-text">#{lanyardDiscriminator}</span></h1>
             </div>
           </div>
           )}
