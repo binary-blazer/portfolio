@@ -131,7 +131,7 @@ export default function Home() {
                               />
                               </div>
                             </div>
-                            <p className="text-sm mt-2 md:mt-4">
+                            <p className="text-sm mt-2 md:mt-6">
                               <span className="text-sm text-black dark:text-white font-bold bg-primary/20 px-2 py-1 rounded-md mr-1 button button-text">
                                 {_.owner.login}
                               </span>
