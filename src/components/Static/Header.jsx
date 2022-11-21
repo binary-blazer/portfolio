@@ -27,7 +27,7 @@ export default function Header() {
                     <motion.div
                    whileHover={{ scale: 1.05 }}
                    whileTap={{ scale: 0.95 }}
-                     className="-mr-2 md:hidden"
+                     className="-mr-20 md:hidden"
                      >
                      <div onClick={() => toggleTheme()} className="bg-primary shadow-2xl shadow-primary text-2xl text-white hover:text-white hover:dark:text-white cursor-pointer w-12 h-12 flex items-center justify-center rounded-lg transition-all duration-200">
                          {isTheme === 'dark' ? <i className="fas fa-moon" /> : <i className="fas fa-sun" />}
