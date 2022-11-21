@@ -99,3 +99,16 @@ body {
 .layout-blue {
     background: radial-gradient(at 150% 0%, #0055ff 0, transparent 50%);
 }
+
+.dnd {
+    background-color: #f14668;
+  }
+  .idle {
+    background-color: rgb(255, 166, 0);
+  }
+  .online {
+    background-color: #1e9227;
+  }
+  .offline {
+    background-color: #727272;
+  }

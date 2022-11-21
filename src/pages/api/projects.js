@@ -1,60 +1,21 @@
+const config = require('../../../site.config.js');
+
 export default async (req, res) => {
-    const data = [
-        { 
-          id: 1,
-          image: "https://cdn.discordapp.com/attachments/1003714890638303232/1008044425722740797/22-modified_1.png",
-          slug: "GiveAways",
-          name: "GiveAways", 
-          github: false,
-          githubLink: "",
-          website: true,
-          websiteLink: "https://giveaways-bot.com",
-          invite: false,
-          inviteLink: "",
-          description: "A Discord bot that allows you to host giveaways on your server.",
-        },
-        { 
-          id: 2,
-          image: "https://cdn.discordapp.com/attachments/971049189377179718/1031863674903728128/Design_ohne_Titel2.png", 
-          slug: "Janjyfy",
-          name: "Janjyfy", 
-          github: true,
-          githubLink: "https://github.com/Stoneclane-Development/Janjyfy-Bot",
-          website: false,
-          websiteLink: "",
-          invite: false,
-          inviteLink: "",
-          invite: true,
-          inviteLink: "https://discord.com/api/oauth2/authorize?client_id=995397263130112081&permissions=8&scope=bot%20applications.commands",
-          description: "A Discord Moderation bot. This bot is easy to use.",
-        },
-        { 
-          id: 3,
-          image: "https://cdn.discordapp.com/attachments/952628698807414785/963460672811835442/Stoneclane_List_Banner.png", 
-          slug: "Stoneclane-Botlist",
-          name: "Stoneclane Botlist", 
-          github: false,
-          githubLink: "",
-          website: true,
-          websiteLink: "https://stoneclane.xyz",
-          invite: false,
-          inviteLink: "",
-          description: "Do you want to grow your discord bot / server? Then you are right.", 
-        },
-        { 
-          id: 4,
-          image: "https://cdn.discordapp.com/attachments/971049189377179718/1031863899244482692/unknown.png", 
-          slug: "portfolio",
-          name: "My Portfolio", 
-          github: true,
-          githubLink: "https://github.com/JanjyTapYT/portfolio",
-          website: true,
-          websiteLink: "https://janjytapyt.me",
-          invite: false,
-          inviteLink: "",
-          description: "My Portfolio Website. It Is insane cool and it is open source.",
-        }
-    ]
+    const data = config.projects.data.map((project) => {
+        return {
+            id: project.id,
+            image: project.image,
+            slug: project.slug,
+            name: project.name,
+            github: project.github,
+            githubLink: project.githubLink,
+            website: project.website,
+            websiteLink: project.websiteLink,
+            invite: project.invite,
+            inviteLink: project.inviteLink,
+            description: project.description,
+        };
+    });
 
     res.status(200).json(data)
 };

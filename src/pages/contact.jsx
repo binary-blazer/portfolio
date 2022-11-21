@@ -71,56 +71,44 @@ export default function Contact() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.5 }}
                 >
-                <motion.div
-                    whileHover={{ scale: 1.02 }}
-                    >
                 <input
                     type="text"
                     name="name"
                     id="name"
                     placeholder="Name"
-                    className="w-full px-4 py-2 rounded-lg transition-all duration-200 group text-white bg-gray-400/10 dark:bg-gray-500/5 dark:hover:bg-gray-500/10 hover:bg-gray-400/20 active:bg-gray-400/30 active:outline-none focus:outline-none active:ring-2 active:ring-primary active:ring-opacity-50 focus:ring-2 focus:ring-primary focus:ring-opacity-50 text-gray-900/50 dark:text-white"
+                    className="w-full px-4 py-2 rounded-lg transition-all duration-200 group text-white bg-gray-400/10 dark:bg-gray-500/5 dark:hover:bg-gray-500/10 hover:bg-gray-400/20 active:bg-gray-400/30 active:outline-none focus:outline-none active:ring-2 active:ring-primary active:ring-opacity-50 focus:ring-2 focus:ring-primary focus:ring-opacity-50 text-gray-900/50 dark:text-white hover:-translate-y-1 hover:scale-[1.02]"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                 />
-                </motion.div>
                 </motion.div>
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.7 }}
                 >
-                    <motion.div
-                    whileHover={{ scale: 1.02 }}
-                    >
                 <input
                     type="email"
                     name="email"
                     id="email"
                     placeholder="Email"
-                    className="w-full px-4 py-2 rounded-lg transition-all duration-200 group text-white bg-gray-400/10 dark:bg-gray-500/5 dark:hover:bg-gray-500/10 hover:bg-gray-400/20 active:bg-gray-400/30 active:outline-none focus:outline-none active:ring-2 active:ring-primary active:ring-opacity-50 focus:ring-2 focus:ring-primary focus:ring-opacity-50 text-gray-900/50 dark:text-white"
+                    className="w-full px-4 py-2 rounded-lg transition-all duration-200 group text-white bg-gray-400/10 dark:bg-gray-500/5 dark:hover:bg-gray-500/10 hover:bg-gray-400/20 active:bg-gray-400/30 active:outline-none focus:outline-none active:ring-2 active:ring-primary active:ring-opacity-50 focus:ring-2 focus:ring-primary focus:ring-opacity-50 text-gray-900/50 dark:text-white hover:-translate-y-1 hover:scale-[1.02]"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                 />
-                </motion.div>
                 </motion.div>
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.9 }}
                 >
-                    <motion.div
-                    whileHover={{ scale: 1.02 }}
-                    >
                 <textarea
                     name="message"
                     id="message"
                     placeholder="Message"
-                    className="w-full px-4 py-2 rounded-lg transition-all duration-200 group text-white bg-gray-400/10 dark:bg-gray-500/5 dark:hover:bg-gray-500/10 hover:bg-gray-400/20 active:bg-gray-400/30 active:outline-none focus:outline-none active:ring-2 active:ring-primary active:ring-opacity-50 focus:ring-2 focus:ring-primary focus:ring-opacity-50 text-gray-900/50 dark:text-white"
+                    className="w-full px-4 py-2 rounded-lg transition-all duration-200 group text-white bg-gray-400/10 dark:bg-gray-500/5 dark:hover:bg-gray-500/10 hover:bg-gray-400/20 active:bg-gray-400/30 active:outline-none focus:outline-none active:ring-2 active:ring-primary active:ring-opacity-50 focus:ring-2 focus:ring-primary focus:ring-opacity-50 text-gray-900/50 dark:text-white hover:-translate-y-1 hover:scale-[1.02]"
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
                 />
-                </motion.div>
                 </motion.div>
                 </div>
                 <motion.button

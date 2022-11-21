@@ -1,10 +1,11 @@
 const config = require('../../../site.config.js');
 
 export default async (req, res) => {
-    const data = config.skills.data.map((skill) => {
+    const data = config.socials.map((social) => {
         return {
-            name: skill.name,
-            src: skill.src,
+            name: social.name,
+            src: social.src,
+            link: social.link,
         };
     });
 

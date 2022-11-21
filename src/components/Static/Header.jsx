@@ -1,4 +1,4 @@
-import { Transition } from "@headlessui/react";
+import { Menu, Transition } from '@headlessui/react'
 import { useTheme } from "../../context/theme.js";
 import useSWR from "hooks/swr";
 import Link from "next/link";
@@ -9,11 +9,11 @@ import { motion } from "framer-motion"
 
 export default function Header() {
     const pages = config.pages;
-
     const { isTheme, toggleTheme } = useTheme();
 
     const router = useRouter();
     const [isOpen, setIsOpen] = useState(false);
+    const [isOpenMoreMenu, setIsOpenMoreMenu] = useState(false);
 
     return (
         <>
@@ -21,39 +21,23 @@ export default function Header() {
                  <div className="flex justify-between items-center py-6 md:justify-start md:space-x-10">
                  <div className="flex items-center gap-4">
                      <Link href="/">
-                         <a className="text-2xl font-bold transition-all duration-200 button-text">{config.siteMetadata.author}</a>
+                         <a className="text-2xl font-bold transition-all duration-200 button-text text-black/90 dark:text-white/90">{config.siteMetadata.author}<span className="text-primary">.</span><span className="text-1xl">me</span></a>
                      </Link>
                  </div>
-                   <motion.div
-                   whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                     >
-                   <div className="-mr-20 md:hidden">
-                   <a
-                             onClick={() => router.push(config.social.twitter)}
-                             target="_blank"
-                             rel="noopener noreferrer"
-                             className="bg-primary shadow-2xl shadow-primary text-2xl text-white hover:text-white hover:dark:text-white cursor-pointer w-12 h-12 flex items-center justify-center rounded-lg transition-all duration-200"
-                         >
-                             <i className="fa-brands fa-twitter" />
-                        </a>
-                     </div>
-                    </motion.div>
                     <motion.div
                    whileHover={{ scale: 1.05 }}
                    whileTap={{ scale: 0.95 }}
+                     className="-mr-40 md:hidden"
                      >
-                     <div className="-mr-20 md:hidden">
                      <div onClick={() => toggleTheme()} className="bg-primary shadow-2xl shadow-primary text-2xl text-white hover:text-white hover:dark:text-white cursor-pointer w-12 h-12 flex items-center justify-center rounded-lg transition-all duration-200">
                          {isTheme === 'dark' ? <i className="fas fa-moon" /> : <i className="fas fa-sun" />}
                      </div>
-                    </div>
                     </motion.div>
                     <motion.div
                    whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
+                        className="-mr-2 md:hidden"
                      >
-                   <div className="-mr-2 md:hidden">
                    <a
                              onClick={() => setIsOpen(!isOpen)}
                              target="_blank"
@@ -62,10 +46,9 @@ export default function Header() {
                          >
                              <i className="text-2xl fas fa-bars" />
                          </a>
-                </div>
                 </motion.div>
-                     <nav className="hidden md:flex space-x-10">
-                         {pages.map((page) => (
+                     <nav className="hidden md:flex space-x-10 items-center justify-center">
+                     {pages.map((page) => (
                             <motion.div
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
@@ -88,6 +71,7 @@ export default function Header() {
                             </motion.div>
                          ))}
                      </nav>
+                     
                      <div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
                         <motion.div
                          whileHover={{ scale: 1.05 }}
@@ -213,6 +197,18 @@ export default function Header() {
             >
             <h1 className="text-white dark:text-white button-text">
             <i className="fab fa-discord" /> Discord Server
+            </h1>
+            </a>
+            </motion.div>
+            <motion.div
+            whileHover={{ scale: 1.05 }}
+            >
+            <a
+            onClick={() => router.push(config.social.twitter)}
+            className="bg-primary shadow-2xl shadow-primary text-2xl w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white hover:bg-primary dark:bg-primary dark:hover:bg-primary"
+            >
+            <h1 className="text-white dark:text-white button-text">
+            <i className="fab fa-twitter" /> Twitter
             </h1>
             </a>
             </motion.div>

@@ -42,8 +42,8 @@ export default function About() {
                             transition={{ duration: 1 }}
                         >
                             <motion.div
-                            whileHover={{ scale: 1.1 }}
-                            whileTap={{ scale: 0.9 }}
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.96 }}
                             >
                             <Image
                                 style={{ zIndex: 0 }} 
@@ -51,13 +51,14 @@ export default function About() {
                                 width="111"
                                 className="rounded-full"
                                 height="111"
+                                draggable="false"
                                 />
                             </motion.div>
                         </motion.div>
                         </div>
                         <h1 className="text-3xl font-bold mt-2 padding-2 mx-auto max-w-sm text-black dark:text-white button-text">Hey, im <span className="font-semibold mt-4 text-3xl text-primary mx-auto max-w-sm">{config.siteMetadata.author}</span>,</h1>
-                        <div className="pb-2 py-2">
-                        <div className="flex flex-col items-center justify-center w-full flex-1 px-20 text-center mx-auto">
+                        <div>
+                        <div className="flex flex-col items-center w-full flex-1 text-center">
                         <p className="text-black dark:text-white text-2xl padding-2 font-bold max-w-sm text-padding button-text">Im a <span className="text-black dark:text-white text-underline-2px font-semibold mt-4 text-2xl max-w-sm">{config.AboutMePage.developerGrade}</span>,</p>
                         <p className="text-black dark:text-white text-2xl padding-2 font-bold max-w-sm button-text">from <span className="text-black dark:text-white text-underline-2px font-semibold mt-4 text-2xl max-w-sm">{config.AboutMePage.yourLand}</span>.</p>
                         </div>
@@ -66,14 +67,14 @@ export default function About() {
                         <h1 className="text-1xl font-bold button-text">Im in love to create and programm new things. &nbsp; <br /> I also love to create new things with my friends and i love to play games. &nbsp; <br /> Thanks for reading <i className="fas fa-heart" style={{ color: heartColor, cursor: 'pointer' }} /></h1>
                         <div className="flex flex-row justify-center items-center mt-3 padding">
                         <motion.div
-                        whileHover={{ scale: 1.1 }}
-                        whileTap={{ scale: 0.9 }}
+                       whileHover={{ scale: 1.05 }}
+                       whileTap={{ scale: 0.96 }}
                         >
                         <button href={config.social.github} onClick={() => router.push(config.social.github)} target="_blank" className="bg-primary text-black dark:text-white font-display font-semibold text-lg px-5 py-2 rounded-md mr-5 button text-white shadow-2xl shadow-primary transition-all duration-200 button button-text"><i className="fa-brands fa-github" /> Github</button>
                         </motion.div>
                         <motion.div
-                        whileHover={{ scale: 1.1 }}
-                        whileTap={{ scale: 0.9 }}
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.96 }}
                         >
                         <button href={config.social.twitter} onClick={() => router.push(config.social.twitter)} target="_blank" className="bg-primary text-black dark:text-white font-display font-semibold text-lg px-5 py-2 rounded-md button text-white shadow-2xl shadow-primary transition-all duration-200 button button-text"><i className="fa-brands fa-twitter" /> Twitter</button>
                         </motion.div>
