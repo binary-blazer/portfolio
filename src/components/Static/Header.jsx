@@ -27,7 +27,7 @@ export default function Header() {
                     <motion.div
                    whileHover={{ scale: 1.05 }}
                    whileTap={{ scale: 0.95 }}
-                     className="-mr-40 md:hidden"
+                     className="-mr-2 md:hidden"
                      >
                      <div onClick={() => toggleTheme()} className="bg-primary shadow-2xl shadow-primary text-2xl text-white hover:text-white hover:dark:text-white cursor-pointer w-12 h-12 flex items-center justify-center rounded-lg transition-all duration-200">
                          {isTheme === 'dark' ? <i className="fas fa-moon" /> : <i className="fas fa-sun" />}
@@ -145,7 +145,7 @@ export default function Header() {
             <div className="pt-5 pb-6 px-5">
             <div className="flex items-center justify-between">
             <div>
-            <h1 className="text-2xl font-bold text-gray-900 dark:text-gray-100 button-text">{config.siteMetadata.author}</h1>
+            <h1 className="text-2xl font-bold text-gray-900 dark:text-gray-100 button-text">{config.siteMetadata.author}<span className="text-primary">.</span><span className="text-1xl">me</span></h1>
             </div>
             <motion.div
             whileHover={{ scale: 1.05 }}
