@@ -94,7 +94,7 @@ export default function Home() {
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.94 }}
       >
-      <button onClick={() => router.push('/about')} className="bg-primary shadow-2xl shadow-primary text-white font-display font-semibold text-lg px-10 py-3 rounded-md button button-text mr-2" href="/about"><i className="fas fa-user mr-2"></i> About Me</button>
+      <button onClick={() => router.push('/about')} className="bg-primary shadow-2xl shadow-primary text-white font-display font-semibold text-lg px-10 py-3 rounded-md button button-text mr-2" href="/about"><i className="fas fa-user"></i> About Me</button>
       </motion.div>
       </div>
       </div>
