@@ -84,10 +84,10 @@ export default function Home() {
       <h1 className="mx-auto max-w-4xl font-semibold text-5xl font-semibold sm:text-7xl text-black dark:text-white text-center button-text"><div className="mt-3"> from <span className="text-underline-2px mt-2">{config.AboutMePage.yourLand}</span></div></h1>
       <div className="flex flex-row justify-center items-center mt-10">
       <motion.div
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.94 }}
+        whileHover={{ scale: 1.03 }}
+        whileTap={{ scale: 0.95 }}
       >
-      <button onClick={() => router.push('/contact')} className="bg-primary shadow-2xl shadow-primary text-white font-display font-semibold text-lg px-10 py-3 rounded-md mr-5 button buttn-text" href="/contact"><i className="fas fa-envelope mr-2"></i> Contact Me</button>
+      <button onClick={() => router.push('/contact')} className="bg-primary shadow-2xl shadow-primary text-white font-display font-semibold text-lg px-10 py-3 rounded-md button button-text" href="/contact"><i className="fas fa-envelope mr-2"></i> Contact Me</button>
       </motion.div>
       <motion.div
         whileHover={{ scale: 1.05 }}
