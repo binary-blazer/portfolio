@@ -17,10 +17,10 @@ npm install && npm run build && npm run start
 By using this bot, you agree to the following terms of use:
 
 ```md
-- You are not allowed to sell this bot or any part of it
-- You are not allowed to claim this bot as your own
-- You are allowed to modify the code of this bot as long as you don't sell it or claim it as your own
-- You have the permission to share in writing, but you have to mention us, our server, in the article.
+- You are not allowed to sell this website or any part of it.
+- You are not allowed to claim this website as your own.
+- You are allowed to modify the code of this bot as long as you don't sell it or claim it as your own.
+- You have the permission to share in writing, but you have to mention me, in the article.
 - You can't speak in a "we did it" way.
 ```
 
