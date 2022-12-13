@@ -65,6 +65,7 @@ export default function About() {
                         <br />
                         <div className="pb-4 py-4">
                         <h1 className="text-1xl font-bold button-text">Im in love to create and programm new things. &nbsp; <br /> I also love to create new things with my friends and i love to play games. &nbsp; <br /> Thanks for reading <i className="fas fa-heart" style={{ color: heartColor, cursor: 'pointer' }} /></h1>
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
                         <div className="flex flex-row justify-center items-center mt-3 padding">
                         <motion.div
                        whileHover={{ scale: 1.05 }}
@@ -78,6 +79,7 @@ export default function About() {
                         >
                         <button href={config.social.twitter} onClick={() => router.push(config.social.twitter)} target="_blank" className="bg-primary text-black dark:text-white font-display font-semibold text-lg px-5 py-2 rounded-md button text-white shadow-2xl shadow-primary transition-all duration-200 button button-text"><i className="fa-brands fa-twitter" /> Twitter</button>
                         </motion.div>
+                        </div>
                         </div>
                         </div>
                         </div>
