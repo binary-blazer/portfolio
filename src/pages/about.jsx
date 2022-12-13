@@ -65,7 +65,7 @@ export default function About() {
                         <br />
                         <div className="pb-4 py-4">
                         <h1 className="text-1xl font-bold button-text">Im in love to create and programm new things. &nbsp; <br /> I also love to create new things with my friends and i love to play games. &nbsp; <br /> Thanks for reading <i className="fas fa-heart" style={{ color: heartColor, cursor: 'pointer' }} /></h1>
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 mt-10">
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 mt-10">
                         <motion.div
                        whileHover={{ scale: 1.05 }}
                        whileTap={{ scale: 0.96 }}
