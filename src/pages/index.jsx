@@ -244,7 +244,7 @@ export default function Home() {
               ? skills.map((_, __) => (
                   <div
                     key={__}
-                    className="cursor-pointer bg-gray-300/50 dark:bg-zinc-900/50 p-2 px-4 hover:bg-gray-400/50 dark:hover:bg-gray-700/50 shadow-lg transition-all duration-200 rounded-lg w-full outline outline-black hover:outline-primary dark:outline-white dark:hover:outline-primary hover:shadow-2xl hover:scale-[1.02] transform"
+                    className="cursor-pointer bg-gray-300/50 dark:bg-zinc-900/50 p-2 px-4 hover:bg-gray-400/50 dark:hover:bg-gray-700/50 shadow-lg transition-all duration-200 rounded-lg w-full outline outline-black hover:outline-primary dark:outline-white dark:hover:outline-primary hover:scale-[1.02] transform hover:shadow-2xl hover:shadow-primary"
                   >
                     <div className="flex justify-between items-center w-full">
                     <div className="bg-white/30 dark:bg-white/5 rounded-md h-[35px] w-[35px]">
