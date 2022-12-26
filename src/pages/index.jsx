@@ -180,7 +180,7 @@ export default function Home() {
             {_projectsData ? (
                 projects ? (
                     projects?.map((p, i) => (
-                      <div className="cursor-pointer transition-all w-full flex flex-col bg-gray-300/50 dark:bg-zinc-900/50 p-4 rounded-lg justify-center items-center hover:-translate-y-1 hover:scale-[1.02] hover:shadow-2xl hover:shadow-primary hover:outline hover:outline-2 hover:outline-primary">
+                      <div className="cursor-pointer transition-all w-full flex flex-col bg-gray-300/50 dark:bg-zinc-900/50 p-4 rounded-lg justify-center items-center hover:-translate-y-1 hover:scale-[1.02] hover:shadow-2xl hover:shadow-primary hover:outline hover:outline-2 hover:outline-primary transition-all duration-200" key={i}>
                       <div className="w-full relative md:mt-2">
                       <Image src={p.image} width="1024" className="rounded-lg button-text" height="512" draggable="false" alt={p.title} />
                       </div>

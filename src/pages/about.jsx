@@ -70,7 +70,7 @@ export default function About() {
                        whileHover={{ scale: 1.05 }}
                        whileTap={{ scale: 0.96 }}
                         >
-                        <button href={config.social.github} onClick={() => router.push(config.social.github)} target="_blank" className="bg-primary text-black dark:text-white font-display font-semibold text-lg px-5 py-2 rounded-md mr-5 button text-white shadow-2xl shadow-primary transition-all duration-200 button button-text"><i className="fa-brands fa-github" /> Github</button>
+                        <button href={config.social.github} onClick={() => router.push(config.social.github)} target="_blank" className="bg-primary text-black dark:text-white font-display font-semibold text-lg px-5 py-2 rounded-md mr-5 button text-white shadow-2xl shadow-primary transition-all duration-200 button button-text ml-4 md:ml-0"><i className="fa-brands fa-github" /> Github</button>
                         </motion.div>
                         <motion.div
                         whileHover={{ scale: 1.05 }}

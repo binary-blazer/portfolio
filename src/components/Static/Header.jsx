@@ -57,14 +57,14 @@ export default function Header() {
                                  <button
                                      className={`${
                                          router.pathname === page.href
-                                             ? "text-gray-900 dark:text-gray-100"
-                                             : "text-gray-500 dark:text-gray-400"
-                                     } hover:text-gray-900 dark:hover:text-gray-100 font-semibold button-text`}
+                                             ? "text-gray-900 dark:text-gray-100 button"
+                                             : "text-gray-500 dark:text-gray-400 button"
+                                     } hover:text-gray-900 dark:hover:text-gray-100 font-semibold button-text button transition-all duration-200`}
                                  >
                                      {router.pathname === page.href ? (
-                                         <span className="border-b-2 border-black dark:border-white padding"> <i className={`${page.icon.active} text-gray-900 dark:text-gray-100`} /> {page.name}</span>
+                                         <span className="border-b-2 border-black dark:border-white padding button"> <i className={`${page.icon.active} text-gray-900 dark:text-gray-100 button`} /> <span className="button">{page.name}</span></span>
                                      ) : (
-                                         <span> <i className={`${page.icon.default} text-black dark:text-white padding-2`} /> {page.name}</span>
+                                         <span> <i className={`${page.icon.default} text-black dark:text-white padding-2 button`} /> <span className="button">{page.name}</span></span>
                                      )}
                                  </button>
                              </Link>
@@ -81,25 +81,25 @@ export default function Header() {
                              onClick={() => router.push(config.social.github)}
                              target="_blank"
                              rel="noopener noreferrer"
-                             className="whitespace-nowrap text-base font-semibold text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100 button-text"
+                             className="whitespace-nowrap text-base font-semibold text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100 button-text cursor-pointer transition-all duration-200"
                          >
-                             <i className="fa-brands fa-github" /> GitHub
+                             <i className="fa-brands fa-github button" /> <span className="button">GitHub</span>
                          </a>
                             </motion.div>
  
-                         <div className="ml-4 relative flex-shrink-0">
+                         <div className="ml-4 relative flex-shrink-0 button">
                                 <motion.div
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
                                >
-                         <div className="flex items-center gap-4">
+                         <div className="flex items-center gap-4 button">
                          <a
                              onClick={() => router.push(config.social.twitter)}
                              target="_blank"
                              rel="noopener noreferrer"
-                             className="bg-primary shadow-2xl shadow-primary text-2xl text-white hover:text-white hover:dark:text-white cursor-pointer w-12 h-12 flex items-center justify-center rounded-lg transition-all duration-200"
+                             className="bg-primary shadow-2xl shadow-primary text-2xl text-white hover:text-white hover:dark:text-white cursor-pointer w-12 h-12 flex items-center justify-center rounded-lg transition-all duration-200 button"
                          >
-                             <i className="fa-brands fa-twitter" />
+                             <i className="fa-brands fa-twitter button" />
                          </a>
                          </div>
                             </motion.div>
@@ -110,8 +110,8 @@ export default function Header() {
                             >
                          <div className="ml-4 relative flex-shrink-0">
                          <div className="flex items-center gap-4">
-                         <div onClick={() => toggleTheme()} className="bg-primary shadow-2xl shadow-primary text-2xl text-white hover:text-white hover:dark:text-white cursor-pointer w-12 h-12 flex items-center justify-center rounded-lg transition-all duration-200">
-                         {isTheme === 'dark' ? <i className="fas fa-moon" /> : <i className="fas fa-sun" />}
+                         <div onClick={() => toggleTheme()} className="bg-primary shadow-2xl shadow-primary text-2xl text-white hover:text-white hover:dark:text-white cursor-pointer w-12 h-12 flex items-center justify-center rounded-lg transition-all duration-200 button">
+                         {isTheme === 'dark' ? <i className="fas fa-moon button" /> : <i className="fas fa-sun button" />}
                      </div>
                  </div>
                  </div>

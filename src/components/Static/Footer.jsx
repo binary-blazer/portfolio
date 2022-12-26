@@ -40,9 +40,9 @@ export default function Footer() {
                         >
                         <a
                             key={social.name}
-                            onClick={() => router.push(social.url)}
+                            onClick={() => router.push(social.link)}
                             className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors duration-200 button-text"
-                            href={social.url}
+                            href={social.link}
                         >
                             <span className="sr-only">{social.name}</span>
                             <i className={social.icon}></i>
