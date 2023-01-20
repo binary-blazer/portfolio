@@ -22,7 +22,6 @@ function MyApp({ Component, pageProps }) {
           <Component {...pageProps} />
         </div>
         <Footer />
-        <div className="color-layout layout-blue position-right-top" />
       </ThemeProvider>
     </>
   )

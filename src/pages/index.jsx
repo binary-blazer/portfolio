@@ -114,12 +114,14 @@ export default function Home() {
             reposData && (
               <>
                   {reposData?.slice(0,8)?.sort((a,b) => b.stargazers_count - a.stargazers_count)?.map((_, __) => (
-                    <a
-                      key={__}
-                      href={_.html_url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="bg-gray-300/50 dark:bg-zinc-900/50 p-4 hover:bg-zinc-700/10 h-auto text-black transition-all duration-200 rounded-lg w-full button button-text hover:scale-[1.03] hover:shadow-2xl hover:shadow-primary hover:outline hover:outline-2 hover:outline-primary"
+                    <motion.div
+                    whileHover={{ y: -7, transition: { duration: 0.4 } }}
+                    whileTap={{ y: 7, transition: { duration: 0.4 } }}
+                    key={__}
+                    onClick={() => window.open(_.html_url, "_blank")}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-gray-300/50 dark:bg-zinc-900/50 p-4 hover:bg-zinc-700/10 h-auto text-black rounded-lg w-full button button-text hover:shadow-2xl hover:shadow-primary hover:outline hover:outline-2 hover:outline-primary"
                     >
                             <div className="w-full relative">
                               <div className="flex flex-row justify-between items-center justify-center md:justify-start">
@@ -158,7 +160,7 @@ export default function Home() {
                             <p className="text-1xl font-bold text-black dark:text-white mt-2 md:mt-4 button button-text">
                               {_.description}
                             </p>
-                          </a>
+                          </motion.div>
                   ))}
               </>
             )
@@ -180,7 +182,11 @@ export default function Home() {
             {_projectsData ? (
                 projects ? (
                     projects?.map((p, i) => (
-                      <div className="cursor-pointer transition-all w-full flex flex-col bg-gray-300/50 dark:bg-zinc-900/50 p-4 rounded-lg justify-center items-center hover:-translate-y-1 hover:scale-[1.02] hover:shadow-2xl hover:shadow-primary hover:outline hover:outline-2 hover:outline-primary transition-all duration-200" key={i}>
+                      <motion.div
+                    whileHover={{ y: -7, transition: { duration: 0.3 } }}
+                    whileTap={{ y: 7 }}
+                    >
+                      <div className="cursor-pointer w-full flex flex-col bg-gray-300/50 dark:bg-zinc-900/50 p-4 rounded-lg justify-center items-center hover:shadow-2xl hover:shadow-primary hover:outline hover:outline-2 hover:outline-primary" key={i}>
                       <div className="w-full relative md:mt-2">
                       <Image src={p.image} width="1024" className="rounded-lg button-text" height="512" draggable="false" alt={p.title} />
                       </div>
@@ -207,6 +213,7 @@ export default function Home() {
                       </motion.div>
                       </div>
                       </div>
+                      </motion.div>
                     ))
                 ) : <></>
             ) : (
@@ -242,26 +249,34 @@ export default function Home() {
           {_skills
             ? skills
               ? skills.map((_, __) => (
-                  <div
-                    key={__}
-                    className="cursor-pointer bg-gray-300/50 dark:bg-zinc-900/50 p-2 px-4 hover:bg-gray-400/50 dark:hover:bg-gray-700/50 shadow-lg transition-all duration-200 rounded-lg w-full outline outline-black hover:outline-primary dark:outline-white dark:hover:outline-primary hover:scale-[1.02] transform hover:shadow-2xl hover:shadow-primary"
-                  >
-                    <div className="flex justify-between items-center w-full">
-                    <div className="bg-white/30 dark:bg-white/5 rounded-md h-[35px] w-[35px]">
-                      <div className="flex justify-center items-center h-[26px]">
-                        <img
+                <motion.div
+                    whileHover={{ y: -4, transition: { duration: 0.3 } }}
+                    whileTap={{ y: 4 }}
+                    >
+                <div
+                key={__}
+                className="bg-gray-300/50 dark:bg-zinc-900/50 p-4 hover:opacity-80 rounded-lg w-full hover:shadow-md hover:shadow-primary hover:outline hover:outline-2 hover:outline-primary transition-all duration-200"
+              >
+                <div className="flex justify-between items-center w-full">
+                  <div className="w-[36px] h-[36px] mr-2">
+                    <div className="bg-[#191932]/10 dark:bg-[#191932]/50 w-[36px] h-[36px] rounded-md">
+                      <div className="flex items-center justify-center" />
+                    <img
                           alt="Loading..."
                           src={_.src}
-                          className="rounded-md mt-2"
+                          className="rounded-md ml-1.5 mt-1.5"
                           width="24"
                           height="24"
                           style={{ fill: "#fff!important;" }}
                         />
-                        </div>
-                       </div>
-                      <p className="text-md text-black dark:text-white font-semibold button-text">{_.name}</p>
                     </div>
                   </div>
+                  <div className="flex-grow">
+                    <h1 className="text-lg font-semibold button-text text-right">{_.name}</h1>
+                  </div>
+                </div>
+              </div>
+              </motion.div>
                 ))
               : Array.from({ length: 20 }).map((_, __) => (
                 <div

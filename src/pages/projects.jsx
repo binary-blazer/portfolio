@@ -42,7 +42,11 @@ export default function Projects() {
             {_projects ? (
                 projects ? (
                     projects?.map((p, i) => (
-                        <div className="cursor-pointer transition-all w-full flex flex-col bg-gray-300/50 dark:bg-zinc-900/50 p-4 rounded-lg justify-center items-center hover:-translate-y-1 hover:scale-[1.02] hover:shadow-2xl hover:shadow-primary hover:outline hover:outline-2 hover:outline-primary transition-all duration-200" key={i}>
+                        <motion.div
+                    whileHover={{ y: -7, transition: { duration: 0.4 } }}
+                    whileTap={{ y: 7, transition: { duration: 0.4 } }}
+                    className="cursor-pointer w-full flex flex-col bg-gray-300/50 dark:bg-zinc-900/50 p-4 rounded-lg justify-center items-center hover:shadow-2xl hover:shadow-primary hover:outline hover:outline-2 hover:outline-primary" key={i}
+                    >
                       <div className="w-full relative md:mt-2">
                       <Image src={p.image} width="1024" className="rounded-lg button-text" height="512" draggable="false" alt={p.title} />
                       </div>
@@ -68,7 +72,7 @@ export default function Projects() {
                       {p.invite === true ? <button onClick={() => router.push(p.inviteLink)} target="_blank" className="bg-primary shadow-2xl shadow-primary text-white font-display font-semibold text-lg px-5 py-2 rounded-md button button-text" href={p.inviteLink}><i className="fa-brands fa-discord" /> Invite</button> : null}
                       </motion.div>
                       </div>
-                      </div>
+                    </motion.div>
                     ))
                 ) : <></>
             ) : (
