@@ -3,12 +3,12 @@
 @tailwind utilities;
 
 body {
-    background: linear-gradient(45deg, #f5f5f5 70%, #afcaff 100%);
+    background: linear-gradient(45deg, #f5f5f5 70%, #afcaff 100%) !importand;
     color: #000;
 }
 
 .dark body {
-    background: linear-gradient(45deg, #050505 70%, #000e2b 100%);
+    background: linear-gradient(45deg, #050505 70%, #000e2b 100%) !importand;
     color: #fff;
 }
 
