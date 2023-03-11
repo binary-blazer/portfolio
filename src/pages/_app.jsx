@@ -18,11 +18,13 @@ function MyApp({ Component, pageProps }) {
       </Head>
       <ThemeProvider>
         <Header />
-           <div className="relative color-layout layout-blue">
+           <div className="relative">
           <Component {...pageProps} />
         </div>
         <Footer />
       </ThemeProvider>
+      
+      <div className="color-layout layout-blue position-right-top" />
     </>
   )
 }
