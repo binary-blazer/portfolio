@@ -18,7 +18,7 @@ function MyApp({ Component, pageProps }) {
       </Head>
       <ThemeProvider>
         <Header />
-           <div className="relative">
+           <div className="relative color-layout layout-blue">
           <Component {...pageProps} />
         </div>
         <Footer />
