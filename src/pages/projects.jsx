@@ -52,24 +52,24 @@ export default function Projects() {
                       </div>
                       <h1 className="text-2xl font-semibold md:mt-2 button-text">{p.name}</h1>
                       <p className="text-black dark:text-white text-sm button-text">{p.description}</p>
-                      <div className="flex flex-row justify-center items-center mt-3">
+                      <div className="flex justify-center items-center grid grid-cols-1 mt-4 w-full">
                       <motion.div
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.92 }}
                       >
-                      {p.github === true ? <button onClick={() => router.push(p.githubLink)} target="_blank" className="bg-primary shadow-2xl shadow-primary text-white font-display font-semibold text-lg px-5 py-2 rounded-md mr-5 button button-text" href={p.githubLink}><i className="fa-brands fa-github" /> Github</button> : null}
+                      {p.github === true ? <button onClick={() => router.push(p.githubLink)} target="_blank" className="bg-primary shadow-2xl shadow-primary text-white font-display font-semibold text-lg w-full py-2 rounded-md mr-5 button button-text" href={p.githubLink}><i className="fa-brands fa-github" /> Github</button> : null}
                        </motion.div>
                       <motion.div
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.92 }}
                       >
-                      {p.website === true ? <button onClick={() => router.push(p.websiteLink)} target="_blank" className="bg-primary shadow-2xl shadow-primary text-white font-display font-semibold text-lg px-5 py-2 rounded-md button button-text" href={p.websiteLink}><i className="fa-solid fa-globe" /> Website</button> : null}
+                      {p.website === true ? <button onClick={() => router.push(p.websiteLink)} target="_blank" className="bg-primary mt-1.5 shadow-2xl shadow-primary text-white font-display font-semibold text-lg w-full py-2 rounded-md button button-text" href={p.websiteLink}><i className="fa-solid fa-globe" /> Website</button> : null}
                       </motion.div>
                       <motion.div
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.92 }}
                       >
-                      {p.invite === true ? <button onClick={() => router.push(p.inviteLink)} target="_blank" className="bg-primary shadow-2xl shadow-primary text-white font-display font-semibold text-lg px-5 py-2 rounded-md button button-text" href={p.inviteLink}><i className="fa-brands fa-discord" /> Invite</button> : null}
+                      {p.invite === true ? <button onClick={() => router.push(p.inviteLink)} target="_blank" className="bg-primary mt-1.5 shadow-2xl shadow-primary text-white font-display font-semibold text-lg w-full py-2 rounded-md button button-text" href={p.inviteLink}><i className="fa-brands fa-discord" /> Invite</button> : null}
                       </motion.div>
                       </div>
                     </motion.div>
