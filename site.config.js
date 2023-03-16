@@ -146,6 +146,7 @@ module.exports = {
 
     pages: [
         {
+            id: 1,
             name: "Home",
             href: "/",
             icon: {
@@ -155,6 +156,7 @@ module.exports = {
             current: false,
         },
         {
+            id: 2,
             name: "About",
             href: "/about",
             icon: {
@@ -164,6 +166,7 @@ module.exports = {
             current: false,
         },
         {
+            id: 3,
             name: "Projects",
             href: "/projects",
             icon: {
@@ -173,6 +176,7 @@ module.exports = {
             current: false,
         },
         {
+            id: 4,
             name: "Contact",
             href: "/contact",
             icon: {

@@ -114,7 +114,7 @@ export default function Contact() {
                 <motion.button
                     type="submit"
                     disabled={loading}
-                    className="min-h-[44px] relative overflow-hidden px-4 py-2 rounded-lg shadow-2xl shadow-primary transition-all duration-200 bg-primary group text-white button"
+                    className="min-h-[44px] relative overflow-hidden px-4 py-2 rounded-lg shadow-2xl transition-all duration-200 bg-primary/10 group text-white button border border-primary/20 hover:bg-primary/20 active:bg-primary/30"
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.95 }}
                 >

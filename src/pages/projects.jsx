@@ -45,7 +45,7 @@ export default function Projects() {
                         <motion.div
                     whileHover={{ y: -7, transition: { duration: 0.4 } }}
                     whileTap={{ y: 7, transition: { duration: 0.4 } }}
-                    className="cursor-pointer w-full flex flex-col bg-gray-300/50 dark:bg-zinc-900/50 p-4 rounded-lg justify-center items-center hover:shadow-2xl hover:shadow-primary hover:outline hover:outline-2 hover:outline-primary" key={i}
+                    className="cursor-pointer w-full flex flex-col bg-gray-300/50 dark:bg-zinc-900/50 p-4 rounded-lg justify-center items-center hover:shadow-2xl hover:shadow-primary hover:outline hover:outline-2 hover:outline-primary border border-gray-300/50 dark:border-zinc-900/90" key={i}
                     >
                       <div className="w-full relative md:mt-2">
                       <Image src={p.image} width="1024" className="rounded-lg button-text" height="512" draggable="false" alt={p.title} />
@@ -57,19 +57,19 @@ export default function Projects() {
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.92 }}
                       >
-                      {p.github === true ? <button onClick={() => router.push(p.githubLink)} target="_blank" className="bg-primary shadow-2xl shadow-primary text-white font-display font-semibold text-lg w-full py-2 rounded-md mr-5 button button-text" href={p.githubLink}><i className="fa-brands fa-github" /> Github</button> : null}
+                      {p.github === true ? <button onClick={() => router.push(p.githubLink)} target="_blank" className="mt-2 bg-primary/10 shadow-2xl text-white font-display font-semibold text-lg w-full py-2 rounded-md mr-5 button button-text border border-primary/20" href={p.githubLink}><i className="fa-brands fa-github" /> Github</button> : null}
                        </motion.div>
                       <motion.div
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.92 }}
                       >
-                      {p.website === true ? <button onClick={() => router.push(p.websiteLink)} target="_blank" className="bg-primary mt-1.5 shadow-2xl shadow-primary text-white font-display font-semibold text-lg w-full py-2 rounded-md button button-text" href={p.websiteLink}><i className="fa-solid fa-globe" /> Website</button> : null}
+                      {p.website === true ? <button onClick={() => router.push(p.websiteLink)} target="_blank" className="mt-2 bg-primary/10 shadow-2xl text-white font-display font-semibold text-lg w-full py-2 rounded-md mr-5 button button-text border border-primary/20" href={p.websiteLink}><i className="fa-solid fa-globe" /> Website</button> : null}
                       </motion.div>
                       <motion.div
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.92 }}
                       >
-                      {p.invite === true ? <button onClick={() => router.push(p.inviteLink)} target="_blank" className="bg-primary mt-1.5 shadow-2xl shadow-primary text-white font-display font-semibold text-lg w-full py-2 rounded-md button button-text" href={p.inviteLink}><i className="fa-brands fa-discord" /> Invite</button> : null}
+                      {p.invite === true ? <button onClick={() => router.push(p.inviteLink)} target="_blank" className="mt-2 bg-primary/10 shadow-2xl text-white font-display font-semibold text-lg w-full py-2 rounded-md mr-5 button button-text border border-primary/20" href={p.inviteLink}><i className="fa-brands fa-discord" /> Invite</button> : null}
                       </motion.div>
                       </div>
                     </motion.div>

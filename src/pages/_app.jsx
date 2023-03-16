@@ -25,6 +25,7 @@ function MyApp({ Component, pageProps }) {
       </ThemeProvider>
       
       <div className="color-layout layout-blue position-right-top" />
+      <div className="color-layout layout-green position-left-bottom" />
     </>
   )
 }

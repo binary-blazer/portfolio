@@ -88,13 +88,13 @@ export default function Home() {
         whileHover={{ scale: 1.03 }}
         whileTap={{ scale: 0.95 }}
       >
-      <button onClick={() => router.push('/contact')} className="bg-primary shadow-2xl shadow-primary text-white font-display font-semibold text-lg px-10 py-3 rounded-md button button-text" href="/contact"><i className="fas fa-envelope mr-2"></i> Contact Me</button>
+      <button onClick={() => router.push('/contact')} className="bg-primary/10 shadow-2xl text-white font-display font-semibold text-lg px-10 py-3 rounded-md button button-text border border-primary/20 hover:bg-primary/20 active:bg-primary/30" href="/contact"><i className="fas fa-envelope mr-2"></i> Contact Me</button>
       </motion.div>
       <motion.div
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.94 }}
       >
-      <button onClick={() => router.push('/about')} className="bg-primary shadow-2xl shadow-primary text-white font-display font-semibold text-lg px-10 py-3 rounded-md button button-text" href="/about"><i className="fas fa-user mr-2"></i> About Me</button>
+      <button onClick={() => router.push('/about')} className="bg-primary/10 shadow-2xl text-white font-display font-semibold text-lg px-10 py-3 rounded-md button button-text border border-primary/20 hover:bg-primary/20 active:bg-primary/30" href="/about"><i className="fas fa-user mr-2"></i> About Me</button>
       </motion.div>
       </div>
       </div>
@@ -121,7 +121,7 @@ export default function Home() {
                     onClick={() => window.open(_.html_url, "_blank")}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="bg-gray-300/50 dark:bg-zinc-900/50 p-4 hover:bg-zinc-700/10 h-auto text-black rounded-lg w-full button button-text hover:shadow-2xl hover:shadow-primary hover:outline hover:outline-2 hover:outline-primary"
+                    className="bg-gray-300/50 dark:bg-zinc-900/50 p-4 hover:bg-zinc-700/10 h-auto text-black rounded-lg w-full button button-text hover:shadow-2xl hover:shadow-primary hover:outline hover:outline-2 hover:outline-primary border border-gray-300/50 dark:border-zinc-900/90"
                     >
                             <div className="w-full relative">
                               <div className="flex flex-row justify-between items-center justify-center md:justify-start">
@@ -136,24 +136,24 @@ export default function Home() {
                               </div>
                             </div>
                             <p className="text-sm mt-4 md:mt-4">
-                              <span className="text-sm text-black dark:text-white font-bold bg-primary/20 px-2 py-1 rounded-md mr-1 button button-text">
+                              <span className="text-sm text-black dark:text-white font-bold bg-primary/20 px-2 py-1 rounded-md mr-1 button button-text border border-primary/20">
                                 {_.owner.login}
                               </span>
-                              <span className="text-sm text-black dark:text-white font-bold bg-primary/20 px-2 py-1 rounded-md mr-1 button button-text">
+                              <span className="text-sm text-black dark:text-white font-bold bg-primary/20 px-2 py-1 rounded-md mr-1 button button-text border border-primary/20">
                                 /
                               </span>
-                              <span className="text-sm text-black dark:text-white font-bold bg-primary/20 px-2 py-1 rounded-md button button-text">
+                              <span className="text-sm text-black dark:text-white font-bold bg-primary/20 px-2 py-1 rounded-md button button-text border border-primary/20">
                               {_.name}
                               </span>
                             </p>
                             <p className="text-sm mt-2 md:mt-4">
-                              <span className="text-sm text-black dark:text-white font-bold bg-primary/20 px-2 py-1 rounded-md mr-1 button button-text">
+                              <span className="text-sm text-black dark:text-white font-bold bg-primary/20 px-2 py-1 rounded-md mr-1 button button-text border border-primary/20">
                                 {_.stargazers_count} <i className="fas fa-star"></i>
                               </span>
-                              <span className="text-sm text-black dark:text-white font-bold bg-primary/20 px-2 py-1 rounded-md button button-text ml-2">
+                              <span className="text-sm text-black dark:text-white font-bold bg-primary/20 px-2 py-1 rounded-md button button-text ml-2 border border-primary/20">
                                 {_.language ? _.language : 'Unknown'}
                               </span>
-                              <span className="text-sm text-black dark:text-white font-bold bg-primary/20 px-2 py-1 rounded-md mr-1 button button-text ml-2">
+                              <span className="text-sm text-black dark:text-white font-bold bg-primary/20 px-2 py-1 rounded-md mr-1 button button-text ml-2 border border-primary/20">
                                 {_.forks_count} <i className="fas fa-code-branch"></i>
                               </span>
                             </p>
@@ -185,7 +185,7 @@ export default function Home() {
                     <motion.div
                 whileHover={{ y: -7, transition: { duration: 0.4 } }}
                 whileTap={{ y: 7, transition: { duration: 0.4 } }}
-                className="cursor-pointer w-full flex flex-col bg-gray-300/50 dark:bg-zinc-900/50 p-4 rounded-lg justify-center items-center hover:shadow-2xl hover:shadow-primary hover:outline hover:outline-2 hover:outline-primary" key={i}
+                className="cursor-pointer w-full flex flex-col bg-gray-300/50 dark:bg-zinc-900/50 p-4 rounded-lg justify-center items-center hover:shadow-2xl hover:shadow-primary hover:outline hover:outline-2 hover:outline-primary border border-gray-300/50 dark:border-zinc-900/90" key={i}
                 >
                   <div className="w-full relative md:mt-2">
                   <Image src={p.image} width="1024" className="rounded-lg button-text" height="512" draggable="false" alt={p.title} />
@@ -197,19 +197,19 @@ export default function Home() {
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.92 }}
                   >
-                  {p.github === true ? <button onClick={() => router.push(p.githubLink)} target="_blank" className="bg-primary shadow-2xl shadow-primary text-white font-display font-semibold text-lg w-full py-2 rounded-md mr-5 button button-text" href={p.githubLink}><i className="fa-brands fa-github" /> Github</button> : null}
+                  {p.github === true ? <button onClick={() => router.push(p.githubLink)} target="_blank" className="mt-2 bg-primary/10 shadow-2xl text-white font-display font-semibold text-lg w-full py-2 rounded-md mr-5 button button-text border border-primary/20" href={p.githubLink}><i className="fa-brands fa-github" /> Github</button> : null}
                    </motion.div>
                   <motion.div
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.92 }}
                   >
-                  {p.website === true ? <button onClick={() => router.push(p.websiteLink)} target="_blank" className="bg-primary mt-1.5 shadow-2xl shadow-primary text-white font-display font-semibold text-lg w-full py-2 rounded-md button button-text" href={p.websiteLink}><i className="fa-solid fa-globe" /> Website</button> : null}
+                  {p.website === true ? <button onClick={() => router.push(p.websiteLink)} target="_blank" className="mt-2 bg-primary/10 shadow-2xl text-white font-display font-semibold text-lg w-full py-2 rounded-md mr-5 button button-text border border-primary/20" href={p.websiteLink}><i className="fa-solid fa-globe" /> Website</button> : null}
                   </motion.div>
                   <motion.div
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.92 }}
                   >
-                  {p.invite === true ? <button onClick={() => router.push(p.inviteLink)} target="_blank" className="bg-primary mt-1.5 shadow-2xl shadow-primary text-white font-display font-semibold text-lg w-full py-2 rounded-md button button-text" href={p.inviteLink}><i className="fa-brands fa-discord" /> Invite</button> : null}
+                  {p.invite === true ? <button onClick={() => router.push(p.inviteLink)} target="_blank" className="mt-2 bg-primary/10 shadow-2xl text-white font-display font-semibold text-lg w-full py-2 rounded-md mr-5 button button-text border border-primary/20" href={p.inviteLink}><i className="fa-brands fa-discord" /> Invite</button> : null}
                   </motion.div>
                   </div>
                 </motion.div>
@@ -229,7 +229,7 @@ export default function Home() {
         whileHover={{ scale: 1.03 }}
         whileTap={{ scale: 0.95 }}
       >
-      <button onClick={() => router.push('/projects')} className="bg-primary shadow-2xl shadow-primary text-white font-display font-semibold text-lg px-10 py-3 rounded-md button button-text" href="/projects"><i className="fas fa-project-diagram mr-2"></i> View All Projects</button>
+      <button onClick={() => router.push('/projects')} className="bg-primary/10 shadow-2xl text-white font-display font-semibold text-lg px-10 py-3 rounded-md button button-text border border-primary/20 hover:bg-primary/20 active:bg-primary/30" href="/projects"><i className="fas fa-project-diagram mr-2"></i> View All Projects</button>
       </motion.div>
       </div>
 
@@ -254,7 +254,7 @@ export default function Home() {
                     >
                 <div
                 key={__}
-                className="bg-gray-300/50 dark:bg-zinc-900/50 p-4 hover:opacity-80 rounded-lg w-full hover:shadow-md hover:shadow-primary hover:outline hover:outline-2 hover:outline-primary transition-all duration-200"
+                className="bg-gray-300/50 dark:bg-zinc-900/50 p-4 hover:opacity-80 rounded-lg w-full hover:shadow-md hover:shadow-primary hover:outline hover:outline-2 hover:outline-primary transition-all duration-200 border border-gray-300/50 dark:border-zinc-900/90"
               >
                 <div className="flex justify-between items-center w-full">
                   <div className="w-[36px] h-[36px] mr-2">
@@ -280,7 +280,7 @@ export default function Home() {
               : Array.from({ length: 20 }).map((_, __) => (
                 <div
                   key={__}
-                  className="bg-gray-300/50 dark:bg-zinc-900/50 p-4 hover:bg-gray-500/50 shadow-lg hover:shadow-xl transition-all duration-200 rounded-lg w-full"
+                  className="bg-gray-300/50 dark:bg-zinc-900/50 p-4 hover:bg-gray-500/50 shadow-lg hover:shadow-xl transition-all duration-200 rounded-lg w-full border border-gray-300/50 dark:border-zinc-900/90"
                 >
                   <div className="flex justify-between items-center w-full">
                     <div className="flex-shrink-0 w-[36px] h-[36px] mr-2">
@@ -293,7 +293,7 @@ export default function Home() {
             : Array.from({ length: 20 }).map((_, __) => (
                 <div
                   key={__}
-                  className="bg-gray-300/50 dark:bg-zinc-900/50 p-4 hover:bg-gray-500/50 shadow-lg hover:shadow-xl transition-all duration-200 rounded-lg w-full"
+                  className="bg-gray-300/50 dark:bg-zinc-900/50 p-4 hover:bg-gray-500/50 shadow-lg hover:shadow-xl transition-all duration-200 rounded-lg w-full border border-gray-300/50 dark:border-zinc-900/90"
                 >
                   <div className="flex justify-between items-center w-full">
                     <div className="flex-shrink-0 w-[36px] h-[36px] mr-2">
