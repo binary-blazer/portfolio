@@ -6,11 +6,11 @@
 ## 🛠 Development Server
 
 ```bash
-npm install && npm start dev
+npm install --legacy-peer-deps && npm start dev
 ```
 ## 🛠 Production Server
 ```bash
-npm install && npm run build && npm run start
+npm install --legacy-peer-deps && npm run build && npm run start
 ```
 
 ### Terms of Use
