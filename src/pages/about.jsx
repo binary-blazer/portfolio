@@ -1,7 +1,6 @@
-import swr from 'hooks/swr'
 import Head from 'next/head'
 import Image from 'next/image'
-import { Fragment, useState } from 'react'
+import { useState, useEffect } from 'react'
 import config from '../../site.config'
 import { useRouter } from 'next/router'
 import { motion } from "framer-motion"
@@ -10,18 +9,16 @@ export default function About() {
     let [ heartColor ] = useState('#ff0000')
 
     const [lanyardLoaded, setLanyardLoaded] = useState(false);
+    const [lanyardID, setLanyardID] = useState(null);
     const [lanyardAvatar, setLanyardAvatar] = useState(null);
 
     const router = useRouter()
 
-    setInterval(() => {
-        fetch("https://api.lanyard.rest/v1/users/" + config.IndexPage.lanyard.id)
-          .then((res) => res.json())
-          .then((data) => {
-            setLanyardLoaded(true);
-            setLanyardAvatar(data.data.discord_user.avatar);
-          });
-      }, 2000);
+    useEffect(() => {
+        setLanyardAvatar(window.localStorage.getItem("lanyard") ? JSON.parse(window.localStorage.getItem("lanyard")).discord_user.avatar : null);
+        setLanyardID(window.localStorage.getItem("lanyard") ? JSON.parse(window.localStorage.getItem("lanyard")).discord_user.id : null);
+        setLanyardLoaded(true);
+      }, []);
 
     return (
         <>
@@ -38,7 +35,7 @@ export default function About() {
         </Head>
 
         <div className="mb-10 flex flex-col py-20 mx-auto">
-        <div className="flex flex-col items-center justify-center w-full flex-10 px-20 text-center">
+        <div className="mt-[10rem] flex flex-col items-center justify-center w-full flex-10 px-20 text-center">
             <h1 className="text-5xl font-semibold text-underline-2px button-text">
                 About
             </h1>
@@ -47,20 +44,20 @@ export default function About() {
                 </p>
             <br />
                         <div className="relative mx-auto">
-                        <div style={{ zIndex: 100 }} className="rounded-full">
+                        <div className="justify-center items-center flex flex-col">
                         <motion.div
                             initial={{ opacity: 0, y: 100 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 1 }}
+                            style={{ width: 111, height: 111 }}
                         >
                             <motion.div
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.96 }}
                             >
                             <Image
-                                style={{ zIndex: 0 }} 
-                                src={lanyardLoaded ? `https://cdn.discordapp.com/avatars/${config.IndexPage.lanyard.id}/${lanyardAvatar}.png` : "https://cdn.discordapp.com/attachments/971049189377179718/1044214018618953769/unknown.png"}
-                                className="rounded-full"
+                                src={lanyardLoaded ? `https://cdn.discordapp.com/avatars/${lanyardID}/${lanyardAvatar}.png?size=256` : "https://cdn.discordapp.com/attachments/971049189377179718/1044214018618953769/unknown.png"}
+                                className="rounded-md z-[0]"
                                 height="111"
                                 width="111"
                                 draggable="false"

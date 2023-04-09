@@ -1,11 +1,11 @@
-import { Menu, Transition } from '@headlessui/react'
+import { Transition } from '@headlessui/react'
 import { useTheme } from "../../context/theme.js";
-import useSWR from "hooks/swr";
 import Link from "next/link";
 import { useRouter } from "next/router"
-import { Fragment, useState } from "react";
+import { Fragment, useState, useEffect } from "react";
 import config from "../../../site.config.js";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
+import Tippy from '@tippyjs/react';
 
 export default function Header() {
     const pages = config.pages;
@@ -14,6 +14,28 @@ export default function Header() {
     const router = useRouter();
     const [isOpen, setIsOpen] = useState(false);
     const [isOpenMoreMenu, setIsOpenMoreMenu] = useState(false);
+
+    const [lanyardAvatar, setLanyardAvatar] = useState(null);
+    const [lanyardID, setLanyardID] = useState(null);
+
+    const [scrolled, setScrolled] = useState(true);
+
+  const handleScroll = () => {
+    const offset = window.scrollY;
+    if (offset > 200) {
+      setScrolled(false);
+    } else {
+      setScrolled(true);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
     const socials = [
       {
@@ -33,14 +55,20 @@ export default function Header() {
       }
   ]
 
+  useEffect(() => {
+    setLanyardAvatar(window.localStorage.getItem("lanyard") ? JSON.parse(window.localStorage.getItem("lanyard")).discord_user.avatar : null);
+    setLanyardID(window.localStorage.getItem("lanyard") ? JSON.parse(window.localStorage.getItem("lanyard")).discord_user.id : null);
+  }, []);
+
     return (
         <>
-             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className={`fixed top-0 left-0 right-0 z-50 transition-all max-w-7xl duration-300 ease-in-out mx-auto px-4 sm:px-6 lg:px-8 ${scrolled ? "bg-transparent" : "bg-black/70 top-2 left-0 right-0 md:top-4 md:left-8 md:right-8 rounded-none md:rounded-xl outline outline-2 outline-primary/70"}`} style={{ backdropFilter: (scrolled ? "blur(0px)" : "blur(10px)") }}>
                  <div className="flex justify-between items-center py-6 md:justify-start md:space-x-10">
-                 <div className="flex items-center gap-4 hover:opacity-80 transition duration-200 cursor-pointer">
-                     <Link href="/">
-                         <a className="text-2xl font-bold transition-all duration-200 button-text text-black/90 dark:text-white/90">{config.siteMetadata.author}<span className="text-primary">.</span><span className="text-1xl">me</span></a>
-                     </Link>
+                 <div className="flex items-center gap-4 hover:opacity-80 transition duration-200 cursor-pointer" onClick={() => router.push("/")}>
+                         <div className="flex items-center gap-4">
+                         <img className="h-12 w-12 rounded-md" src={lanyardAvatar ? "https://cdn.discordapp.com/avatars/" + lanyardID + "/" + lanyardAvatar + ".png?size=256" : "https://cdn.discordapp.com/attachments/971049189377179718/1044214018618953769/unknown.png"} alt="avatar" />
+                         <a className="text-2xl font-bold transition-all duration-200 button-text text-black/90 dark:text-white/90 -ml-2">{config.siteMetadata.author}<span className="text-primary">.</span><span className="text-1xl">me</span></a>
+                         </div>
                  </div>
                     <motion.div
                    whileHover={{ scale: 1.05 }}
@@ -81,22 +109,9 @@ export default function Header() {
                          ))}
                      </nav>
                      <div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
-                        <motion.div
-                         whileHover={{ scale: 1.05 }}
-                         whileTap={{ scale: 0.95 }}
-                        >
-                         <a
-                             onClick={() => router.push(config.social.github)}
-                             target="_blank"
-                             rel="noopener noreferrer"
-                             className="whitespace-nowrap text-base font-semibold text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100 button-text cursor-pointer transition-all duration-200"
-                         >
-                             <i className="fa-brands fa-github button" /> <span className="button">GitHub</span>
-                         </a>
-                            </motion.div>
- 
                          {socials.slice(0, 3).map((social) => (
                           <div className="ml-4 relative flex-shrink-0 button">
+                          <Tippy content={social.name} placement="bottom" arrow={false}>
                           <motion.div
                                  whileHover={{ scale: 1.05 }}
                                  whileTap={{ scale: 0.95 }}
@@ -112,6 +127,7 @@ export default function Header() {
                           </a>
                           </div>
                              </motion.div>
+                                </Tippy>
                              </div>
                           ))}
                          <div className="-mr-2 -my-2 md:hidden">
@@ -138,7 +154,7 @@ export default function Header() {
             leaveFrom="opacity-100 scale-100"
             leaveTo="opacity-0 scale-95"
             >
-            <div style={{ zIndex: 9999 }} className="absolute top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden">
+            <div style={{ zIndex: 9999 }} className={`fixed ${scrolled ? "top-[0rem]" : "top-[0rem]"} inset-x-0 p-2 transition transform origin-top-right md:hidden ${isOpen ? "opacity-100 scale-100" : "opacity-0 scale-95"} transition-all duration-200 ease-in-out`}>
             <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-white dark:bg-black divide-y-2 divide-gray-50">
             <div className="pt-5 pb-6 px-5">
             <div className="flex items-center justify-between">

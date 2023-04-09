@@ -13,6 +13,13 @@ module.exports = {
     },
     
     IndexPage: {
+        texts: [
+            { text: 'a Fullstack Developer', color: '#0055ff' },
+            { text: 'a Designer', color: '#FFF700' },
+            { text: 'a Gamer', color: '#FF0000' },
+            { text: '16 Years Old', color: '#44FF00' },
+            { text: 'from Germany', color: '#FF9D00' }
+        ],
         lanyard: {
             enabled: true,
             id: '679407120743137300',
@@ -26,8 +33,9 @@ module.exports = {
     },
 
     github: {
-        enabled: true,
-        username: 'JanjyTapYT',
+        enabled: true, // for the blog and the repository system.
+        username: 'JanjyTapYT', // for the blog and the repository system.
+        repoName: 'blog' // for the blog system.
     },
 
     social: {
@@ -153,7 +161,7 @@ module.exports = {
                 default: 'fal fa-home',
                 active: 'fas fa-home'
             },
-            current: false,
+            current: false
         },
         {
             id: 2,
@@ -163,7 +171,7 @@ module.exports = {
                 default: 'fal fa-user',
                 active: 'fas fa-user'
             },
-            current: false,
+            current: false
         },
         {
             id: 3,
@@ -173,17 +181,27 @@ module.exports = {
                 default: 'fal fa-project-diagram',
                 active: 'fas fa-project-diagram'
             },
-            current: false,
+            current: false
         },
         {
             id: 4,
+            name: "Blog",
+            href: "/blog",
+            icon: {
+                default: 'fal fa-blog',
+                active: 'fas fa-blog'
+            },
+            current: false
+        },
+        {
+            id: 5,
             name: "Contact",
             href: "/contact",
             icon: {
                 default: 'fal fa-envelope',
                 active: 'fas fa-envelope'
             },
-            current: false,
+            current: false
         }
     ],
 };
