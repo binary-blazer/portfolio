@@ -72,7 +72,7 @@ export default function Home() {
           )}
       <h1 className="mx-auto max-w-4xl font-semibold text-5xl font-semibold sm:text-7xl text-black dark:text-white text-center button-text mt-5"><span className="text-primary">Hi there</span>, Im <span className="text-primary">{config.siteMetadata.author}</span>,</h1>
       <h1 className="leading-none text-4xl font-bold mt-5 select-none">and im
-      <TextLoop interval={3000} className="ml-2">
+      <TextLoop interval={3000} className="ml-2 max-w-4xl">
       {texts.map((text, index) => (
         <Tippy content={text.text} placement="top" key={index} delay={100} arrow={false}>
         <div>

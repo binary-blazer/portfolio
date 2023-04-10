@@ -24,18 +24,18 @@ export default function Post() {
 
 
   if (!post && !slug) return (
-    <div className="flex flex-col items-center justify-center w-full h-full flex-10 px-10 text-center mt-20">
+    <div className="flex flex-col items-center justify-center w-full h-full text-center mt-20">
       <i className="fas fa-spinner fa-spin text-5xl"></i>
     </div>
   )
 
   return (
-    <div className="flex flex-col items-center justify-center w-full h-full flex-10 px-10 text-center mt-20 mb-96">
+    <div className="flex flex-col items-center justify-center w-full h-full mt-20 mb-96">
       <Head>
         <title>{"Post:" + " " + post.name || "Loading Blog Post"} | { config.siteMetadata.title }</title>
       </Head>
 
-      <div className="flex flex-col items-center justify-center w-full h-full flex-10 px-10 text-center mt-20">
+        <div className="flex flex-col items-center justify-center w-full h-full flex-10 px-10 text-center mt-20">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -51,7 +51,7 @@ export default function Post() {
         <img src={post.banner} className="w-full h-96 object-cover -mt-32 rounded-2xl opacity-10 select-none border border-2 border-primary/20 " draggable="false" />
 
         <div className="flex flex-col items-center justify-center w-full h-full flex-10 px-10 text-center">
-          <div className="flex flex-row items-center justify-center w-full h-full flex-10 px-10 text-center -mt-40 select-none">
+          <div className="flex flex-col lg:flex-row items-center justify-center w-full h-full flex-10 px-10 text-center -mt-40 select-none">
             <div className="flex flex-col items-center justify-center w-full h-full flex-10 px-10 text-center">
               <h1 className="text-left text-3xl underline underline-offset-4 font-bold mt-6">Author:</h1>
               <div className="flex flex-row mt-2">
@@ -80,7 +80,7 @@ export default function Post() {
             </div>
           </div>
 
-          <div className="flex flex-row items-center justify-center w-full h-full flex-10 text-center mt-20">
+          <div className="flex flex-row items-center justify-center h-full flex-10 text-center mt-20" style={{ width: "calc(100% + 80px)" }}>
             <div className="leading-8 bg-black/10 text-left text-zinc-200 rounded-2xl p-10 border border-2 border-primary/5 w-full h-full flex flex-col select-none">
             <ReactMarkdown>
               {post.content}
@@ -91,5 +91,5 @@ export default function Post() {
         </motion.div>
       </div>
     </div>
-  )
+  );
 }

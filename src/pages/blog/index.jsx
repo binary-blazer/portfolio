@@ -46,7 +46,7 @@ export default function Contact() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full h-full">
             {posts.map((post, i) => (
                 <Tilt key={i} options={{ tiltReverse: true, max: 10, scale: 1.05, speed: 500, transition: true, axis: null, reset: true, easing: "cubic-bezier(.03,.98,.52,.99)" }}
-                    className="bg-gradient-to-t from-zinc-900/50 p-4 hover:bg-zinc-700/10 h-auto text-black rounded-lg w-auto button button-text hover:shadow-2xl hover:shadow-primary hover:outline hover:outline-2 hover:outline-primary border border-gray-300/50 dark:border-zinc-900/90" 
+                    className="flex flex-col bg-gradient-to-t from-zinc-900/50 p-4 hover:bg-zinc-700/10 h-auto text-black rounded-lg w-auto button button-text hover:shadow-2xl hover:shadow-primary hover:outline hover:outline-2 hover:outline-primary border border-gray-300/50 dark:border-zinc-900/90" 
                     style={{ cursor: "pointer" }}
                     >
                       <div
@@ -64,7 +64,6 @@ export default function Contact() {
                               />
                               </div>
                             </div>
-                            <div className="flex justify-center justify-between items-center md:items-start">
                             <p className="flex flex-col text-sm mt-4 md:mt-4">
                               <span className="text-left text-3xl underline underline-offset-4 text-black dark:text-white font-bold px-2 py-1 rounded-md button button-text">
                               {post.name.substring(0, 40) + " ..." || "No Name Provided."}
@@ -74,7 +73,7 @@ export default function Contact() {
                               </span>
                             </p>
 
-                            <div className="items-end mt-6">
+                            <div className="mt-6">
                               <div className="flex flex-row justify-between items-center justify-center md:justify-start">
                                {post.tags.slice(0, 3).map((tag, i) => (
                                  <span key={i} className="mr-1 text-right text-sm bg-primary/10 border border-2 border-primary text-black dark:text-white font-bold px-2 py-1 rounded-md button button-text">
@@ -82,7 +81,6 @@ export default function Contact() {
                                 </span>
                               ))}
                               </div>
-                            </div>
                             </div>
                             </div>
                          </Tilt>

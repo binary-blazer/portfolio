@@ -90,7 +90,7 @@ export default function Header() {
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
                            >
-                             <Link href={page.href} key={page.name}>
+                             <Link href={page.href} key={page.name} legacyBehavior>
                                  <button
                                      className={`${
                                          router.pathname === page.href
@@ -179,7 +179,7 @@ export default function Header() {
             <div className="mt-6">
             <nav className="grid gap-y-8">
             {pages.map((page) => (
-            <Link href={page.href} key={page.name}>
+            <Link href={page.href} key={page.name} legacyBehavior>
             <a
             className={`-m-3 p-3 flex items-center rounded-md hover:bg-gray-50 dark:hover:bg-gray-900/50 button-text ${
             router.pathname === page.href
