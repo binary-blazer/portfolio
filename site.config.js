@@ -14,7 +14,7 @@ module.exports = {
     
     IndexPage: {
         texts: [
-            { text: 'a Fullstack Dev', color: '#0055ff' },
+            { text: 'a Fullstack Developer', color: '#0055ff' },
             { text: 'a Designer', color: '#FFF700' },
             { text: 'a Gamer', color: '#FF0000' },
             { text: '16 Years Old', color: '#44FF00' },
