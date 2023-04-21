@@ -46,9 +46,6 @@ export default function Projects() {
                         <Tilt key={i} options={{ tiltReverse: true, max: 10, scale: 1.05, speed: 500, transition: true, axis: null, reset: true, easing: "cubic-bezier(.03,.98,.52,.99)" }}
                     className="cursor-pointer w-full flex flex-col bg-gray-300/50 dark:bg-zinc-900/50 p-4 rounded-lg justify-center items-center hover:shadow-2xl hover:shadow-primary hover:outline hover:outline-2 hover:outline-primary border border-gray-300/50 dark:border-zinc-900/90"
                     >
-                      <div
-                      onClick={() => window.open(p.link, "_blank")}
-                      >
                   <div className="w-full relative md:mt-2">
                   <Image src={p.image} width="1024" className="rounded-lg button-text" height="512" draggable="false" alt={p.title} />
                   </div>
@@ -73,7 +70,6 @@ export default function Projects() {
                   >
                   {p.invite === true ? <button onClick={() => router.push(p.inviteLink)} target="_blank" className="mt-2 bg-primary/10 shadow-2xl text-white font-display font-semibold text-lg w-full py-2 rounded-md mr-5 button button-text border border-primary/20" href={p.inviteLink}><i className="fa-brands fa-discord" /> Invite</button> : null}
                   </motion.div>
-                  </div>
                   </div>
                   </Tilt>
                     ))
