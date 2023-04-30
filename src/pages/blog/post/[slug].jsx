@@ -35,12 +35,11 @@ export default function Post() {
         <title>{"Post:" + " " + post.name || "Loading Blog Post"} | { config.siteMetadata.title }</title>
       </Head>
 
-        <div className="flex flex-col items-center justify-center w-full h-full text-center mt-20" style={{ width: "calc(100% + 120px)" }}>
+        <div className="flex flex-col items-center justify-center w-full h-full text-center mt-20">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="flex flex-col items-center justify-center w-full h-full flex-10 px-10 text-center mt-20"
         >
 
         <div className="flex flex-col items-center justify-center w-full h-full select-none">
