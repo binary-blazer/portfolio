@@ -35,7 +35,7 @@ To learn more about Next.js, take a look at the following resources:
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
 ## If you want to display your Discord Presence on the site:
-#### you have to join the [lanyard discord server](https://discord.gg/G6pY5YjjTQ) for it to work. and make sure to enter your discord id in the ``./site.config.js`` at the line ``18``. 
+#### you have to join the [lanyard discord server](https://discord.gg/G6pY5YjjTQ) for it to work. and make sure to enter your discord id in the ``./site.config.js`` at the line ``25``. 
 
 
 ## ⭐ Star
