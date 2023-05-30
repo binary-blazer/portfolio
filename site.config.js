@@ -17,7 +17,7 @@ module.exports = {
             { text: 'a Fullstack Dev', color: '#0055ff' },
             { text: 'a Designer', color: '#FFF700' },
             { text: 'a Gamer', color: '#FF0000' },
-            { text: '16 Years Old', color: '#44FF00' },
+            { text: '15 Years Old', color: '#44FF00' },
             { text: 'from Germany', color: '#FF9D00' }
         ],
         lanyard: {
