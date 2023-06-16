@@ -66,7 +66,9 @@ export default function Home() {
             </div>
             <div className="flex flex-col items-start">
               <h1 className="text-start text-zinc-800 dark:text-zinc-200 transition-all duration-300 text-3xl leading-none font-semibold weight-900 button-text">{lanyardUsername}</h1>
+              {!lanyardDiscriminator === "0" && (
               <span className="text-start text-2xl text-zinc-400 font-bold button-text mt-1">#{lanyardDiscriminator}</span>
+              )}
             </div>
           </div>
           )}
