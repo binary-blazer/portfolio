@@ -1,15 +1,15 @@
 module.exports = {
-    base: 'https://janjytapyt.me',
+    base: 'https://binaryblazer.me',
     siteMetadata: {
-        title: 'JanjyTapYT | Website | Developer from Germany',
-        description: 'Im JanjyTapYT, a pro full stack developer from Germany',
+        title: 'BinaryBlazer | Website | Developer from Germany',
+        description: 'Im BinaryBlazer, a pro full stack developer from Germany',
         author: 'JanjyTapYT',
         authorImage: "https://cdn.discordapp.com/attachments/964255324687200328/1017078499217002496/Cool-Profile-Picture.jpg",
         image: '/banner.png',
         favicon: '/favicon.png',
-        url: 'https://janjytapyt.me',
+        url: 'https://binaryblazer.me',
         themeColor: '#0055ff',
-        email: 'me@janjytapyt.me',
+        email: 'binaryblazer@sdevs.org',
     },
     
     IndexPage: {
@@ -34,13 +34,13 @@ module.exports = {
 
     github: {
         enabled: true, // for the blog and the repository system.
-        username: 'JanjyTapYT', // for the blog and the repository system.
+        username: 'binary-blazer', // for the blog and the repository system.
         repoName: 'blog' // for the blog system.
     },
 
     social: {
-        twitter: 'https://twitter.com/JanjyTapYT',
-        github: 'https://github.com/JanjyTapYT',
+        twitter: 'https://twitter.com/BinaryBlazer',
+        github: 'https://github.com/binary-blazer',
         linkedin: 'https://www.linkedin.com/in/janjytapyt/',
         instagram: 'https://www.instagram.com/janjytap.yt/',
         facebook: 'https://www.facebook.com/janjytapyt',
