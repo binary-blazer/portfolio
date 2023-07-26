@@ -3,7 +3,7 @@ module.exports = {
     siteMetadata: {
         title: 'BinaryBlazer | Website | Developer from Germany',
         description: 'Im BinaryBlazer, a pro full stack developer from Germany',
-        author: 'JanjyTapYT',
+        author: 'BinaryBlazer',
         authorImage: "https://cdn.discordapp.com/attachments/964255324687200328/1017078499217002496/Cool-Profile-Picture.jpg",
         image: '/banner.png',
         favicon: '/favicon.png',
