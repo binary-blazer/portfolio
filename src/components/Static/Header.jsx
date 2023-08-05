@@ -84,7 +84,7 @@ export default function Header() {
                              <i className="text-2xl fas fa-bars" />
                          </a>
                 </motion.div>
-                <nav className="hidden md:flex space-x-10 items-center justify-center">
+                <div className="hidden md:flex space-x-10 items-center justify-center">
                      {pages.map((page) => (
                             <motion.div
                             whileHover={{ scale: 1.05 }}
@@ -107,7 +107,7 @@ export default function Header() {
                              </Link>
                             </motion.div>
                          ))}
-                     </nav>
+                     </div>
                      <div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
                          {socials.slice(0, 3).map((social) => (
                           <div className="ml-4 relative flex-shrink-0 button">
