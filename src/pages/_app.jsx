@@ -11,6 +11,7 @@ import NProgress from 'nprogress';
 import Header from 'components/Static/Header';
 import Footer from 'components/Static/Footer';
 
+
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
 
@@ -64,7 +65,7 @@ function MyApp({ Component, pageProps }) {
       </ThemeProvider>
       
       <div className="color-layout layout-blue position-right-top" />
-      <div className="color-layout layout-green position-left-bottom" />
+      <div className="color-layout layout-blue-2 position-left-bottom" />
     </>
   )
 }

@@ -30,7 +30,7 @@ export default function Home() {
 
   const projects = projectsData ? projectsData.slice(0, 3) : null;
 
-const texts = config.IndexPage.texts;
+  const texts = config.IndexPage.texts;
 
   useEffect(() => {
      setLanyardAvatar(window.localStorage.getItem("lanyard") ? JSON.parse(window.localStorage.getItem("lanyard")).discord_user.avatar : null);
@@ -54,7 +54,7 @@ const texts = config.IndexPage.texts;
 
       
       <main className="flex flex-col items-center justify-center text-center">
-     <div className="h-[53rem] flex flex-col justify-center items-center mb-72">
+      <div className="h-[53rem] flex flex-col justify-center items-center mb-72">
       {config.IndexPage.lanyard.enabled && (
             <div className="flex items-center space-x-2 mb-2">
             <div className="w-20 h-20 relative">
@@ -97,7 +97,7 @@ const texts = config.IndexPage.texts;
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.94 }}
       >
-<button onClick={() => router.push('/about')} className="bg-primary/10 shadow-2xl hover:opacity-80 text-white font-display font-semibold text-lg px-10 py-3 rounded-md button button-text border border-primary/20 hover:bg-primary/20 active:bg-primary/30 transition duration-200" href="/about"><i className="fas fa-user mr-2"></i> About Me</button>
+      <button onClick={() => router.push('/about')} className="bg-primary/10 shadow-2xl hover:opacity-80 text-white font-display font-semibold text-lg px-10 py-3 rounded-md button button-text border border-primary/20 hover:bg-primary/20 active:bg-primary/30 transition duration-200" href="/about"><i className="fas fa-user mr-2"></i> About Me</button>
       </motion.div>
       </div>
       </div>
@@ -116,7 +116,7 @@ const texts = config.IndexPage.texts;
           {_reposData ? (
             reposData && (
               <>
-                 {reposData?.slice(0, 8)?.sort((a,b) => b.stargazers_count - a.stargazers_count)?.map((_, __) => (
+                  {reposData?.slice(0, 8)?.sort((a,b) => b.stargazers_count - a.stargazers_count)?.map((_, __) => (
                     <Tilt key={__} options={{ tiltReverse: true, max: 10, scale: 1.05, speed: 500, transition: true, axis: null, reset: true, easing: "cubic-bezier(.03,.98,.52,.99)" }}
                     className="bg-gray-300/50 dark:bg-zinc-900/50 p-4 hover:bg-zinc-700/10 h-auto text-black rounded-lg w-auto button button-text hover:shadow-2xl hover:shadow-primary hover:outline hover:outline-2 hover:outline-primary border border-gray-300/50 dark:border-zinc-900/90" 
                     style={{ cursor: "pointer" }}
@@ -161,7 +161,7 @@ const texts = config.IndexPage.texts;
                             <p className="text-1xl font-bold text-black dark:text-white mt-2 md:mt-4 button button-text">
                               {_.description}
                             </p>
-                                </div>
+                            </div>
                          </Tilt>
                   ))}
               </>
@@ -180,7 +180,7 @@ const texts = config.IndexPage.texts;
                 Here are some of my projects
                 </p>
             <br />
-           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16">
             {_projectsData ? (
                 projects ? (
                   projects?.map((p, i) => (

@@ -3,18 +3,26 @@
 @tailwind utilities;
 
 body {
-    background: #f5f5f5;
-    color: #000;
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
-}
-
-.dark body {
-    background: #050505;
+    background: radial-gradient(
+        ellipse at center,
+        rgba(255, 255, 255, 0.1) 0%,
+        rgba(255, 255, 255, 0.1) 50%,
+        rgba(255, 255, 255, 0.05) 50%,
+        rgba(255, 255, 255, 0.05) 100%
+      ),
+      #050505;
     color: #fff;
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
-}
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+    background-attachment: fixed;
+    background-size: 20px 20px;
+    background-image:
+      radial-gradient(#1a1a1a 1px, transparent 0),
+      radial-gradient(#111111 1px, transparent 0);
+    background-position:
+      0 0,
+      10px 10px;
+  }  
 
 
 /* Hide scrollbar for Chrome, Safari and Opera */
@@ -22,14 +30,8 @@ body::-webkit-scrollbar {
     display: none;
 }
 
-/* Hide scrollbar for Chrome, Safari and Opera */
-.dark body::-webkit-scrollbar {
-    display: none;
-}
-
 * {
     font-family: 'Lexend Deca', sans-serif;
-    cursor: auto !important;
 }
 
 .button {
@@ -117,20 +119,7 @@ body::-webkit-scrollbar {
     background: radial-gradient(at 150% 0%, #0055ff 0, transparent 50%);
 }
 
-.layout-green {
+.layout-blue-2 {
     top: 25%;
     background: radial-gradient(at 0% 150%, #0055ff 0, transparent 50%);
 }
-
-.dnd {
-    background-color: #f14668;
-  }
-  .idle {
-    background-color: rgb(255, 166, 0);
-  }
-  .online {
-    background-color: #1e9227;
-  }
-  .offline {
-    background-color: #727272;
-  }
