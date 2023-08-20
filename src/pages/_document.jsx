@@ -9,7 +9,7 @@ export default function MyDocument() {
             <meta name="googlebot-news" content="snippet" />
             <meta name="robots" content="follow" />
             <meta name="twitter:card" content="summary" />
-            <meta name="twitter:site" content="@BnaryBlazer" />
+             <meta name="twitter:site" content="@BnaryBlazer" />
             <meta name="twitter:creator" content="@BnaryBlazer" />
             <meta name="twitter:title" content={`${config.siteMetadata.title}`} />
             <meta name="twitter:description" content={config.siteMetadata.description} />
@@ -20,7 +20,7 @@ export default function MyDocument() {
             <meta property="og:url" content={config.siteMetadata.url} />
             <meta name="theme-color" content={config.siteMetadata.themeColor} />
             <link rel="canonical" href={config.siteMetadata.url} />
-            <meta name="publisher" content="2022, BnaryBlazer" />
+             <meta name="publisher" content="2022, BnaryBlazer" />
             <meta name="author" content="me@binaryblazer.me" />
             <link href="https://pro.fontawesome.com/releases/v6.0.0-beta1/css/all.css" rel="stylesheet" />
         </Head>

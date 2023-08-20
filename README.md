@@ -21,7 +21,7 @@ By using this website, you agree to the following terms of use:
 ```md
 - You are not allowed to sell this website or any part of it.
 - You are not allowed to claim this website as your own.
-- You are not allowed to change the credits ("Developed with ❤️ by BinaryBlazer") in the footer of the website.
+- You are not allowed to change the credits ("Developed with ❤️ by JanjyTapYT") in the footer of the website.
 - You are allowed to modify the code of this website as long as you don't sell it or claim it as your own.
 - You have the permission to share in writing, but you have to mention me, in the article.
 - You can't speak in a "i did it" way.
@@ -47,5 +47,5 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 ## 💫 Credits
 
 ```bash
-Developed with ❤️ by BinaryBlazer
+Developed with ❤️ by JanjyTapYT
 ```
