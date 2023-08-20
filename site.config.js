@@ -1,18 +1,25 @@
 module.exports = {
-    base: 'https://janjytapyt.me',
+    base: 'https://binaryblazer.me',
     siteMetadata: {
-        title: 'JanjyTapYT | Website | Developer from Germany',
-        description: 'Im JanjyTapYT, a pro full stack developer from Germany',
-        author: 'JanjyTapYT',
+        title: 'BinaryBlazer | Website | Developer from Germany',
+        description: 'Im BinaryBlazer, a pro full stack developer from Germany',
+        author: 'BinaryBlazer',
         authorImage: "https://cdn.discordapp.com/attachments/964255324687200328/1017078499217002496/Cool-Profile-Picture.jpg",
         image: '/banner.png',
         favicon: '/favicon.png',
-        url: 'https://janjytapyt.me',
+        url: 'https://binaryblazer.me',
         themeColor: '#0055ff',
-        email: 'me@janjytapyt.me',
+        email: 'binaryblazer@sdevs.org',
     },
     
     IndexPage: {
+        texts: [
+            { text: 'a Fullstack Dev', color: '#0055ff' },
+            { text: 'a Designer', color: '#FFF700' },
+            { text: 'a Gamer', color: '#FF0000' },
+            { text: '15 Years Old', color: '#44FF00' },
+            { text: 'from Germany', color: '#FF9D00' }
+        ],
         lanyard: {
             enabled: true,
             id: '679407120743137300',
@@ -26,13 +33,14 @@ module.exports = {
     },
 
     github: {
-        enabled: true,
-        username: 'JanjyTapYT',
+        enabled: true, // for the blog and the repository system.
+        username: 'binary-blazer', // for the blog and the repository system.
+        repoName: 'blog' // for the blog system.
     },
 
     social: {
-        twitter: 'https://twitter.com/JanjyTapYT',
-        github: 'https://github.com/JanjyTapYT',
+        twitter: 'https://twitter.com/BinaryBlazer',
+        github: 'https://github.com/binary-blazer',
         linkedin: 'https://www.linkedin.com/in/janjytapyt/',
         instagram: 'https://www.instagram.com/janjytap.yt/',
         facebook: 'https://www.facebook.com/janjytapyt',
@@ -153,7 +161,7 @@ module.exports = {
                 default: 'fal fa-home',
                 active: 'fas fa-home'
             },
-            current: false,
+            current: false
         },
         {
             id: 2,
@@ -163,7 +171,7 @@ module.exports = {
                 default: 'fal fa-user',
                 active: 'fas fa-user'
             },
-            current: false,
+            current: false
         },
         {
             id: 3,
@@ -173,17 +181,27 @@ module.exports = {
                 default: 'fal fa-project-diagram',
                 active: 'fas fa-project-diagram'
             },
-            current: false,
+            current: false
         },
         {
             id: 4,
+            name: "Blog",
+            href: "/blog",
+            icon: {
+                default: 'fal fa-blog',
+                active: 'fas fa-blog'
+            },
+            current: false
+        },
+        {
+            id: 5,
             name: "Contact",
             href: "/contact",
             icon: {
                 default: 'fal fa-envelope',
                 active: 'fas fa-envelope'
             },
-            current: false,
+            current: false
         }
     ],
 };

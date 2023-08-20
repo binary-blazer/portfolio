@@ -6,7 +6,7 @@ const withPWA = require("next-pwa")({
 
 module.exports = withPWA({
   images: {
-    domains: [ "cdn.discordapp.com", "i.imgur.com", "janjytapyt.me", "localhost:3000" ]
+    domains: [ "cdn.discordapp.com", "i.imgur.com", "binaryblazer.me", "localhost:3000" ]
 },
 async redirects() {
     return [

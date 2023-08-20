@@ -10,13 +10,13 @@ export default async (req, res) => {
         });
     }
 
-    let _ =  await fetch(process.env.webhook, {
+    let _ =  await fetch(process.env.WEBHOOK, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-          username: 'JanjyTapYT.me | Contact Form',
+          username: 'binaryblazer.me | Contact Form',
           attachments: [],
           embeds: [
             {
