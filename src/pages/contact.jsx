@@ -53,8 +53,8 @@ export default function Contact() {
         <link rel="icon" href={config.siteMetadata.favicon} type="image/x-icon" />
         </Head>
 
-        <div className="mb-10 flex flex-col py-20 mx-auto">
-        <div className="flex flex-col items-center justify-center w-full flex-10 px-10 text-center">
+        <div className="mb-40 flex flex-col mx-auto">
+        <div className="mt-[15rem] flex flex-col items-center justify-center w-full flex-10 px-10 -mb-2 text-center">
             <h1 className="text-5xl font-semibold text-underline-2px button-text">
                 Contact
             </h1>

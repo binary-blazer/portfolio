@@ -50,7 +50,24 @@ export default function Footer() {
                         </motion.div>
                     ))}
                 </div>
-                 <div className="items-center justify-between gap-4 mt-8">
+
+                <div className="mt-6 flex justify-center space-x-6 mb-3">
+                <motion.div
+                         whileHover={{ scale: 1.05 }}
+                         whileTap={{ scale: 0.95 }}
+                        >
+                         <a
+                             onClick={() => router.push("https://github.com/JanjyTapYT/portfolio")}
+                             target="_blank"
+                             rel="noopener noreferrer"
+                             className="whitespace-nowrap text-base font-semibold text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100 button-text cursor-pointer transition-all duration-200"
+                         >
+                             <i className="fa-brands fa-github button" /> <span className="button">Open Source</span>
+                         </a>
+                </motion.div>
+                </div>
+
+                 <div className="items-center justify-between gap-4">
                   <p className="text-1xl text-center text-zinc-400 button-text">© 2020 - {new Date().getFullYear()} {config.siteMetadata.author}. All rights reserved.</p>
                    {/*
                    

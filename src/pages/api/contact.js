@@ -10,7 +10,7 @@ export default async (req, res) => {
         });
     }
 
-    let _ =  await fetch(process.env.webhook, {
+    let _ =  await fetch(process.env.WEBHOOK, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

@@ -1,0 +1,15 @@
+{
+    "name": "Welcome to my Portfolio!",
+    "description": "Welcome to my portfolio! Here you can find all my projects and other cool stuff like interests, tools and blog posts. I hope you enjoy your stay!",
+    "authorAvatar": "https://cdn.discordapp.com/attachments/971049189377179718/1094666845581234266/dev.png",
+    "author": "JanjyTapYT",
+    "slug": "welcome",
+    "banner": "https://cdn.discordapp.com/attachments/971049189377179718/1094670786238885899/Screenshot_590_he.png",
+    "releaseDate": "09/04/2023",
+    "tags": [
+        "welcome",
+        "portfolio",
+        "janjytapyt",
+        "open-source"
+    ]
+}

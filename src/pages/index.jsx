@@ -1,23 +1,22 @@
+import { TextLoop } from "react-text-loop-next";
 import swr from 'hooks/swr'
 import Head from 'next/head'
 import Image from 'next/image'
 import Tippy from "@tippyjs/react";
-import { Transition, Dialog } from '@headlessui/react'
-import { Fragment, useEffect } from 'react'
+import { useEffect } from 'react'
 import config from '../../site.config.js'
 import { useRouter } from 'next/router'
-import Link from 'next/link'
 import { useState } from 'react'
 import { motion } from "framer-motion"
+import Tilt from 'react-parallax-tilt';
 
 export default function Home() {
-  const { data: _skills } = swr('/api/skills', 60000);
-  const skills = _skills ? _skills : null;
-
   const [lanyardAvatar, setLanyardAvatar] = useState(null);
   const [lanyardUsername, setLanyardUsername] = useState("Loading");
   const [lanyardDiscriminator, setLanyardDiscriminator] = useState("0000");
-  const [lanyardStatus, setLanyardStatus] = useState("offline");
+
+  const { data: _skills } = swr('/api/skills', 60000);
+  const skills = _skills ? _skills : null;
 
   const { data: _projectsData } = swr('/api/projects', 60000);
   const projectsData = _projectsData ? _projectsData : null;
@@ -31,17 +30,13 @@ export default function Home() {
 
   const projects = projectsData ? projectsData.slice(0, 3) : null;
 
-  setInterval(() => {
-    fetch("https://api.lanyard.rest/v1/users/" + config.IndexPage.lanyard.id)
-      .then((res) => res.json())
-      .then((data) => {
-        setLanyardAvatar(data.data.discord_user.avatar);
-        setLanyardUsername(data.data.discord_user.username);
-        setLanyardDiscriminator(data.data.discord_user.discriminator);
-        setLanyardStatus(data.data.discord_status);
-      });
-  }, 2000);
+  const texts = config.IndexPage.texts;
 
+  useEffect(() => {
+     setLanyardAvatar(window.localStorage.getItem("lanyard") ? JSON.parse(window.localStorage.getItem("lanyard")).discord_user.avatar : null);
+      setLanyardUsername(window.localStorage.getItem("lanyard") ? JSON.parse(window.localStorage.getItem("lanyard")).discord_user.username : "Loading");
+      setLanyardDiscriminator(window.localStorage.getItem("lanyard") ? JSON.parse(window.localStorage.getItem("lanyard")).discord_user.discriminator : "0000");
+  }, []);
 
   return (
     <> 
@@ -59,42 +54,50 @@ export default function Home() {
 
       
       <main className="flex flex-col items-center justify-center text-center">
-      <div className="h-[43rem] flex flex-col justify-center items-center mb-72">
-        {config.IndexPage.lanyard.enabled && (
+      <div className="h-[53rem] flex flex-col justify-center items-center mb-72">
+      {config.IndexPage.lanyard.enabled && (
             <div className="flex items-center space-x-2 mb-2">
             <div className="w-20 h-20 relative">
               {lanyardAvatar == null ? (
-                <Image className="rounded-full bg-white/10 button-text mr-20" src={`https://cdn.discordapp.com/attachments/971049189377179718/1044214018618953769/unknown.png`} layout="fill" height={700} width={700} />
+                <Image className="rounded-md bg-white/10 button-text mr-20" src={`https://cdn.discordapp.com/attachments/971049189377179718/1044214018618953769/unknown.png`} height={700} width={700} draggable="false" />
               ) : (
-                <Image className="rounded-full bg-white/10 button-text mr-20" src={`https://cdn.discordapp.com/avatars/${config.IndexPage.lanyard.id}/${lanyardAvatar}.png`} layout="fill" height={700} width={700} />
+                <Image className="rounded-md bg-white/10 button-text mr-20" src={`https://cdn.discordapp.com/avatars/${config.IndexPage.lanyard.id}/${lanyardAvatar}.png`} height={700} width={700} draggable="false" />
               )}
-              <div className="absolute bottom-0 right-0 w-6 h-6 rounded-full bg-[#000000]">
-                <div className="w-full h-full relative">
-                  <div className={`absolute top-0.5 left-0.5 animate-ping w-5 h-5 rounded-full ${lanyardStatus}`} />
-                  <div className={`absolute top-0.5 left-0.5 w-5 h-5 rounded-full ${lanyardStatus}`} />
-                </div>
-              </div>
             </div>
-            <div>
-              <h1 className="text-zinc-800 dark:text-zinc-200 transition-all duration-300 cursor-pointer text-3xl leading-none font-semibold weight-900 button-text">{lanyardUsername} <span className="text-zinc-400 font-bold mr-1 button-text">#{lanyardDiscriminator}</span></h1>
+            <div className="flex flex-col items-start">
+              <h1 className="text-start text-zinc-800 dark:text-zinc-200 transition-all duration-300 text-3xl leading-none font-semibold weight-900 button-text">{lanyardUsername}</h1>
+              {!lanyardDiscriminator === "0" && (
+              <span className="text-start text-2xl text-zinc-400 font-bold button-text mt-1">#{lanyardDiscriminator}</span>
+              )}
             </div>
           </div>
           )}
-      <h1 className="mx-auto max-w-4xl font-semibold text-5xl font-semibold sm:text-7xl text-black dark:text-white text-center button-text mt-5"><span className="text-primary">Hi there</span>, Im <span className="text-primary">{config.siteMetadata.author}</span> <div className="mt-3"> I'm a <span className="text-underline-2px">{config.AboutMePage.developerGrade}</span></div></h1>
-      <h1 className="mx-auto max-w-4xl font-semibold text-5xl font-semibold sm:text-7xl text-black dark:text-white text-center button-text"><div className="mt-3"> from <span className="text-underline-2px mt-2">{config.AboutMePage.yourLand}</span></div></h1>
+      <h1 className="mx-auto font-semibold text-4xl md:text-5xl font-semibold sm:text-7xl text-black dark:text-white text-center button-text mt-5"><span className="text-primary">Hi there</span>, Im <span className="text-primary">{config.siteMetadata.author}</span>,</h1>
+      <h1 className="leading-none text-2xl md:text-4xl font-bold mt-5 select-none">and im
+      <TextLoop interval={3000} className="ml-2 max-w-2xl">
+      {texts.map((text, index) => (
+        <Tippy content={text.text} placement="top" key={index} delay={100} arrow={false}>
+        <div>
+            <h1 className="leading-none font-bold" style={{ color: text.color }}>{text.text}</h1>
+        </div>
+        </Tippy>
+        ))}
+      </TextLoop>
+      .
+      </h1>
       <div className="flex flex-row justify-center items-center mt-10">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
       <motion.div
         whileHover={{ scale: 1.03 }}
         whileTap={{ scale: 0.95 }}
       >
-      <button onClick={() => router.push('/contact')} className="bg-primary/10 shadow-2xl text-white font-display font-semibold text-lg px-10 py-3 rounded-md button button-text border border-primary/20 hover:bg-primary/20 active:bg-primary/30" href="/contact"><i className="fas fa-envelope mr-2"></i> Contact Me</button>
+      <button onClick={() => router.push('/contact')} className="bg-primary/10 shadow-2xl hover:opacity-80 text-white font-display font-semibold text-lg px-10 py-3 rounded-md button button-text border border-primary/20 hover:bg-primary/20 active:bg-primary/30 transition duration-200" href="/contact"><i className="fas fa-envelope mr-2"></i> Contact Me</button>
       </motion.div>
       <motion.div
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.94 }}
       >
-      <button onClick={() => router.push('/about')} className="bg-primary/10 shadow-2xl text-white font-display font-semibold text-lg px-10 py-3 rounded-md button button-text border border-primary/20 hover:bg-primary/20 active:bg-primary/30" href="/about"><i className="fas fa-user mr-2"></i> About Me</button>
+      <button onClick={() => router.push('/about')} className="bg-primary/10 shadow-2xl hover:opacity-80 text-white font-display font-semibold text-lg px-10 py-3 rounded-md button button-text border border-primary/20 hover:bg-primary/20 active:bg-primary/30 transition duration-200" href="/about"><i className="fas fa-user mr-2"></i> About Me</button>
       </motion.div>
       </div>
       </div>
@@ -113,16 +116,14 @@ export default function Home() {
           {_reposData ? (
             reposData && (
               <>
-                  {reposData?.slice(0,8)?.sort((a,b) => b.stargazers_count - a.stargazers_count)?.map((_, __) => (
-                    <motion.div
-                    whileHover={{ y: -7, transition: { duration: 0.4 } }}
-                    whileTap={{ y: 7, transition: { duration: 0.4 } }}
-                    key={__}
-                    onClick={() => window.open(_.html_url, "_blank")}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="bg-gray-300/50 dark:bg-zinc-900/50 p-4 hover:bg-zinc-700/10 h-auto text-black rounded-lg w-full button button-text hover:shadow-2xl hover:shadow-primary hover:outline hover:outline-2 hover:outline-primary border border-gray-300/50 dark:border-zinc-900/90"
+                  {reposData?.slice(0, 8)?.sort((a,b) => b.stargazers_count - a.stargazers_count)?.map((_, __) => (
+                    <Tilt key={__} options={{ tiltReverse: true, max: 10, scale: 1.05, speed: 500, transition: true, axis: null, reset: true, easing: "cubic-bezier(.03,.98,.52,.99)" }}
+                    className="bg-gray-300/50 dark:bg-zinc-900/50 p-4 hover:bg-zinc-700/10 h-auto text-black rounded-lg w-auto button button-text hover:shadow-2xl hover:shadow-primary hover:outline hover:outline-2 hover:outline-primary border border-gray-300/50 dark:border-zinc-900/90" 
+                    style={{ cursor: "pointer" }}
                     >
+                      <div
+                        onClick={() => window.open(_.html_url, "_blank")}
+                      >
                             <div className="w-full relative">
                               <div className="flex flex-row justify-between items-center justify-center md:justify-start">
                               <img
@@ -160,7 +161,8 @@ export default function Home() {
                             <p className="text-1xl font-bold text-black dark:text-white mt-2 md:mt-4 button button-text">
                               {_.description}
                             </p>
-                          </motion.div>
+                            </div>
+                         </Tilt>
                   ))}
               </>
             )
@@ -178,15 +180,13 @@ export default function Home() {
                 Here are some of my projects
                 </p>
             <br />
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16">
             {_projectsData ? (
                 projects ? (
                   projects?.map((p, i) => (
-                    <motion.div
-                whileHover={{ y: -7, transition: { duration: 0.4 } }}
-                whileTap={{ y: 7, transition: { duration: 0.4 } }}
-                className="cursor-pointer w-full flex flex-col bg-gray-300/50 dark:bg-zinc-900/50 p-4 rounded-lg justify-center items-center hover:shadow-2xl hover:shadow-primary hover:outline hover:outline-2 hover:outline-primary border border-gray-300/50 dark:border-zinc-900/90" key={i}
-                >
+                    <Tilt key={i} options={{ tiltReverse: true, max: 10, scale: 1.05, speed: 500, transition: true, axis: null, reset: true, easing: "cubic-bezier(.03,.98,.52,.99)" }}
+                    className="cursor-pointer w-full flex flex-col bg-gray-300/50 dark:bg-zinc-900/50 p-4 rounded-lg justify-center items-center hover:shadow-2xl hover:shadow-primary hover:outline hover:outline-2 hover:outline-primary border border-gray-300/50 dark:border-zinc-900/90"
+                    >
                   <div className="w-full relative md:mt-2">
                   <Image src={p.image} width="1024" className="rounded-lg button-text" height="512" draggable="false" alt={p.title} />
                   </div>
@@ -212,7 +212,7 @@ export default function Home() {
                   {p.invite === true ? <button onClick={() => router.push(p.inviteLink)} target="_blank" className="mt-2 bg-primary/10 shadow-2xl text-white font-display font-semibold text-lg w-full py-2 rounded-md mr-5 button button-text border border-primary/20" href={p.inviteLink}><i className="fa-brands fa-discord" /> Invite</button> : null}
                   </motion.div>
                   </div>
-                </motion.div>
+                  </Tilt>
                 ))
                 ) : <></>
             ) : (
