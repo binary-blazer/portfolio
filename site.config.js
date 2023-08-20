@@ -1,25 +1,18 @@
 module.exports = {
-    base: 'https://janjytapyt.me',
+    base: 'https://binaryblazer.me',
     siteMetadata: {
-        title: 'JanjyTapYT | Website | Developer from Germany',
-        description: 'Im JanjyTapYT, a pro full stack developer from Germany',
-        author: 'JanjyTapYT',
+        title: 'BinaryBlazer | Website | Developer from Germany',
+        description: 'Im BinaryBlazer, a pro full stack developer from Germany',
+        author: 'BinaryBlazer',
         authorImage: "https://cdn.discordapp.com/attachments/964255324687200328/1017078499217002496/Cool-Profile-Picture.jpg",
         image: '/banner.png',
         favicon: '/favicon.png',
-        url: 'https://janjytapyt.me',
+        url: 'https://binaryblazer.me',
         themeColor: '#0055ff',
-        email: 'me@janjytapyt.me',
+        email: 'me@binaryblazer.me',
     },
     
     IndexPage: {
-        texts: [
-            { text: 'a Fullstack Dev', color: '#0055ff' },
-            { text: 'a Designer', color: '#FFF700' },
-            { text: 'a Gamer', color: '#FF0000' },
-            { text: '15 Years Old', color: '#44FF00' },
-            { text: 'from Germany', color: '#FF9D00' }
-        ],
         lanyard: {
             enabled: true,
             id: '679407120743137300',
@@ -34,13 +27,12 @@ module.exports = {
 
     github: {
         enabled: true,
-        username: 'JanjyTapYT',
-        repoName: 'blog' // for the blog system.
+        username: 'binary-blazer',
     },
 
     social: {
-        twitter: 'https://twitter.com/JanjyTapYT',
-        github: 'https://github.com/JanjyTapYT',
+        twitter: 'https://twitter.com/BinaryBlazer',
+        github: 'https://github.com/binary-blazer',
         linkedin: 'https://www.linkedin.com/in/janjytapyt/',
         instagram: 'https://www.instagram.com/janjytap.yt/',
         facebook: 'https://www.facebook.com/janjytapyt',
@@ -97,9 +89,9 @@ module.exports = {
                 slug: "portfolio",
                 name: "My Portfolio", 
                 github: true,
-                githubLink: "https://github.com/JanjyTapYT/portfolio",
+                githubLink: "https://github.com/binary-blazer/portfolio",
                 website: true,
-                websiteLink: "https://janjytapyt.me",
+                websiteLink: "https://binaryblazer.me",
                 invite: false,
                 inviteLink: "",
                 description: "My Portfolio Website. It Is insane cool and it is open source.",
@@ -185,16 +177,6 @@ module.exports = {
         },
         {
             id: 4,
-            name: "Blog",
-            href: "/blog",
-            icon: {
-                default: 'fal fa-blog',
-                active: 'fas fa-blog'
-            },
-            current: false
-        },
-        {
-            id: 5,
             name: "Contact",
             href: "/contact",
             icon: {
