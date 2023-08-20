@@ -51,14 +51,14 @@ export default function Footer() {
                     ))}
                 </div>
                  <div className="items-center justify-between gap-4 mt-8">
-                  <p className="text-1xl text-center text-zinc-400 button-text">© 2020 - {new Date().getFullYear()} {config.siteMetadata.author}. All rights reserved.</p>
+                  <p className="text-1xl text-center text-zinc-400 button-text">© 2018 - {new Date().getFullYear()} {config.siteMetadata.author}. All rights reserved.</p>
                    {/*
                    
                    Dont touch this!
                    
                    */}
                    <div className="text-center mt-1">
-                   <p className="text-lg text-zinc-400 select-none button-text">Made with <i className="fas fa-heart" style={{ color: heartColor, cursor: 'pointer' }} /> by <button onClick={() => router.push('https://janjytapyt.me')} className="text-zinc-400 hover:text-primary hover:dark:text-white button" href="https://janjytapyt.me"><motion.div whileTap={{ scale: 0.95 }}>JanjyTapYT</motion.div></button></p>
+                   <p className="text-lg text-zinc-400 select-none button-text">Made with <i className="fas fa-heart" style={{ color: heartColor, cursor: 'pointer' }} /> by <button onClick={() => router.push('https://binaryblazer.me')} className="text-zinc-400 hover:text-primary hover:dark:text-white button" href="https://binaryblazer.me"><motion.div whileTap={{ scale: 0.95 }}>BinaryBlazer</motion.div></button></p>
                 </div>
                   {/*
                   
