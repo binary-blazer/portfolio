@@ -13,6 +13,13 @@ module.exports = {
     },
     
     IndexPage: {
+        texts: [
+            { text: 'a Fullstack Dev', color: '#0055ff' },
+            { text: 'a Designer', color: '#FFF700' },
+            { text: 'a Gamer', color: '#FF0000' },
+            { text: '15 Years Old', color: '#44FF00' },
+            { text: 'from Germany', color: '#FF9D00' }
+        ],
         lanyard: {
             enabled: true,
             id: '679407120743137300',
@@ -28,6 +35,7 @@ module.exports = {
     github: {
         enabled: true,
         username: 'binary-blazer',
+        blog: 'blog',
     },
 
     social: {
@@ -177,6 +185,16 @@ module.exports = {
         },
         {
             id: 4,
+            name: "Blog",
+            href: "/blog",
+            icon: {
+                default: 'fal fa-blog',
+                active: 'fas fa-blog'
+            },
+            current: false
+        },
+        {
+            id: 5,
             name: "Contact",
             href: "/contact",
             icon: {
