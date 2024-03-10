@@ -196,7 +196,7 @@ export default function Header() {
             className="flex items-center justify-center px-6 bg-primary-500 text-white font-bold py-2 rounded-lg shadow-lg hover:bg-primary-600 transition-colors"
             onClick={() => router.push("/contact")}
           >
-            Let's Connect
+            Let&apos;s Connect
           </button>
         </div>
       </header>
