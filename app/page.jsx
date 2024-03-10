@@ -53,7 +53,7 @@ export default function Home() {
       <main className="flex flex-col min-h-screen items-center justify-center p-32 mx-auto">
         <div className="flex flex-col w-full items-center justify-center">
           <div className="bg-neutral-800 font-medium p-2 rounded-lg shadow-lg mb-4">
-            <div className="hi">👋</div> Hi There, I'm BinaryBlazer
+            <div className="hi">👋</div> Hi There, I&apos;m BinaryBlazer
           </div>
           <h1 className="text-4xl font-bold text-center">
             I Build{" "}
@@ -75,7 +75,7 @@ export default function Home() {
             <span className="text-3xl rocket">🚀</span>
           </h1>
           <p className="text-xl text-center">
-            I'm a full-stack developer with a passion for open-source software
+            I&apos;m a full-stack developer with a passion for open-source software
             and the web.
           </p>
         </div>
@@ -126,10 +126,10 @@ export default function Home() {
             </h2>
           </div>
           <p className="text-xl mt-2">
-            I'm a full-stack developer with a passion for open-source software
-            and the web. I've been developing for the web for over 6 years and
+            I&apos;m a full-stack developer with a passion for open-source software
+            and the web. I&apos;ve been developing for the web for over 6 years and
             have a strong understanding of web technologies and best practices.
-            I'm also a strong advocate for open-source software and have
+            I&apos;m also a strong advocate for open-source software and have
             contributed to many projects over the years.
           </p>
         </div>
@@ -174,7 +174,7 @@ export default function Home() {
             </h2>
           </div>
           <p className="text-xl mt-2">
-            Here are some of the projects I've been working on recently.
+            Here are some of the projects I&apos;ve been working on recently.
           </p>
         </div>
         <div className="w-full items-start justify-center grid grid-cols-2 gap-4">
@@ -265,7 +265,7 @@ export default function Home() {
             </h2>
           </div>
           <p className="text-xl mt-2">
-            Here are some testimonials from people I've worked with.
+            Here are some testimonials from people I&apos;ve worked with.
           </p>
         </div>
         <div

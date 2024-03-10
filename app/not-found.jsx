@@ -13,7 +13,7 @@ export default function NotFound() {
         404
       </h1>
       <p className="text-lg text-neutral-300">
-        The page you're looking for doesn't exist.
+        The page you&apos;re looking for doesn&apos;t exist.
       </p>
     </div>
   );

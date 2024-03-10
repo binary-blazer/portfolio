@@ -25,10 +25,10 @@ export default function About() {
             </h2>
           </div>
           <p className="text-xl mt-2">
-            I'm a full-stack developer with a passion for open-source software
-            and the web. I've been developing for the web for over 6 years and
+            I&apos;m a full-stack developer with a passion for open-source software
+            and the web. I&apos;ve been developing for the web for over 6 years and
             have a strong understanding of web technologies and best practices.
-            I'm also a strong advocate for open-source software and have
+            I&apos;m also a strong advocate for open-source software and have
             contributed to many projects over the years.
           </p>
         </div>
