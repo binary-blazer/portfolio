@@ -1,0 +1,183 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  color: #fff;
+  @apply bg-neutral-900;
+  position: relative;
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: repeating-linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 0.01),
+      rgba(255, 255, 255, 0.05) 1px,
+      transparent 1px,
+      transparent 50px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.01),
+      rgba(255, 255, 255, 0.05) 1px,
+      transparent 1px,
+      transparent 50px
+    );
+  background-size: 400px 400px;
+  z-index: -1;
+}
+
+body::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: radial-gradient(
+    circle at center,
+    transparent,
+    rgb(23, 23, 23) 70%
+  );
+  z-index: -1;
+}
+
+@keyframes hi {
+  0% {
+    transform: rotate(0deg);
+  }
+  10% {
+    transform: rotate(14deg);
+  }
+  20% {
+    transform: rotate(-8deg);
+  }
+  30% {
+    transform: rotate(14deg);
+  }
+  40% {
+    transform: rotate(-4deg);
+  }
+  50% {
+    transform: rotate(10deg);
+  }
+  60% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes rocket {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translate(4px, -10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.hi {
+  animation: hi 1.5s linear -0.5s infinite;
+  display: inline-block;
+  transform-origin: 70% 70%;
+}
+
+.rocket {
+  animation: rocket 4s linear -0.5s infinite;
+  display: inline-block;
+  transform-origin: 70% 70%;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1f1f1f;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #4d4d4d;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #666666;
+}
+
+/* Custom Cursor */
+.cursor {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  mix-blend-mode: difference;
+  transition: all 0.1s ease;
+  transform: translate(-50%, -50%);
+  transition-property: width, height, border;
+}
+
+.cursor::before {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: #fff;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 0.1s ease;
+}
+
+.cursor.cursor--hovered {
+  width: 40px;
+  height: 40px;
+  border-width: 1px;
+}
+
+.cursor.cursor--clicked {
+  width: 60px;
+  height: 60px;
+  border-width: 1px;
+}
+
+.cursor.cursor--hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+@keyframes glitch {
+  2%,
+  64% {
+    transform: translate(2px, 0) skew(0deg);
+  }
+  4%,
+  60% {
+    transform: translate(-2px, 0) skew(0deg);
+  }
+  62% {
+    transform: translate(0, 0) skew(5deg);
+  }
+}
+
+.not_found_text_glitch {
+  position: relative;
+  overflow: hidden;
+  animation: glitch 1s linear infinite;
+}

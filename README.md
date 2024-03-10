@@ -11,11 +11,16 @@
 ## 🛠 Development Server
 
 ```bash
-npm install && npm start dev
+npm/yarn/pnpm install && npm/yarn/pnpm start dev
 ```
 ## 🛠 Production Server
 ```bash
-npm install && npm run build && npm run start
+npm/yarn/pnpm install && npm/yarn/pnpm run build && npm/yarn/pnpm run start
+```
+
+# Format
+```
+npm/yarn/pnpm format
 ```
 
 ### Terms of Use
