@@ -15,6 +15,7 @@ export default function Home() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [message, setMessage] = useState("");
+  const [error, setError] = useState(null);
   const scrollContainerRef = useRef(null);
 
   const onMouseDown = (e) => {
@@ -42,10 +43,27 @@ export default function Home() {
   };
 
   const sendEmail = (e) => {
-    if (typeof window !== "undefined") {
-      window.alert("This feature is not yet implemented.");
-    }
     e.preventDefault();
+
+    fetch("/api/contact", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email, firstName, lastName, message }),
+    })
+      .then((res) => res.text())
+      .then((data) => {
+        if (data !== "Message sent successfully") {
+          setError(data);
+        } else {
+          setEmail("");
+          setFirstName("");
+          setLastName("");
+          setMessage("");
+          setError(null);
+        }
+      });
   };
 
   return (
@@ -75,8 +93,8 @@ export default function Home() {
             <span className="text-3xl rocket">🚀</span>
           </h1>
           <p className="text-xl text-center">
-            I&apos;m a full-stack developer with a passion for open-source software
-            and the web.
+            I&apos;m a full-stack developer with a passion for open-source
+            software and the web.
           </p>
         </div>
         <div className="flex flex-row gap-2 w-full items-center justify-center mt-4">
@@ -126,11 +144,11 @@ export default function Home() {
             </h2>
           </div>
           <p className="text-xl mt-2">
-            I&apos;m a full-stack developer with a passion for open-source software
-            and the web. I&apos;ve been developing for the web for over 6 years and
-            have a strong understanding of web technologies and best practices.
-            I&apos;m also a strong advocate for open-source software and have
-            contributed to many projects over the years.
+            I&apos;m a full-stack developer with a passion for open-source
+            software and the web. I&apos;ve been developing for the web for over
+            6 years and have a strong understanding of web technologies and best
+            practices. I&apos;m also a strong advocate for open-source software
+            and have contributed to many projects over the years.
           </p>
         </div>
         <div className="flex flex-row gap-2 w-1/3 items-center justify-end">
@@ -178,7 +196,7 @@ export default function Home() {
           </p>
         </div>
         <div className="w-full items-start justify-center grid grid-cols-2 gap-4">
-          {projects.map((project, index) => (
+          {projects.slice(0, 2).map((project, index) => (
             <div
               key={index}
               className="flex flex-col w-full h-full items-center justify-center gap-4 p-4 rounded-lg shadow-lg bg-neutral-800"
@@ -387,6 +405,11 @@ export default function Home() {
             </button>
           </div>
           <form className="flex flex-col w-1/2 items-start justify-start gap-4 bg-neutral-800 p-4 rounded-lg shadow-lg">
+            {error && (
+              <p className="text-red-500 bg-red-500/10 p-2 w-full items-center justify-center text-center rounded-lg">
+                {error}
+              </p>
+            )}
             <div className="flex flex-row gap-4 w-full items-center justify-start">
               <input
                 type="text"
