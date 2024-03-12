@@ -12,6 +12,8 @@ export default function FontLoader({ children }) {
           window.document.documentElement.classList.add(
             `font-${font.toLowerCase()}`,
           );
+        } else {
+          window.document.documentElement.classList.add("font-inter");
         }
       }
     }, 100);
