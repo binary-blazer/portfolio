@@ -34,8 +34,8 @@ export default function Page() {
   };
 
   return (
-    <main className="flex flex-col min-h-screen items-center justify-center p-32 mx-auto">
-      <div className="flex flex-col w-full items-start justify-center mb-10">
+    <main className="flex flex-col min-h-screen items-center justify-center mt-[7rem] lg:mt-0 p-8 lg:p-32 mx-auto">
+      <div className="flex flex-col w-full items-center lg:items-start justify-center mb-10">
         <div className="flex flex-row gap-2 items-center justify-start">
           <div className="bg-primary-500 p-2 rounded-lg">
             <svg
@@ -57,12 +57,12 @@ export default function Page() {
             Contact Me<span className="text-primary-500">.</span>
           </h2>
         </div>
-        <p className="text-xl mt-2">
+        <p className="text-xl mt-2 text-center lg:text-left">
           Want to work together or just say hi? Feel free to reach out to me.
         </p>
       </div>
-      <div className="flex flex-row gap-10 w-full items-start justify-start">
-        <div className="flex flex-col w-1/2 items-start justify-start gap-4">
+      <div className="flex flex-col lg:flex-row gap-10 w-full items-center lg:items-start justify-start">
+        <div className="flex flex-col w-full lg:w-1/2 items-start justify-start gap-4">
           <button
             className="flex w-full items-center justify-start px-6 py-4 gap-2 bg-neutral-800 text-white font-bold rounded-lg shadow-lg hover:bg-neutral-700 transition-colors"
             onClick={() => router.push("mailto:me@binaryblazer.me")}
@@ -104,7 +104,7 @@ export default function Page() {
             Twitter
           </button>
         </div>
-        <form className="flex flex-col w-1/2 items-start justify-start gap-4 bg-neutral-800 p-4 rounded-lg shadow-lg">
+        <form className="flex flex-col w-full lg:w-1/2 items-start justify-start gap-4 bg-neutral-800 p-4 rounded-lg shadow-lg">
           {error && (
             <p className="text-red-500 bg-red-500/10 p-2 w-full items-center justify-center text-center rounded-lg">
               {error}

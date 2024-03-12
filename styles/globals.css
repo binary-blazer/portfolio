@@ -181,3 +181,16 @@ body::after {
   overflow: hidden;
   animation: glitch 1s linear infinite;
 }
+
+.not_found_text_glitch::before {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  clip: rect(0, 1000px, 0, 0);
+  color: #fff;
+  background: #000;
+  animation: glitch 1s linear infinite;
+}

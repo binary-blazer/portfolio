@@ -68,12 +68,12 @@ export default function Home() {
 
   return (
     <>
-      <main className="flex flex-col min-h-screen items-center justify-center p-32 mx-auto">
+      <main className="flex flex-col min-h-screen items-center justify-center p-8 lg:p-32 mx-auto">
         <div className="flex flex-col w-full items-center justify-center">
           <div className="bg-neutral-800 font-medium p-2 rounded-lg shadow-lg mb-4">
             <div className="hi">👋</div> Hi There, I&apos;m BinaryBlazer
           </div>
-          <h1 className="text-4xl font-bold text-center">
+          <h1 className="text-3xl lg:text-4xl font-bold text-center">
             I Build{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-primary-500">
               Websites
@@ -92,7 +92,7 @@ export default function Home() {
             </span>{" "}
             <span className="text-3xl rocket">🚀</span>
           </h1>
-          <p className="text-xl text-center">
+          <p className="text-md lg:text-xl text-center">
             I&apos;m a full-stack developer with a passion for open-source
             software and the web.
           </p>
@@ -113,15 +113,15 @@ export default function Home() {
         </div>
       </main>
 
-      <div className="px-32 mx-auto">
+      <div className="px-8 lg:px-32 mx-auto">
         <div className="border-t border-neutral-700 w-full mt-4 mb-4"></div>
       </div>
 
       <section
         id="about"
-        className="flex flex-row min-h-screen items-start justify-between p-32 mx-auto"
+        className="flex flex-col lg:flex-row min-h-screen items-center lg:items-start justify-center lg:justify-between p-8 lg:p-32 mx-auto"
       >
-        <div className="flex flex-col w-2/3 items-start justify-center">
+        <div className="flex flex-col w-full lg:w-2/3 items-center lg:items-start justify-center">
           <div className="flex flex-row gap-2 items-center justify-start">
             <div className="bg-primary-500 p-2 rounded-lg">
               <svg
@@ -143,7 +143,7 @@ export default function Home() {
               About Me<span className="text-primary-500">.</span>
             </h2>
           </div>
-          <p className="text-xl mt-2">
+          <p className="text-xl mt-2 text-center lg:text-left">
             I&apos;m a full-stack developer with a passion for open-source
             software and the web. I&apos;ve been developing for the web for over
             6 years and have a strong understanding of web technologies and best
@@ -151,7 +151,7 @@ export default function Home() {
             and have contributed to many projects over the years.
           </p>
         </div>
-        <div className="flex flex-row gap-2 w-1/3 items-center justify-end">
+        <div className="flex flex-row gap-2 w-full lg:w-1/3 items-center justify-center mt-10 lg:mt-0 lg:justify-end">
           <img
             src="https://avatars.githubusercontent.com/u/81481526?v=4"
             alt="BinaryBlazer"
@@ -161,15 +161,15 @@ export default function Home() {
         </div>
       </section>
 
-      <div className="px-32 mx-auto">
+      <div className="px-8 lg:px-32 mx-auto">
         <div className="border-t border-neutral-700 w-full mt-4 mb-4"></div>
       </div>
 
       <section
         id="projects"
-        className="flex flex-col min-h-screen items-start justify-center p-32 mx-auto"
+        className="flex flex-col min-h-screen items-start justify-center p-8 lg:p-32 mx-auto"
       >
-        <div className="flex flex-col w-full items-start justify-center mb-8">
+        <div className="flex flex-col w-full items-center lg:items-start justify-center mb-8">
           <div className="flex flex-row gap-2 items-center justify-start">
             <div className="bg-primary-500 p-2 rounded-lg">
               <svg
@@ -191,11 +191,11 @@ export default function Home() {
               Projects<span className="text-primary-500">.</span>
             </h2>
           </div>
-          <p className="text-xl mt-2">
+          <p className="text-xl mt-2 text-center lg:text-left">
             Here are some of the projects I&apos;ve been working on recently.
           </p>
         </div>
-        <div className="w-full items-start justify-center grid grid-cols-2 gap-4">
+        <div className="w-full items-start justify-center grid grid-cols-1 lg:grid-cols-2 gap-4">
           {projects.slice(0, 2).map((project, index) => (
             <div
               key={index}
@@ -252,15 +252,15 @@ export default function Home() {
         </div>
       </section>
 
-      <div className="px-32 mx-auto">
+      <div className="px-8 lg:px-32 mx-auto">
         <div className="border-t border-neutral-700 w-full mt-4 mb-4"></div>
       </div>
 
       <section
         id="testimonials"
-        className="flex flex-col min-h-screen items-start justify-center p-32 mx-auto"
+        className="flex flex-col min-h-screen items-start justify-center p-8 lg:p-32 mx-auto"
       >
-        <div className="flex flex-col w-full items-start justify-center mb-8">
+        <div className="flex flex-col w-full items-center lg:items-start justify-center mb-8">
           <div className="flex flex-row gap-2 items-center justify-start">
             <div className="bg-primary-500 p-2 rounded-lg">
               <svg
@@ -327,15 +327,15 @@ export default function Home() {
         </div>
       </section>
 
-      <div className="px-32 mx-auto">
+      <div className="px-8 lg:px-32 mx-auto">
         <div className="border-t border-neutral-700 w-full mt-4 mb-4"></div>
       </div>
 
       <section
         id="contact"
-        className="flex flex-col min-h-screen items-start justify-center p-32 mx-auto"
+        className="flex flex-col min-h-screen items-start justify-center p-8 lg:p-32 mx-auto"
       >
-        <div className="flex flex-col w-full items-start justify-center mb-10">
+        <div className="flex flex-col w-full items-center lg:items-start justify-center mb-10">
           <div className="flex flex-row gap-2 items-center justify-start">
             <div className="bg-primary-500 p-2 rounded-lg">
               <svg
@@ -357,12 +357,12 @@ export default function Home() {
               Contact Me<span className="text-primary-500">.</span>
             </h2>
           </div>
-          <p className="text-xl mt-2">
+          <p className="text-xl mt-2 text-center lg:text-left">
             Want to work together or just say hi? Feel free to reach out to me.
           </p>
         </div>
-        <div className="flex flex-row gap-10 w-full items-start justify-start">
-          <div className="flex flex-col w-1/2 items-start justify-start gap-4">
+        <div className="flex flex-col lg:flex-row gap-10 w-full items-center lg:items-start justify-center lg:justify-start">
+          <div className="flex flex-col w-full lg:w-1/2 items-start justify-start gap-4">
             <button
               className="flex w-full items-center justify-start px-6 py-4 gap-2 bg-neutral-800 text-white font-bold rounded-lg shadow-lg hover:bg-neutral-700 transition-colors"
               onClick={() => router.push("mailto:me@binaryblazer.me")}
@@ -404,7 +404,7 @@ export default function Home() {
               Twitter
             </button>
           </div>
-          <form className="flex flex-col w-1/2 items-start justify-start gap-4 bg-neutral-800 p-4 rounded-lg shadow-lg">
+          <form className="flex flex-col w-full lg:w-1/2 items-start justify-start gap-4 bg-neutral-800 p-4 rounded-lg shadow-lg">
             {error && (
               <p className="text-red-500 bg-red-500/10 p-2 w-full items-center justify-center text-center rounded-lg">
                 {error}

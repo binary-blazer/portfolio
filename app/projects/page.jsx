@@ -13,8 +13,8 @@ export default function Page() {
 
   return (
     <>
-      <main className="flex flex-col min-h-screen items-start justify-center p-32 mx-auto">
-        <div className="flex flex-col w-full items-start justify-center mb-8">
+      <main className="flex flex-col min-h-screen items-start justify-center mt-[7rem] lg:mt-0 p-8 lg:p-32 mx-auto">
+        <div className="flex flex-col w-full items-center lg:items-start justify-center mb-8">
           <div className="flex flex-row gap-2 items-center justify-start">
             <div className="bg-primary-500 p-2 rounded-lg">
               <svg
@@ -36,11 +36,11 @@ export default function Page() {
               Projects<span className="text-primary-500">.</span>
             </h2>
           </div>
-          <p className="text-xl mt-2">
+          <p className="text-xl mt-2 text-center lg:text-left">
             Here are some of the projects I&apos;ve been working on recently.
           </p>
         </div>
-        <div className="w-full items-start justify-center grid grid-cols-2 gap-4">
+        <div className="w-full items-start justify-center grid grid-cols-1 lg:grid-cols-2 gap-4">
           {projects.map((project, index) => (
             <div
               key={index}
@@ -96,7 +96,7 @@ export default function Page() {
           ))}
         </div>
 
-        <div className="flex flex-col w-full items-start justify-center mt-16">
+        <div className="flex flex-col w-full items-center lg:items-start justify-center mt-16">
           <div className="flex flex-row gap-2 items-center justify-start">
             <div className="bg-primary-500 p-2 rounded-lg">
               <svg
@@ -118,7 +118,7 @@ export default function Page() {
               Repositories<span className="text-primary-500">.</span>
             </h2>
           </div>
-          <p className="text-xl mt-2">
+          <p className="text-xl mt-2 text-center lg:text-left">
             Here are some of the repositories I&apos;ve been working on
             recently.
           </p>

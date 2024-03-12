@@ -14,7 +14,7 @@ export default function About() {
         currentTab.name === tab.name
           ? "bg-primary-500 text-neutral-100"
           : "bg-neutral-800 text-primary-500"
-      } px-4 py-2 rounded-lg`}
+      } px-4 py-2 rounded-lg mb-4`}
     >
       {tab.name}
     </button>
@@ -22,9 +22,9 @@ export default function About() {
 
   return (
     <>
-      <main className="flex flex-col min-h-screen items-center justify-center p-32 mx-auto">
-        <div className="flex flex-row w-full items-start justify-center">
-          <div className="flex flex-col w-2/3 items-start justify-center">
+      <main className="flex flex-col min-h-screen items-center justify-center mt-[7rem] lg:mt-0 p-8 lg:p-32 mx-auto">
+        <div className="flex flex-col lg:flex-row w-full items-center lg:items-start justify-center">
+          <div className="flex flex-col w-full lg:w-2/3 items-center lg:items-start justify-center">
             <div className="flex flex-row gap-2 items-center justify-start">
               <div className="bg-primary-500 p-2 rounded-lg">
                 <svg
@@ -46,7 +46,7 @@ export default function About() {
                 About Me<span className="text-primary-500">.</span>
               </h2>
             </div>
-            <p className="text-xl mt-2">
+            <p className="text-xl mt-2 text-center lg:text-left">
               I&apos;m a full-stack developer with a passion for open-source
               software and the web. I&apos;ve been developing for the web for
               over 6 years and have a strong understanding of web technologies
@@ -55,7 +55,7 @@ export default function About() {
               the years.
             </p>
           </div>
-          <div className="flex flex-row gap-2 w-1/3 items-center justify-end">
+          <div className="flex flex-row gap-2 w-full lg:w-1/3 items-center justify-center mt-10 lg:mt-10 lg:justify-end">
             <img
               src="https://avatars.githubusercontent.com/u/81481526?v=4"
               alt="BinaryBlazer"
@@ -64,7 +64,7 @@ export default function About() {
             />
           </div>
         </div>
-        <div className="flex flex-col w-full items-start justify-center mt-[15rem]">
+        <div className="flex flex-col w-full items-center lg:items-start justify-center mt-[15rem]">
           <div className="flex flex-row gap-2 items-center justify-start">
             <div className="bg-primary-500 p-2 rounded-lg">
               <svg
@@ -86,7 +86,7 @@ export default function About() {
               Technologies I Use<span className="text-primary-500">.</span>
             </h2>
           </div>
-          <p className="text-xl mt-2">
+          <p className="text-xl mt-2 text-center lg:text-left">
             I have experience with a wide range of technologies, from front-end
             frameworks like React and Vue to back-end frameworks like Express
             and Django. I also have experience with cloud platforms like AWS and
@@ -96,7 +96,7 @@ export default function About() {
           </p>
         </div>
         <div className="mt-8 w-full">
-          <div className="flex flex-row gap-2 items-center justify-start">
+          <div className="flex flex-row gap-2 items-center justify-start overflow-x-auto">
             {tabs}
           </div>
         </div>

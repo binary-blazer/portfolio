@@ -6,7 +6,8 @@
       "components/*": ["./components/*"],
       "hooks/*": ["./hooks/*"],
       "public/*": ["./public/*"],
-      "providers/*": ["./providers/*"]
+      "providers/*": ["./providers/*"],
+      "loaders/*": ["./loaders/*"]
     }
   }
 }

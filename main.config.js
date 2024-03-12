@@ -6,6 +6,79 @@ export const config = {
   },
 };
 
+export const items = [
+  {
+    name: "Home",
+    href: "/",
+  },
+  {
+    name: "About",
+    href: "/about",
+  },
+  {
+    name: "Blog",
+    href: "/blog",
+  },
+  {
+    name: "Projects",
+    href: "/projects",
+  },
+];
+
+export const colors = [
+  {
+    name: "Blue",
+    color: "#3B82F6",
+  },
+  {
+    name: "Green",
+    color: "#10B981",
+  },
+  {
+    name: "Red",
+    color: "#EF4444",
+  },
+  {
+    name: "Yellow",
+    color: "#F59E0B",
+  },
+  {
+    name: "Purple",
+    color: "#8B5CF6",
+  },
+  {
+    name: "Pink",
+    color: "#EC4899",
+  },
+];
+
+export const fonts = [
+  {
+    name: "Inter",
+    font: "Inter",
+  },
+  {
+    name: "Roboto",
+    font: "Roboto",
+  },
+  {
+    name: "Poppins",
+    font: "Poppins",
+  },
+  {
+    name: "Lato",
+    font: "Lato",
+  },
+  {
+    name: "Nunito",
+    font: "Nunito",
+  },
+  {
+    name: "Raleway",
+    font: "Raleway",
+  },
+];
+
 export const projects = [
   {
     title: "TrestHost",
