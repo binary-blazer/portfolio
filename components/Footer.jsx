@@ -5,7 +5,7 @@ import React from "react";
 export default function Footer() {
   return (
     <>
-      <footer className="mt-[10rem] border-t border-neutral-700 flex flex-col items-center justify-center w-full px-32 py-8 bg-neutral-900 text-white">
+      <footer className="mt-[10rem] border-t border-neutral-700 flex flex-col items-center justify-center w-full p-8 lg:px-32 py-8 bg-neutral-900 text-white">
         <p className="text-center">
           &copy; 2018 - {new Date().getFullYear()} BinaryBlazer
         </p>

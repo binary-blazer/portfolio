@@ -241,10 +241,9 @@ export default function Header() {
               </svg>
             </button>
             <div
-              className="absolute bg-neutral-900 rounded-2xl p-2 shadow-lg border border-neutral-800 flex flex-col gap-2 items-start justify-center"
+              className="absolute bg-neutral-900 rounded-2xl p-2 transform translate-x-[-7rem] translate-y-2 lg:translate-y-[10px] lg:translate-x-0 shadow-lg border border-neutral-800 flex flex-col gap-2 items-start justify-center"
               style={{
                 display: settingsOpen ? "flex" : "none",
-                transform: "translateY(10px)",
                 transition: "transform 300ms ease-in-out",
               }}
             >
@@ -348,7 +347,7 @@ export default function Header() {
             </div>
           </div>
           <button
-            className="flex items-center justify-center px-6 bg-primary-500 text-white font-bold py-2 rounded-lg shadow-lg hover:bg-primary-600 transition-colors"
+            className="hidden lg:flex items-center justify-center px-6 bg-primary-500 text-white font-bold py-2 rounded-lg shadow-lg hover:bg-primary-600 transition-colors"
             onClick={() => router.push("/contact")}
           >
             Let&apos;s Connect
