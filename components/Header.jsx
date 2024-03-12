@@ -323,7 +323,7 @@ export default function Header() {
                 className="absolute bg-neutral-900 rounded-2xl px-2 py-1 shadow-lg border border-neutral-800 flex flex-col gap-2 items-start justify-center"
                 style={{
                   display: settingsFontsOpen ? "flex" : "none",
-                  transform: "translateX(-180px) translateY(60px)",
+                  transform: "translateX(-162px) translateY(60px)",
                   transition: "transform 300ms ease-in-out",
                 }}
               >
