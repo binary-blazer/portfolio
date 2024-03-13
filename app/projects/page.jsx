@@ -240,7 +240,7 @@ export default function Page() {
                   onClick={() => setSelectedRepoId(null)}
                 >
                 <motion.div
-                  className="flex flex-col z-[102] cursor-auto w-auto min-w-[100%] h-auto items-start justify-start p-4 rounded-lg shadow-lg bg-neutral-800"
+                  className="flex flex-col z-[102] max-h-auto cursor-auto w-auto min-w-[100%] h-auto items-start justify-start p-4 rounded-lg shadow-lg bg-neutral-800"
                   onClick={(e) => e.stopPropagation()}
                 >
                   <div className="flex flex-row gap-2 items-center justify-start">
