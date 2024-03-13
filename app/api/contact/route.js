@@ -9,6 +9,11 @@ export async function POST(request) {
     }
 
     const discordWebhook = process.env.DISCORD_WEBHOOK;
+
+    if (!discordWebhook) {
+      return new Response("Discord webhook is not set", { status: 500 });
+    }
+
     const webhookData = {
       content: `**New Contact Form Submission**`,
       embeds: [

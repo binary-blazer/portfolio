@@ -11,6 +11,9 @@ export const config = {
   github: {
     username: "binary-blazer",
   },
+  npm: {
+    username: "janjytapyt",
+  },
 };
 
 export const items = [

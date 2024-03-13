@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { projects } from "@/main.config";
+import { projects, config } from "@/main.config";
 import { motion, AnimatePresence } from "framer-motion";
 import { useRouter } from "next/navigation";
 
@@ -356,6 +356,15 @@ export default function Page() {
               </>
           )}
           </AnimatePresence>
+
+          <div className="flex flex-row w-full items-center justify-start gap-2 mt-4">
+            <button
+              className="flex items-center justify-center px-6 bg-primary-500 text-white font-bold py-2 rounded-lg shadow-lg hover:bg-primary-600 transition-colors"
+              onClick={() => router.push(`https://github.com/${config.github.username}?tab=repositories`)}
+            >
+              View All Repositories
+            </button>
+          </div>
         </div>
       </motion.main>
 

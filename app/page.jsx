@@ -358,8 +358,9 @@ export default function Home() {
           },
         }}
         id="projects"
-        className="flex flex-col min-h-screen items-start justify-center p-8 lg:p-32 mx-auto"
+        className="flex flex-col bg-gradient-to-b from-transparent via-neutral-900/90 to-neutral-900 min-h-screen items-start justify-center p-8 lg:p-32 mx-auto"
       >
+        <div className="flex flex-col w-full items-center lg:items-start justify-center">
         <div className="flex flex-col w-full items-center lg:items-start justify-center mb-8">
           <div className="flex flex-row gap-2 items-center justify-start">
             <div className="bg-primary-500 p-2 rounded-lg">
@@ -390,7 +391,7 @@ export default function Home() {
           {projects.slice(0, 2).map((project, index) => (
             <div
               key={index}
-              className="flex flex-col w-full h-full items-center justify-center gap-4 p-4 rounded-lg shadow-lg bg-neutral-800"
+              className="flex flex-col z-[-1] w-full h-full items-center justify-center gap-4 p-4 rounded-lg shadow-lg bg-neutral-800"
             >
               <img
                 src={project.banner}
@@ -431,15 +432,26 @@ export default function Home() {
               </div>
               <p className="text-xl text-left">{project.description}</p>
               <div className="flex flex-row gap-2 w-full items-center justify-start mt-4">
+                {/*
                 <button
                   className="flex items-center justify-center px-6 bg-primary-500 text-white font-bold py-2 rounded-lg shadow-lg hover:bg-primary-600 transition-colors"
                   onClick={() => router.push(project.link)}
                 >
                   View Project
                 </button>
+                */}
               </div>
             </div>
           ))}
+        </div>
+        </div>
+        <div className="flex flex-col gap-2 items-center justify-end w-full -mt-20">
+          <button
+            className="flex items-center justify-center px-6 bg-primary-500 text-white font-bold py-2 rounded-lg shadow-lg hover:bg-primary-600 transition-colors"
+            onClick={() => router.push("/projects")}
+          >
+            View All Projects
+          </button>
         </div>
       </motion.section>
 
