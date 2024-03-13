@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { motion } from "framer-motion";
 
 export default function Page() {
   const [email, setEmail] = useState("");
@@ -34,7 +35,13 @@ export default function Page() {
   };
 
   return (
-    <main className="flex flex-col min-h-screen items-center justify-center mt-[7rem] lg:mt-0 p-8 lg:p-32 mx-auto">
+    <motion.main
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: 10 }}
+      transition={{ duration: 0.5, delay: 2.14 }}
+      className="flex flex-col min-h-screen items-center justify-center mt-[7rem] lg:mt-0 p-8 lg:p-32 mx-auto"
+    >
       <div className="flex flex-col w-full items-center lg:items-start justify-center mb-10">
         <div className="flex flex-row gap-2 items-center justify-start">
           <div className="bg-primary-500 p-2 rounded-lg">
@@ -148,6 +155,6 @@ export default function Page() {
           </button>
         </form>
       </div>
-    </main>
+    </motion.main>
   );
 }

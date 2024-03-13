@@ -194,3 +194,69 @@ body::after {
   background: #000;
   animation: glitch 1s linear infinite;
 }
+
+.loading-dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 8vh;
+  width: 100%;
+}
+
+@keyframes loading-dot-1 {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes loading-dot-2 {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes loading-dot-3 {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.loading-dots > * {
+  width: 10px;
+  height: 10px;
+  margin: 0 5px;
+  background: #fff;
+  border-radius: 50%;
+}
+
+.loading-dots > *:nth-child(1) {
+  animation: loading-dot-1 1s infinite;
+}
+
+.loading-dots > *:nth-child(2) {
+  animation: loading-dot-2 1s infinite;
+  animation-delay: 0.33s;
+}
+
+.loading-dots > *:nth-child(3) {
+  animation: loading-dot-3 1s infinite;
+  animation-delay: 0.66s;
+}

@@ -2,20 +2,27 @@
 
 import { useState, useEffect, useRef } from "react";
 import { useRouter, usePathname } from "next/navigation";
+import ScreenSizr from "@sdevs/screen-sizr";
 import { colors, fonts, items } from "@/main.config";
 
 export default function Header() {
   const router = useRouter();
   const pathname = usePathname();
+  const screensize = ScreenSizr.getScreenSize();
 
-  const [indicatorStyle, setIndicatorStyle] = useState({});
+  const [indicatorStyle, setIndicatorStyle] = useState({
+    left: 0,
+    width: 0,
+    bottom: -3,
+    minWidth: 47,
+  });
   const [settingsOpen, setSettingsOpen] = useState(false);
   const [settingsColorsOpen, setSettingsColorsOpen] = useState(false);
   const [settingsFontsOpen, setSettingsFontsOpen] = useState(false);
-  const [settingsSizesOpen, setSettingsSizesOpen] = useState(false);
   const [currentTheme, setCurrentTheme] = useState("blue");
   const [currentFont, setCurrentFont] = useState("inter");
   const [socialsOpen, setSocialsOpen] = useState(false);
+  const [currentScreen, setCurrentScreen] = useState("laptop");
   const navItemRefs = useRef([]);
 
   const handleMouseEnter = (index) => {
@@ -24,6 +31,7 @@ export default function Header() {
       left: offsetLeft - 5,
       width: offsetWidth + 10,
       bottom: -3,
+      minWidth: offsetWidth,
     });
   };
 
@@ -42,6 +50,30 @@ export default function Header() {
   };
 
   useEffect(() => {
+    if (screensize.width < 640) {
+      setCurrentScreen("mobile");
+      setIndicatorStyle({
+        left: navItemRefs.current[0].offsetLeft - 5,
+        width: navItemRefs.current[0].offsetWidth + 10,
+        bottom: -3,
+        minWidth: navItemRefs.current[0].offsetWidth,
+      });
+    } else if (screensize.width < 1024) {
+      setCurrentScreen("tablet");
+      setIndicatorStyle({
+        left: navItemRefs.current[0].offsetLeft - 5,
+        width: navItemRefs.current[0].offsetWidth + 10,
+        bottom: -3,
+        minWidth: navItemRefs.current[0].offsetWidth,
+      });
+    } else if (screensize.width < 1280) {
+      setCurrentScreen("laptop");
+    } else {
+      setCurrentScreen("desktop");
+    }
+  }, [screensize.width]);
+
+  useEffect(() => {
     if (typeof window !== "undefined") {
       const theme = window.localStorage.getItem("theme");
       const font = window.localStorage.getItem("font");
@@ -55,29 +87,34 @@ export default function Header() {
   }, []);
 
   useEffect(() => {
+    if (currentScreen !== "laptop" || currentScreen !== "desktop") return;
     if (pathname === "/") {
       setIndicatorStyle({
         left: navItemRefs.current[0].offsetLeft - 5,
         width: navItemRefs.current[0].offsetWidth + 10,
         bottom: -3,
+        minWidth: navItemRefs.current[0].offsetWidth,
       });
     } else if (pathname === "/about") {
       setIndicatorStyle({
         left: navItemRefs.current[1].offsetLeft - 5,
         width: navItemRefs.current[1].offsetWidth + 10,
         bottom: -3,
+        minWidth: navItemRefs.current[1].offsetWidth,
       });
     } else if (pathname.includes("/blog")) {
       setIndicatorStyle({
         left: navItemRefs.current[2].offsetLeft - 5,
         width: navItemRefs.current[2].offsetWidth + 10,
         bottom: -3,
+        minWidth: navItemRefs.current[2].offsetWidth,
       });
     } else if (pathname === "/projects") {
       setIndicatorStyle({
         left: navItemRefs.current[3].offsetLeft - 5,
         width: navItemRefs.current[3].offsetWidth + 10,
         bottom: -3,
+        minWidth: navItemRefs.current[3].offsetWidth,
       });
     }
   }, [pathname]);
@@ -88,7 +125,7 @@ export default function Header() {
         <div className="flex flex-row gap-4 items-center justify-center">
           <div>
             <button
-              className="flex items-center justify-center px-3 py-2 bg-transparent text-white font-bold rounded-lg hover:bg-white/5 transition-colors"
+              className={`flex items-center justify-center px-3 py-3 bg-transparent font-bold rounded-lg hover:bg-white/5 transition-colors ${socialsOpen ? "bg-white/5 text-primary-500" : "text-white"}`}
               onClick={() => setSocialsOpen(!socialsOpen)}
             >
               <svg
@@ -101,9 +138,25 @@ export default function Header() {
                 strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                className={`feather feather-chevron-down ${socialsOpen ? "transform rotate-180" : ""} transition-transform duration-300 ease-in-out`}
+                className={`hidden lg:flex feather feather-chevron-down ${socialsOpen ? "transform rotate-180" : ""} transition-transform duration-300 ease-in-out`}
               >
                 <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                strokeWidth={1.5}
+                stroke="currentColor"
+                className={`flex lg:hidden feather feather-menu ${socialsOpen ? "transform rotate-[360deg]" : ""} transition-transform duration-1200 ease-in-out`}
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25H12"
+                />
               </svg>
             </button>
             <div
@@ -116,31 +169,31 @@ export default function Header() {
             >
               <div className="flex flex-col items-center w-full justify-center gap-2 lg:hidden">
                 <button
-                  className="flex items-center w-full justify-center px-3 py-2 bg-transparent text-white rounded-2xl hover:bg-white/5 transition-colors"
+                  className={`flex items-center w-full justify-center px-3 py-2 bg-transparent ${pathname === "/" ? "text-primary-500 bg-white/5" : "text-white"} rounded-2xl hover:bg-white/5 transition-colors`}
                   onClick={() => router.push("/")}
                 >
                   Home
                 </button>
                 <button
-                  className="flex items-center w-full justify-center px-3 py-2 bg-transparent text-white rounded-2xl hover:bg-white/5 transition-colors"
+                  className={`flex items-center w-full justify-center px-3 py-2 bg-transparent ${pathname === "/about" ? "text-primary-500 bg-white/5" : "text-white"} rounded-2xl hover:bg-white/5 transition-colors`}
                   onClick={() => router.push("/about")}
                 >
                   About
                 </button>
                 <button
-                  className="flex items-center w-full justify-center px-3 py-2 bg-transparent text-white rounded-2xl hover:bg-white/5 transition-colors"
+                  className={`flex items-center w-full justify-center px-3 py-2 bg-transparent ${pathname.includes("/blog") ? "text-primary-500 bg-white/5" : "text-white"} rounded-2xl hover:bg-white/5 transition-colors`}
                   onClick={() => router.push("/blog")}
                 >
                   Blog
                 </button>
                 <button
-                  className="flex items-center w-full justify-center px-3 py-2 bg-transparent text-white rounded-2xl hover:bg-white/5 transition-colors"
+                  className={`flex items-center w-full justify-center px-3 py-2 bg-transparent ${pathname === "/projects" ? "text-primary-500 bg-white/5" : "text-white"} rounded-2xl hover:bg-white/5 transition-colors`}
                   onClick={() => router.push("/projects")}
                 >
                   Projects
                 </button>
                 <button
-                  className="flex items-center w-full justify-center px-3 py-2 bg-transparent text-white rounded-2xl hover:bg-white/5 transition-colors"
+                  className={`flex items-center w-full justify-center px-3 py-2 bg-transparent ${pathname === "/contact" ? "text-primary-500 bg-white/5" : "text-white"} rounded-2xl hover:bg-white/5 transition-colors`}
                   onClick={() => router.push("/contact")}
                 >
                   Contact
@@ -221,7 +274,7 @@ export default function Header() {
         <div className="flex flex-row gap-4 items-center justify-center">
           <div className="relative">
             <button
-              className="flex items-center justify-center px-3 py-2 bg-transparent text-white font-bold rounded-lg hover:bg-white/5 transition-colors"
+              className={`flex items-center justify-center px-3 py-3 bg-transparent hover:bg-white/5 font-bold rounded-lg transition-colors ${settingsOpen ? "bg-white/5 text-primary-500" : "text-white"}`}
               onClick={() => setSettingsOpen(!settingsOpen)}
             >
               <svg
@@ -234,7 +287,7 @@ export default function Header() {
                 strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                className={`feather feather-settings ${settingsOpen ? "transform rotate-360" : ""} transition-transform duration-600 ease-in-out`}
+                className={`feather feather-settings ${settingsOpen ? "transform rotate-180" : ""} transition-transform duration-1200 ease-in-out`}
               >
                 <circle cx="12" cy="12" r="3"></circle>
                 <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
@@ -249,11 +302,10 @@ export default function Header() {
             >
               <div className="relative">
                 <button
-                  className="flex items-center justify-start gap-2 w-full text-white hover:bg-white/5 px-8 p-2 rounded-2xl transition-colors"
+                  className={`flex items-center justify-start gap-2 w-full text-white px-8 p-2 rounded-2xl transition-colors ${settingsColorsOpen ? "bg-white/5" : "hover:bg-white/5"}`}
                   onClick={() => {
                     setSettingsColorsOpen(!settingsColorsOpen);
                     setSettingsFontsOpen(false);
-                    setSettingsSizesOpen(false);
                   }}
                 >
                   <svg
@@ -262,7 +314,7 @@ export default function Header() {
                     viewBox="0 0 24 24"
                     strokeWidth={1.5}
                     stroke="currentColor"
-                    className="w-5 h-5"
+                    className={`w-5 h-5 ${settingsColorsOpen ? "text-primary-500" : "text-white"} ${settingsColorsOpen ? "transform rotate-[360deg]" : ""} transition-transform duration-800 ease-in-out`}
                   >
                     <path
                       strokeLinecap="round"
@@ -296,11 +348,10 @@ export default function Header() {
                 </div>
               </div>
               <button
-                className="flex items-center justify-start gap-2 w-full text-white hover:bg-white/5 px-8 p-2 rounded-2xl transition-colors"
+                className={`flex items-center justify-start gap-2 w-full text-white p-2 px-8 rounded-2xl transition-colors ${settingsFontsOpen ? "bg-white/5" : "hover:bg-white/5"}`}
                 onClick={() => {
                   setSettingsFontsOpen(!settingsFontsOpen);
                   setSettingsColorsOpen(false);
-                  setSettingsSizesOpen(false);
                 }}
               >
                 <svg
@@ -309,7 +360,7 @@ export default function Header() {
                   viewBox="0 0 24 24"
                   strokeWidth={1.5}
                   stroke="currentColor"
-                  className="w-5 h-5"
+                  className={`w-5 h-5 ${settingsFontsOpen ? "text-primary-500" : "text-white"} ${settingsFontsOpen ? "transform rotate-[360deg]" : ""} transition-transform duration-800 ease-in-out`}
                 >
                   <path
                     strokeLinecap="round"
@@ -330,7 +381,7 @@ export default function Header() {
                 {fonts.map((font) => (
                   <button
                     key={font.name}
-                    className={`flex text-center items-center justify-start gap-2 w-full text-white px-8 p-2 rounded-2xl transition-colors ${font.font === currentFont ? "bg-white/5" : "hover:bg-white/5"}`}
+                    className={`flex text-center items-center justify-start gap-2 w-full text-white px-8 p-2 rounded-2xl transition-colors ${font.font === currentFont ? "bg-white/5" : "hover:bg-white/5"} ${fonts.indexOf(font) === fonts.length - 1 ? "mb-1.5" : ""} ${fonts.indexOf(font) === 0 ? "mt-1.5" : ""}`}
                     onClick={() => changeFont(font.font)}
                   >
                     {font.name.replace("_", "")}

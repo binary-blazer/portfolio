@@ -11,10 +11,9 @@
     "format:check": "prettier --check ."
   },
   "dependencies": {
-    "contentlayer": "^0.3.4",
+    "@sdevs/screen-sizr": "^2.0.0",
     "framer-motion": "^11.0.8",
     "next": "14.1.3",
-    "next-contentlayer": "^0.3.4",
     "react": "^18",
     "react-dom": "^18"
   },

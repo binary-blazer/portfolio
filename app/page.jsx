@@ -1,11 +1,23 @@
 "use client";
 
-import React, { useState, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
+import { motion, useAnimation } from "framer-motion";
 import { projects, testimonials } from "@/main.config";
 
 export default function Home() {
   const router = useRouter();
+
+  const controls1 = useAnimation();
+  const controls2 = useAnimation();
+  const controls3 = useAnimation();
+  const controls4 = useAnimation();
+
+  const aboutControls = useAnimation();
+
+  const projectsControls = useAnimation();
+  const testimonialsControls = useAnimation();
+  const contactControls = useAnimation();
 
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
@@ -16,7 +28,16 @@ export default function Home() {
   const [lastName, setLastName] = useState("");
   const [message, setMessage] = useState("");
   const [error, setError] = useState(null);
+
   const scrollContainerRef = useRef(null);
+  const border1Ref = useRef();
+  const border2Ref = useRef();
+  const border3Ref = useRef();
+  const border4Ref = useRef();
+  const aboutRef = useRef();
+  const projectsRef = useRef();
+  const testimonialsRef = useRef();
+  const contactRef = useRef();
 
   const onMouseDown = (e) => {
     setIsDragging(true);
@@ -66,9 +87,139 @@ export default function Home() {
       });
   };
 
+  useEffect(() => {
+    const borders = [
+      { ref: border1Ref, controls: controls1 },
+      { ref: border2Ref, controls: controls2 },
+      { ref: border3Ref, controls: controls3 },
+      { ref: border4Ref, controls: controls4 },
+    ];
+    let currentBorderIndex = 0;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          borders[currentBorderIndex].controls.start("visible");
+          observer.unobserve(entry.target);
+          currentBorderIndex += 1;
+          if (currentBorderIndex < borders.length) {
+            const nextBorder = borders[currentBorderIndex].ref.current;
+            if (nextBorder) {
+              observer.observe(nextBorder);
+            }
+          }
+        }
+      },
+      { threshold: 0.5 },
+    );
+
+    const firstBorder = borders[currentBorderIndex].ref.current;
+    if (firstBorder) {
+      observer.observe(firstBorder);
+    }
+
+    return () => {
+      if (currentBorderIndex < borders.length) {
+        const borderToUnobserve = borders[currentBorderIndex].ref.current;
+        if (borderToUnobserve) {
+          observer.unobserve(borderToUnobserve);
+        }
+      }
+    };
+  }, [controls1, controls2, controls3, controls4]);
+
+  useEffect(() => {
+    const aboutObserver = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          aboutControls.start("visible");
+        }
+      },
+      { threshold: 0.5 },
+    );
+
+    if (aboutRef.current) {
+      aboutObserver.observe(aboutRef.current);
+    }
+
+    return () => {
+      if (aboutRef.current) {
+        aboutObserver.unobserve(aboutRef.current);
+      }
+    };
+  }, [aboutControls]);
+
+  useEffect(() => {
+    const projectsObserver = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          projectsControls.start("visible");
+        }
+      },
+      { threshold: 0.5 },
+    );
+
+    if (projectsRef.current) {
+      projectsObserver.observe(projectsRef.current);
+    }
+
+    return () => {
+      if (projectsRef.current) {
+        projectsObserver.unobserve(projectsRef.current);
+      }
+    };
+  }, [projectsControls]);
+
+  useEffect(() => {
+    const testimonialsObserver = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          testimonialsControls.start("visible");
+        }
+      },
+      { threshold: 0.5 },
+    );
+
+    if (testimonialsRef.current) {
+      testimonialsObserver.observe(testimonialsRef.current);
+    }
+
+    return () => {
+      if (testimonialsRef.current) {
+        testimonialsObserver.unobserve(testimonialsRef.current);
+      }
+    };
+  }, [testimonialsControls]);
+
+  useEffect(() => {
+    const contactObserver = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          contactControls.start("visible");
+        }
+      },
+      { threshold: 0.5 },
+    );
+
+    if (contactRef.current) {
+      contactObserver.observe(contactRef.current);
+    }
+
+    return () => {
+      if (contactRef.current) {
+        contactObserver.unobserve(contactRef.current);
+      }
+    };
+  }, [contactControls]);
+
   return (
     <>
-      <main className="flex flex-col min-h-screen items-center justify-center p-8 lg:p-32 mx-auto">
+      <motion.main
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 2.14 }}
+        className="flex flex-col min-h-screen items-center justify-center p-8 lg:p-32 mx-auto"
+      >
         <div className="flex flex-col w-full items-center justify-center">
           <div className="bg-neutral-800 font-medium p-2 rounded-lg shadow-lg mb-4">
             <div className="hi">👋</div> Hi There, I&apos;m BinaryBlazer
@@ -111,13 +262,33 @@ export default function Home() {
             Projects
           </button>
         </div>
-      </main>
+      </motion.main>
 
-      <div className="px-8 lg:px-32 mx-auto">
+      <motion.div
+        ref={border1Ref}
+        initial="hidden"
+        animate={controls1}
+        variants={{
+          hidden: { width: 0 },
+          visible: { width: "100%", transition: { duration: 0.8, delay: 0 } },
+        }}
+        className="px-8 lg:px-32 mx-auto"
+      >
         <div className="border-t border-neutral-700 w-full mt-4 mb-4"></div>
-      </div>
+      </motion.div>
 
-      <section
+      <motion.section
+        ref={aboutRef}
+        initial="hidden"
+        animate={aboutControls}
+        variants={{
+          hidden: { opacity: 0, y: 10 },
+          visible: {
+            opacity: 1,
+            y: 0,
+            transition: { duration: 0.5, delay: 0 },
+          },
+        }}
         id="about"
         className="flex flex-col lg:flex-row min-h-screen items-center lg:items-start justify-center lg:justify-between p-8 lg:p-32 mx-auto"
       >
@@ -159,13 +330,33 @@ export default function Home() {
             draggable="false"
           />
         </div>
-      </section>
+      </motion.section>
 
-      <div className="px-8 lg:px-32 mx-auto">
+      <motion.div
+        ref={border2Ref}
+        initial="hidden"
+        animate={controls2}
+        variants={{
+          hidden: { width: 0 },
+          visible: { width: "100%", transition: { duration: 0.8, delay: 0 } },
+        }}
+        className="px-8 lg:px-32 mx-auto"
+      >
         <div className="border-t border-neutral-700 w-full mt-4 mb-4"></div>
-      </div>
+      </motion.div>
 
-      <section
+      <motion.section
+        ref={projectsRef}
+        initial="hidden"
+        animate={projectsControls}
+        variants={{
+          hidden: { opacity: 0, y: 10 },
+          visible: {
+            opacity: 1,
+            y: 0,
+            transition: { duration: 0.5, delay: 0 },
+          },
+        }}
         id="projects"
         className="flex flex-col min-h-screen items-start justify-center p-8 lg:p-32 mx-auto"
       >
@@ -250,13 +441,33 @@ export default function Home() {
             </div>
           ))}
         </div>
-      </section>
+      </motion.section>
 
-      <div className="px-8 lg:px-32 mx-auto">
+      <motion.div
+        ref={border3Ref}
+        initial="hidden"
+        animate={controls3}
+        variants={{
+          hidden: { width: 0 },
+          visible: { width: "100%", transition: { duration: 0.8, delay: 0 } },
+        }}
+        className="px-8 lg:px-32 mx-auto"
+      >
         <div className="border-t border-neutral-700 w-full mt-4 mb-4"></div>
-      </div>
+      </motion.div>
 
-      <section
+      <motion.section
+        ref={testimonialsRef}
+        initial="hidden"
+        animate={testimonialsControls}
+        variants={{
+          hidden: { opacity: 0, y: 10 },
+          visible: {
+            opacity: 1,
+            y: 0,
+            transition: { duration: 0.5, delay: 0 },
+          },
+        }}
         id="testimonials"
         className="flex flex-col min-h-screen items-start justify-center p-8 lg:p-32 mx-auto"
       >
@@ -298,18 +509,6 @@ export default function Home() {
           onMouseLeave={() => onMouseLeave()}
           onMouseMove={(e) => onMouseMove(e)}
         >
-          <div
-            className="flex flex-col mb-4 min-w-[28rem] w-full h-[10.25rem] cursor-pointer items-center justify-center gap-4 p-4 rounded-lg shadow-lg border border-neutral-800 hover:border-neutral-500 hover:bg-neutral-700/20 transition-all duration-300 ease-in-out"
-            onMouseEnter={() => setAddTestimonial(true)}
-            onMouseLeave={() => setAddTestimonial(false)}
-            onClick={() => router.push("/contact")}
-          >
-            <div
-              className={`flex flex-col text-3xl px-10 py-8 ${addTestimonial ? "bg-neutral-700" : "bg-neutral-800"} rounded-lg shadow-lg items-center justify-center transition-all duration-300 ease-in-out`}
-            >
-              +
-            </div>
-          </div>
           {testimonials.map((testimonial, index) => (
             <div
               key={index}
@@ -324,14 +523,46 @@ export default function Home() {
               <p className="text-lg text-left">{testimonial.message}</p>
             </div>
           ))}
+          <div
+            className="flex flex-col mb-4 min-w-[28rem] w-full h-[10.25rem] cursor-pointer items-center justify-center gap-4 p-4 rounded-lg shadow-lg border border-neutral-800 hover:border-neutral-500 hover:bg-neutral-700/20 transition-all duration-300 ease-in-out"
+            onMouseEnter={() => setAddTestimonial(true)}
+            onMouseLeave={() => setAddTestimonial(false)}
+            onClick={() => router.push("/contact")}
+          >
+            <div
+              className={`flex flex-col text-3xl px-10 py-8 ${addTestimonial ? "bg-neutral-700" : "bg-neutral-800"} rounded-lg shadow-lg items-center justify-center transition-all duration-300 ease-in-out`}
+            >
+              +
+            </div>
+          </div>
         </div>
-      </section>
+      </motion.section>
 
-      <div className="px-8 lg:px-32 mx-auto">
+      <motion.div
+        ref={border4Ref}
+        initial="hidden"
+        animate={controls4}
+        variants={{
+          hidden: { width: 0 },
+          visible: { width: "100%", transition: { duration: 0.8, delay: 0 } },
+        }}
+        className="px-8 lg:px-32 mx-auto"
+      >
         <div className="border-t border-neutral-700 w-full mt-4 mb-4"></div>
-      </div>
+      </motion.div>
 
-      <section
+      <motion.section
+        ref={contactRef}
+        initial="hidden"
+        animate={contactControls}
+        variants={{
+          hidden: { opacity: 0, y: 10 },
+          visible: {
+            opacity: 1,
+            y: 0,
+            transition: { duration: 0.5, delay: 0 },
+          },
+        }}
         id="contact"
         className="flex flex-col min-h-screen items-start justify-center p-8 lg:p-32 mx-auto"
       >
@@ -448,7 +679,7 @@ export default function Home() {
             </button>
           </form>
         </div>
-      </section>
+      </motion.section>
     </>
   );
 }
