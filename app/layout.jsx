@@ -13,7 +13,7 @@ import "styles/font.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Loading... - BinaryBlazer",
+  title: "Home - BinaryBlazer",
   description: "BinaryBlazer's portfolio and blog",
 };
 

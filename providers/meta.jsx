@@ -23,5 +23,26 @@ export default function MetaProvider({ children }) {
     }
   }, [pathname]);
 
-  return children;
+  return (<>
+    <head>
+      <title>{pathname === "/" ? "Home" : pathname.slice(1)} - BinaryBlazer</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <meta name="description" content="This is a blog and portfolio website for a full-stack developer called BinaryBlazer." />
+      <meta name="keywords" content="binaryblazer, blog, portfolio, full-stack, developer, germany" />
+      <meta name="author" content="BinaryBlazer" />
+      <link rel="icon" href="/img/favicon-rounded.jpg" />
+      <meta property="og:title" content="BinaryBlazer" />
+      <meta property="og:description" content="This is a blog and portfolio website for a full-stack developer called BinaryBlazer." />
+      <meta property="og:image" content="/img/og-image.png" />
+      <meta property="og:url" content={router.asPath} />
+      <meta property="og:type" content="website" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@BinaryBlazer" />
+      <meta name="twitter:creator" content="@BinaryBlazer" />
+      <meta name="twitter:title" content="BinaryBlazer" />
+      <meta name="twitter:description" content="This is a blog and portfolio website for a full-stack developer called BinaryBlazer." />
+      <meta name="twitter:image" content="/img/og-image.png" />
+    </head>
+    {children}
+  </>);
 }
