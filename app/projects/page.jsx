@@ -185,7 +185,7 @@ export default function Page() {
                 setSelectedRepoId(index);
                 handleRepoClick(repository.name);
               }}
-              style={selectedRepoId === index ? { opacity: 0 } : {}}
+              style={selectedRepoId === index ? { opacity: 0, transition: "all 0.25s ease-in-out", zIndex: -100 } : { opacity: 1, transition: "all 0.25s ease-in-out", zIndex: 0 }}
             >
               <div className="flex flex-col w-full h-full items-start justify-between">
                 <div>
@@ -329,7 +329,7 @@ export default function Page() {
                                   </div>
                                   <div className="flex flex-row gap-2 w-full items-center justify-end">
                                     <p className="text-sm text-gray-400">
-                                      {file.size.toLocaleString()} bytes
+                                      {formatBytes(file.size)}
                                     </p>
                                   </div>
                                 </div>
@@ -366,4 +366,16 @@ export default function Page() {
       ></div>
     </>
   );
+}
+
+function formatBytes(bytes, decimals = 2) {
+  if (bytes === 0) return '0 Bytes';
+
+  const k = 1024;
+  const dm = decimals < 0 ? 0 : decimals;
+  const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
+
+  const i = Math.floor(Math.log(bytes) / Math.log(k));
+
+  return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
 }
