@@ -493,7 +493,7 @@ export default function Home() {
               Testimonials<span className="text-primary-500">.</span>
             </h2>
           </div>
-          <p className="text-xl mt-2">
+          <p className="text-xl mt-2 text-center lg:text-left">
             Here are some testimonials from people I&apos;ve worked with.
           </p>
         </div>
