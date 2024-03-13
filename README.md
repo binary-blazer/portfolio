@@ -1,13 +1,10 @@
 # `v3` of my Personal portfolio website (JavaScript version) by `BinaryBlazer`
 
-> [!WARNING]
-> This version is still under construction. Visit the latest stable version: https://github.com/binary-blazer/portfolio/tree/v2
-
 <img src="https://github.com/binary-blazer/portfolio/blob/v3/public/img/demo-rounded.png" />
 
 ## 🖥️ Hosting
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FJanjyTapYT%2Fportfolio&env=webhook,GITHUB_ACCESS_TOKEN&envDescription=You%20need%20the%20webhook%20variable%20to%20let%20the%20contact%20page%20work.%20you%20can%20create%20webhook%20url%20in%20a%20dscord%20server%20%2F%20channel%20and%20paste%20it%20in%20the%20variable%20value&project-name=portfolio&repo-name=portfolio&demo-title=JanjyTapYT's%20Website&demo-description=A%20cool%20designed%20developer%20website%20built%20with%20Nextjs%20and%20react.&demo-url=https%3A%2F%2Fjanjytapyt.me&demo-image=https%3A%2F%2Fcdn.discordapp.com%2Fattachments%2F971049189377179718%2F1034191567763816448%2Funknown.png)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fbinary-blazer%2Fportfolio&env=DISCORD_WEBHOOK,GITHUB_TOKEN&envDescription=DISCORD_WEBHOOK%20is%20needed%20for%20the%20contact%20forms%20(unless%20you%20want%20them%20to%20work)%3B%20GITHUB_TOKEN%20is%20for%20the%20repositories%20section%20on%20the%20projects%20page%20(unless%20you%20want%20it%20to%20work)%3B&envLink=https%3A%2F%2Fgithub.com%2Fbinary-blazer%2Fportfolio%2Fblob%2Fv3%2F.env.example&project-name=binaryblazer-portfolio&repository-name=binaryblazer-portfolio&demo-title=BinaryBlazer%20Portfolio&demo-description=This%20is%20a%20blog%20and%20portfolio%20website%20for%20a%20full-stack%20developer%20called%20BinaryBlazer.&demo-url=https%3A%2F%2Fbinaryblazer.me&demo-image=https%3A%2F%2Fgithub.com%2Fbinary-blazer%2Fportfolio%2Fblob%2Fv3%2Fpublic%2Fimg%2Fdemo.png)
 
 ## Getting Started
 
