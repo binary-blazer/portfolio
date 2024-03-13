@@ -35,6 +35,8 @@ export default function MetaProvider({ children }) {
       <meta property="og:title" content={pathname === "/" ? "Home" : pathname.slice(1) + " - " + config.title} />
       <meta property="og:description" content={config.description} />
       <meta property="og:image" content={config.image} />
+      <meta property="og:image:width" content="6912" />
+      <meta property="og:image:height" content="3456" />
       <meta property="og:url" content={router.asPath} />
       <meta property="og:type" content="website" />
       <meta name="twitter:card" content="summary" />
