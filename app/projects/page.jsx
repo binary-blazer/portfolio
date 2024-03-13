@@ -9,7 +9,12 @@ export default function Page() {
   const [repositories, setRepositories] = useState([]);
 
   useEffect(() => {
-    setRepositories(GetRepositories());
+    try {
+      const repos = GetRepositories();
+      setRepositories(repos);
+    } catch (error) {
+      console.error(error);
+    }
   }, []);
 
   return (

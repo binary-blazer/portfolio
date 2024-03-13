@@ -1,25 +1,19 @@
+import "dotenv/config";
 import { config } from "@/main.config";
 
-export default function GetRepositories() {
-  let repositories = [];
-
-  const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
-  const GITHUB_USERNAME = config.github.username;
-
-  const fetchRepositories = async () => {
+export default async function GetRepositories() {
+    const username = config.github.username;
+    const token = process.env.GITHUB_TOKEN;
+    
     const response = await fetch(
-      `https://api.github.com/users/${GITHUB_USERNAME}/repos`,
-      {
+        'https://api.github.com/users/' + username + '/repos?sort=updated&per_page=8',
+        {
         headers: {
-          Authorization: `token ${GITHUB_TOKEN}`,
+            Authorization: 'token ' + token,
         },
-      },
+        }
     );
-    const data = await response.json();
-    repositories = data;
-  };
-
-  fetchRepositories();
-
-  return repositories;
+    
+    const repositories = await response.json();
+    return repositories;
 }
