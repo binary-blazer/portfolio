@@ -185,6 +185,7 @@ export default function Page() {
                 setSelectedRepoId(index);
                 handleRepoClick(repository.name);
               }}
+              style={selectedRepoId === index ? { opacity: 0 } : {}}
             >
               <div className="flex flex-col w-full h-full items-start justify-between">
                 <div>
@@ -232,13 +233,14 @@ export default function Page() {
 
           <AnimatePresence>
             {selectedRepoId !== null && (
-              <motion.div
-                layoutId={selectedRepoId}
-                className="fixed inset-0 z-50 bg-neutral-900/90 flex items-center justify-center p-8 lg:p-[20rem]"
-                onClick={() => setSelectedRepoId(null)}
-              >
+              <>
                 <motion.div
-                  className="flex flex-col w-full h-auto items-start justify-start p-4 rounded-lg shadow-lg bg-neutral-800"
+                  layoutId={selectedRepoId}
+                  className="fixed inset-0 z-[101] w-full h-full cursor-pointer flex items-center justify-center p-8 lg:p-[20rem]"
+                  onClick={() => setSelectedRepoId(null)}
+                >
+                <motion.div
+                  className="flex flex-col z-[102] cursor-auto w-auto min-w-[100%] h-auto items-start justify-start p-4 rounded-lg shadow-lg bg-neutral-800"
                   onClick={(e) => e.stopPropagation()}
                 >
                   <div className="flex flex-row gap-2 items-center justify-start">
@@ -282,14 +284,14 @@ export default function Page() {
                               .map((file, index) => (
                                 <div
                                   key={index}
-                                  className="flex flex-row w-full items-center justify-start gap-2 hover:bg-neutral-700 p-2 border-b border-neutral-700 cursor-pointer"
+                                  className="flex flex-row w-full items-center justify-between gap-2 hover:bg-neutral-700 p-2 border-b border-neutral-700 cursor-pointer"
                                   onClick={() => {
                                     router.push(
                                       `https://github.com/${repositories[selectedRepoId].owner.login}/${repositories[selectedRepoId].name}/tree/main/${file.path}`,
                                     );
                                   }}
                                 >
-                                  <div className="flex flex-row gap-2 w-full items-start justify-start">
+                                  <div className="flex flex-row gap-1 w-full items-start justify-start">
                                     {file.type === "dir" ? (
                                       <svg
                                         xmlns="http://www.w3.org/2000/svg"
@@ -321,8 +323,13 @@ export default function Page() {
                                         />
                                       </svg>
                                     )}
-                                    <p className="text-sm font-bold">
+                                    <p className="text-sm font-medium">
                                       {file.name}
+                                    </p>
+                                  </div>
+                                  <div className="flex flex-row gap-2 w-full items-center justify-end">
+                                    <p className="text-sm text-gray-400">
+                                      {file.size.toLocaleString()} bytes
                                     </p>
                                   </div>
                                 </div>
@@ -345,11 +352,18 @@ export default function Page() {
                     </div>
                   </div>
                 </motion.div>
-              </motion.div>
-            )}
+                </motion.div>
+              </>
+          )}
           </AnimatePresence>
         </div>
       </motion.main>
+
+      <div 
+        className="bg-neutral-900/90 fixed inset-0 z-[100] cursor-pointer h-full w-full"
+        style={ selectedRepoId !== null ? { opacity: 1, zIndex: 100, backdropFilter: "blur(10px)", transition: "all 0.25s ease-in-out" } : { backdropFilter: "blur(0px)", opacity: 0, zIndex: -100, transition: "all 0.25s ease-in-out" } }
+        onClick={() => setSelectedRepoId(null)}
+      ></div>
     </>
   );
 }
