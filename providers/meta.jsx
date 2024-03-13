@@ -37,7 +37,7 @@ export default function MetaProvider({ children }) {
       <meta property="og:image" content={config.image} />
       <meta property="og:image:width" content="6912" />
       <meta property="og:image:height" content="3456" />
-      <meta property="og:site_name" content={pathname === "/" ? "Home" : pathname.slice(1) + " - " + config.title} />
+      <meta property="og:site_name" content={"BinaryBlazer"} />
       <meta property="og:url" content={router.asPath} />
       <meta property="og:type" content="website" />
       <meta name="twitter:card" content="summary" />
