@@ -445,9 +445,9 @@ export default function Home() {
           ))}
         </div>
         </div>
-        <div className="flex flex-col gap-2 items-center justify-end w-full -mt-20">
+        <div className="flex flex-col gap-2 items-center justify-end w-full">
           <button
-            className="flex items-center justify-center px-6 bg-primary-500 text-white font-bold py-2 rounded-lg shadow-lg hover:bg-primary-600 transition-colors"
+            className="flex items-center justify-center px-6 bg-primary-500 text-white font-bold py-2 rounded-lg shadow-lg hover:bg-primary-600 transition-colors -mt-20"
             onClick={() => router.push("/projects")}
           >
             View All Projects
