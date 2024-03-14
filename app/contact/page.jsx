@@ -42,7 +42,7 @@ export default function Page() {
       transition={{ duration: 0.5 }}
       className="flex flex-col min-h-screen items-center justify-center mt-[7rem] lg:mt-0 p-8 lg:p-32 mx-auto"
     >
-      <div className="flex flex-col w-full items-center lg:items-start justify-center mb-10">
+      <div className="flex flex-col w-full items-start justify-center mb-10">
         <div className="flex flex-row gap-2 items-center justify-start">
           <div className="bg-primary-500 p-2 rounded-lg">
             <svg
@@ -64,7 +64,7 @@ export default function Page() {
             Contact Me<span className="text-primary-500">.</span>
           </h2>
         </div>
-        <p className="text-xl mt-2 text-center lg:text-left">
+        <p className="text-xl mt-2 text-left">
           Want to work together or just say hi? Feel free to reach out to me.
         </p>
       </div>

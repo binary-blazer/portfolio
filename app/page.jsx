@@ -292,7 +292,7 @@ export default function Home() {
         id="about"
         className="flex flex-col lg:flex-row min-h-screen items-center lg:items-start justify-center lg:justify-between p-8 lg:p-32 mx-auto"
       >
-        <div className="flex flex-col w-full lg:w-2/3 items-center lg:items-start justify-center">
+        <div className="flex flex-col w-full lg:w-2/3 items-start justify-center">
           <div className="flex flex-row gap-2 items-center justify-start">
             <div className="bg-primary-500 p-2 rounded-lg">
               <svg
@@ -314,7 +314,7 @@ export default function Home() {
               About Me<span className="text-primary-500">.</span>
             </h2>
           </div>
-          <p className="text-xl mt-2 text-center lg:text-left">
+          <p className="text-xl mt-2 text-left">
             I&apos;m a full-stack developer with a passion for open-source
             software and the web. I&apos;ve been developing for the web for over
             6 years and have a strong understanding of web technologies and best
@@ -360,79 +360,79 @@ export default function Home() {
         id="projects"
         className="flex flex-col bg-gradient-to-b from-transparent via-neutral-900/90 to-neutral-900 min-h-screen items-start justify-center p-8 lg:p-32 mx-auto"
       >
-        <div className="flex flex-col w-full items-center lg:items-start justify-center">
-        <div className="flex flex-col w-full items-center lg:items-start justify-center mb-8">
-          <div className="flex flex-row gap-2 items-center justify-start">
-            <div className="bg-primary-500 p-2 rounded-lg">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={1.5}
-                stroke="currentColor"
-                className="w-6 h-6"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M14.25 9.75 16.5 12l-2.25 2.25m-4.5 0L7.5 12l2.25-2.25M6 20.25h12A2.25 2.25 0 0 0 20.25 18V6A2.25 2.25 0 0 0 18 3.75H6A2.25 2.25 0 0 0 3.75 6v12A2.25 2.25 0 0 0 6 20.25Z"
-                />
-              </svg>
+        <div className="flex flex-col w-full items-start justify-center">
+          <div className="flex flex-col w-full items-start justify-center mb-8">
+            <div className="flex flex-row gap-2 items-center justify-start">
+              <div className="bg-primary-500 p-2 rounded-lg">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={1.5}
+                  stroke="currentColor"
+                  className="w-6 h-6"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M14.25 9.75 16.5 12l-2.25 2.25m-4.5 0L7.5 12l2.25-2.25M6 20.25h12A2.25 2.25 0 0 0 20.25 18V6A2.25 2.25 0 0 0 18 3.75H6A2.25 2.25 0 0 0 3.75 6v12A2.25 2.25 0 0 0 6 20.25Z"
+                  />
+                </svg>
+              </div>
+              <h2 className="text-4xl font-bold">
+                Projects<span className="text-primary-500">.</span>
+              </h2>
             </div>
-            <h2 className="text-4xl font-bold">
-              Projects<span className="text-primary-500">.</span>
-            </h2>
+            <p className="text-xl mt-2 text-left">
+              Here are some of the projects I&apos;ve been working on recently.
+            </p>
           </div>
-          <p className="text-xl mt-2 text-center lg:text-left">
-            Here are some of the projects I&apos;ve been working on recently.
-          </p>
-        </div>
-        <div className="w-full items-start justify-center grid grid-cols-1 lg:grid-cols-2 gap-4">
-          {projects.slice(0, 2).map((project, index) => (
-            <div
-              key={index}
-              className="flex flex-col z-[-1] w-full h-full items-center justify-center gap-4 p-4 rounded-lg shadow-lg bg-neutral-800"
-            >
-              <img
-                src={project.banner}
-                alt={project.title}
-                className="w-full h-auto rounded-lg shadow-lg bg-neutral-900"
-                draggable="false"
-              />
-              <div className="flex flex-row w-full items-center justify-start mt-2">
+          <div className="w-full items-start justify-center grid grid-cols-1 lg:grid-cols-2 gap-4">
+            {projects.slice(0, 2).map((project, index) => (
+              <div
+                key={index}
+                className="flex flex-col z-[-1] w-full h-full items-center justify-center gap-4 p-4 rounded-lg shadow-lg bg-neutral-800"
+              >
                 <img
-                  src={project.image}
+                  src={project.banner}
                   alt={project.title}
-                  className="w-12 h-12 rounded-lg shadow-lg bg-neutral-900"
+                  className="w-full h-auto rounded-lg shadow-lg bg-neutral-900"
                   draggable="false"
                 />
-                <div className="flex flex-row gap-2 items-center justify-start">
-                  <h3 className="text-2xl font-bold ml-2">{project.title}</h3>
-                  {project.status.inProgress && (
-                    <div className="text-xs text-primary-200 font-bold bg-primary-500 px-2 py-1 rounded-lg">
-                      In Progress
-                    </div>
-                  )}
-                  {project.status.complete && (
-                    <div className="text-xs text-green-500 font-bold bg-green-500 px-2 py-1 rounded-lg">
-                      Complete
-                    </div>
-                  )}
-                  {project.status.paused && (
-                    <div className="text-xs text-yellow-500 font-bold bg-yellow-500 px-2 py-1 rounded-lg">
-                      Paused
-                    </div>
-                  )}
-                  {project.status.cancelled && (
-                    <div className="text-xs text-red-500 font-bold bg-red-500 px-2 py-1 rounded-lg">
-                      Cancelled
-                    </div>
-                  )}
+                <div className="flex flex-row w-full items-center justify-start mt-2">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-12 h-12 rounded-lg shadow-lg bg-neutral-900"
+                    draggable="false"
+                  />
+                  <div className="flex flex-row gap-2 items-center justify-start">
+                    <h3 className="text-2xl font-bold ml-2">{project.title}</h3>
+                    {project.status.inProgress && (
+                      <div className="text-xs text-primary-200 font-bold bg-primary-500 px-2 py-1 rounded-lg">
+                        In Progress
+                      </div>
+                    )}
+                    {project.status.complete && (
+                      <div className="text-xs text-green-500 font-bold bg-green-500 px-2 py-1 rounded-lg">
+                        Complete
+                      </div>
+                    )}
+                    {project.status.paused && (
+                      <div className="text-xs text-yellow-500 font-bold bg-yellow-500 px-2 py-1 rounded-lg">
+                        Paused
+                      </div>
+                    )}
+                    {project.status.cancelled && (
+                      <div className="text-xs text-red-500 font-bold bg-red-500 px-2 py-1 rounded-lg">
+                        Cancelled
+                      </div>
+                    )}
+                  </div>
                 </div>
-              </div>
-              <p className="text-xl text-left">{project.description}</p>
-              <div className="flex flex-row gap-2 w-full items-center justify-start mt-4">
-                {/*
+                <p className="text-xl text-left">{project.description}</p>
+                <div className="flex flex-row gap-2 w-full items-center justify-start mt-4">
+                  {/*
                 <button
                   className="flex items-center justify-center px-6 bg-primary-500 text-white font-bold py-2 rounded-lg shadow-lg hover:bg-primary-600 transition-colors"
                   onClick={() => router.push(project.link)}
@@ -440,12 +440,12 @@ export default function Home() {
                   View Project
                 </button>
                 */}
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-        </div>
-        <div className="flex flex-col gap-2 items-center justify-end w-full -mt-20">
+        <div className="flex flex-col gap-2 items-center justify-end w-full">
           <button
             className="flex items-center justify-center px-6 bg-primary-500 text-white font-bold py-2 rounded-lg shadow-lg hover:bg-primary-600 transition-colors"
             onClick={() => router.push("/projects")}
@@ -483,7 +483,7 @@ export default function Home() {
         id="testimonials"
         className="flex flex-col min-h-screen items-start justify-center p-8 lg:p-32 mx-auto"
       >
-        <div className="flex flex-col w-full items-center lg:items-start justify-center mb-8">
+        <div className="flex flex-col w-full items-start justify-center mb-8">
           <div className="flex flex-row gap-2 items-center justify-start">
             <div className="bg-primary-500 p-2 rounded-lg">
               <svg
@@ -505,7 +505,7 @@ export default function Home() {
               Testimonials<span className="text-primary-500">.</span>
             </h2>
           </div>
-          <p className="text-xl mt-2 text-center lg:text-left">
+          <p className="text-xl mt-2 text-left">
             Here are some testimonials from people I&apos;ve worked with.
           </p>
         </div>
@@ -578,7 +578,7 @@ export default function Home() {
         id="contact"
         className="flex flex-col min-h-screen items-start justify-center p-8 lg:p-32 mx-auto"
       >
-        <div className="flex flex-col w-full items-center lg:items-start justify-center mb-10">
+        <div className="flex flex-col w-full items-start justify-center mb-10">
           <div className="flex flex-row gap-2 items-center justify-start">
             <div className="bg-primary-500 p-2 rounded-lg">
               <svg
@@ -600,7 +600,7 @@ export default function Home() {
               Contact Me<span className="text-primary-500">.</span>
             </h2>
           </div>
-          <p className="text-xl mt-2 text-center lg:text-left">
+          <p className="text-xl mt-2 text-left">
             Want to work together or just say hi? Feel free to reach out to me.
           </p>
         </div>

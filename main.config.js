@@ -1,6 +1,7 @@
 export const config = {
   title: "BinaryBlazer",
-  description: "This is a blog and portfolio website for a full-stack developer called BinaryBlazer.",
+  description:
+    "This is a blog and portfolio website for a full-stack developer called BinaryBlazer.",
   author: "BinaryBlazer",
   keywords: "binaryblazer, blog, portfolio, full-stack, developer, germany",
   twitter: "@BinaryBlazer",

@@ -6,6 +6,8 @@ import { motion, AnimatePresence } from "framer-motion";
 
 export default function About() {
   const [currentTab, setCurrentTab] = React.useState(technologies[0]);
+  const [shouldAnimate, setShouldAnimate] = React.useState(true);
+
   const tabs = technologies.map((tab) => (
     <button
       key={tab.name}
@@ -20,6 +22,12 @@ export default function About() {
     </button>
   ));
 
+  React.useEffect(() => {
+    setShouldAnimate(false);
+    const timer = setTimeout(() => setShouldAnimate(true), 0);
+    return () => clearTimeout(timer);
+  }, [currentTab]);
+
   return (
     <>
       <motion.main
@@ -29,8 +37,8 @@ export default function About() {
         transition={{ duration: 0.5 }}
         className="flex flex-col min-h-screen items-center justify-center mt-[7rem] lg:mt-0 p-8 lg:p-32 mx-auto"
       >
-        <div className="flex flex-col lg:flex-row w-full items-center lg:items-start justify-center">
-          <div className="flex flex-col w-full lg:w-2/3 items-center lg:items-start justify-center">
+        <div className="flex flex-col lg:flex-row w-full items-start justify-center">
+          <div className="flex flex-col w-full lg:w-2/3 items-start justify-center">
             <div className="flex flex-row gap-2 items-center justify-start">
               <div className="bg-primary-500 p-2 rounded-lg">
                 <svg
@@ -52,7 +60,7 @@ export default function About() {
                 About Me<span className="text-primary-500">.</span>
               </h2>
             </div>
-            <p className="text-xl mt-2 text-center lg:text-left">
+            <p className="text-xl mt-2 text-left">
               I&apos;m a full-stack developer with a passion for open-source
               software and the web. I&apos;ve been developing for the web for
               over 6 years and have a strong understanding of web technologies
@@ -70,7 +78,7 @@ export default function About() {
             />
           </div>
         </div>
-        <div className="flex flex-col w-full items-center lg:items-start justify-center mt-[15rem]">
+        <div className="flex flex-col w-full items-start justify-center mt-[15rem]">
           <div className="flex flex-row gap-2 items-center justify-start">
             <div className="bg-primary-500 p-2 rounded-lg">
               <svg
@@ -92,7 +100,7 @@ export default function About() {
               Technologies I Use<span className="text-primary-500">.</span>
             </h2>
           </div>
-          <p className="text-xl mt-2 text-center lg:text-left">
+          <p className="text-xl mt-2 text-left">
             I have experience with a wide range of technologies, from front-end
             frameworks like React and Vue to back-end frameworks like Express
             and Django. I also have experience with cloud platforms like AWS and
@@ -110,24 +118,25 @@ export default function About() {
           <h3 className="text-xl font-bold text-center">{currentTab.name}</h3>
           <motion.div
             className="gap-2 w-full  mt-2 items-center justify-start grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
-            transition={{ duration: 0.5, staggerChildren: 0.2 }}
+            transition={{ duration: 0.2, staggerChildren: 0.15 }}
           >
-            <AnimatePresence>
-              {currentTab.technologies.map((tech) => (
-                <motion.div
-                  key={tech.name}
-                  className="bg-neutral-800 gap-2 flex flex-row items-center justify-start p-2 w-full rounded-lg text-center transition-transform duration-150 ease-in-out transform hover:translate-y-[-4px]"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: 20 }}
-                >
-                  <div className="bg-neutral-700 p-2 rounded-md">
-                    <img src={tech.icon} alt={tech.name} className="w-6 h-6" />
-                  </div>
-                  {tech.name}
-                </motion.div>
-              ))}
-            </AnimatePresence>
+            {currentTab.technologies.map((tech, index) => (
+              <motion.div
+                key={tech.name}
+                className="bg-neutral-800 gap-2 flex flex-row items-center justify-start p-2 w-full rounded-lg text-center transition-transform duration-150 ease-in-out transform hover:translate-y-[-4px]"
+                initial={shouldAnimate ? { opacity: 0, y: 10 } : {}}
+                animate={shouldAnimate ? { opacity: 1, y: 0 } : {}}
+                exit={shouldAnimate ? { opacity: 0, y: 10 } : {}}
+                transition={
+                  shouldAnimate ? { duration: 0.2, delay: index * 0.1 } : {}
+                }
+              >
+                <div className="bg-neutral-700 p-2 rounded-md">
+                  <img src={tech.icon} alt={tech.name} className="w-6 h-6" />
+                </div>
+                {tech.name}
+              </motion.div>
+            ))}
           </motion.div>
         </div>
       </motion.main>
