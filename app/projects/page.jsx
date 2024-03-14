@@ -461,13 +461,18 @@ export default function Page() {
                                 }
                               >
                                 <div className="flex flex-row gap-2 w-full items-center justify-center">
-                                  <p className="text-sm font-medium">
-                                    {currentRepoFiles.length > 7
-                                      ? currentRepoFiles.length -
-                                        7 +
-                                        " more files. View Repository"
-                                      : "View Repository"}
-                                  </p>
+                                  <div className="flex items-center gap-1">
+                                    {currentRepoFiles.length > 7 && (
+                                      <p className="text-sm font-medium text-gray-400">
+                                        {currentRepoFiles.length -
+                                          7 +
+                                          " more files."}
+                                      </p>
+                                    )}
+                                    <p className="text-sm font-medium">
+                                      {"View Repository"}
+                                    </p>
+                                  </div>
                                 </div>
                               </div>
                             </div>
