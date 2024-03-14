@@ -14,7 +14,6 @@ export default function Page() {
   const [currentRepoFiles, setCurrentRepoFiles] = useState(null);
 
   const handleRepoClick = async (repo) => {
-    try {
       setCurrentRepoLoading(true);
       const res = await fetch(
         `https://api.github.com/repos/binary-blazer/${repo}/contents`,
@@ -25,9 +24,6 @@ export default function Page() {
       const files = await res.json();
       setCurrentRepoFiles(files);
       setCurrentRepoLoading(false);
-    } catch (error) {
-      console.error(error);
-    }
   };
 
   useEffect(() => {
@@ -183,18 +179,18 @@ export default function Page() {
               className="flex flex-col w-full cursor-pointer h-full items-start justify-start gap-4 p-4 rounded-lg shadow-lg bg-neutral-800"
               onClick={() => {
                 setSelectedRepoId(index);
-                handleRepoClick(repository.name);
+                handleRepoClick(repository?.name);
               }}
               style={
                 selectedRepoId === index
                   ? {
                       opacity: 0,
-                      transition: "all 0.4s ease-in-out",
+                      transition: "all 0.3s ease-in-out",
                       zIndex: -100,
                     }
                   : {
                       opacity: 1,
-                      transition: "all 0.4s ease-in-out",
+                      transition: "all 0.3s ease-in-out",
                       zIndex: 0,
                     }
               }
@@ -258,18 +254,18 @@ export default function Page() {
                     <div className="flex flex-row w-full items-start justify-between">
                       <div className="flex flex-row gap-2 w-2/3 items-center justify-start">
                         <img
-                          src={repositories[selectedRepoId].owner.avatar_url}
-                          alt={repositories[selectedRepoId].owner.login}
+                          src={repositories[selectedRepoId]?.owner?.avatar_url}
+                          alt={repositories[selectedRepoId]?.owner?.login}
                           className="w-12 h-12 rounded-lg shadow-lg bg-neutral-900"
                           draggable="false"
                         />
                         <div className="flex flex-col w-full items-start justify-start">
                           <p className="text-lg font-bold">
-                            {repositories[selectedRepoId].owner.login}
+                            {repositories[selectedRepoId]?.owner?.login}
                           </p>
                           <p className="text-sm text-gray-400">
                             {new Date(
-                              repositories[selectedRepoId].updated_at,
+                              repositories[selectedRepoId]?.updated_at,
                             ).toDateString()}
                           </p>
                         </div>
@@ -291,7 +287,7 @@ export default function Page() {
                             />
                           </svg>
                           <h1 className="text-md font-bold">
-                            {repositories[selectedRepoId].stargazers_count}
+                            {repositories[selectedRepoId]?.stargazers_count}
                           </h1>
                         </div>
                         <div className="flex flex-row gap-1 items-center justify-start">
@@ -353,41 +349,23 @@ export default function Page() {
                             ></line>
                           </svg>
                           <h1 className="text-md font-bold">
-                            {repositories[selectedRepoId].forks_count}
-                          </h1>
-                        </div>
-                        <div className="flex flex-row gap-1 items-center justify-start">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            strokeWidth={1.5}
-                            stroke="currentColor"
-                            className="w-5 h-5"
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              d="m18.375 12.739-7.693 7.693a4.5 4.5 0 0 1-6.364-6.364l10.94-10.94A3 3 0 1 1 19.5 7.372L8.552 18.32m.009-.01-.01.01m5.699-9.941-7.81 7.81a1.5 1.5 0 0 0 2.112 2.13"
-                            />
-                          </svg>
-                          <h1 className="text-md font-bold">
-                            {formatBytes(repositories[selectedRepoId].size)}
+                            {repositories[selectedRepoId]?.forks_count}
                           </h1>
                         </div>
                       </div>
                     </div>
                     <h3 className="text-2xl font-bold mt-2">
-                      {repositories[selectedRepoId].name}
+                      {repositories[selectedRepoId]?.name}
                     </h3>
                     <p className="text-lg text-left text-white/80">
-                      {repositories[selectedRepoId].description.length > 60
-                        ? repositories[selectedRepoId].description.slice(
+                  { repositories[selectedRepoId]?.description ? (
+                    repositories[selectedRepoId].description.length > 60 ? repositories[selectedRepoId].description.slice(
                             0,
                             60,
                           ) + "..."
                         : repositories[selectedRepoId].description ||
-                          "No description provided."}
+                          "No description provided."
+                    ) : "No description provided." }
                     </p>
                     <div className="flex flex-col w-full mt-4">
                       <div className="flex flex-col w-full items-start justify-start">
@@ -395,8 +373,8 @@ export default function Page() {
                           <div className="w-full h-auto rounded-lg shadow-lg border border-neutral-700 overflow-auto">
                             <div className="flex flex-col w-full items-start justify-start">
                               {currentRepoFiles
-                                .sort((a, b) =>
-                                  a.type === "dir" && b.type !== "dir" ? -1 : 1,
+                              .sort((a, b) =>
+                                  a?.type === "dir" && b?.type !== "dir" ? -1 : 1,
                                 )
                                 .slice(0, 7)
                                 .map((file, index) => (
@@ -405,12 +383,12 @@ export default function Page() {
                                     className="flex flex-row w-full items-center justify-between gap-2 hover:bg-neutral-700 p-2 border-b border-neutral-700 cursor-pointer"
                                     onClick={() => {
                                       router.push(
-                                        `https://github.com/${repositories[selectedRepoId].owner.login}/${repositories[selectedRepoId].name}/tree/main/${file.path}`,
+                                        `https://github.com/${repositories[selectedRepoId]?.owner?.login}/${repositories[selectedRepoId]?.name}/tree/main/${file?.path}`,
                                       );
                                     }}
                                   >
                                     <div className="flex flex-row gap-1 w-full items-start justify-start">
-                                      {file.type === "dir" ? (
+                                      {file?.type === "dir" ? (
                                         <svg
                                           xmlns="http://www.w3.org/2000/svg"
                                           fill="none"
@@ -442,12 +420,12 @@ export default function Page() {
                                         </svg>
                                       )}
                                       <p className="text-sm font-medium">
-                                        {file.name}
+                                        {file?.name}
                                       </p>
                                     </div>
                                     <div className="flex flex-row gap-2 w-full items-center justify-end">
                                       <p className="text-sm text-gray-400">
-                                        {formatBytes(file.size)}
+                                        {formatBytes(file?.size)}
                                       </p>
                                     </div>
                                   </div>
@@ -456,15 +434,15 @@ export default function Page() {
                                 className="flex flex-row w-full items-center justify-center gap-2 hover:bg-neutral-700 p-2 border-b border-neutral-700 cursor-pointer"
                                 onClick={() =>
                                   router.push(
-                                    `https://github.com/${repositories[selectedRepoId].owner.login}/${repositories[selectedRepoId].name}`,
+                                    `https://github.com/${repositories[selectedRepoId]?.owner?.login}/${repositories[selectedRepoId]?.name}`,
                                   )
                                 }
                               >
                                 <div className="flex flex-row gap-2 w-full items-center justify-center">
                                   <div className="flex items-center gap-1">
-                                    {currentRepoFiles.length > 7 && (
+                                    {currentRepoFiles?.length > 7 && (
                                       <p className="text-sm font-medium text-gray-400">
-                                        {currentRepoFiles.length -
+                                        {currentRepoFiles?.length -
                                           7 +
                                           " more files."}
                                       </p>
