@@ -176,13 +176,13 @@ body::after {
   }
 }
 
-.not_found_text_glitch {
+.text-glitch {
   position: relative;
   overflow: hidden;
   animation: glitch 1s linear infinite;
 }
 
-.not_found_text_glitch::before {
+.text-glitch::before {
   content: attr(data-text);
   position: absolute;
   top: 0;

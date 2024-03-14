@@ -221,10 +221,10 @@ export default function Home() {
         className="flex flex-col min-h-screen items-center justify-center p-8 lg:p-32 mx-auto"
       >
         <div className="flex flex-col w-full items-center justify-center">
-          <div className="bg-neutral-800 font-medium p-2 rounded-lg shadow-lg mb-4">
+          <div className="bg-neutral-800 font-medium p-2 rounded-lg shadow-lg mb-4 2xl:text-lg">
             <div className="hi">👋</div> Hi There, I&apos;m BinaryBlazer
           </div>
-          <h1 className="text-3xl lg:text-4xl font-bold text-center">
+          <h1 className="text-3xl lg:text-4xl font-bold text-center 2xl:text-5xl">
             I Build{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-primary-500">
               Websites
@@ -243,7 +243,7 @@ export default function Home() {
             </span>{" "}
             <span className="text-3xl rocket">🚀</span>
           </h1>
-          <p className="text-md lg:text-xl text-center">
+          <p className="text-md lg:text-xl text-center 2xl:text-2xl mt-2 lg:mt-4">
             I&apos;m a full-stack developer with a passion for open-source
             software and the web.
           </p>
@@ -274,7 +274,7 @@ export default function Home() {
         }}
         className="px-8 lg:px-32 mx-auto"
       >
-        <div className="border-t border-neutral-700 w-full mt-4 mb-4"></div>
+        <div className="border-t border-neutral-700 w-full mt-4 mb-4" />
       </motion.div>
 
       <motion.section
@@ -290,7 +290,7 @@ export default function Home() {
           },
         }}
         id="about"
-        className="flex flex-col lg:flex-row min-h-screen items-center lg:items-start justify-center lg:justify-between p-8 lg:p-32 mx-auto"
+        className="flex flex-col container lg:flex-row min-h-screen items-center lg:items-start justify-center lg:justify-between p-8 lg:p-32 mx-auto"
       >
         <div className="flex flex-col w-full lg:w-2/3 items-start justify-center">
           <div className="flex flex-row gap-2 items-center justify-start">
@@ -342,7 +342,7 @@ export default function Home() {
         }}
         className="px-8 lg:px-32 mx-auto"
       >
-        <div className="border-t border-neutral-700 w-full mt-4 mb-4"></div>
+        <div className="border-t border-neutral-700 w-full mt-4 mb-4" />
       </motion.div>
 
       <motion.section
@@ -358,7 +358,7 @@ export default function Home() {
           },
         }}
         id="projects"
-        className="flex flex-col bg-gradient-to-b from-transparent via-neutral-900/90 to-neutral-900 min-h-screen items-start justify-center p-8 lg:p-32 mx-auto"
+        className="flex flex-col container bg-gradient-to-b from-transparent via-neutral-900/90 to-neutral-900 min-h-screen items-start justify-center p-8 lg:p-32 mx-auto"
       >
         <div className="flex flex-col w-full items-start justify-center">
           <div className="flex flex-col w-full items-start justify-center mb-8">
@@ -465,7 +465,7 @@ export default function Home() {
         }}
         className="px-8 lg:px-32 mx-auto"
       >
-        <div className="border-t border-neutral-700 w-full mt-4 mb-4"></div>
+        <div className="border-t border-neutral-700 w-full mt-4 mb-4" />
       </motion.div>
 
       <motion.section
@@ -481,7 +481,7 @@ export default function Home() {
           },
         }}
         id="testimonials"
-        className="flex flex-col min-h-screen items-start justify-center p-8 lg:p-32 mx-auto"
+        className="flex flex-col container min-h-screen items-start justify-center p-8 lg:p-32 mx-auto"
       >
         <div className="flex flex-col w-full items-start justify-center mb-8">
           <div className="flex flex-row gap-2 items-center justify-start">
@@ -560,7 +560,7 @@ export default function Home() {
         }}
         className="px-8 lg:px-32 mx-auto"
       >
-        <div className="border-t border-neutral-700 w-full mt-4 mb-4"></div>
+        <div className="border-t border-neutral-700 w-full mt-4 mb-4" />
       </motion.div>
 
       <motion.section
@@ -576,7 +576,7 @@ export default function Home() {
           },
         }}
         id="contact"
-        className="flex flex-col min-h-screen items-start justify-center p-8 lg:p-32 mx-auto"
+        className="flex flex-col container min-h-screen items-start justify-center p-8 lg:p-32 mx-auto"
       >
         <div className="flex flex-col w-full items-start justify-center mb-10">
           <div className="flex flex-row gap-2 items-center justify-start">

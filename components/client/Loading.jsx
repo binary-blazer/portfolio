@@ -21,7 +21,8 @@ export default function Loading() {
         >
           <motion.div
             exit={{ scale: 0 }}
-            className="bg-primary-500 p-4 rounded-lg"
+            // className="bg-primary-500 p-4 rounded-lg"
+            className="p-4 rounded-lg"
           >
             <div className="loading-dots flex flex-row items-center justify-center">
               <div className="loading-dots--dot"></div>

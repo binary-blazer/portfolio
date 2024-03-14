@@ -35,7 +35,7 @@ export default function About() {
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: 10 }}
         transition={{ duration: 0.5 }}
-        className="flex flex-col min-h-screen items-center justify-center mt-[7rem] lg:mt-0 p-8 lg:p-32 mx-auto"
+        className="flex flex-col min-h-screen container items-center justify-center mt-[7rem] lg:mt-0 p-8 lg:p-32 mx-auto"
       >
         <div className="flex flex-col lg:flex-row w-full items-start justify-center">
           <div className="flex flex-col w-full lg:w-2/3 items-start justify-center">

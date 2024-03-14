@@ -14,16 +14,16 @@ export default function Page() {
   const [currentRepoFiles, setCurrentRepoFiles] = useState(null);
 
   const handleRepoClick = async (repo) => {
-      setCurrentRepoLoading(true);
-      const res = await fetch(
-        `https://api.github.com/repos/binary-blazer/${repo}/contents`,
-        {
-          method: "GET",
-        },
-      );
-      const files = await res.json();
-      setCurrentRepoFiles(files);
-      setCurrentRepoLoading(false);
+    setCurrentRepoLoading(true);
+    const res = await fetch(
+      `https://api.github.com/repos/binary-blazer/${repo}/contents`,
+      {
+        method: "GET",
+      },
+    );
+    const files = await res.json();
+    setCurrentRepoFiles(files);
+    setCurrentRepoLoading(false);
   };
 
   useEffect(() => {
@@ -49,7 +49,7 @@ export default function Page() {
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: 10 }}
         transition={{ duration: 0.5 }}
-        className="flex flex-col min-h-screen items-start justify-center mt-[7rem] lg:mt-0 p-8 lg:p-32 mx-auto"
+        className="flex flex-col container min-h-screen items-start justify-center mt-[7rem] lg:mt-0 p-8 lg:p-32 mx-auto"
       >
         <div className="flex flex-col w-full items-start justify-center mb-8">
           <div className="flex flex-row gap-2 items-center justify-start">
@@ -232,204 +232,219 @@ export default function Page() {
                       draggable="false"
                     />
                   ) : (
-                    <div className="w-full h-48 bg-neutral-900 rounded-lg shadow-lg"></div>
+                    <div className="w-full h-48 bg-neutral-900 rounded-lg shadow-lg" />
                   )}
                 </div>
               </div>
             </motion.div>
           ))}
-
           <AnimatePresence>
-            {selectedRepoId !== null && (
-              <>
-                <motion.div
-                  layoutId={selectedRepoId}
-                  className="fixed inset-0 z-[101] w-full h-full cursor-pointer flex items-center justify-center p-8 lg:p-[20rem]"
-                  onClick={() => setSelectedRepoId(null)}
-                >
+            {selectedRepoId !== null &&
+              selectedRepoId &&
+              repositories[selectedRepoId] && (
+                <>
                   <motion.div
-                    className="flex flex-col z-[102] max-h-auto cursor-auto w-auto min-w-[100%] h-auto items-start justify-start p-4 rounded-lg shadow-lg bg-neutral-800"
-                    onClick={(e) => e.stopPropagation()}
+                    layoutId={selectedRepoId}
+                    className="fixed inset-0 z-[101] w-full h-full cursor-pointer flex items-center justify-center p-8 lg:p-[20rem]"
+                    onClick={() => setSelectedRepoId(null)}
                   >
-                    <div className="flex flex-row w-full items-start justify-between">
-                      <div className="flex flex-row gap-2 w-2/3 items-center justify-start">
-                        <img
-                          src={repositories[selectedRepoId]?.owner?.avatar_url}
-                          alt={repositories[selectedRepoId]?.owner?.login}
-                          className="w-12 h-12 rounded-lg shadow-lg bg-neutral-900"
-                          draggable="false"
-                        />
+                    <motion.div
+                      className="flex flex-col z-[102] max-h-auto cursor-auto w-auto min-w-[100%] h-auto items-start justify-start p-4 rounded-lg shadow-lg bg-neutral-800"
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      <div className="flex flex-row w-full items-start justify-between">
+                        <div className="flex flex-row gap-2 w-2/3 items-center justify-start">
+                          <img
+                            src={
+                              repositories[selectedRepoId]?.owner?.avatar_url
+                            }
+                            alt={repositories[selectedRepoId]?.owner?.login}
+                            className="w-12 h-12 rounded-lg shadow-lg bg-neutral-900"
+                            draggable="false"
+                          />
+                          <div className="flex flex-col w-full items-start justify-start">
+                            <p className="text-lg font-bold">
+                              {repositories[selectedRepoId]?.owner?.login}
+                            </p>
+                            <p className="text-sm text-gray-400">
+                              {new Date(
+                                repositories[selectedRepoId]?.updated_at,
+                              ).toDateString()}
+                            </p>
+                          </div>
+                        </div>
+                        <div className="flex flex-row w-1/3 gap-3 items-start justify-end">
+                          <div className="flex flex-row gap-1 items-center justify-start">
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              fill="none"
+                              viewBox="0 0 24 24"
+                              strokeWidth={1.5}
+                              stroke="currentColor"
+                              className="w-5 h-5"
+                            >
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z"
+                              />
+                            </svg>
+                            <h1 className="text-md font-bold">
+                              {repositories[selectedRepoId]?.stargazers_count}
+                            </h1>
+                          </div>
+                          <div className="flex flex-row gap-1 items-center justify-start">
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              viewBox="0 0 256 256"
+                              id="git-fork"
+                              className="w-5 h-5 text-white"
+                            >
+                              <rect width="256" height="256" fill="none"></rect>
+                              <circle
+                                cx="128"
+                                cy="188"
+                                r="28"
+                                fill="none"
+                                stroke="#fff"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth="12"
+                              ></circle>
+                              <circle
+                                cx="188"
+                                cy="67.998"
+                                r="28"
+                                fill="none"
+                                stroke="#fff"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth="12"
+                              ></circle>
+                              <circle
+                                cx="68"
+                                cy="67.998"
+                                r="28"
+                                fill="none"
+                                stroke="#fff"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth="12"
+                              ></circle>
+                              <path
+                                fill="none"
+                                stroke="#fff"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth="12"
+                                d="M68,95.99756v8.002a24,24,0,0,0,24.00049,24l72-.00146a24,24,0,0,0,23.99951-24V95.99756"
+                              ></path>
+                              <line
+                                x1="128.002"
+                                x2="128"
+                                y1="128"
+                                y2="160"
+                                fill="none"
+                                stroke="#fff"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth="12"
+                              ></line>
+                            </svg>
+                            <h1 className="text-md font-bold">
+                              {repositories[selectedRepoId]?.forks_count}
+                            </h1>
+                          </div>
+                        </div>
+                      </div>
+                      <h3 className="text-2xl font-bold mt-2">
+                        {repositories[selectedRepoId]?.name}
+                      </h3>
+                      <p className="text-lg text-left text-white/80">
+                        {repositories[selectedRepoId]?.description
+                          ? repositories[selectedRepoId].description.length > 60
+                            ? repositories[selectedRepoId].description.slice(
+                                0,
+                                60,
+                              ) + "..."
+                            : repositories[selectedRepoId].description ||
+                              "No description provided."
+                          : "No description provided."}
+                      </p>
+                      <div className="flex flex-col w-full mt-4">
                         <div className="flex flex-col w-full items-start justify-start">
-                          <p className="text-lg font-bold">
-                            {repositories[selectedRepoId]?.owner?.login}
-                          </p>
-                          <p className="text-sm text-gray-400">
-                            {new Date(
-                              repositories[selectedRepoId]?.updated_at,
-                            ).toDateString()}
-                          </p>
-                        </div>
-                      </div>
-                      <div className="flex flex-row w-1/3 gap-3 items-start justify-end">
-                        <div className="flex flex-row gap-1 items-center justify-start">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            strokeWidth={1.5}
-                            stroke="currentColor"
-                            className="w-5 h-5"
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z"
-                            />
-                          </svg>
-                          <h1 className="text-md font-bold">
-                            {repositories[selectedRepoId]?.stargazers_count}
-                          </h1>
-                        </div>
-                        <div className="flex flex-row gap-1 items-center justify-start">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 256 256"
-                            id="git-fork"
-                            className="w-5 h-5 text-white"
-                          >
-                            <rect width="256" height="256" fill="none"></rect>
-                            <circle
-                              cx="128"
-                              cy="188"
-                              r="28"
-                              fill="none"
-                              stroke="#fff"
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              strokeWidth="12"
-                            ></circle>
-                            <circle
-                              cx="188"
-                              cy="67.998"
-                              r="28"
-                              fill="none"
-                              stroke="#fff"
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              strokeWidth="12"
-                            ></circle>
-                            <circle
-                              cx="68"
-                              cy="67.998"
-                              r="28"
-                              fill="none"
-                              stroke="#fff"
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              strokeWidth="12"
-                            ></circle>
-                            <path
-                              fill="none"
-                              stroke="#fff"
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              strokeWidth="12"
-                              d="M68,95.99756v8.002a24,24,0,0,0,24.00049,24l72-.00146a24,24,0,0,0,23.99951-24V95.99756"
-                            ></path>
-                            <line
-                              x1="128.002"
-                              x2="128"
-                              y1="128"
-                              y2="160"
-                              fill="none"
-                              stroke="#fff"
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              strokeWidth="12"
-                            ></line>
-                          </svg>
-                          <h1 className="text-md font-bold">
-                            {repositories[selectedRepoId]?.forks_count}
-                          </h1>
-                        </div>
-                      </div>
-                    </div>
-                    <h3 className="text-2xl font-bold mt-2">
-                      {repositories[selectedRepoId]?.name}
-                    </h3>
-                    <p className="text-lg text-left text-white/80">
-                  { repositories[selectedRepoId]?.description ? (
-                    repositories[selectedRepoId].description.length > 60 ? repositories[selectedRepoId].description.slice(
-                            0,
-                            60,
-                          ) + "..."
-                        : repositories[selectedRepoId].description ||
-                          "No description provided."
-                    ) : "No description provided." }
-                    </p>
-                    <div className="flex flex-col w-full mt-4">
-                      <div className="flex flex-col w-full items-start justify-start">
-                        {currentRepoFiles && (
-                          <div className="w-full h-auto rounded-lg shadow-lg border border-neutral-700 overflow-auto">
-                            <div className="flex flex-col w-full items-start justify-start">
-                              {currentRepoFiles
-                              .sort((a, b) =>
-                                  a?.type === "dir" && b?.type !== "dir" ? -1 : 1,
-                                )
-                                .slice(0, 7)
-                                .map((file, index) => (
-                                  <div
-                                    key={index}
-                                    className="flex flex-row w-full items-center justify-between gap-2 hover:bg-neutral-700 p-2 border-b border-neutral-700 cursor-pointer"
-                                    onClick={() => {
-                                      router.push(
-                                        `https://github.com/${repositories[selectedRepoId]?.owner?.login}/${repositories[selectedRepoId]?.name}/tree/main/${file?.path}`,
-                                      );
-                                    }}
-                                  >
-                                    <div className="flex flex-row gap-1 w-full items-start justify-start">
-                                      {file?.type === "dir" ? (
-                                        <svg
-                                          xmlns="http://www.w3.org/2000/svg"
-                                          fill="none"
-                                          viewBox="0 0 24 24"
-                                          strokeWidth={1.5}
-                                          stroke="currentColor"
-                                          className="w-5 h-5"
-                                        >
-                                          <path
-                                            strokeLinecap="round"
-                                            strokeLinejoin="round"
-                                            d="M2.25 12.75V12A2.25 2.25 0 0 1 4.5 9.75h15A2.25 2.25 0 0 1 21.75 12v.75m-8.69-6.44-2.12-2.12a1.5 1.5 0 0 0-1.061-.44H4.5A2.25 2.25 0 0 0 2.25 6v12a2.25 2.25 0 0 0 2.25 2.25h15A2.25 2.25 0 0 0 21.75 18V9a2.25 2.25 0 0 0-2.25-2.25h-5.379a1.5 1.5 0 0 1-1.06-.44Z"
-                                          />
-                                        </svg>
-                                      ) : (
-                                        <svg
-                                          xmlns="http://www.w3.org/2000/svg"
-                                          fill="none"
-                                          viewBox="0 0 24 24"
-                                          stroke-width="1.5"
-                                          stroke="currentColor"
-                                          class="w-5 h-5"
-                                        >
-                                          <path
-                                            stroke-linecap="round"
-                                            stroke-linejoin="round"
-                                            d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z"
-                                          />
-                                        </svg>
-                                      )}
-                                      <p className="text-sm font-medium">
-                                        {file?.name}
-                                      </p>
-                                    </div>
-                                    <div className="flex flex-row gap-2 w-full items-center justify-end">
-                                      <p className="text-sm text-gray-400">
-                                        {formatBytes(file?.size)}
-                                      </p>
-                                    </div>
+                          {currentRepoFiles && (
+                            <div className="w-full h-auto rounded-lg shadow-lg border border-neutral-700 overflow-auto">
+                              <div className="flex flex-col w-full items-start justify-start">
+                                {currentRepoFiles ? (
+                                  currentRepoFiles
+                                    ?.sort((a, b) =>
+                                      a?.type === "dir" && b?.type !== "dir"
+                                        ? -1
+                                        : 1,
+                                    )
+                                    .slice(0, 7)
+                                    .map((file, index) => (
+                                      <div
+                                        key={index}
+                                        className="flex flex-row w-full items-center justify-between gap-2 hover:bg-neutral-700 p-2 border-b border-neutral-700 cursor-pointer"
+                                        onClick={() => {
+                                          router.push(
+                                            `https://github.com/${repositories[selectedRepoId]?.owner?.login}/${repositories[selectedRepoId]?.name}/tree/main/${file?.path}`,
+                                          );
+                                        }}
+                                      >
+                                        <div className="flex flex-row gap-1 w-full items-start justify-start">
+                                          {file?.type === "dir" ? (
+                                            <svg
+                                              xmlns="http://www.w3.org/2000/svg"
+                                              fill="none"
+                                              viewBox="0 0 24 24"
+                                              strokeWidth={1.5}
+                                              stroke="currentColor"
+                                              className="w-5 h-5"
+                                            >
+                                              <path
+                                                strokeLinecap="round"
+                                                strokeLinejoin="round"
+                                                d="M2.25 12.75V12A2.25 2.25 0 0 1 4.5 9.75h15A2.25 2.25 0 0 1 21.75 12v.75m-8.69-6.44-2.12-2.12a1.5 1.5 0 0 0-1.061-.44H4.5A2.25 2.25 0 0 0 2.25 6v12a2.25 2.25 0 0 0 2.25 2.25h15A2.25 2.25 0 0 0 21.75 18V9a2.25 2.25 0 0 0-2.25-2.25h-5.379a1.5 1.5 0 0 1-1.06-.44Z"
+                                              />
+                                            </svg>
+                                          ) : (
+                                            <svg
+                                              xmlns="http://www.w3.org/2000/svg"
+                                              fill="none"
+                                              viewBox="0 0 24 24"
+                                              stroke-width="1.5"
+                                              stroke="currentColor"
+                                              class="w-5 h-5"
+                                            >
+                                              <path
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                                d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z"
+                                              />
+                                            </svg>
+                                          )}
+                                          <p className="text-sm font-medium">
+                                            {file?.name}
+                                          </p>
+                                        </div>
+                                        <div className="flex flex-row gap-2 w-full items-center justify-end">
+                                          <p className="text-sm text-gray-400">
+                                            {formatBytes(file?.size)}
+                                          </p>
+                                        </div>
+                                      </div>
+                                    ))
+                                ) : (
+                                  <div className="flex flex-row w-full items-center justify-center p-2">
+                                    <p className="text-lg font-bold">
+                                      No files found.
+                                    </p>
                                   </div>
-                                ))}
+                                )}
+                              </div>
                               <div
                                 className="flex flex-row w-full items-center justify-center gap-2 hover:bg-neutral-700 p-2 border-b border-neutral-700 cursor-pointer"
                                 onClick={() =>
@@ -454,14 +469,13 @@ export default function Page() {
                                 </div>
                               </div>
                             </div>
-                          </div>
-                        )}
+                          )}
+                        </div>
                       </div>
-                    </div>
+                    </motion.div>
                   </motion.div>
-                </motion.div>
-              </>
-            )}
+                </>
+              )}
           </AnimatePresence>
 
           <div className="flex flex-row w-full items-center justify-start gap-2 mt-4">
@@ -497,7 +511,7 @@ export default function Page() {
               }
         }
         onClick={() => setSelectedRepoId(null)}
-      ></div>
+      />
     </>
   );
 }

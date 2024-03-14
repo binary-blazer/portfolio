@@ -40,7 +40,7 @@ export default function Page() {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: 10 }}
       transition={{ duration: 0.5 }}
-      className="flex flex-col min-h-screen items-center justify-center mt-[7rem] lg:mt-0 p-8 lg:p-32 mx-auto"
+      className="flex flex-col container min-h-screen items-center justify-center mt-[7rem] lg:mt-0 p-8 lg:p-32 mx-auto"
     >
       <div className="flex flex-col w-full items-start justify-center mb-10">
         <div className="flex flex-row gap-2 items-center justify-start">

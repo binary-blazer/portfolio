@@ -24,7 +24,7 @@ export default function MobileProvider({ children }) {
         children
       ) : (
         <div className="flex flex-col items-center justify-center h-screen">
-          <h1 className="text-6xl font-bold text-neutral-100 not_found_text_glitch">
+          <h1 className="text-6xl font-bold text-neutral-100 text-glitch">
             404
           </h1>
           <p className="text-lg text-neutral-300">

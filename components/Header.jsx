@@ -14,7 +14,6 @@ export default function Header() {
     left: 0,
     width: 0,
     bottom: -3,
-    minWidth: 47,
   });
   const [settingsOpen, setSettingsOpen] = useState(false);
   const [settingsColorsOpen, setSettingsColorsOpen] = useState(false);
@@ -31,7 +30,6 @@ export default function Header() {
       left: offsetLeft - 5,
       width: offsetWidth + 10,
       bottom: -3,
-      minWidth: offsetWidth,
     });
   };
 
@@ -56,7 +54,6 @@ export default function Header() {
         left: navItemRefs.current[0].offsetLeft - 5,
         width: navItemRefs.current[0].offsetWidth + 10,
         bottom: -3,
-        minWidth: navItemRefs.current[0].offsetWidth,
       });
     } else if (screensize.width < 1024) {
       setCurrentScreen("tablet");
@@ -64,7 +61,6 @@ export default function Header() {
         left: navItemRefs.current[0].offsetLeft - 5,
         width: navItemRefs.current[0].offsetWidth + 10,
         bottom: -3,
-        minWidth: navItemRefs.current[0].offsetWidth,
       });
     } else if (screensize.width < 1280) {
       setCurrentScreen("laptop");
@@ -93,28 +89,24 @@ export default function Header() {
         left: navItemRefs.current[0].offsetLeft - 5,
         width: navItemRefs.current[0].offsetWidth + 10,
         bottom: -3,
-        minWidth: navItemRefs.current[0].offsetWidth,
       });
     } else if (pathname === "/about") {
       setIndicatorStyle({
         left: navItemRefs.current[1].offsetLeft - 5,
         width: navItemRefs.current[1].offsetWidth + 10,
         bottom: -3,
-        minWidth: navItemRefs.current[1].offsetWidth,
       });
     } else if (pathname.includes("/blog")) {
       setIndicatorStyle({
         left: navItemRefs.current[2].offsetLeft - 5,
         width: navItemRefs.current[2].offsetWidth + 10,
         bottom: -3,
-        minWidth: navItemRefs.current[2].offsetWidth,
       });
     } else if (pathname === "/projects") {
       setIndicatorStyle({
         left: navItemRefs.current[3].offsetLeft - 5,
         width: navItemRefs.current[3].offsetWidth + 10,
         bottom: -3,
-        minWidth: navItemRefs.current[3].offsetWidth,
       });
     }
   }, [pathname]);
@@ -169,31 +161,31 @@ export default function Header() {
             >
               <div className="flex flex-col items-center w-full justify-center gap-2 lg:hidden">
                 <button
-                  className={`flex items-center w-full justify-center px-3 py-2 bg-transparent ${pathname === "/" ? "text-primary-500 bg-white/5" : "text-white"} rounded-2xl hover:bg-white/5 transition-colors`}
+                  className={`flex items-center w-full justify-center px-3 py-2 bg-transparent ${pathname === "/" ? "text-primary-500 bg-white/5" : "text-white"} rounded-lg hover:bg-white/5 transition-colors`}
                   onClick={() => router.push("/")}
                 >
                   Home
                 </button>
                 <button
-                  className={`flex items-center w-full justify-center px-3 py-2 bg-transparent ${pathname === "/about" ? "text-primary-500 bg-white/5" : "text-white"} rounded-2xl hover:bg-white/5 transition-colors`}
+                  className={`flex items-center w-full justify-center px-3 py-2 bg-transparent ${pathname === "/about" ? "text-primary-500 bg-white/5" : "text-white"} rounded-lg hover:bg-white/5 transition-colors`}
                   onClick={() => router.push("/about")}
                 >
                   About
                 </button>
                 <button
-                  className={`flex items-center w-full justify-center px-3 py-2 bg-transparent ${pathname.includes("/blog") ? "text-primary-500 bg-white/5" : "text-white"} rounded-2xl hover:bg-white/5 transition-colors`}
+                  className={`flex items-center w-full justify-center px-3 py-2 bg-transparent ${pathname.includes("/blog") ? "text-primary-500 bg-white/5" : "text-white"} rounded-lg hover:bg-white/5 transition-colors`}
                   onClick={() => router.push("/blog")}
                 >
                   Blog
                 </button>
                 <button
-                  className={`flex items-center w-full justify-center px-3 py-2 bg-transparent ${pathname === "/projects" ? "text-primary-500 bg-white/5" : "text-white"} rounded-2xl hover:bg-white/5 transition-colors`}
+                  className={`flex items-center w-full justify-center px-3 py-2 bg-transparent ${pathname === "/projects" ? "text-primary-500 bg-white/5" : "text-white"} rounded-lg hover:bg-white/5 transition-colors`}
                   onClick={() => router.push("/projects")}
                 >
                   Projects
                 </button>
                 <button
-                  className={`flex items-center w-full justify-center px-3 py-2 bg-transparent ${pathname === "/contact" ? "text-primary-500 bg-white/5" : "text-white"} rounded-2xl hover:bg-white/5 transition-colors`}
+                  className={`flex items-center w-full justify-center px-3 py-2 bg-transparent ${pathname === "/contact" ? "text-primary-500 bg-white/5" : "text-white"} rounded-lg hover:bg-white/5 transition-colors`}
                   onClick={() => router.push("/contact")}
                 >
                   Contact
@@ -202,7 +194,7 @@ export default function Header() {
               </div>
               <a
                 href="https://twitter.com/BinaryBlazer"
-                className="flex items-center justify-start gap-2 w-full text-white hover:bg-white/5 px-8 p-2 rounded-2xl transition-colors"
+                className="flex items-center justify-start gap-2 w-full text-white hover:bg-white/5 px-8 p-2 rounded-lg transition-colors"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -220,7 +212,7 @@ export default function Header() {
               </a>
               <a
                 href="https://github.com/binary-blazer"
-                className="flex items-center justify-start gap-2 w-full text-white hover:bg-white/5 px-8 p-2 rounded-2xl transition-colors"
+                className="flex items-center justify-start gap-2 w-full text-white hover:bg-white/5 px-8 p-2 rounded-lg transition-colors"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -302,7 +294,7 @@ export default function Header() {
             >
               <div className="relative">
                 <button
-                  className={`flex items-center justify-start gap-2 w-full text-white px-8 p-2 rounded-2xl transition-colors ${settingsColorsOpen ? "bg-white/5" : "hover:bg-white/5"}`}
+                  className={`flex items-center justify-start gap-2 w-full text-white px-8 p-2 rounded-lg transition-colors ${settingsColorsOpen ? "bg-white/5" : "hover:bg-white/5"}`}
                   onClick={() => {
                     setSettingsColorsOpen(!settingsColorsOpen);
                     setSettingsFontsOpen(false);
@@ -335,7 +327,7 @@ export default function Header() {
                   {colors.map((color) => (
                     <button
                       key={color.name}
-                      className={`flex items-center justify-start gap-2 w-full text-white px-8 p-2 rounded-2xl transition-colors ${currentTheme === color.name.toLocaleLowerCase() ? "bg-white/5" : "hover:bg-white/5"}`}
+                      className={`flex items-center justify-start gap-2 w-full text-white px-8 p-2 rounded-lg transition-colors ${currentTheme === color.name.toLocaleLowerCase() ? "bg-white/5" : "hover:bg-white/5"}`}
                       onClick={() => changeColor(color)}
                     >
                       <div
@@ -348,7 +340,7 @@ export default function Header() {
                 </div>
               </div>
               <button
-                className={`flex items-center justify-start gap-2 w-full text-white p-2 px-8 rounded-2xl transition-colors ${settingsFontsOpen ? "bg-white/5" : "hover:bg-white/5"}`}
+                className={`flex items-center justify-start gap-2 w-full text-white p-2 px-8 rounded-lg transition-colors ${settingsFontsOpen ? "bg-white/5" : "hover:bg-white/5"}`}
                 onClick={() => {
                   setSettingsFontsOpen(!settingsFontsOpen);
                   setSettingsColorsOpen(false);
@@ -381,7 +373,7 @@ export default function Header() {
                 {fonts.map((font) => (
                   <button
                     key={font.name}
-                    className={`flex text-center items-center justify-start gap-2 w-full text-white px-8 p-2 rounded-2xl transition-colors ${font.font === currentFont ? "bg-white/5" : "hover:bg-white/5"} ${fonts.indexOf(font) === fonts.length - 1 ? "mb-1.5" : ""} ${fonts.indexOf(font) === 0 ? "mt-1.5" : ""}`}
+                    className={`flex text-center items-center justify-start gap-2 w-full text-white px-8 p-2 rounded-lg transition-colors ${font.font === currentFont ? "bg-white/5" : "hover:bg-white/5"} ${fonts.indexOf(font) === fonts.length - 1 ? "mb-1.5" : ""} ${fonts.indexOf(font) === 0 ? "mt-1.5" : ""}`}
                     onClick={() => changeFont(font.font)}
                   >
                     {font.name.replace("_", "")}
@@ -390,7 +382,7 @@ export default function Header() {
               </div>
               <div className="border-b border-neutral-800 w-full"></div>
               <button
-                className="gap-2 w-full text-white hover:bg-white/5 px-8 p-2 rounded-2xl transition-colors"
+                className="gap-2 w-full text-white hover:bg-white/5 px-8 p-2 rounded-lg transition-colors"
                 onClick={() => router.push("/socials/github")}
               >
                 Source
