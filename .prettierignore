@@ -1,4 +1,7 @@
-build
-coverage
+dist
 node_modules
-pnpm-lock-yaml
+.next
+build
+.contentlayer
+package.json
+pnpm-lock.yaml

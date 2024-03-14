@@ -1,9 +1,10 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { projects, config } from "@/main.config";
-import { motion, AnimatePresence } from "framer-motion";
+import { useEffect, useState } from "react";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
+import { config, projects } from "@/main.config";
+import { AnimatePresence, motion } from "framer-motion";
 
 export default function Page() {
   const router = useRouter();
@@ -49,18 +50,18 @@ export default function Page() {
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: 10 }}
         transition={{ duration: 0.5 }}
-        className="flex flex-col container min-h-screen items-start justify-center mt-[7rem] lg:mt-0 p-8 lg:p-32 mx-auto"
+        className="container mx-auto mt-[7rem] flex min-h-screen flex-col items-start justify-center p-8 lg:mt-0 lg:p-32"
       >
-        <div className="flex flex-col w-full items-start justify-center mb-8">
-          <div className="flex flex-row gap-2 items-center justify-start">
-            <div className="bg-primary-500 p-2 rounded-lg">
+        <div className="mb-8 flex w-full flex-col items-start justify-center">
+          <div className="flex flex-row items-center justify-start gap-2">
+            <div className="bg-primary-500 rounded-lg p-2">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
                 strokeWidth={1.5}
                 stroke="currentColor"
-                className="w-6 h-6"
+                className="h-6 w-6"
               >
                 <path
                   strokeLinecap="round"
@@ -73,57 +74,61 @@ export default function Page() {
               Projects<span className="text-primary-500">.</span>
             </h2>
           </div>
-          <p className="text-xl mt-2 text-left">
+          <p className="mt-2 text-left text-xl">
             Here are some of the projects I&apos;ve been working on recently.
           </p>
         </div>
-        <div className="w-full items-start justify-center grid grid-cols-1 lg:grid-cols-2 gap-4">
+        <div className="grid w-full grid-cols-1 items-start justify-center gap-4 lg:grid-cols-2">
           {projects.map((project, index) => (
             <div
               key={index}
-              className="flex flex-col w-full h-full items-center justify-center gap-4 p-4 rounded-lg shadow-lg bg-neutral-800"
+              className="flex h-full w-full flex-col items-center justify-center gap-4 rounded-lg bg-neutral-800 p-4 shadow-lg"
             >
-              <img
+              <Image
                 src={project.banner}
                 alt={project.title}
-                className="w-full h-auto rounded-lg shadow-lg bg-neutral-900"
+                width={1920}
+                height={1080}
+                className="h-auto w-full rounded-lg bg-neutral-900 shadow-lg"
                 draggable="false"
               />
-              <div className="flex flex-row w-full items-center justify-start mt-2">
-                <img
+              <div className="mt-2 flex w-full flex-row items-center justify-start">
+                <Image
                   src={project.image}
                   alt={project.title}
-                  className="w-12 h-12 rounded-lg shadow-lg bg-neutral-900"
+                  width={48}
+                  height={48}
+                  className="h-12 w-12 rounded-lg bg-neutral-900 shadow-lg"
                   draggable="false"
                 />
-                <div className="flex flex-row gap-2 items-center justify-start">
-                  <h3 className="text-2xl font-bold ml-2">{project.title}</h3>
+                <div className="flex flex-row items-center justify-start gap-2">
+                  <h3 className="ml-2 text-2xl font-bold">{project.title}</h3>
                   {project.status.inProgress && (
-                    <div className="text-xs text-primary-200 font-bold bg-primary-500 px-2 py-1 rounded-lg">
+                    <div className="text-primary-200 bg-primary-500 rounded-lg px-2 py-1 text-xs font-bold">
                       In Progress
                     </div>
                   )}
                   {project.status.complete && (
-                    <div className="text-xs text-green-500 font-bold bg-green-500 px-2 py-1 rounded-lg">
+                    <div className="rounded-lg bg-green-500 px-2 py-1 text-xs font-bold text-green-500">
                       Complete
                     </div>
                   )}
                   {project.status.paused && (
-                    <div className="text-xs text-yellow-500 font-bold bg-yellow-500 px-2 py-1 rounded-lg">
+                    <div className="rounded-lg bg-yellow-500 px-2 py-1 text-xs font-bold text-yellow-500">
                       Paused
                     </div>
                   )}
                   {project.status.cancelled && (
-                    <div className="text-xs text-red-500 font-bold bg-red-500 px-2 py-1 rounded-lg">
+                    <div className="rounded-lg bg-red-500 px-2 py-1 text-xs font-bold text-red-500">
                       Cancelled
                     </div>
                   )}
                 </div>
               </div>
-              <p className="text-xl text-left">{project.description}</p>
-              <div className="flex flex-row gap-2 w-full items-center justify-start mt-4">
+              <p className="text-left text-xl">{project.description}</p>
+              <div className="mt-4 flex w-full flex-row items-center justify-start gap-2">
                 <button
-                  className="flex items-center justify-center px-6 bg-primary-500 text-white font-bold py-2 rounded-lg shadow-lg hover:bg-primary-600 transition-colors"
+                  className="bg-primary-500 hover:bg-primary-600 flex items-center justify-center rounded-lg px-6 py-2 font-bold text-white shadow-lg transition-colors"
                   onClick={() => router.push(project.link)}
                 >
                   View Project
@@ -133,16 +138,16 @@ export default function Page() {
           ))}
         </div>
 
-        <div className="flex flex-col w-full items-start justify-center mt-32">
-          <div className="flex flex-row gap-2 items-center justify-start">
-            <div className="bg-primary-500 p-2 rounded-lg">
+        <div className="mt-32 flex w-full flex-col items-start justify-center">
+          <div className="flex flex-row items-center justify-start gap-2">
+            <div className="bg-primary-500 rounded-lg p-2">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
                 strokeWidth={1.5}
                 stroke="currentColor"
-                className="w-6 h-6"
+                className="h-6 w-6"
               >
                 <path
                   strokeLinecap="round"
@@ -155,14 +160,14 @@ export default function Page() {
               Repositories<span className="text-primary-500">.</span>
             </h2>
           </div>
-          <p className="text-xl mt-2 text-left">
+          <p className="mt-2 text-left text-xl">
             Here are some of the repositories I&apos;ve been working on
             recently.
           </p>
         </div>
 
         {!repositories && (
-          <div className="flex flex-col w-full mt-2 p-2 bg-red-500/10 text-red-500 rounded-lg">
+          <div className="mt-2 flex w-full flex-col rounded-lg bg-red-500/10 p-2 text-red-500">
             <p className="text-xl font-bold">No repositories found.</p>
             <p className="text-lg">
               There was an error fetching the repositories. Please try again
@@ -171,12 +176,12 @@ export default function Page() {
           </div>
         )}
 
-        <div className="w-full items-start justify-center grid grid-cols-1 mt-10 md:grid-cols-2 lg:grid-cols-2 2xl:grid-cols-3 gap-4">
+        <div className="mt-10 grid w-full grid-cols-1 items-start justify-center gap-4 md:grid-cols-2 lg:grid-cols-2 2xl:grid-cols-3">
           {repositories?.map((repository, index) => (
             <motion.div
               layoutId={index}
               key={index}
-              className="flex flex-col w-full cursor-pointer h-full items-start justify-start gap-4 p-4 rounded-lg shadow-lg bg-neutral-800"
+              className="flex h-full w-full cursor-pointer flex-col items-start justify-start gap-4 rounded-lg bg-neutral-800 p-4 shadow-lg"
               onClick={() => {
                 setSelectedRepoId(index);
                 handleRepoClick(repository?.name);
@@ -195,16 +200,18 @@ export default function Page() {
                     }
               }
             >
-              <div className="flex flex-col w-full h-full items-start justify-between">
+              <div className="flex h-full w-full flex-col items-start justify-between">
                 <div>
-                  <div className="flex flex-row gap-2 items-center justify-start">
-                    <img
+                  <div className="flex flex-row items-center justify-start gap-2">
+                    <Image
                       src={repository.owner.avatar_url}
                       alt={repository.owner.login}
-                      className="w-12 h-12 rounded-lg shadow-lg bg-neutral-900"
+                      width={48}
+                      height={48}
+                      className="h-12 w-12 rounded-lg bg-neutral-900 shadow-lg"
                       draggable="false"
                     />
-                    <div className="flex flex-col w-full items-start justify-start">
+                    <div className="flex w-full flex-col items-start justify-start">
                       <p className="text-lg font-bold">
                         {repository.owner.login}
                       </p>
@@ -213,26 +220,28 @@ export default function Page() {
                       </p>
                     </div>
                   </div>
-                  <h3 className="text-2xl font-bold mt-2">{repository.name}</h3>
-                  <div className="flex flex-col w-full items-start justify-start">
-                    <p className="text-lg text-left text-white/80">
+                  <h3 className="mt-2 text-2xl font-bold">{repository.name}</h3>
+                  <div className="flex w-full flex-col items-start justify-start">
+                    <p className="text-left text-lg text-white/80">
                       {repository.description || "No description provided."}
                     </p>
                   </div>
                 </div>
-                <div className="flex flex-col w-full mt-4">
+                <div className="mt-4 flex w-full flex-col">
                   {repository.full_name ? (
-                    <img
+                    <Image
                       src={
                         "https://opengraph.githubassets.com/15ced7abddd056302fa4e531c75f0c1e3510242eca654c93dd8a8f2b5cc92d44/" +
                         repository.full_name
                       }
+                      width={1920}
+                      height={1080}
                       alt={repository.name}
-                      className="w-full mt-4 h-auto rounded-lg shadow-lg bg-neutral-900"
+                      className="mt-4 h-auto w-full rounded-lg bg-neutral-900 shadow-lg"
                       draggable="false"
                     />
                   ) : (
-                    <div className="w-full h-48 bg-neutral-900 rounded-lg shadow-lg" />
+                    <div className="h-48 w-full rounded-lg bg-neutral-900 shadow-lg" />
                   )}
                 </div>
               </div>
@@ -245,24 +254,26 @@ export default function Page() {
                 <>
                   <motion.div
                     layoutId={selectedRepoId}
-                    className="fixed inset-0 z-[101] w-full h-full cursor-pointer flex items-center justify-center p-8 lg:p-[20rem]"
+                    className="fixed inset-0 z-[101] flex h-full w-full cursor-pointer items-center justify-center p-8 lg:p-[20rem]"
                     onClick={() => setSelectedRepoId(null)}
                   >
                     <motion.div
-                      className="flex flex-col z-[102] max-h-auto cursor-auto w-auto min-w-[100%] h-auto items-start justify-start p-4 rounded-lg shadow-lg bg-neutral-800"
+                      className="max-h-auto z-[102] flex h-auto w-auto min-w-[100%] cursor-auto flex-col items-start justify-start rounded-lg bg-neutral-800 p-4 shadow-lg"
                       onClick={(e) => e.stopPropagation()}
                     >
-                      <div className="flex flex-row w-full items-start justify-between">
-                        <div className="flex flex-row gap-2 w-2/3 items-center justify-start">
-                          <img
+                      <div className="flex w-full flex-row items-start justify-between">
+                        <div className="flex w-2/3 flex-row items-center justify-start gap-2">
+                          <Image
                             src={
                               repositories[selectedRepoId]?.owner?.avatar_url
                             }
                             alt={repositories[selectedRepoId]?.owner?.login}
-                            className="w-12 h-12 rounded-lg shadow-lg bg-neutral-900"
+                            width={48}
+                            height={48}
+                            className="h-12 w-12 rounded-lg bg-neutral-900 shadow-lg"
                             draggable="false"
                           />
-                          <div className="flex flex-col w-full items-start justify-start">
+                          <div className="flex w-full flex-col items-start justify-start">
                             <p className="text-lg font-bold">
                               {repositories[selectedRepoId]?.owner?.login}
                             </p>
@@ -273,15 +284,15 @@ export default function Page() {
                             </p>
                           </div>
                         </div>
-                        <div className="flex flex-row w-1/3 gap-3 items-start justify-end">
-                          <div className="flex flex-row gap-1 items-center justify-start">
+                        <div className="flex w-1/3 flex-row items-start justify-end gap-3">
+                          <div className="flex flex-row items-center justify-start gap-1">
                             <svg
                               xmlns="http://www.w3.org/2000/svg"
                               fill="none"
                               viewBox="0 0 24 24"
                               strokeWidth={1.5}
                               stroke="currentColor"
-                              className="w-5 h-5"
+                              className="h-5 w-5"
                             >
                               <path
                                 strokeLinecap="round"
@@ -293,12 +304,12 @@ export default function Page() {
                               {repositories[selectedRepoId]?.stargazers_count}
                             </h1>
                           </div>
-                          <div className="flex flex-row gap-1 items-center justify-start">
+                          <div className="flex flex-row items-center justify-start gap-1">
                             <svg
                               xmlns="http://www.w3.org/2000/svg"
                               viewBox="0 0 256 256"
                               id="git-fork"
-                              className="w-5 h-5 text-white"
+                              className="h-5 w-5 text-white"
                             >
                               <rect width="256" height="256" fill="none"></rect>
                               <circle
@@ -357,10 +368,10 @@ export default function Page() {
                           </div>
                         </div>
                       </div>
-                      <h3 className="text-2xl font-bold mt-2">
+                      <h3 className="mt-2 text-2xl font-bold">
                         {repositories[selectedRepoId]?.name}
                       </h3>
-                      <p className="text-lg text-left text-white/80">
+                      <p className="text-left text-lg text-white/80">
                         {repositories[selectedRepoId]?.description
                           ? repositories[selectedRepoId].description.length > 60
                             ? repositories[selectedRepoId].description.slice(
@@ -371,11 +382,11 @@ export default function Page() {
                               "No description provided."
                           : "No description provided."}
                       </p>
-                      <div className="flex flex-col w-full mt-4">
-                        <div className="flex flex-col w-full items-start justify-start">
+                      <div className="mt-4 flex w-full flex-col">
+                        <div className="flex w-full flex-col items-start justify-start">
                           {currentRepoFiles && (
-                            <div className="w-full h-auto rounded-lg shadow-lg border border-neutral-700 overflow-auto">
-                              <div className="flex flex-col w-full items-start justify-start">
+                            <div className="h-auto w-full overflow-auto rounded-lg border border-neutral-700 shadow-lg">
+                              <div className="flex w-full flex-col items-start justify-start">
                                 {currentRepoFiles ? (
                                   currentRepoFiles
                                     ?.sort((a, b) =>
@@ -387,14 +398,14 @@ export default function Page() {
                                     .map((file, index) => (
                                       <div
                                         key={index}
-                                        className="flex flex-row w-full items-center justify-between gap-2 hover:bg-neutral-700 p-2 border-b border-neutral-700 cursor-pointer"
+                                        className="flex w-full cursor-pointer flex-row items-center justify-between gap-2 border-b border-neutral-700 p-2 hover:bg-neutral-700"
                                         onClick={() => {
                                           router.push(
                                             `https://github.com/${repositories[selectedRepoId]?.owner?.login}/${repositories[selectedRepoId]?.name}/tree/main/${file?.path}`,
                                           );
                                         }}
                                       >
-                                        <div className="flex flex-row gap-1 w-full items-start justify-start">
+                                        <div className="flex w-full flex-row items-start justify-start gap-1">
                                           {file?.type === "dir" ? (
                                             <svg
                                               xmlns="http://www.w3.org/2000/svg"
@@ -402,7 +413,7 @@ export default function Page() {
                                               viewBox="0 0 24 24"
                                               strokeWidth={1.5}
                                               stroke="currentColor"
-                                              className="w-5 h-5"
+                                              className="h-5 w-5"
                                             >
                                               <path
                                                 strokeLinecap="round"
@@ -417,7 +428,7 @@ export default function Page() {
                                               viewBox="0 0 24 24"
                                               stroke-width="1.5"
                                               stroke="currentColor"
-                                              class="w-5 h-5"
+                                              class="h-5 w-5"
                                             >
                                               <path
                                                 stroke-linecap="round"
@@ -430,7 +441,7 @@ export default function Page() {
                                             {file?.name}
                                           </p>
                                         </div>
-                                        <div className="flex flex-row gap-2 w-full items-center justify-end">
+                                        <div className="flex w-full flex-row items-center justify-end gap-2">
                                           <p className="text-sm text-gray-400">
                                             {formatBytes(file?.size)}
                                           </p>
@@ -438,7 +449,7 @@ export default function Page() {
                                       </div>
                                     ))
                                 ) : (
-                                  <div className="flex flex-row w-full items-center justify-center p-2">
+                                  <div className="flex w-full flex-row items-center justify-center p-2">
                                     <p className="text-lg font-bold">
                                       No files found.
                                     </p>
@@ -446,14 +457,14 @@ export default function Page() {
                                 )}
                               </div>
                               <div
-                                className="flex flex-row w-full items-center justify-center gap-2 hover:bg-neutral-700 p-2 border-b border-neutral-700 cursor-pointer"
+                                className="flex w-full cursor-pointer flex-row items-center justify-center gap-2 border-b border-neutral-700 p-2 hover:bg-neutral-700"
                                 onClick={() =>
                                   router.push(
                                     `https://github.com/${repositories[selectedRepoId]?.owner?.login}/${repositories[selectedRepoId]?.name}`,
                                   )
                                 }
                               >
-                                <div className="flex flex-row gap-2 w-full items-center justify-center">
+                                <div className="flex w-full flex-row items-center justify-center gap-2">
                                   <div className="flex items-center gap-1">
                                     {currentRepoFiles?.length > 7 && (
                                       <p className="text-sm font-medium text-gray-400">
@@ -478,9 +489,9 @@ export default function Page() {
               )}
           </AnimatePresence>
 
-          <div className="flex flex-row w-full items-center justify-start gap-2 mt-4">
+          <div className="mt-4 flex w-full flex-row items-center justify-start gap-2">
             <button
-              className="flex items-center justify-center px-6 bg-primary-500 text-white font-bold py-2 rounded-lg shadow-lg hover:bg-primary-600 transition-colors"
+              className="bg-primary-500 hover:bg-primary-600 flex items-center justify-center rounded-lg px-6 py-2 font-bold text-white shadow-lg transition-colors"
               onClick={() =>
                 router.push(
                   `https://github.com/${config.github.username}?tab=repositories`,
@@ -494,7 +505,7 @@ export default function Page() {
       </motion.main>
 
       <div
-        className="bg-neutral-900/90 fixed inset-0 z-[100] cursor-pointer h-full w-full"
+        className="fixed inset-0 z-[100] h-full w-full cursor-pointer bg-neutral-900/90"
         style={
           selectedRepoId !== null
             ? {

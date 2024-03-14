@@ -1,9 +1,10 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { motion, useAnimation } from "framer-motion";
 import { projects, testimonials } from "@/main.config";
+import { motion, useAnimation } from "framer-motion";
 
 export default function Home() {
   const router = useRouter();
@@ -218,45 +219,45 @@ export default function Home() {
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="flex flex-col min-h-screen items-center justify-center p-8 lg:p-32 mx-auto"
+        className="mx-auto flex min-h-screen flex-col items-center justify-center p-8 lg:p-32"
       >
-        <div className="flex flex-col w-full items-center justify-center">
-          <div className="bg-neutral-800 font-medium p-2 rounded-lg shadow-lg mb-4 2xl:text-lg">
+        <div className="flex w-full flex-col items-center justify-center">
+          <div className="mb-4 rounded-lg bg-neutral-800 p-2 font-medium shadow-lg 2xl:text-lg">
             <div className="hi">👋</div> Hi There, I&apos;m BinaryBlazer
           </div>
-          <h1 className="text-3xl lg:text-4xl font-bold text-center 2xl:text-5xl">
+          <h1 className="text-center text-3xl font-bold lg:text-4xl 2xl:text-5xl">
             I Build{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-primary-500">
+            <span className="from-primary-400 to-primary-500 bg-gradient-to-r bg-clip-text text-transparent">
               Websites
             </span>
             ,{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-primary-500">
+            <span className="from-primary-400 to-primary-500 bg-gradient-to-r bg-clip-text text-transparent">
               APIs
             </span>
             ,{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-primary-500">
+            <span className="from-primary-400 to-primary-500 bg-gradient-to-r bg-clip-text text-transparent">
               NPM Packages
             </span>{" "}
             and{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-primary-500">
+            <span className="from-primary-400 to-primary-500 bg-gradient-to-r bg-clip-text text-transparent">
               More
             </span>{" "}
-            <span className="text-3xl rocket">🚀</span>
+            <span className="rocket text-3xl">🚀</span>
           </h1>
-          <p className="text-md lg:text-xl text-center 2xl:text-2xl mt-2 lg:mt-4">
+          <p className="text-md mt-2 text-center lg:mt-4 lg:text-xl 2xl:text-2xl">
             I&apos;m a full-stack developer with a passion for open-source
             software and the web.
           </p>
         </div>
-        <div className="flex flex-row gap-2 w-full items-center justify-center mt-4">
+        <div className="mt-4 flex w-full flex-row items-center justify-center gap-2">
           <button
-            className="flex items-center justify-center px-10 bg-primary-500 text-white font-bold py-2 rounded-lg shadow-lg hover:bg-primary-600 transition-colors"
+            className="bg-primary-500 hover:bg-primary-600 flex items-center justify-center rounded-lg px-10 py-2 font-bold text-white shadow-lg transition-colors"
             onClick={() => router.push("/blog")}
           >
             Blog
           </button>
           <button
-            className="flex items-center justify-center px-10 bg-primary-500 text-white font-bold py-2 rounded-lg shadow-lg hover:bg-primary-600 transition-colors"
+            className="bg-primary-500 hover:bg-primary-600 flex items-center justify-center rounded-lg px-10 py-2 font-bold text-white shadow-lg transition-colors"
             onClick={() => router.push("/projects")}
           >
             Projects
@@ -272,9 +273,9 @@ export default function Home() {
           hidden: { width: 0 },
           visible: { width: "100%", transition: { duration: 0.8, delay: 0 } },
         }}
-        className="px-8 lg:px-32 mx-auto"
+        className="mx-auto px-8 lg:px-32"
       >
-        <div className="border-t border-neutral-700 w-full mt-4 mb-4" />
+        <div className="mb-4 mt-4 w-full border-t border-neutral-700" />
       </motion.div>
 
       <motion.section
@@ -290,18 +291,18 @@ export default function Home() {
           },
         }}
         id="about"
-        className="flex flex-col container lg:flex-row min-h-screen items-center lg:items-start justify-center lg:justify-between p-8 lg:p-32 mx-auto"
+        className="container mx-auto flex min-h-screen flex-col items-center justify-center p-8 lg:flex-row lg:items-start lg:justify-between lg:p-32"
       >
-        <div className="flex flex-col w-full lg:w-2/3 items-start justify-center">
-          <div className="flex flex-row gap-2 items-center justify-start">
-            <div className="bg-primary-500 p-2 rounded-lg">
+        <div className="flex w-full flex-col items-start justify-center lg:w-2/3">
+          <div className="flex flex-row items-center justify-start gap-2">
+            <div className="bg-primary-500 rounded-lg p-2">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
                 strokeWidth={1.5}
                 stroke="currentColor"
-                className="w-6 h-6"
+                className="h-6 w-6"
               >
                 <path
                   strokeLinecap="round"
@@ -310,11 +311,11 @@ export default function Home() {
                 />
               </svg>
             </div>
-            <h2 className="text-4xl font-bold text-center">
+            <h2 className="text-center text-4xl font-bold">
               About Me<span className="text-primary-500">.</span>
             </h2>
           </div>
-          <p className="text-xl mt-2 text-left">
+          <p className="mt-2 text-left text-xl">
             I&apos;m a full-stack developer with a passion for open-source
             software and the web. I&apos;ve been developing for the web for over
             6 years and have a strong understanding of web technologies and best
@@ -322,11 +323,13 @@ export default function Home() {
             and have contributed to many projects over the years.
           </p>
         </div>
-        <div className="flex flex-row gap-2 w-full lg:w-1/3 items-center justify-center mt-10 lg:mt-0 lg:justify-end">
-          <img
+        <div className="mt-10 flex w-full flex-row items-center justify-center gap-2 lg:mt-0 lg:w-1/3 lg:justify-end">
+          <Image
             src="https://avatars.githubusercontent.com/u/81481526?v=4"
             alt="BinaryBlazer"
-            className="w-64 h-64 rounded-xl border-4 border-primary-500 shadow-lg bg-neutral-800 hover:transform hover:translate-y-[-4px] transition-transform duration-150 ease-in-out"
+            width={256}
+            height={256}
+            className="border-primary-500 h-64 w-64 rounded-xl border-4 bg-neutral-800 shadow-lg transition-transform duration-150 ease-in-out hover:translate-y-[-4px] hover:transform"
             draggable="false"
           />
         </div>
@@ -340,9 +343,9 @@ export default function Home() {
           hidden: { width: 0 },
           visible: { width: "100%", transition: { duration: 0.8, delay: 0 } },
         }}
-        className="px-8 lg:px-32 mx-auto"
+        className="mx-auto px-8 lg:px-32"
       >
-        <div className="border-t border-neutral-700 w-full mt-4 mb-4" />
+        <div className="mb-4 mt-4 w-full border-t border-neutral-700" />
       </motion.div>
 
       <motion.section
@@ -358,19 +361,19 @@ export default function Home() {
           },
         }}
         id="projects"
-        className="flex flex-col container bg-gradient-to-b from-transparent via-neutral-900/90 to-neutral-900 min-h-screen items-start justify-center p-8 lg:p-32 mx-auto"
+        className="container mx-auto flex min-h-screen flex-col items-start justify-center bg-gradient-to-b from-transparent via-neutral-900/90 to-neutral-900 p-8 lg:p-32"
       >
-        <div className="flex flex-col w-full items-start justify-center">
-          <div className="flex flex-col w-full items-start justify-center mb-8">
-            <div className="flex flex-row gap-2 items-center justify-start">
-              <div className="bg-primary-500 p-2 rounded-lg">
+        <div className="flex w-full flex-col items-start justify-center">
+          <div className="mb-8 flex w-full flex-col items-start justify-center">
+            <div className="flex flex-row items-center justify-start gap-2">
+              <div className="bg-primary-500 rounded-lg p-2">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 24 24"
                   strokeWidth={1.5}
                   stroke="currentColor"
-                  className="w-6 h-6"
+                  className="h-6 w-6"
                 >
                   <path
                     strokeLinecap="round"
@@ -383,55 +386,60 @@ export default function Home() {
                 Projects<span className="text-primary-500">.</span>
               </h2>
             </div>
-            <p className="text-xl mt-2 text-left">
+            <p className="mt-2 text-left text-xl">
               Here are some of the projects I&apos;ve been working on recently.
             </p>
           </div>
-          <div className="w-full items-start justify-center grid grid-cols-1 lg:grid-cols-2 gap-4">
+          <div className="grid w-full grid-cols-1 items-start justify-center gap-4 lg:grid-cols-2">
             {projects.slice(0, 2).map((project, index) => (
               <div
                 key={index}
-                className="flex flex-col z-[-1] w-full h-full items-center justify-center gap-4 p-4 rounded-lg shadow-lg bg-neutral-800"
+                className="z-[-1] flex h-full w-full flex-col items-center justify-center gap-4 rounded-lg bg-neutral-800 p-4 shadow-lg"
               >
-                <img
+                <Image
                   src={project.banner}
                   alt={project.title}
-                  className="w-full h-auto rounded-lg shadow-lg bg-neutral-900"
+                  width={512}
+                  height={256}
+                  unoptimized
+                  className="h-auto w-full rounded-lg bg-neutral-900 shadow-lg"
                   draggable="false"
                 />
-                <div className="flex flex-row w-full items-center justify-start mt-2">
-                  <img
+                <div className="mt-2 flex w-full flex-row items-center justify-start">
+                  <Image
                     src={project.image}
                     alt={project.title}
-                    className="w-12 h-12 rounded-lg shadow-lg bg-neutral-900"
+                    width={48}
+                    height={48}
+                    className="h-12 w-12 rounded-lg bg-neutral-900 shadow-lg"
                     draggable="false"
                   />
-                  <div className="flex flex-row gap-2 items-center justify-start">
-                    <h3 className="text-2xl font-bold ml-2">{project.title}</h3>
+                  <div className="flex flex-row items-center justify-start gap-2">
+                    <h3 className="ml-2 text-2xl font-bold">{project.title}</h3>
                     {project.status.inProgress && (
-                      <div className="text-xs text-primary-200 font-bold bg-primary-500 px-2 py-1 rounded-lg">
+                      <div className="text-primary-200 bg-primary-500 rounded-lg px-2 py-1 text-xs font-bold">
                         In Progress
                       </div>
                     )}
                     {project.status.complete && (
-                      <div className="text-xs text-green-500 font-bold bg-green-500 px-2 py-1 rounded-lg">
+                      <div className="rounded-lg bg-green-500 px-2 py-1 text-xs font-bold text-green-500">
                         Complete
                       </div>
                     )}
                     {project.status.paused && (
-                      <div className="text-xs text-yellow-500 font-bold bg-yellow-500 px-2 py-1 rounded-lg">
+                      <div className="rounded-lg bg-yellow-500 px-2 py-1 text-xs font-bold text-yellow-500">
                         Paused
                       </div>
                     )}
                     {project.status.cancelled && (
-                      <div className="text-xs text-red-500 font-bold bg-red-500 px-2 py-1 rounded-lg">
+                      <div className="rounded-lg bg-red-500 px-2 py-1 text-xs font-bold text-red-500">
                         Cancelled
                       </div>
                     )}
                   </div>
                 </div>
-                <p className="text-xl text-left">{project.description}</p>
-                <div className="flex flex-row gap-2 w-full items-center justify-start mt-4">
+                <p className="text-left text-xl">{project.description}</p>
+                <div className="mt-4 flex w-full flex-row items-center justify-start gap-2">
                   {/*
                 <button
                   className="flex items-center justify-center px-6 bg-primary-500 text-white font-bold py-2 rounded-lg shadow-lg hover:bg-primary-600 transition-colors"
@@ -445,9 +453,9 @@ export default function Home() {
             ))}
           </div>
         </div>
-        <div className="flex flex-col gap-2 items-center justify-end w-full">
+        <div className="flex w-full flex-col items-center justify-end gap-2">
           <button
-            className="flex items-center justify-center px-6 bg-primary-500 text-white font-bold py-2 rounded-lg shadow-lg hover:bg-primary-600 transition-colors -mt-20"
+            className="bg-primary-500 hover:bg-primary-600 -mt-20 flex items-center justify-center rounded-lg px-6 py-2 font-bold text-white shadow-lg transition-colors"
             onClick={() => router.push("/projects")}
           >
             View All Projects
@@ -463,9 +471,9 @@ export default function Home() {
           hidden: { width: 0 },
           visible: { width: "100%", transition: { duration: 0.8, delay: 0 } },
         }}
-        className="px-8 lg:px-32 mx-auto"
+        className="mx-auto px-8 lg:px-32"
       >
-        <div className="border-t border-neutral-700 w-full mt-4 mb-4" />
+        <div className="mb-4 mt-4 w-full border-t border-neutral-700" />
       </motion.div>
 
       <motion.section
@@ -481,18 +489,18 @@ export default function Home() {
           },
         }}
         id="testimonials"
-        className="flex flex-col container min-h-screen items-start justify-center p-8 lg:p-32 mx-auto"
+        className="container mx-auto flex min-h-screen flex-col items-start justify-center p-8 lg:p-32"
       >
-        <div className="flex flex-col w-full items-start justify-center mb-8">
-          <div className="flex flex-row gap-2 items-center justify-start">
-            <div className="bg-primary-500 p-2 rounded-lg">
+        <div className="mb-8 flex w-full flex-col items-start justify-center">
+          <div className="flex flex-row items-center justify-start gap-2">
+            <div className="bg-primary-500 rounded-lg p-2">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
                 strokeWidth={1.5}
                 stroke="currentColor"
-                className="w-6 h-6"
+                className="h-6 w-6"
               >
                 <path
                   strokeLinecap="round"
@@ -505,13 +513,13 @@ export default function Home() {
               Testimonials<span className="text-primary-500">.</span>
             </h2>
           </div>
-          <p className="text-xl mt-2 text-left">
+          <p className="mt-2 text-left text-xl">
             Here are some testimonials from people I&apos;ve worked with.
           </p>
         </div>
         <div
           ref={scrollContainerRef}
-          className="flex flex-row max-w-full h-full items-center justify-start gap-4 overflow-x-auto"
+          className="flex h-full max-w-full flex-row items-center justify-start gap-4 overflow-x-auto"
           style={{
             scrollSnapType: "x mandatory",
             cursor: isDragging ? "grabbing" : "grab",
@@ -524,25 +532,25 @@ export default function Home() {
           {testimonials.map((testimonial, index) => (
             <div
               key={index}
-              className="flex flex-col mb-4 min-w-[38rem] w-full h-full items-start justify-start gap-4 p-4 rounded-lg shadow-lg bg-neutral-800"
+              className="mb-4 flex h-full w-full min-w-[38rem] flex-col items-start justify-start gap-4 rounded-lg bg-neutral-800 p-4 shadow-lg"
             >
-              <div className="flex flex-col w-full items-start justify-center">
+              <div className="flex w-full flex-col items-start justify-center">
                 <h3 className="text-2xl font-bold">{testimonial.name}</h3>
-                <h4 className="text-xl font-bold text-primary-500">
+                <h4 className="text-primary-500 text-xl font-bold">
                   {testimonial.title}
                 </h4>
               </div>
-              <p className="text-lg text-left">{testimonial.message}</p>
+              <p className="text-left text-lg">{testimonial.message}</p>
             </div>
           ))}
           <div
-            className="flex flex-col mb-4 min-w-[28rem] w-full h-[10.25rem] cursor-pointer items-center justify-center gap-4 p-4 rounded-lg shadow-lg border border-neutral-800 hover:border-neutral-500 hover:bg-neutral-700/20 transition-all duration-300 ease-in-out"
+            className="mb-4 flex h-[10.25rem] w-full min-w-[28rem] cursor-pointer flex-col items-center justify-center gap-4 rounded-lg border border-neutral-800 p-4 shadow-lg transition-all duration-300 ease-in-out hover:border-neutral-500 hover:bg-neutral-700/20"
             onMouseEnter={() => setAddTestimonial(true)}
             onMouseLeave={() => setAddTestimonial(false)}
             onClick={() => router.push("/contact")}
           >
             <div
-              className={`flex flex-col text-3xl px-10 py-8 ${addTestimonial ? "bg-neutral-700" : "bg-neutral-800"} rounded-lg shadow-lg items-center justify-center transition-all duration-300 ease-in-out`}
+              className={`flex flex-col px-10 py-8 text-3xl ${addTestimonial ? "bg-neutral-700" : "bg-neutral-800"} items-center justify-center rounded-lg shadow-lg transition-all duration-300 ease-in-out`}
             >
               +
             </div>
@@ -558,9 +566,9 @@ export default function Home() {
           hidden: { width: 0 },
           visible: { width: "100%", transition: { duration: 0.8, delay: 0 } },
         }}
-        className="px-8 lg:px-32 mx-auto"
+        className="mx-auto px-8 lg:px-32"
       >
-        <div className="border-t border-neutral-700 w-full mt-4 mb-4" />
+        <div className="mb-4 mt-4 w-full border-t border-neutral-700" />
       </motion.div>
 
       <motion.section
@@ -576,18 +584,18 @@ export default function Home() {
           },
         }}
         id="contact"
-        className="flex flex-col container min-h-screen items-start justify-center p-8 lg:p-32 mx-auto"
+        className="container mx-auto flex min-h-screen flex-col items-start justify-center p-8 lg:p-32"
       >
-        <div className="flex flex-col w-full items-start justify-center mb-10">
-          <div className="flex flex-row gap-2 items-center justify-start">
-            <div className="bg-primary-500 p-2 rounded-lg">
+        <div className="mb-10 flex w-full flex-col items-start justify-center">
+          <div className="flex flex-row items-center justify-start gap-2">
+            <div className="bg-primary-500 rounded-lg p-2">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
                 strokeWidth={1.5}
                 stroke="currentColor"
-                className="w-6 h-6"
+                className="h-6 w-6"
               >
                 <path
                   strokeLinecap="round"
@@ -600,14 +608,14 @@ export default function Home() {
               Contact Me<span className="text-primary-500">.</span>
             </h2>
           </div>
-          <p className="text-xl mt-2 text-left">
+          <p className="mt-2 text-left text-xl">
             Want to work together or just say hi? Feel free to reach out to me.
           </p>
         </div>
-        <div className="flex flex-col lg:flex-row gap-10 w-full items-center lg:items-start justify-center lg:justify-start">
-          <div className="flex flex-col w-full lg:w-1/2 items-start justify-start gap-4">
+        <div className="flex w-full flex-col items-center justify-center gap-10 lg:flex-row lg:items-start lg:justify-start">
+          <div className="flex w-full flex-col items-start justify-start gap-4 lg:w-1/2">
             <button
-              className="flex w-full items-center justify-start px-6 py-4 gap-2 bg-neutral-800 text-white font-bold rounded-lg shadow-lg hover:bg-neutral-700 transition-colors"
+              className="flex w-full items-center justify-start gap-2 rounded-lg bg-neutral-800 px-6 py-4 font-bold text-white shadow-lg transition-colors hover:bg-neutral-700"
               onClick={() => router.push("mailto:me@binaryblazer.me")}
             >
               <svg
@@ -627,7 +635,7 @@ export default function Home() {
               Email Me
             </button>
             <button
-              className="flex w-full items-center justify-start px-6 py-4 gap-2 bg-neutral-800 text-white font-bold rounded-lg shadow-lg hover:bg-neutral-700 transition-colors"
+              className="flex w-full items-center justify-start gap-2 rounded-lg bg-neutral-800 px-6 py-4 font-bold text-white shadow-lg transition-colors hover:bg-neutral-700"
               onClick={() => router.push("https://twitter.com/BinaryBlazer")}
             >
               <svg
@@ -647,24 +655,24 @@ export default function Home() {
               Twitter
             </button>
           </div>
-          <form className="flex flex-col w-full lg:w-1/2 items-start justify-start gap-4 bg-neutral-800 p-4 rounded-lg shadow-lg">
+          <form className="flex w-full flex-col items-start justify-start gap-4 rounded-lg bg-neutral-800 p-4 shadow-lg lg:w-1/2">
             {error && (
-              <p className="text-red-500 bg-red-500/10 p-2 w-full items-center justify-center text-center rounded-lg">
+              <p className="w-full items-center justify-center rounded-lg bg-red-500/10 p-2 text-center text-red-500">
                 {error}
               </p>
             )}
-            <div className="flex flex-row gap-4 w-full items-center justify-start">
+            <div className="flex w-full flex-row items-center justify-start gap-4">
               <input
                 type="text"
                 placeholder="First Name"
-                className="w-full p-3 rounded-lg bg-neutral-700"
+                className="w-full rounded-lg bg-neutral-700 p-3"
                 value={firstName}
                 onChange={(e) => setFirstName(e.target.value)}
               />
               <input
                 type="text"
                 placeholder="Last Name"
-                className="w-full p-3 rounded-lg bg-neutral-700"
+                className="w-full rounded-lg bg-neutral-700 p-3"
                 value={lastName}
                 onChange={(e) => setLastName(e.target.value)}
               />
@@ -672,19 +680,19 @@ export default function Home() {
             <input
               type="email"
               placeholder="Email"
-              className="w-full p-3 rounded-lg bg-neutral-700"
+              className="w-full rounded-lg bg-neutral-700 p-3"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
             <textarea
               placeholder="Message"
-              className="w-full p-3 rounded-lg bg-neutral-700"
+              className="w-full rounded-lg bg-neutral-700 p-3"
               value={message}
               onChange={(e) => setMessage(e.target.value)}
             />
             <button
               type="submit"
-              className="flex items-center justify-center px-6 bg-primary-500 text-white font-bold py-2 rounded-lg hover:bg-primary-600 transition-colors"
+              className="bg-primary-500 hover:bg-primary-600 flex items-center justify-center rounded-lg px-6 py-2 font-bold text-white transition-colors"
               onClick={(e) => sendEmail(e)}
             >
               Send Message

@@ -1,11 +1,11 @@
 import { Inter } from "next/font/google";
-import Header from "components/Header";
-import Footer from "components/Footer";
 import Loading from "components/client/Loading";
-import MobileProvider from "providers/mobile";
-import MetaProvider from "providers/meta";
-import ThemeLoader from "loaders/theme";
+import Footer from "components/Footer";
+import Header from "components/Header";
 import FontLoader from "loaders/font";
+import ThemeLoader from "loaders/theme";
+import MetaProvider from "providers/meta";
+import MobileProvider from "providers/mobile";
 import "styles/globals.css";
 import "styles/theme.css";
 import "styles/font.css";

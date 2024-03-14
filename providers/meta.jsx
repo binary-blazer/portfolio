@@ -1,9 +1,9 @@
 "use client";
 
 import React from "react";
-import { useRouter, usePathname } from "next/navigation";
-import { config } from "@/main.config";
 import Head from "next/head";
+import { usePathname, useRouter } from "next/navigation";
+import { config } from "@/main.config";
 
 export default function MetaProvider({ children }) {
   let router = useRouter();

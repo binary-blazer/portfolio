@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 
 export default function Loading() {
   const [loading, setLoading] = React.useState(true);
@@ -17,12 +17,12 @@ export default function Loading() {
       {loading && (
         <motion.div
           exit={{ opacity: 0 }}
-          className="fixed z-[9999] top-0 left-0 w-screen h-screen bg-neutral-900 flex items-center justify-center"
+          className="fixed left-0 top-0 z-[9999] flex h-screen w-screen items-center justify-center bg-neutral-900"
         >
           <motion.div
             exit={{ scale: 0 }}
             // className="bg-primary-500 p-4 rounded-lg"
-            className="p-4 rounded-lg"
+            className="rounded-lg p-4"
           >
             <div className="loading-dots flex flex-row items-center justify-center">
               <div className="loading-dots--dot"></div>

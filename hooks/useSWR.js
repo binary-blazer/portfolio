@@ -1,5 +1,5 @@
-import swr from "swr";
 import axios from "axios";
+import swr from "swr";
 
 export default function useSWR(url) {
   const { data, error } = swr(url, async (url) => {

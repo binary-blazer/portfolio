@@ -4,6 +4,8 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 
 export default function Page() {
+  const router = useRouter();
+
   const [email, setEmail] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -40,18 +42,18 @@ export default function Page() {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: 10 }}
       transition={{ duration: 0.5 }}
-      className="flex flex-col container min-h-screen items-center justify-center mt-[7rem] lg:mt-0 p-8 lg:p-32 mx-auto"
+      className="container mx-auto mt-[7rem] flex min-h-screen flex-col items-center justify-center p-8 lg:mt-0 lg:p-32"
     >
-      <div className="flex flex-col w-full items-start justify-center mb-10">
-        <div className="flex flex-row gap-2 items-center justify-start">
-          <div className="bg-primary-500 p-2 rounded-lg">
+      <div className="mb-10 flex w-full flex-col items-start justify-center">
+        <div className="flex flex-row items-center justify-start gap-2">
+          <div className="bg-primary-500 rounded-lg p-2">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
               strokeWidth={1.5}
               stroke="currentColor"
-              className="w-6 h-6"
+              className="h-6 w-6"
             >
               <path
                 strokeLinecap="round"
@@ -64,14 +66,14 @@ export default function Page() {
             Contact Me<span className="text-primary-500">.</span>
           </h2>
         </div>
-        <p className="text-xl mt-2 text-left">
+        <p className="mt-2 text-left text-xl">
           Want to work together or just say hi? Feel free to reach out to me.
         </p>
       </div>
-      <div className="flex flex-col lg:flex-row gap-10 w-full items-center lg:items-start justify-start">
-        <div className="flex flex-col w-full lg:w-1/2 items-start justify-start gap-4">
+      <div className="flex w-full flex-col items-center justify-start gap-10 lg:flex-row lg:items-start">
+        <div className="flex w-full flex-col items-start justify-start gap-4 lg:w-1/2">
           <button
-            className="flex w-full items-center justify-start px-6 py-4 gap-2 bg-neutral-800 text-white font-bold rounded-lg shadow-lg hover:bg-neutral-700 transition-colors"
+            className="flex w-full items-center justify-start gap-2 rounded-lg bg-neutral-800 px-6 py-4 font-bold text-white shadow-lg transition-colors hover:bg-neutral-700"
             onClick={() => router.push("mailto:me@binaryblazer.me")}
           >
             <svg
@@ -91,7 +93,7 @@ export default function Page() {
             Email Me
           </button>
           <button
-            className="flex w-full items-center justify-start px-6 py-4 gap-2 bg-neutral-800 text-white font-bold rounded-lg shadow-lg hover:bg-neutral-700 transition-colors"
+            className="flex w-full items-center justify-start gap-2 rounded-lg bg-neutral-800 px-6 py-4 font-bold text-white shadow-lg transition-colors hover:bg-neutral-700"
             onClick={() => router.push("https://twitter.com/BinaryBlazer")}
           >
             <svg
@@ -111,24 +113,24 @@ export default function Page() {
             Twitter
           </button>
         </div>
-        <form className="flex flex-col w-full lg:w-1/2 items-start justify-start gap-4 bg-neutral-800 p-4 rounded-lg shadow-lg">
+        <form className="flex w-full flex-col items-start justify-start gap-4 rounded-lg bg-neutral-800 p-4 shadow-lg lg:w-1/2">
           {error && (
-            <p className="text-red-500 bg-red-500/10 p-2 w-full items-center justify-center text-center rounded-lg">
+            <p className="w-full items-center justify-center rounded-lg bg-red-500/10 p-2 text-center text-red-500">
               {error}
             </p>
           )}
-          <div className="flex flex-row gap-4 w-full items-center justify-start">
+          <div className="flex w-full flex-row items-center justify-start gap-4">
             <input
               type="text"
               placeholder="First Name"
-              className="w-full p-3 rounded-lg bg-neutral-700"
+              className="w-full rounded-lg bg-neutral-700 p-3"
               value={firstName}
               onChange={(e) => setFirstName(e.target.value)}
             />
             <input
               type="text"
               placeholder="Last Name"
-              className="w-full p-3 rounded-lg bg-neutral-700"
+              className="w-full rounded-lg bg-neutral-700 p-3"
               value={lastName}
               onChange={(e) => setLastName(e.target.value)}
             />
@@ -136,19 +138,19 @@ export default function Page() {
           <input
             type="email"
             placeholder="Email"
-            className="w-full p-3 rounded-lg bg-neutral-700"
+            className="w-full rounded-lg bg-neutral-700 p-3"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
           <textarea
             placeholder="Message"
-            className="w-full p-3 rounded-lg bg-neutral-700"
+            className="w-full rounded-lg bg-neutral-700 p-3"
             value={message}
             onChange={(e) => setMessage(e.target.value)}
           />
           <button
             type="submit"
-            className="flex items-center justify-center px-6 bg-primary-500 text-white font-bold py-2 rounded-lg hover:bg-primary-600 transition-colors"
+            className="bg-primary-500 hover:bg-primary-600 flex items-center justify-center rounded-lg px-6 py-2 font-bold text-white transition-colors"
             onClick={(e) => handleSubmit(e)}
           >
             Send Message

@@ -1,8 +1,9 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import { technologies } from "@/main.config";
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 
 export default function About() {
   const [currentTab, setCurrentTab] = React.useState(technologies[0]);
@@ -15,8 +16,8 @@ export default function About() {
       className={`${
         currentTab.name === tab.name
           ? "bg-primary-500 text-neutral-100"
-          : "bg-neutral-800 text-primary-500"
-      } px-4 py-2 rounded-lg mb-4`}
+          : "text-primary-500 bg-neutral-800"
+      } mb-4 rounded-lg px-4 py-2`}
     >
       {tab.name}
     </button>
@@ -35,19 +36,19 @@ export default function About() {
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: 10 }}
         transition={{ duration: 0.5 }}
-        className="flex flex-col min-h-screen container items-center justify-center mt-[7rem] lg:mt-0 p-8 lg:p-32 mx-auto"
+        className="container mx-auto mt-[7rem] flex min-h-screen flex-col items-center justify-center p-8 lg:mt-0 lg:p-32"
       >
-        <div className="flex flex-col lg:flex-row w-full items-start justify-center">
-          <div className="flex flex-col w-full lg:w-2/3 items-start justify-center">
-            <div className="flex flex-row gap-2 items-center justify-start">
-              <div className="bg-primary-500 p-2 rounded-lg">
+        <div className="flex w-full flex-col items-start justify-center lg:flex-row">
+          <div className="flex w-full flex-col items-start justify-center lg:w-2/3">
+            <div className="flex flex-row items-center justify-start gap-2">
+              <div className="bg-primary-500 rounded-lg p-2">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 24 24"
                   strokeWidth={1.5}
                   stroke="currentColor"
-                  className="w-6 h-6"
+                  className="h-6 w-6"
                 >
                   <path
                     strokeLinecap="round"
@@ -56,11 +57,11 @@ export default function About() {
                   />
                 </svg>
               </div>
-              <h2 className="text-4xl font-bold text-center">
+              <h2 className="text-center text-4xl font-bold">
                 About Me<span className="text-primary-500">.</span>
               </h2>
             </div>
-            <p className="text-xl mt-2 text-left">
+            <p className="mt-2 text-left text-xl">
               I&apos;m a full-stack developer with a passion for open-source
               software and the web. I&apos;ve been developing for the web for
               over 6 years and have a strong understanding of web technologies
@@ -69,25 +70,27 @@ export default function About() {
               the years.
             </p>
           </div>
-          <div className="flex flex-row gap-2 w-full lg:w-1/3 items-center justify-center mt-10 lg:mt-10 lg:justify-end">
-            <img
+          <div className="mt-10 flex w-full flex-row items-center justify-center gap-2 lg:mt-10 lg:w-1/3 lg:justify-end">
+            <Image
               src="https://avatars.githubusercontent.com/u/81481526?v=4"
+              width={256}
+              height={256}
               alt="BinaryBlazer"
-              className="w-64 h-64 rounded-xl border-4 border-primary-500 shadow-lg bg-neutral-800 hover:transform hover:translate-y-[-4px] transition-transform duration-150 ease-in-out"
+              className="border-primary-500 h-64 w-64 rounded-xl border-4 bg-neutral-800 shadow-lg transition-transform duration-150 ease-in-out hover:translate-y-[-4px] hover:transform"
               draggable="false"
             />
           </div>
         </div>
-        <div className="flex flex-col w-full items-start justify-center mt-[15rem]">
-          <div className="flex flex-row gap-2 items-center justify-start">
-            <div className="bg-primary-500 p-2 rounded-lg">
+        <div className="mt-[15rem] flex w-full flex-col items-start justify-center">
+          <div className="flex flex-row items-center justify-start gap-2">
+            <div className="bg-primary-500 rounded-lg p-2">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
                 strokeWidth={1.5}
                 stroke="currentColor"
-                className="w-6 h-6"
+                className="h-6 w-6"
               >
                 <path
                   strokeLinecap="round"
@@ -96,11 +99,11 @@ export default function About() {
                 />
               </svg>
             </div>
-            <h2 className="text-4xl font-bold text-center">
+            <h2 className="text-center text-4xl font-bold">
               Technologies I Use<span className="text-primary-500">.</span>
             </h2>
           </div>
-          <p className="text-xl mt-2 text-left">
+          <p className="mt-2 text-left text-xl">
             I have experience with a wide range of technologies, from front-end
             frameworks like React and Vue to back-end frameworks like Express
             and Django. I also have experience with cloud platforms like AWS and
@@ -110,20 +113,20 @@ export default function About() {
           </p>
         </div>
         <div className="mt-8 w-full">
-          <div className="flex flex-row gap-2 items-center justify-start overflow-x-auto">
+          <div className="flex flex-row items-center justify-start gap-2 overflow-x-auto">
             {tabs}
           </div>
         </div>
-        <div className="flex flex-col w-full items-start justify-center mt-16">
-          <h3 className="text-xl font-bold text-center">{currentTab.name}</h3>
+        <div className="mt-16 flex w-full flex-col items-start justify-center">
+          <h3 className="text-center text-xl font-bold">{currentTab.name}</h3>
           <motion.div
-            className="gap-2 w-full  mt-2 items-center justify-start grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
+            className="mt-2 grid  w-full grid-cols-2 items-center justify-start gap-2 md:grid-cols-3 lg:grid-cols-4"
             transition={{ duration: 0.2, staggerChildren: 0.15 }}
           >
             {currentTab.technologies.map((tech, index) => (
               <motion.div
                 key={tech.name}
-                className="bg-neutral-800 gap-2 flex flex-row items-center justify-start p-2 w-full rounded-lg text-center transition-transform duration-150 ease-in-out transform hover:translate-y-[-4px]"
+                className="flex w-full transform flex-row items-center justify-start gap-2 rounded-lg bg-neutral-800 p-2 text-center transition-transform duration-150 ease-in-out hover:translate-y-[-4px]"
                 initial={shouldAnimate ? { opacity: 0, y: 10 } : {}}
                 animate={shouldAnimate ? { opacity: 1, y: 0 } : {}}
                 exit={shouldAnimate ? { opacity: 0, y: 10 } : {}}
@@ -131,8 +134,14 @@ export default function About() {
                   shouldAnimate ? { duration: 0.2, delay: index * 0.1 } : {}
                 }
               >
-                <div className="bg-neutral-700 p-2 rounded-md">
-                  <img src={tech.icon} alt={tech.name} className="w-6 h-6" />
+                <div className="rounded-md bg-neutral-700 p-2">
+                  <Image
+                    src={tech.icon}
+                    alt={tech.name}
+                    className="h-6 w-6"
+                    width={24}
+                    height={24}
+                  />
                 </div>
                 {tech.name}
               </motion.div>

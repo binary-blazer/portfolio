@@ -1,7 +1,7 @@
 "use client";
 
-import { config } from "@/main.config";
 import { useEffect, useState } from "react";
+import { config } from "@/main.config";
 
 export default function MobileProvider({ children }) {
   const [isMobile, setIsMobile] = useState(false);
@@ -23,8 +23,8 @@ export default function MobileProvider({ children }) {
       {!isMobile ? (
         children
       ) : (
-        <div className="flex flex-col items-center justify-center h-screen">
-          <h1 className="text-6xl font-bold text-neutral-100 text-glitch">
+        <div className="flex h-screen flex-col items-center justify-center">
+          <h1 className="text-glitch text-6xl font-bold text-neutral-100">
             404
           </h1>
           <p className="text-lg text-neutral-300">
