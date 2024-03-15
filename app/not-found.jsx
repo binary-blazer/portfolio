@@ -22,7 +22,7 @@ export default function NotFound() {
         </div>
       )}
 
-      <h1 className="text-glitch text-3xl lg:text-4xl 2xl:text-6xl font-bold text-neutral-100">
+      <h1 className="text-glitch text-4xl lg:text-5xl 2xl:text-6xl font-bold text-neutral-100">
         404 - Not Found!
       </h1>
 
