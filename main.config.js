@@ -243,6 +243,26 @@ export const technologies = [
         name: "Elixir",
         icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/elixir/elixir-original.svg",
       },
+      {
+        name: "Ruby",
+        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ruby/ruby-original.svg",
+      },
+      {
+        name: "Rust",
+        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/rust/rust-plain.svg",
+      },
+      {
+        name: "Batch",
+        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/windows8/windows8-original.svg",
+      },
+      {
+        name: "Batch",
+        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/windows8/windows8-original.svg",
+      },
+      {
+        name: "Crystal",
+        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/crystal/crystal-original.svg",
+      }
     ],
   },
   {
