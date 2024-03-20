@@ -256,8 +256,12 @@ export const technologies = [
         icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/windows8/windows8-original.svg",
       },
       {
-        name: "Batch",
-        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/windows8/windows8-original.svg",
+        name: "PowerShell",
+        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/powershell/powershell-original.svg",
+      },
+      {
+        name: "Shell",
+        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bash/bash-original.svg",
       },
       {
         name: "Crystal",
