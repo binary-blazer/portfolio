@@ -32,6 +32,11 @@ export async function POST(request) {
       return new Response("Last name is too long", { status: 400 });
     }
 
+    const isEnglish = /^[A-Za-z0-9]*$/.test(message);
+    if (!isEnglish) {
+      return new Response("Message must be in English", { status: 400 });
+    }
+
     if (
       blacklistedWords.some((word) =>
         email.toLowerCase().replace("@", " ").includes(word),
