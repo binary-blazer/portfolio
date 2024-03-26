@@ -29,6 +29,7 @@ export default function Home() {
   const [lastName, setLastName] = useState("");
   const [message, setMessage] = useState("");
   const [error, setError] = useState(null);
+  const [blacklistedWords, setBlacklistedWords] = useState([]);
 
   const scrollContainerRef = useRef(null);
   const border1Ref = useRef();
@@ -76,14 +77,55 @@ export default function Home() {
     })
       .then((res) => res.text())
       .then((data) => {
-        if (data !== "Message sent successfully") {
-          setError(data);
-        } else {
+        if (data === "Message sent successfully") {
           setEmail("");
           setFirstName("");
           setLastName("");
           setMessage("");
+          setBlacklistedWords([]);
           setError(null);
+        } else {
+          if (data.includes("Message contains not allowed words")) {
+            setError(
+              data + ". Please remove the following words from your message:",
+            );
+            const flaggedWords = data.replace(
+              "Message contains not allowed words ",
+              "",
+            );
+            const array = flaggedWords.split(",");
+            setBlacklistedWords(array);
+          } else if (data.includes("Email contains not allowed words")) {
+            setError(
+              data + " Please remove the following words from your email:",
+            );
+            const flaggedWords = data
+              .replace("Email contains not allowed words ", "")
+              .trim();
+            const array = flaggedWords.split(",").map((word) => word.trim());
+            setBlacklistedWords(array);
+          } else if (data.includes("Last name contains not allowed words")) {
+            setError(
+              data + " Please remove the following words from your last name:",
+            );
+            const flaggedWords = data
+              .replace("Last name contains not allowed words ", "")
+              .trim();
+            const array = flaggedWords.split(",").map((word) => word.trim());
+            setBlacklistedWords(array);
+          } else if (data.includes("First name contains not allowed words")) {
+            setError(
+              data + " Please remove the following words from your first name:",
+            );
+            const flaggedWords = data
+              .replace("First name contains not allowed words ", "")
+              .trim();
+            const array = flaggedWords.split(",").map((word) => word.trim());
+            setBlacklistedWords(array);
+          } else {
+            setBlacklistedWords([]);
+            setError(data);
+          }
         }
       });
   };
@@ -291,7 +333,7 @@ export default function Home() {
           },
         }}
         id="about"
-        className="container mx-auto flex min-h-screen flex-col items-center justify-center p-8 lg:flex-row lg:items-start lg:justify-between lg:p-32"
+        className="mx-auto flex min-h-screen w-full flex-col items-center justify-center p-8 lg:flex-row lg:items-start lg:p-32"
       >
         <div className="flex w-full flex-col items-start justify-center lg:w-2/3">
           <div className="flex flex-row items-center justify-start gap-2">
@@ -323,12 +365,12 @@ export default function Home() {
             and have contributed to many projects over the years.
           </p>
         </div>
-        <div className="mt-10 flex w-full flex-row items-center justify-center gap-2 lg:mt-0 lg:w-1/3 lg:justify-end">
+        <div className="mt-10 flex w-full flex-row items-center justify-center gap-2 lg:mt-10 lg:w-1/3 lg:justify-end">
           <Image
             src="https://avatars.githubusercontent.com/u/81481526?v=4"
-            alt="BinaryBlazer"
             width={256}
             height={256}
+            alt="BinaryBlazer"
             className="border-primary-500 h-64 w-64 rounded-xl border-4 bg-neutral-800 shadow-lg transition-transform duration-150 ease-in-out hover:translate-y-[-4px] hover:transform"
             draggable="false"
           />
@@ -361,7 +403,7 @@ export default function Home() {
           },
         }}
         id="projects"
-        className="container mx-auto flex min-h-screen flex-col items-start justify-center bg-gradient-to-b from-transparent via-neutral-900/90 to-neutral-900 p-8 lg:p-32"
+        className="mx-auto flex min-h-screen w-full flex-col items-start justify-center bg-gradient-to-b from-transparent via-neutral-900/90 to-neutral-900 p-8 lg:p-32"
       >
         <div className="flex w-full flex-col items-start justify-center">
           <div className="mb-8 flex w-full flex-col items-start justify-center">
@@ -489,7 +531,7 @@ export default function Home() {
           },
         }}
         id="testimonials"
-        className="container mx-auto flex min-h-screen flex-col items-start justify-center p-8 lg:p-32"
+        className="mx-auto flex min-h-screen w-full flex-col items-start justify-center p-8 lg:p-32"
       >
         <div className="mb-8 flex w-full flex-col items-start justify-center">
           <div className="flex flex-row items-center justify-start gap-2">
@@ -584,7 +626,7 @@ export default function Home() {
           },
         }}
         id="contact"
-        className="container mx-auto flex min-h-screen flex-col items-start justify-center p-8 lg:p-32"
+        className="mx-auto flex min-h-screen w-full flex-col items-start justify-center p-8 lg:p-32"
       >
         <div className="mb-10 flex w-full flex-col items-start justify-center">
           <div className="flex flex-row items-center justify-start gap-2">
@@ -659,6 +701,15 @@ export default function Home() {
             {error && (
               <p className="w-full items-center justify-center rounded-lg bg-red-500/10 p-2 text-center text-red-500">
                 {error}
+                {blacklistedWords.length > 0 && (
+                  <ul className="mt-4 grid grid-cols-1 gap-2 rounded-lg bg-red-500/20 p-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                    {blacklistedWords.map((word, index) => (
+                      <li key={index} className="text-red-400">
+                        {word}
+                      </li>
+                    ))}
+                  </ul>
+                )}
               </p>
             )}
             <div className="flex w-full flex-row items-center justify-start gap-4">
@@ -686,7 +737,9 @@ export default function Home() {
             />
             <textarea
               placeholder="Message"
-              className="w-full rounded-lg bg-neutral-700 p-3"
+              className={`max-h-[20rem] min-h-[10rem] w-full rounded-lg bg-neutral-700 p-3 ${
+                blacklistedWords && "border-red-500"
+              }`}
               value={message}
               onChange={(e) => setMessage(e.target.value)}
             />

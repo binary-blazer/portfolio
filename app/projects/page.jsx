@@ -50,9 +50,9 @@ export default function Page() {
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: 10 }}
         transition={{ duration: 0.5 }}
-        className="container mx-auto mt-[7rem] flex min-h-screen flex-col items-start justify-center p-8 lg:mt-0 lg:p-32"
+        className="mx-auto flex min-h-screen w-full flex-col items-start justify-center p-8 lg:mt-0 lg:p-32"
       >
-        <div className="mb-8 flex w-full flex-col items-start justify-center">
+        <div className="mb-8 mt-[14rem] flex w-full flex-col items-start justify-center">
           <div className="flex flex-row items-center justify-start gap-2">
             <div className="bg-primary-500 rounded-lg p-2">
               <svg
@@ -258,7 +258,7 @@ export default function Page() {
                     onClick={() => setSelectedRepoId(null)}
                   >
                     <motion.div
-                      className="max-h-auto z-[102] flex h-auto w-auto min-w-[100%] cursor-auto flex-col items-start justify-start rounded-lg bg-neutral-800 p-4 shadow-lg"
+                      className="max-h-auto z-[102] flex h-auto w-auto min-w-[60%] cursor-auto flex-col items-start justify-start rounded-lg bg-neutral-800 p-4 shadow-lg"
                       onClick={(e) => e.stopPropagation()}
                     >
                       <div className="flex w-full flex-row items-start justify-between">

@@ -266,7 +266,7 @@ export const technologies = [
       {
         name: "Crystal",
         icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/crystal/crystal-original.svg",
-      }
+      },
     ],
   },
   {

@@ -18,7 +18,7 @@ export default function Header() {
   const [settingsOpen, setSettingsOpen] = useState(false);
   const [settingsColorsOpen, setSettingsColorsOpen] = useState(false);
   const [settingsFontsOpen, setSettingsFontsOpen] = useState(false);
-  const [currentTheme, setCurrentTheme] = useState("blue");
+  const [currentTheme, setCurrentTheme] = useState("Blue");
   const [currentFont, setCurrentFont] = useState("inter");
   const [socialsOpen, setSocialsOpen] = useState(false);
   const [currentScreen, setCurrentScreen] = useState("laptop");
@@ -74,7 +74,8 @@ export default function Header() {
       const theme = window.localStorage.getItem("theme");
       const font = window.localStorage.getItem("font");
       if (theme) {
-        setCurrentTheme(theme);
+        const filteredTheme = theme.charAt(0).toUpperCase() + theme.slice(1);
+        setCurrentTheme(filteredTheme);
       }
       if (font) {
         setCurrentFont(font);
