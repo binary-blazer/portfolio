@@ -132,12 +132,6 @@ export const projects = [
 
 export const testimonials = [
   {
-    name: "Relational Throne",
-    title: "Developer",
-    message:
-      "Working with BinaryBlazer is a wonderful experience he lightens up all of his projects and makes people days.",
-  },
-  {
     name: "Alice Johnson",
     title: "Client",
     message:
