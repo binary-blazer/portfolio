@@ -3,10 +3,10 @@ import { config } from "@/main.config";
 export async function GET(request) {
   try {
     const username = config.github.username;
-    const token = process.env.NEXT_PUBLIC_GITHUB_TOKEN;
+    const token = process.env.GITHUB_TOKEN;
     const url = `https://api.github.com/users/${username}/repos?sort=updated&per_page=8`;
 
-    if (!token) throw new Error("No NEXT_PUBLIC_GITHUB_TOKEN in .env file found");
+    if (!token) throw new Error("No GITHUB_TOKEN in .env file found");
 
     const response = await fetch(url, {
       headers: {

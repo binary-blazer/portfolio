@@ -2,10 +2,10 @@
 
 import React from "react";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { technologies } from "@/main.config";
 import { getContents } from "@contenthook/browser";
 import { AnimatePresence, motion } from "framer-motion";
-import { usePathname } from "next/navigation";
 
 export default function BlogSlug() {
   const pathname = usePathname();
@@ -16,10 +16,12 @@ export default function BlogSlug() {
       const slug = pathname.split("/").pop();
 
       const data = await getContents({
-        api_key: process.env.NEXT_PUBLIC_CONTENTHOOK_API_KEY,
+        api_key: process.env.CONTENTHOOK_API_KEY,
       });
 
-      const content = data.find((content) => content.metadata[0].value === slug);
+      const content = data.find(
+        (content) => content.metadata[0].value === slug,
+      );
       setContent(content);
     };
     fetchContent();
@@ -35,17 +37,17 @@ export default function BlogSlug() {
         className="mx-auto flex min-h-screen w-full flex-col items-center justify-center p-8 lg:mt-0 lg:p-32"
       >
         {content ? (
-        <div className="mt-[14rem] flex w-full flex-col items-start justify-center xl:mt-24">
-          <div className="flex w-full flex-col items-center justify-center">
-            <h2 className="text-center text-4xl font-bold">
-              {content.metadata[0].value}
-            </h2>
-            <p className="text-center text-lg text-neutral-500">
-              {content.metadata[1].value}
-            </p>
-          </div>
-          <div className="flex w-full flex-col items-start justify-center">
+          <div className="mt-[14rem] flex w-full flex-col items-start justify-center xl:mt-24">
+            <div className="flex w-full flex-col items-center justify-center">
+              <h2 className="text-center text-4xl font-bold">
+                {content.metadata[0].value}
+              </h2>
+              <p className="text-center text-lg text-neutral-500">
+                {content.metadata[1].value}
+              </p>
+            </div>
             <div className="flex w-full flex-col items-start justify-center">
+              <div className="flex w-full flex-col items-start justify-center">
                 <Image
                   src={content.metadata[5].value}
                   alt={content.metadata[0].value}
@@ -60,16 +62,16 @@ export default function BlogSlug() {
                   }}
                 />
               </div>
+            </div>
           </div>
-        </div>
         ) : (
           <div className="mt-[14rem] flex w-full flex-col items-start justify-center xl:mt-24">
             <div className="flex w-full flex-col items-center justify-center">
-            <div className="loading-dots flex flex-row items-center justify-center bg-neutral-800 p-4 shadow-lg rounded-lg w-auto">
-              <div className="loading-dots--dot"></div>
-              <div className="loading-dots--dot"></div>
-              <div className="loading-dots--dot"></div>
-            </div>
+              <div className="loading-dots flex w-auto flex-row items-center justify-center rounded-lg bg-neutral-800 p-4 shadow-lg">
+                <div className="loading-dots--dot"></div>
+                <div className="loading-dots--dot"></div>
+                <div className="loading-dots--dot"></div>
+              </div>
             </div>
           </div>
         )}

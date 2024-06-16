@@ -17,7 +17,7 @@ export default function Blog() {
     const fetchContents = async () => {
       // eslint-disable-next-line react-hooks/rules-of-hooks
       const data = await getContents({
-        api_key: process.env.NEXT_PUBLIC_CONTENTHOOK_API_KEY,
+        api_key: process.env.CONTENTHOOK_API_KEY,
       });
       console.log(data);
       setContents(data);

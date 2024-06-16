@@ -14,7 +14,7 @@ export default {
   assetsPath: "./public/img",
   apiKey: {
     env: "true",
-    variable: "NEXT_PUBLIC_CONTENTHOOK_API_KEY",
+    variable: "CONTENTHOOK_API_KEY",
   },
   apiVersion: "v1",
 };
