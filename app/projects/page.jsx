@@ -170,8 +170,8 @@ export default function Page() {
           <div className="mt-2 flex w-full flex-col rounded-lg bg-red-500/10 p-2 text-red-500">
             <p className="text-xl font-bold">No repositories found.</p>
             <p className="text-lg">
-              There was an error fetching the repositories. Please try again
-              later.
+              There was an error/problem fetching the repositories. Please try
+              again later.
             </p>
           </div>
         )}

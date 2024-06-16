@@ -1,38 +1,12 @@
 ![portfolio](https://raw.githubusercontent.com/binary-blazer/repo-svgs/main/out/portfolio/image.svg)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 # `v3` of my Personal portfolio website (JavaScript version) by `BinaryBlazer`
 
 <img src="https://github.com/binary-blazer/portfolio/blob/v3/public/img/demo-rounded.png" />
 
 ## 🖥️ Hosting
 
-[![Deploy with Vercel](https://vercel.com/button)](<https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fbinary-blazer%2Fportfolio&env=DISCORD_WEBHOOK,GITHUB_TOKEN&envDescription=DISCORD_WEBHOOK%20is%20needed%20for%20the%20contact%20forms%20(unless%20you%20want%20them%20to%20work)%3B%20GITHUB_TOKEN%20is%20for%20the%20repositories%20section%20on%20the%20projects%20page%20(unless%20you%20want%20it%20to%20work)%3B&envLink=https%3A%2F%2Fgithub.com%2Fbinary-blazer%2Fportfolio%2Fblob%2Fv3%2F.env.example&project-name=binaryblazer-portfolio&repository-name=binaryblazer-portfolio&demo-title=BinaryBlazer%20Portfolio&demo-description=This%20is%20a%20blog%20and%20portfolio%20website%20for%20a%20full-stack%20developer%20called%20BinaryBlazer.&demo-url=https%3A%2F%2Fbinaryblazer.me&demo-image=https://binaryblazer.me/img/demo.png>)
+[![Deploy with Vercel](https://vercel.com/button)](<https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fbinary-blazer%2Fportfolio&env=NEXT_PUBLIC_DISCORD_WEBHOOK,NEXT_PUBLIC_GITHUB_TOKEN,NEXT_PUBLIC_CONTENTHOOK_API_KEY&envDescription=NEXT_PUBLIC_DISCORD_WEBHOOK%20is%20needed%20for%20the%20contact%20forms%20(unless%20you%20want%20them%20to%20work)%3B%20GITHUB_TOKEN%20is%20for%20the%20repositories%20section%20on%20the%20projects%20page%20(unless%20you%20want%20it%20to%20work)%3B&envLink=https%3A%2F%2Fgithub.com%2Fbinary-blazer%2Fportfolio%2Fblob%2Fv3%2F.env.example&project-name=binaryblazer-portfolio&repository-name=binaryblazer-portfolio&demo-title=BinaryBlazer%20Portfolio&demo-description=This%20is%20a%20blog%20and%20portfolio%20website%20for%20a%20full-stack%20developer%20called%20BinaryBlazer.&demo-url=https%3A%2F%2Fbinaryblazer.me&demo-image=https://binaryblazer.me/img/demo.png>)
 
 ## Getting Started
 

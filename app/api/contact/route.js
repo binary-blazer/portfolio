@@ -10,7 +10,7 @@ export async function POST(request) {
       return new Response("Missing required fields", { status: 400 });
     }
 
-    const discordWebhook = process.env.DISCORD_WEBHOOK;
+    const discordWebhook = process.env.NEXT_PUBLIC_DISCORD_WEBHOOK;
 
     if (!discordWebhook) {
       return new Response("Discord webhook is not set", { status: 500 });
