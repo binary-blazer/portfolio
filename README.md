@@ -50,6 +50,13 @@ To learn more about Next.js, take a look at the following resources:
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
+## ⚠️ Blacklist
+- People written here are disallowed to use any of my portfolio versions because of copyright infringements from right now or the past
+
+| Person      | Portfolio URL                | Github Profile                                |
+| ----------- | ---------------------------- | --------------------------------------------- |
+| NilscraftHD | https://nilsdev.linkgames.de | @nils-afk      |
+
 ## ⭐ Star
 
 - Don't forget to star this repo for support :)
