@@ -97,9 +97,9 @@ export const projects = [
       "A advanced web hosting platform with a focus on simplicity and ease of use. Selling cloud and root servers, we also offer a reseller program.",
     link: "https://trest.host",
     status: {
-      inProgress: true,
+      inProgress: false,
       complete: false,
-      paused: false,
+      paused: true,
       cancelled: false,
     },
     technologies: ["NextJS", "NodeJS", "PostgreSQL", "Golang"],
@@ -112,9 +112,9 @@ export const projects = [
       "A AI company working on the text-to-image and image-to-text and image-to-image model Flaskyi, we also offer a API for developers.",
     link: "https://www.flaskyi.com",
     status: {
-      inProgress: true,
+      inProgress: false,
       complete: false,
-      paused: false,
+      paused: true,
       cancelled: false,
     },
     technologies: [
@@ -127,6 +127,26 @@ export const projects = [
     ],
     image: "/img/projects/flaskyi/logo.png",
     banner: "/img/projects/flaskyi/banner.png",
+  },
+  {
+    title: "Contenthook",
+    description:
+      "A simple CMS network for Developers. Content (MD/MDX) management made easy and comnected with the cloud. Over 6 million npm downloads recently.",
+    link: "https://www.contenthook.dev",
+    status: {
+      inProgress: false,
+      complete: true,
+      paused: false,
+      cancelled: false,
+    },
+    technologies: [
+      "NextJS",
+      "Golang",
+      "NodeJS",
+      "TypeScript"
+    ],
+    image: "https://www.contenthook.dev/img/logo.png",
+    banner: "https://www.contenthook.dev/img/banner.png",
   },
 ];
 
