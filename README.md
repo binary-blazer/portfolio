@@ -55,7 +55,6 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 
 | Person      | Portfolio URL                | Github Profile                                |
 | ----------- | ---------------------------- | --------------------------------------------- |
-| NilscraftHD | https://nilsdev.linkgames.de | @nils-afk      |
 
 ## ⭐ Star
 
