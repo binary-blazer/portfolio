@@ -360,7 +360,7 @@ export default function Home() {
           <p className="mt-2 text-left text-xl">
             I&apos;m a full-stack developer with a passion for open-source
             software and the web. I&apos;ve been developing for the web for over
-            6 years and have a strong understanding of web technologies and best
+            7 years and have a strong understanding of web technologies and best
             practices. I&apos;m also a strong advocate for open-source software
             and have contributed to many projects over the years.
           </p>
@@ -464,17 +464,17 @@ export default function Home() {
                       </div>
                     )}
                     {project.status.complete && (
-                      <div className="rounded-lg bg-green-500 px-2 py-1 text-xs font-bold text-green-500">
+                      <div className="rounded-lg bg-green-500 px-2 py-1 text-xs font-bold text-green-200">
                         Complete
                       </div>
                     )}
                     {project.status.paused && (
-                      <div className="rounded-lg bg-yellow-500 px-2 py-1 text-xs font-bold text-yellow-500">
+                      <div className="rounded-lg bg-yellow-500 px-2 py-1 text-xs font-bold text-yellow-200">
                         Paused
                       </div>
                     )}
                     {project.status.cancelled && (
-                      <div className="rounded-lg bg-red-500 px-2 py-1 text-xs font-bold text-red-500">
+                      <div className="rounded-lg bg-red-500 px-2 py-1 text-xs font-bold text-red-200">
                         Cancelled
                       </div>
                     )}

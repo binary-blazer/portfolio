@@ -139,12 +139,7 @@ export const projects = [
       paused: false,
       cancelled: false,
     },
-    technologies: [
-      "NextJS",
-      "Golang",
-      "NodeJS",
-      "TypeScript"
-    ],
+    technologies: ["NextJS", "Golang", "NodeJS", "TypeScript"],
     image: "https://www.contenthook.dev/img/logo.png",
     banner: "https://www.contenthook.dev/img/banner.png",
   },

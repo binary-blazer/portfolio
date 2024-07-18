@@ -9,6 +9,7 @@ export default function Header() {
   const router = useRouter();
   const pathname = usePathname();
   const screensize = ScreenSizr.getScreenSize();
+  const [scrolled, setScrolled] = useState(false);
 
   const [indicatorStyle, setIndicatorStyle] = useState({
     left: 0,
@@ -112,9 +113,23 @@ export default function Header() {
     }
   }, [pathname, currentScreen]);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 10) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <>
-      <header className="fixed top-0 z-50 flex w-full flex-row items-center justify-between bg-neutral-900 px-8 py-4 backdrop-blur-lg backdrop-filter lg:px-32">
+      <header
+        className={`fixed ${scrolled ? "border border-neutral-700/40" : "border border-neutral-700/0"} ${scrolled ? "top-[1rem] w-[86.3%] rounded-2xl px-4 py-4 shadow-lg" : "top-0 w-[90%] border-none px-4 py-4"} left-1/2 z-50 flex -translate-x-1/2 flex-row items-center justify-between bg-neutral-900 backdrop-blur-lg backdrop-filter transition-all duration-200 ease-in-out`}
+      >
         <div className="flex flex-row items-center justify-center gap-4">
           <div>
             <button
@@ -382,6 +397,7 @@ export default function Header() {
                 ))}
               </div>
               <div className="w-full border-b border-neutral-800"></div>
+              {/* Please don't touch the below button or change it. I worked hard to make my developer portfolio. */}
               <button
                 className="w-full gap-2 rounded-lg p-2 px-8 text-white transition-colors hover:bg-white/5"
                 onClick={() => router.push("/socials/github")}

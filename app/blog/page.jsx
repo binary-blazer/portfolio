@@ -3,7 +3,6 @@
 import React from "react";
 import Image from "next/image";
 import { technologies } from "@/main.config";
-import { getContents } from "@contenthook/browser";
 import { AnimatePresence, motion } from "framer-motion";
 
 export default function Blog() {
@@ -16,11 +15,9 @@ export default function Blog() {
   React.useEffect(() => {
     const fetchContents = async () => {
       // eslint-disable-next-line react-hooks/rules-of-hooks
-      const data = await getContents({
-        api_key: process.env.CONTENTHOOK_API_KEY,
-      });
-      console.log(data);
-      setContents(data);
+      const data = await fetch("/api/blog/contents");
+      const response = await data.json();
+      setContents(response);
     };
 
     fetchContents();
@@ -47,25 +44,25 @@ export default function Blog() {
               <div className="grid w-full grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
                 {contents.map((content) => (
                   <div
-                    key={content.metadata[0].value}
+                    key={content.metadata.title}
                     className="mt-4 flex w-full cursor-pointer flex-col items-start justify-center rounded-lg bg-neutral-800 p-4 shadow-lg transition-opacity duration-200 ease-in-out hover:opacity-80"
-                    onClick={handlePostClick(content.metadata[0].value)}
+                    onClick={handlePostClick(content.title)}
                   >
                     <Image
-                      src={content.metadata[5].value}
-                      alt={content.metadata[0].value}
+                      src={content.metadata.banner}
+                      alt={content.metadata.title}
                       width={300}
                       height={200}
-                      className="rounded-lg"
+                      className="w-full rounded-lg"
                     />
                     <h3 className="mt-4 text-lg font-bold">
-                      {content.metadata[0].value}
+                      {content.metadata.title}
                     </h3>
                     <p className="text-neutral-500">
-                      {content.metadata[1].value}
+                      {content.metadata.description}
                     </p>
                     <div className="mt-4 flex w-full flex-row items-center justify-start">
-                      {content.metadata[3].value.slice(0, 3).map((tag) => (
+                      {content.metadata.tags.slice(0, 3).map((tag) => (
                         <span
                           key={tag}
                           className="mr-2 rounded-md bg-neutral-700 p-2 text-xs font-bold text-neutral-200"

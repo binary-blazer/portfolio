@@ -120,7 +120,7 @@ export default function About() {
         <div className="mt-16 flex w-full flex-col items-start justify-center">
           <h3 className="text-center text-xl font-bold">{currentTab.name}</h3>
           <motion.div
-            className="mt-2 grid  w-full grid-cols-2 items-center justify-start gap-2 md:grid-cols-3 lg:grid-cols-4"
+            className="mt-2 grid w-full grid-cols-2 items-center justify-start gap-2 md:grid-cols-3 lg:grid-cols-4"
             transition={{ duration: 0.2, staggerChildren: 0.15 }}
           >
             {currentTab.technologies.map((tech, index) => (

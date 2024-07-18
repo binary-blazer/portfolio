@@ -109,17 +109,17 @@ export default function Page() {
                     </div>
                   )}
                   {project.status.complete && (
-                    <div className="rounded-lg bg-green-500 px-2 py-1 text-xs font-bold text-green-500">
+                    <div className="rounded-lg bg-green-500 px-2 py-1 text-xs font-bold text-green-200">
                       Complete
                     </div>
                   )}
                   {project.status.paused && (
-                    <div className="rounded-lg bg-yellow-500 px-2 py-1 text-xs font-bold text-yellow-500">
+                    <div className="rounded-lg bg-yellow-500 px-2 py-1 text-xs font-bold text-yellow-200">
                       Paused
                     </div>
                   )}
                   {project.status.cancelled && (
-                    <div className="rounded-lg bg-red-500 px-2 py-1 text-xs font-bold text-red-500">
+                    <div className="rounded-lg bg-red-500 px-2 py-1 text-xs font-bold text-red-200">
                       Cancelled
                     </div>
                   )}

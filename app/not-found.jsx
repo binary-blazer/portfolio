@@ -17,7 +17,7 @@ export default function NotFound() {
       className="flex h-screen flex-col items-center justify-center"
     >
       {config.underConstruction && (
-        <div className="backdrop-blur-l  mb-[2.5rem] rounded-lg bg-yellow-500/10 p-3 shadow-lg backdrop-filter 2xl:text-lg">
+        <div className="backdrop-blur-l mb-[2.5rem] rounded-lg bg-yellow-500/10 p-3 shadow-lg backdrop-filter 2xl:text-lg">
           This page might be under construction!
         </div>
       )}
