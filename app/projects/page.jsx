@@ -179,15 +179,15 @@ export default function Page() {
         <div className="mt-10 grid w-full grid-cols-1 items-start justify-center gap-4 md:grid-cols-2 lg:grid-cols-2 2xl:grid-cols-3">
           {repositories?.map((repository, index) => (
             <motion.div
-              layoutId={index}
-              key={index}
+              layoutId={index + 1}
+              key={index + 1}
               className="flex h-full w-full cursor-pointer flex-col items-start justify-start gap-4 rounded-lg bg-neutral-800 p-4 shadow-lg"
               onClick={() => {
-                setSelectedRepoId(index);
+                setSelectedRepoId(index + 1);
                 handleRepoClick(repository?.name);
               }}
               style={
-                selectedRepoId === index
+                selectedRepoId === index + 1
                   ? {
                       opacity: 0,
                       transition: "all 0.3s ease-in-out",
@@ -250,7 +250,7 @@ export default function Page() {
           <AnimatePresence>
             {selectedRepoId !== null &&
               selectedRepoId &&
-              repositories[selectedRepoId] && (
+              repositories[selectedRepoId - 1] && (
                 <>
                   <motion.div
                     layoutId={selectedRepoId}
