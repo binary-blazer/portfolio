@@ -258,16 +258,16 @@ export default function Page() {
                     onClick={() => setSelectedRepoId(null)}
                   >
                     <motion.div
-                      className="max-h-auto z-[102] flex h-auto w-auto min-w-[60%] cursor-auto flex-col items-start justify-start rounded-lg bg-neutral-800 p-4 shadow-lg"
+                      className="max-h-auto z-[102] flex h-auto min-w-[60%] w-auto cursor-auto flex-col items-start justify-start rounded-lg bg-neutral-800 p-4 shadow-lg"
                       onClick={(e) => e.stopPropagation()}
                     >
                       <div className="flex w-full flex-row items-start justify-between">
                         <div className="flex w-2/3 flex-row items-center justify-start gap-2">
                           <Image
                             src={
-                              repositories[selectedRepoId]?.owner?.avatar_url
+                              repositories[selectedRepoId - 1]?.owner?.avatar_url
                             }
-                            alt={repositories[selectedRepoId]?.owner?.login}
+                            alt={repositories[selectedRepoId - 1]?.owner?.login}
                             width={48}
                             height={48}
                             className="h-12 w-12 rounded-lg bg-neutral-900 shadow-lg"
@@ -275,11 +275,11 @@ export default function Page() {
                           />
                           <div className="flex w-full flex-col items-start justify-start">
                             <p className="text-lg font-bold">
-                              {repositories[selectedRepoId]?.owner?.login}
+                              {repositories[selectedRepoId - 1]?.owner?.login}
                             </p>
                             <p className="text-sm text-gray-400">
                               {new Date(
-                                repositories[selectedRepoId]?.updated_at,
+                                repositories[selectedRepoId - 1]?.updated_at,
                               ).toDateString()}
                             </p>
                           </div>
@@ -301,7 +301,7 @@ export default function Page() {
                               />
                             </svg>
                             <h1 className="text-md font-bold">
-                              {repositories[selectedRepoId]?.stargazers_count}
+                              {repositories[selectedRepoId - 1]?.stargazers_count}
                             </h1>
                           </div>
                           <div className="flex flex-row items-center justify-start gap-1">
@@ -369,16 +369,16 @@ export default function Page() {
                         </div>
                       </div>
                       <h3 className="mt-2 text-2xl font-bold">
-                        {repositories[selectedRepoId]?.name}
+                        {repositories[selectedRepoId - 1]?.name}
                       </h3>
                       <p className="text-left text-lg text-white/80">
-                        {repositories[selectedRepoId]?.description
-                          ? repositories[selectedRepoId].description.length > 60
-                            ? repositories[selectedRepoId].description.slice(
+                        {repositories[selectedRepoId - 1]?.description
+                          ? repositories[selectedRepoId - 1].description.length > 60
+                            ? repositories[selectedRepoId - 1].description.slice(
                                 0,
                                 60,
                               ) + "..."
-                            : repositories[selectedRepoId].description ||
+                            : repositories[selectedRepoId - 1].description ||
                               "No description provided."
                           : "No description provided."}
                       </p>
@@ -401,7 +401,7 @@ export default function Page() {
                                         className="flex w-full cursor-pointer flex-row items-center justify-between gap-2 border-b border-neutral-700 p-2 hover:bg-neutral-700"
                                         onClick={() => {
                                           router.push(
-                                            `https://github.com/${repositories[selectedRepoId]?.owner?.login}/${repositories[selectedRepoId]?.name}/tree/main/${file?.path}`,
+                                            `https://github.com/${repositories[selectedRepoId - 1]?.owner?.login}/${repositories[selectedRepoId - 1]?.name}/tree/main/${file?.path}`,
                                           );
                                         }}
                                       >
@@ -460,7 +460,7 @@ export default function Page() {
                                 className="flex w-full cursor-pointer flex-row items-center justify-center gap-2 border-b border-neutral-700 p-2 hover:bg-neutral-700"
                                 onClick={() =>
                                   router.push(
-                                    `https://github.com/${repositories[selectedRepoId]?.owner?.login}/${repositories[selectedRepoId]?.name}`,
+                                    `https://github.com/${repositories[selectedRepoId - 1]?.owner?.login}/${repositories[selectedRepoId - 1]?.name}`,
                                   )
                                 }
                               >
