@@ -1,4 +1,6 @@
 import { Inter } from "next/font/google";
+import NewYearNotice from "@/components/client/NewYearNotice";
+import FireworksProvider from "@/providers/fireworks";
 import Loading from "components/client/Loading";
 import Footer from "components/Footer";
 import Header from "components/Header";
@@ -25,10 +27,13 @@ export default function RootLayout({ children }) {
           <MetaProvider>
             <ThemeLoader>
               <FontLoader>
-                <Loading />
-                <Header />
-                {children}
-                <Footer />
+                <FireworksProvider>
+                  <NewYearNotice />
+                  <Loading />
+                  <Header />
+                  {children}
+                  <Footer />
+                </FireworksProvider>
               </FontLoader>
             </ThemeLoader>
           </MetaProvider>

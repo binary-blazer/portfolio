@@ -1,13 +1,14 @@
 "use client";
 
-import React from "react";
+import React, { useEffect } from "react";
 import Image from "next/image";
-import { useEffect } from "react";
 import germanyFlag from "../public/img/germany-flag.png";
 
 export default function Footer() {
   useEffect(() => {
-    console.log("This site was created by BinaryBlazer. Please keep footer and the header credits intact.");
+    console.log(
+      "This site was created by BinaryBlazer. Please keep footer and the header credits intact.",
+    );
   }, []);
 
   return (

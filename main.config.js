@@ -1,3 +1,10 @@
+const isNewYearsPeriod = () => {
+  const today = new Date();
+  const month = today.getMonth(); // 0-11
+  const day = today.getDate();
+  return (month === 11 && day === 31) || (month === 0 && day === 1);
+};
+
 export const config = {
   title: "BinaryBlazer",
   description:
@@ -15,6 +22,13 @@ export const config = {
   npm: {
     username: "janjytapyt",
   },
+  fireworks: {
+    featureEnabled: isNewYearsPeriod(),
+    enabled: true,
+    opacity: 0.5,
+    particles: 50,
+    gravity: 0.5,
+  },
 };
 
 export const items = [
@@ -25,10 +39,6 @@ export const items = [
   {
     name: "About",
     href: "/about",
-  },
-  {
-    name: "Blog",
-    href: "/blog",
   },
   {
     name: "Projects",

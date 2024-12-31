@@ -2,7 +2,13 @@
 
 import { useEffect, useRef, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
-import { colors, fonts, items } from "@/main.config";
+import { colors, config, fonts, items } from "@/main.config";
+import {
+  getFireworksSettings,
+  updateFireworksSettings,
+  useFireworks,
+} from "@/providers/fireworks";
+import { Switch } from "@headlessui/react";
 import ScreenSizr from "@sdevs/screen-sizr";
 
 export default function Header() {
@@ -19,6 +25,11 @@ export default function Header() {
   const [settingsOpen, setSettingsOpen] = useState(false);
   const [settingsColorsOpen, setSettingsColorsOpen] = useState(false);
   const [settingsFontsOpen, setSettingsFontsOpen] = useState(false);
+  const [settingsFireworksOpen, setSettingsFireworksOpen] = useState(false);
+  const [fireworksEnabled, setFireworksEnabled] = useState(false);
+  const [fireworksOpacity, setFireworksOpacity] = useState(0.25);
+  const [fireworksParticles, setFireworksParticles] = useState(150);
+  const [fireworksGravity, setFireworksGravity] = useState(0.5);
   const [currentTheme, setCurrentTheme] = useState("Blue");
   const [currentFont, setCurrentFont] = useState("inter");
   const [socialsOpen, setSocialsOpen] = useState(false);
@@ -46,6 +57,13 @@ export default function Header() {
       window.localStorage.setItem("font", font);
       window.location.reload();
     }
+  };
+
+  const changeFireworksEnabled = (enabled) => {
+    updateFireworksSettings({
+      fireworksEnabled: enabled,
+    });
+    setFireworksEnabled(enabled);
   };
 
   useEffect(() => {
@@ -112,6 +130,56 @@ export default function Header() {
       });
     }
   }, [pathname, currentScreen]);
+
+  useEffect(() => {
+    const fireworksEnabled = getFireworksSettings().fireworksEnabled;
+    const fireworksOpacity = getFireworksSettings().fireworksOpacity;
+    const fireworksParticles = getFireworksSettings().fireworksParticles;
+    const fireworksGravity = getFireworksSettings().fireworksGravity;
+
+    setFireworksEnabled(fireworksEnabled);
+
+    if (fireworksOpacity) {
+      setFireworksOpacity(Number.parseFloat(fireworksOpacity));
+    } else {
+      setFireworksOpacity(config.fireworks.opacity);
+      localStorage.setItem("fireworksOpacity", config.fireworks.opacity);
+    }
+
+    if (fireworksParticles) {
+      setFireworksParticles(Number.parseInt(fireworksParticles));
+    } else {
+      setFireworksParticles(config.fireworks.particles);
+      localStorage.setItem("fireworksParticles", config.fireworks.particles);
+    }
+
+    if (fireworksGravity) {
+      setFireworksGravity(Number.parseFloat(fireworksGravity));
+    } else {
+      setFireworksGravity(config.fireworks.gravity);
+      localStorage.setItem("fireworksGravity", config.fireworks.gravity);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (fireworksOpacity) {
+      updateFireworksSettings({
+        fireworksOpacity: fireworksOpacity,
+      });
+    }
+
+    if (fireworksParticles) {
+      updateFireworksSettings({
+        fireworksParticles: fireworksParticles,
+      });
+    }
+
+    if (fireworksGravity) {
+      updateFireworksSettings({
+        fireworksGravity: fireworksGravity,
+      });
+    }
+  }, [fireworksOpacity, fireworksParticles, fireworksGravity]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -308,7 +376,7 @@ export default function Header() {
                 transition: "transform 300ms ease-in-out",
               }}
             >
-              <div className="relative">
+              <div className="relative w-full">
                 <button
                   className={`flex w-full items-center justify-start gap-2 rounded-lg p-2 px-8 text-white transition-colors ${settingsColorsOpen ? "bg-white/5" : "hover:bg-white/5"}`}
                   onClick={() => {
@@ -395,6 +463,120 @@ export default function Header() {
                     {font.name.replace("_", "")}
                   </button>
                 ))}
+              </div>
+              <div className="relative">
+                <button
+                  className={`flex w-full items-center justify-start gap-2 rounded-lg p-2 px-8 text-white transition-colors ${settingsFireworksOpen ? "bg-white/5" : "hover:bg-white/5"}`}
+                  onClick={() =>
+                    setSettingsFireworksOpen(!settingsFireworksOpen)
+                  }
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth={1.5}
+                    stroke="currentColor"
+                    className={`h-5 w-5 ${settingsFireworksOpen ? "text-primary-500" : "text-white"} ${settingsFireworksOpen ? "rotate-[360deg] transform" : ""} duration-800 transition-transform ease-in-out`}
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M15.362 5.214A8.252 8.252 0 0 1 12 21 8.25 8.25 0 0 1 6.038 7.047 8.287 8.287 0 0 0 9 9.601a8.983 8.983 0 0 1 3.361-6.867 8.21 8.21 0 0 0 3 2.48Z"
+                    />
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M12 18a3.75 3.75 0 0 0 .495-7.468 5.99 5.99 0 0 0-1.925 3.547 5.975 5.975 0 0 1-2.133-1.001A3.75 3.75 0 0 0 12 18Z"
+                    />
+                  </svg>
+                  Fireworks
+                </button>
+                <div
+                  className="absolute flex min-w-[15rem] flex-col items-start justify-center gap-2 rounded-lg border border-neutral-800 bg-neutral-900 p-2 shadow-lg"
+                  style={{
+                    display: settingsFireworksOpen ? "flex" : "none",
+                    transform:
+                      screensize.width < 1024
+                        ? "translateX(-180px) translateY(-90px)"
+                        : "translateX(-260px) translateY(-30px)",
+                    transition: "transform 300ms ease-in-out",
+                  }}
+                >
+                  <div
+                    onClick={() => changeFireworksEnabled(!fireworksEnabled)}
+                    className="flex w-full cursor-pointer flex-row items-center justify-between gap-2 rounded-lg p-2 transition-colors hover:bg-white/5"
+                  >
+                    <span>Enabled</span>
+                    <Switch
+                      checked={fireworksEnabled}
+                      onChange={changeFireworksEnabled}
+                      className={`${
+                        fireworksEnabled ? "bg-primary-500" : "bg-neutral-800"
+                      } relative inline-flex h-6 w-11 items-center rounded-full transition-colors duration-200 ease-in-out`}
+                    >
+                      <span className="sr-only">Enable Fireworks</span>
+                      <span
+                        className={`${
+                          fireworksEnabled ? "translate-x-6" : "translate-x-1"
+                        } inline-block h-4 w-4 transform rounded-full bg-white transition-transform duration-200 ease-in-out`}
+                      />
+                    </Switch>
+                  </div>
+                  <div className="w-full border-b border-neutral-800"></div>
+                  <div className="relative w-full">
+                    {!fireworksEnabled && (
+                      <div className="absolute left-0 top-0 h-full w-full bg-neutral-900/90" />
+                    )}
+                    <div className="flex w-full flex-row items-center justify-between gap-2 p-2">
+                      <span>Opacity</span>
+                      <input
+                        type="range"
+                        min="0"
+                        max="1"
+                        step="0.01"
+                        value={fireworksOpacity}
+                        onChange={(e) => setFireworksOpacity(e.target.value)}
+                        className="w-full cursor-w-resize"
+                      />
+                    </div>
+                    <div className="flex w-full flex-row items-center justify-between gap-2 p-2">
+                      <span>Particles</span>
+                      <input
+                        type="range"
+                        min="0"
+                        max="500"
+                        step="1"
+                        value={fireworksParticles}
+                        onChange={(e) => setFireworksParticles(e.target.value)}
+                        className="w-full cursor-w-resize"
+                      />
+                    </div>
+                    <div className="flex w-full flex-row items-center justify-between gap-2 p-2">
+                      <span>Gravity</span>
+                      <input
+                        type="range"
+                        min="0"
+                        max="1"
+                        step="0.01"
+                        value={fireworksGravity}
+                        onChange={(e) => setFireworksGravity(e.target.value)}
+                        className="w-full cursor-w-resize"
+                      />
+                    </div>
+                  </div>
+                  <div className="w-full border-b border-neutral-800"></div>
+                  <button
+                    className="w-full gap-2 rounded-lg p-2 px-8 text-white transition-colors hover:bg-white/5"
+                    onClick={() => {
+                      setFireworksOpacity(0.25);
+                      setFireworksParticles(150);
+                      setFireworksGravity(0.5);
+                    }}
+                  >
+                    Reset to Default
+                  </button>
+                </div>
               </div>
               <div className="w-full border-b border-neutral-800"></div>
               {/* Please don't touch the below button or change it. I worked hard to make my developer portfolio. */}

@@ -12,11 +12,10 @@
     "format:check": "prettier --check ."
   },
   "dependencies": {
-    "@contenthook/browser": "1.4.0",
+    "@fireworks-js/react": "^2.10.8",
+    "@headlessui/react": "^2.2.0",
     "@sdevs/screen-sizr": "^2.0.0",
-    "browser@latest": "link:@contenthook\\browser@latest",
     "cobe": "^0.6.3",
-    "contenthook": "^1.2.0",
     "dotenv": "^16.4.5",
     "framer-motion": "^11.3.7",
     "next": "14.2.5",

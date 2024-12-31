@@ -258,14 +258,15 @@ export default function Page() {
                     onClick={() => setSelectedRepoId(null)}
                   >
                     <motion.div
-                      className="max-h-auto z-[102] flex h-auto min-w-[60%] w-auto cursor-auto flex-col items-start justify-start rounded-lg bg-neutral-800 p-4 shadow-lg"
+                      className="max-h-auto z-[102] flex h-auto w-auto min-w-[60%] cursor-auto flex-col items-start justify-start rounded-lg bg-neutral-800 p-4 shadow-lg"
                       onClick={(e) => e.stopPropagation()}
                     >
                       <div className="flex w-full flex-row items-start justify-between">
                         <div className="flex w-2/3 flex-row items-center justify-start gap-2">
                           <Image
                             src={
-                              repositories[selectedRepoId - 1]?.owner?.avatar_url
+                              repositories[selectedRepoId - 1]?.owner
+                                ?.avatar_url
                             }
                             alt={repositories[selectedRepoId - 1]?.owner?.login}
                             width={48}
@@ -301,7 +302,10 @@ export default function Page() {
                               />
                             </svg>
                             <h1 className="text-md font-bold">
-                              {repositories[selectedRepoId - 1]?.stargazers_count}
+                              {
+                                repositories[selectedRepoId - 1]
+                                  ?.stargazers_count
+                              }
                             </h1>
                           </div>
                           <div className="flex flex-row items-center justify-start gap-1">
@@ -373,11 +377,11 @@ export default function Page() {
                       </h3>
                       <p className="text-left text-lg text-white/80">
                         {repositories[selectedRepoId - 1]?.description
-                          ? repositories[selectedRepoId - 1].description.length > 60
-                            ? repositories[selectedRepoId - 1].description.slice(
-                                0,
-                                60,
-                              ) + "..."
+                          ? repositories[selectedRepoId - 1].description
+                              .length > 60
+                            ? repositories[
+                                selectedRepoId - 1
+                              ].description.slice(0, 60) + "..."
                             : repositories[selectedRepoId - 1].description ||
                               "No description provided."
                           : "No description provided."}
