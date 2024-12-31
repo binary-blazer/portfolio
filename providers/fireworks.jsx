@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import isNewYearsPeriod from "@/functions/isNewYearsPeriod";
 import { config } from "@/main.config";
 import Fireworks from "@fireworks-js/react";
 
@@ -109,6 +110,8 @@ export function getFireworksSettings() {
 }
 
 export default function FireworksProvider({ children }) {
+  const isNewYear = isNewYearsPeriod();
+
   const [fireworksEnabled, setFireworksEnabled] = useFireworksStorage(
     "fireworksEnabled",
     config.fireworks.enabled,
@@ -160,36 +163,38 @@ export default function FireworksProvider({ children }) {
         resetSettings: resetFireworksSettings,
       }}
     >
-      {(fireworksEnabled || isTransitioning) && (
-        <div
-          style={{
-            position: "fixed",
-            top: 0,
-            left: 0,
-            width: "100%",
-            height: "100%",
-            pointerEvents: "none",
-            zIndex: 9999,
-            opacity: fireworksEnabled ? fireworksOpacity : 0,
-            transition: "opacity 1s ease-out",
-          }}
-        >
-          <Fireworks
+      {isNewYear &&
+        config.fireworks.featureEnabled &&
+        (fireworksEnabled || isTransitioning) && (
+          <div
             style={{
+              position: "fixed",
+              top: 0,
+              left: 0,
               width: "100%",
               height: "100%",
+              pointerEvents: "none",
+              zIndex: 140,
+              opacity: fireworksEnabled ? fireworksOpacity : 0,
+              transition: "opacity 1s ease-out",
             }}
-            options={{
-              opacity: fireworksOpacity,
-              particles: fireworksParticles,
-              gravity: fireworksGravity,
-              explosion: 5,
-              trace: 3,
-              acceleration: 1.05,
-            }}
-          />
-        </div>
-      )}
+          >
+            <Fireworks
+              style={{
+                width: "100%",
+                height: "100%",
+              }}
+              options={{
+                opacity: fireworksOpacity,
+                particles: fireworksParticles,
+                gravity: fireworksGravity,
+                explosion: 5,
+                trace: 3,
+                acceleration: 1.05,
+              }}
+            />
+          </div>
+        )}
       {children}
     </FireworksContext.Provider>
   );

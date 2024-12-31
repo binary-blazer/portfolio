@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
+import isNewYearsPeriod from "@/functions/isNewYearsPeriod";
 import { colors, config, fonts, items } from "@/main.config";
 import {
   getFireworksSettings,
@@ -464,7 +465,15 @@ export default function Header() {
                   </button>
                 ))}
               </div>
-              <div className="relative">
+              <div
+                style={{
+                  display:
+                    isNewYearsPeriod() && config.fireworks.featureEnabled
+                      ? "flex"
+                      : "none",
+                }}
+                className="relative"
+              >
                 <button
                   className={`flex w-full items-center justify-start gap-2 rounded-lg p-2 px-8 text-white transition-colors ${settingsFireworksOpen ? "bg-white/5" : "hover:bg-white/5"}`}
                   onClick={() =>

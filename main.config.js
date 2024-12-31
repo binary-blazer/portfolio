@@ -1,16 +1,9 @@
-const isNewYearsPeriod = () => {
-  const today = new Date();
-  const month = today.getMonth(); // 0-11
-  const day = today.getDate();
-  return (month === 11 && day === 31) || (month === 0 && day === 1);
-};
-
 export const config = {
   title: "BinaryBlazer",
   description:
-    "This is a blog and portfolio website for a full-stack developer called BinaryBlazer.",
+    "This is a portfolio website for a full-stack developer called BinaryBlazer.",
   author: "BinaryBlazer",
-  keywords: "binaryblazer, blog, portfolio, full-stack, developer, germany",
+  keywords: "binaryblazer, portfolio, full-stack, developer, germany",
   twitter: "@BinaryBlazer",
   favicon: "/img/favicon-rounded.jpg",
   image: "/img/og-image.png",
@@ -20,10 +13,10 @@ export const config = {
     username: "binary-blazer",
   },
   npm: {
-    username: "janjytapyt",
+    username: "jonasfranke",
   },
   fireworks: {
-    featureEnabled: isNewYearsPeriod(),
+    featureEnabled: true, // Set to true to enable fireworks on 31th December and 1st January
     enabled: true,
     opacity: 0.5,
     particles: 50,
