@@ -107,12 +107,12 @@ export const projects = [
     },
     technologies: ["TypeScript"],
     image: "https://avatars.githubusercontent.com/u/192033339?s=200&v=4",
-    banner: "https://opengraph.githubassets.com/15ced7abddd056302fa4e531c75f0c1e3510242eca654c93dd8a8f2b5cc92d44/nyxland/nyx",
+    banner:
+      "https://opengraph.githubassets.com/15ced7abddd056302fa4e531c75f0c1e3510242eca654c93dd8a8f2b5cc92d44/nyxland/nyx",
   },
   {
     title: "Portfolio",
-    description:
-      "The portfolio you are currently on",
+    description: "The portfolio you are currently on",
     link: "https://github.com/binary-blazer/portfolio",
     status: {
       inProgress: false,
@@ -120,14 +120,10 @@ export const projects = [
       paused: false,
       cancelled: false,
     },
-    technologies: [
-      "NextJS",
-      "React",
-      "TypeScript",
-      "TailwindCSS",
-    ],
+    technologies: ["NextJS", "React", "TypeScript", "TailwindCSS"],
     image: "https://avatars.githubusercontent.com/u/81481526?v=4",
-    banner: "https://opengraph.githubassets.com/15ced7abddd056302fa4e531c75f0c1e3510242eca654c93dd8a8f2b5cc92d44/binary-blazer/portfolio",
+    banner:
+      "https://opengraph.githubassets.com/15ced7abddd056302fa4e531c75f0c1e3510242eca654c93dd8a8f2b5cc92d44/binary-blazer/portfolio",
   },
   {
     title: "react-effectz",
@@ -142,7 +138,8 @@ export const projects = [
     },
     technologies: ["React", "TypeScript"],
     image: "https://avatars.githubusercontent.com/u/81481526?v=4",
-    banner: "https://opengraph.githubassets.com/15ced7abddd056302fa4e531c75f0c1e3510242eca654c93dd8a8f2b5cc92d44/binary-blazer/react-effectz",
+    banner:
+      "https://opengraph.githubassets.com/15ced7abddd056302fa4e531c75f0c1e3510242eca654c93dd8a8f2b5cc92d44/binary-blazer/react-effectz",
   },
   {
     title: "uuml-tool",
@@ -157,7 +154,8 @@ export const projects = [
     },
     technologies: ["Rust"],
     image: "https://avatars.githubusercontent.com/u/81481526?v=4",
-    banner: "https://opengraph.githubassets.com/15ced7abddd056302fa4e531c75f0c1e3510242eca654c93dd8a8f2b5cc92d44/binary-blazer/uuml-tool",
+    banner:
+      "https://opengraph.githubassets.com/15ced7abddd056302fa4e531c75f0c1e3510242eca654c93dd8a8f2b5cc92d44/binary-blazer/uuml-tool",
   },
 ];
 

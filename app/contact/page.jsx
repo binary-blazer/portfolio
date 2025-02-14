@@ -31,7 +31,8 @@ export default function Page() {
           setLastName("");
           setMessage("");
           setError(null);
-        } else {setError(data);
+        } else {
+          setError(data);
         }
       });
   };
@@ -42,7 +43,7 @@ export default function Page() {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: 10 }}
       transition={{ duration: 0.5 }}
-      className="mx-auto flex min-h-screen w-full flex-col items-center justify-center lg:mt-0 px-8 lg:px-[20rem]"
+      className="mx-auto flex min-h-screen w-full flex-col items-center justify-center px-8 lg:mt-0 lg:px-[20rem]"
     >
       <div className="mb-10 mt-[14rem] flex w-full flex-col items-start justify-center">
         <div className="flex flex-row items-center justify-start gap-2">
@@ -67,13 +68,14 @@ export default function Page() {
           </h2>
         </div>
         <p className="mt-2 text-left text-xl">
-          Do you want to say hi or ask me a question? Feel free to send me a message!
+          Do you want to say hi or ask me a question? Feel free to send me a
+          message!
         </p>
       </div>
       <div className="flex w-full flex-col items-center justify-start gap-10 lg:flex-row lg:items-start">
         <div className="flex w-full flex-col items-start justify-start gap-4 lg:w-1/2">
           <button
-            className="flex w-full items-center justify-start gap-2 rounded-lg bg-neutral-900/30 backdrop-filter backdrop-blur-lg hover:bg-neutral-900/50 px-6 py-4 font-bold text-white shadow-lg transition-colors"
+            className="flex w-full items-center justify-start gap-2 rounded-lg bg-neutral-900/30 px-6 py-4 font-bold text-white shadow-lg backdrop-blur-lg backdrop-filter transition-colors hover:bg-neutral-900/50"
             onClick={() => router.push("mailto:me@binaryblazer.me")}
           >
             <svg
@@ -93,7 +95,7 @@ export default function Page() {
             Email Me
           </button>
           <button
-            className="flex w-full items-center justify-start gap-2 rounded-lg bg-neutral-900/30 backdrop-filter backdrop-blur-lg hover:bg-neutral-900/50 px-6 py-4 font-bold text-white shadow-lg transition-colors"
+            className="flex w-full items-center justify-start gap-2 rounded-lg bg-neutral-900/30 px-6 py-4 font-bold text-white shadow-lg backdrop-blur-lg backdrop-filter transition-colors hover:bg-neutral-900/50"
             onClick={() => router.push("https://twitter.com/BinaryBlazer")}
           >
             <svg
@@ -113,7 +115,7 @@ export default function Page() {
             Twitter
           </button>
         </div>
-        <form className="flex w-full flex-col items-start justify-start gap-4 rounded-lg bg-neutral-900/30 backdrop-filter backdrop-blur-lg p-4 shadow-lg lg:w-1/2">
+        <form className="flex w-full flex-col items-start justify-start gap-4 rounded-lg bg-neutral-900/30 p-4 shadow-lg backdrop-blur-lg backdrop-filter lg:w-1/2">
           {error && (
             <p className="w-full items-center justify-center rounded-lg bg-red-500/10 p-2 text-center text-red-500">
               {error}
@@ -123,14 +125,14 @@ export default function Page() {
             <input
               type="text"
               placeholder="First Name"
-              className="w-full rounded-lg bg-neutral-900/30 p-3 border-none ring-0 outline-none focus:ring-2 focus:ring-primary-500"
+              className="focus:ring-primary-500 w-full rounded-lg border-none bg-neutral-900/30 p-3 outline-none ring-0 focus:ring-2"
               value={firstName}
               onChange={(e) => setFirstName(e.target.value)}
             />
             <input
               type="text"
               placeholder="Last Name"
-              className="w-full rounded-lg bg-neutral-900/30 p-3 border-none ring-0 outline-none focus:ring-2 focus:ring-primary-500"
+              className="focus:ring-primary-500 w-full rounded-lg border-none bg-neutral-900/30 p-3 outline-none ring-0 focus:ring-2"
               value={lastName}
               onChange={(e) => setLastName(e.target.value)}
             />
@@ -138,13 +140,13 @@ export default function Page() {
           <input
             type="email"
             placeholder="Email"
-            className="w-full rounded-lg bg-neutral-900/30 p-3 border-none ring-0 outline-none focus:ring-2 focus:ring-primary-500"
+            className="focus:ring-primary-500 w-full rounded-lg border-none bg-neutral-900/30 p-3 outline-none ring-0 focus:ring-2"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
           <textarea
             placeholder="Message"
-            className="max-h-[20rem] min-h-[10rem] w-full rounded-lg bg-neutral-900/30 p-3 border-none ring-0 outline-none focus:ring-2 focus:ring-primary-50"
+            className="focus:ring-primary-50 max-h-[20rem] min-h-[10rem] w-full rounded-lg border-none bg-neutral-900/30 p-3 outline-none ring-0 focus:ring-2"
             value={message}
             onChange={(e) => setMessage(e.target.value)}
           />

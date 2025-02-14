@@ -14,7 +14,7 @@ export default function Footer() {
   return (
     <>
       {/* Please don't touch the footer credits. I worked hard to make my developer portfolio. */}
-      <footer className="mt-[10rem] flex w-full lg:w-[65%] mx-auto flex-col items-center justify-center border-t border-neutral-900 bg-neutral-950 p-8 py-8 text-white">
+      <footer className="mx-auto mt-[10rem] flex w-full flex-col items-center justify-center border-t border-neutral-900 bg-neutral-950 p-8 py-8 text-white lg:w-[65%]">
         <p className="text-center">
           &copy; 2018 - {new Date().getFullYear()} BinaryBlazer
         </p>

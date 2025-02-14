@@ -197,7 +197,7 @@ export default function Header() {
   return (
     <>
       <header
-        className={`fixed ${scrolled ? "border border-neutral-700/40" : "border border-neutral-700/0"} ${scrolled ? "top-[1rem] w-[90%] lg:w-[67%] rounded-2xl px-4 py-4 shadow-lg bg-neutral-900/30" : "top-0 w-[95%] lg:w-[70.5%] border-none px-4 py-4"} left-1/2 z-50 flex -translate-x-1/2 flex-row items-center justify-between backdrop-blur-3xl backdrop-filter transition-all duration-200 ease-in-out`}
+        className={`fixed ${scrolled ? "border border-neutral-700/40" : "border border-neutral-700/0"} ${scrolled ? "top-[1rem] w-[90%] rounded-2xl bg-neutral-900/30 px-4 py-4 shadow-lg lg:w-[67%]" : "top-0 w-[95%] border-none px-4 py-4 lg:w-[70.5%]"} left-1/2 z-50 flex -translate-x-1/2 flex-row items-center justify-between backdrop-blur-3xl backdrop-filter transition-all duration-200 ease-in-out`}
       >
         <div className="flex flex-row items-center justify-center gap-4">
           <div>
@@ -237,7 +237,7 @@ export default function Header() {
               </svg>
             </button>
             <div
-              className="absolute flex flex-col items-start justify-center gap-2 rounded-2xl border border-neutral-900 bg-neutral-900/30 backdrop-filter backdrop-blur-lg p-2 shadow-lg"
+              className="absolute flex flex-col items-start justify-center gap-2 rounded-2xl border border-neutral-900 bg-neutral-900/30 p-2 shadow-lg backdrop-blur-lg backdrop-filter"
               style={{
                 display: socialsOpen ? "flex" : "none",
                 transform: "translateY(10px)",
@@ -371,7 +371,7 @@ export default function Header() {
               </svg>
             </button>
             <div
-              className="absolute flex translate-x-[-7rem] translate-y-2 transform flex-col items-start justify-center gap-2 rounded-2xl backdrop-filter backdrop-blur-lg border border-neutral-900 bg-neutral-900/30 p-2 shadow-lg lg:translate-x-0 lg:translate-y-[10px]"
+              className="absolute flex translate-x-[-7rem] translate-y-2 transform flex-col items-start justify-center gap-2 rounded-2xl border border-neutral-900 bg-neutral-900/30 p-2 shadow-lg backdrop-blur-lg backdrop-filter lg:translate-x-0 lg:translate-y-[10px]"
               style={{
                 display: settingsOpen ? "flex" : "none",
                 transition: "transform 300ms ease-in-out",
@@ -402,7 +402,7 @@ export default function Header() {
                   Colors
                 </button>
                 <div
-                  className="absolute flex flex-col items-start justify-center gap-2 rounded-lg border border-neutral-900 bg-neutral-900/30 p-2 shadow-lg backdrop-filter backdrop-blur-lg"
+                  className="absolute flex flex-col items-start justify-center gap-2 rounded-lg border border-neutral-900 bg-neutral-900/30 p-2 shadow-lg backdrop-blur-lg backdrop-filter"
                   style={{
                     display: settingsColorsOpen ? "flex" : "none",
                     transform: "translateX(-180px) translateY(-30px)",
@@ -448,7 +448,7 @@ export default function Header() {
                 Fonts
               </button>
               <div
-                className="absolute flex flex-col items-start justify-center gap-2 rounded-lg border border-neutral-900 bg-neutral-900/30 backdrop-filter backdrop-blur-lg px-2 py-1 shadow-lg"
+                className="absolute flex flex-col items-start justify-center gap-2 rounded-lg border border-neutral-900 bg-neutral-900/30 px-2 py-1 shadow-lg backdrop-blur-lg backdrop-filter"
                 style={{
                   display: settingsFontsOpen ? "flex" : "none",
                   transform: "translateX(-162px) translateY(60px)",
@@ -502,7 +502,7 @@ export default function Header() {
                   Fireworks
                 </button>
                 <div
-                  className="absolute flex min-w-[15rem] flex-col items-start justify-center gap-2 rounded-lg border border-neutral-900 bg-neutral-900/30 backdrop-filter backdrop-blur-lg p-2 shadow-lg"
+                  className="absolute flex min-w-[15rem] flex-col items-start justify-center gap-2 rounded-lg border border-neutral-900 bg-neutral-900/30 p-2 shadow-lg backdrop-blur-lg backdrop-filter"
                   style={{
                     display: settingsFireworksOpen ? "flex" : "none",
                     transform:

@@ -167,7 +167,7 @@ export default function Home() {
         className="mx-auto flex min-h-screen flex-col items-center justify-center px-8 lg:px-[15rem]"
       >
         <div className="flex w-full flex-col items-center justify-center">
-          <div className="mb-4 rounded-lg bg-neutral-900/30 p-2 font-medium shadow-lg 2xl:text-lg backdrop-filter backdrop-blur-lg">
+          <div className="mb-4 rounded-lg bg-neutral-900/30 p-2 font-medium shadow-lg backdrop-blur-lg backdrop-filter 2xl:text-lg">
             <div className="hi">👋</div> Hi There, I&apos;m BinaryBlazer
           </div>
           <h1 className="text-center text-3xl font-bold lg:text-4xl 2xl:text-5xl">
@@ -236,7 +236,7 @@ export default function Home() {
           },
         }}
         id="about"
-        className="mx-auto flex min-h-screen w-full flex-col items-center justify-center lg:flex-row lg:items-start px-8 py-8 lg:px-[20rem] lg:py-32"
+        className="mx-auto flex min-h-screen w-full flex-col items-center justify-center px-8 py-8 lg:flex-row lg:items-start lg:px-[20rem] lg:py-32"
       >
         <div className="flex w-full flex-col items-start justify-center lg:w-2/3">
           <div className="flex flex-row items-center justify-start gap-2">
@@ -339,52 +339,56 @@ export default function Home() {
             {projects.slice(0, 2).map((project, index) => (
               <div
                 key={index}
-                className="z-[-1] flex h-full w-full flex-col items-center justify-between gap-4 rounded-lg bg-neutral-800/30 backdrop-filter backdrop-blur-lg p-4 shadow-lg"
+                className="z-[-1] flex h-full w-full flex-col items-center justify-between gap-4 rounded-lg bg-neutral-800/30 p-4 shadow-lg backdrop-blur-lg backdrop-filter"
               >
                 <div className="flex w-full flex-col items-start justify-start">
-                <Image
-                  src={project.banner}
-                  alt={project.title}
-                  width={512}
-                  height={256}
-                  unoptimized
-                  className="h-auto w-full rounded-lg bg-neutral-900 shadow-lg"
-                  draggable="false"
-                />
-                <div className="mt-2 flex w-full flex-row items-center justify-start">
                   <Image
-                    src={project.image}
+                    src={project.banner}
                     alt={project.title}
-                    width={48}
-                    height={48}
-                    className="h-12 w-12 rounded-lg bg-neutral-900 shadow-lg"
+                    width={512}
+                    height={256}
+                    unoptimized
+                    className="h-auto w-full rounded-lg bg-neutral-900 shadow-lg"
                     draggable="false"
                   />
-                  <div className="flex flex-row items-center justify-start gap-2">
-                    <h3 className="ml-2 text-2xl font-bold">{project.title}</h3>
-                    {project.status.inProgress && (
-                      <div className="text-primary-200 bg-primary-500 rounded-lg px-2 py-1 text-xs font-bold">
-                        In Progress
-                      </div>
-                    )}
-                    {project.status.complete && (
-                      <div className="rounded-lg bg-green-500 px-2 py-1 text-xs font-bold text-green-200">
-                        Complete
-                      </div>
-                    )}
-                    {project.status.paused && (
-                      <div className="rounded-lg bg-yellow-500 px-2 py-1 text-xs font-bold text-yellow-200">
-                        Paused
-                      </div>
-                    )}
-                    {project.status.cancelled && (
-                      <div className="rounded-lg bg-red-500 px-2 py-1 text-xs font-bold text-red-200">
-                        Cancelled
-                      </div>
-                    )}
+                  <div className="mt-2 flex w-full flex-row items-center justify-start">
+                    <Image
+                      src={project.image}
+                      alt={project.title}
+                      width={48}
+                      height={48}
+                      className="h-12 w-12 rounded-lg bg-neutral-900 shadow-lg"
+                      draggable="false"
+                    />
+                    <div className="flex flex-row items-center justify-start gap-2">
+                      <h3 className="ml-2 text-2xl font-bold">
+                        {project.title}
+                      </h3>
+                      {project.status.inProgress && (
+                        <div className="text-primary-200 bg-primary-500 rounded-lg px-2 py-1 text-xs font-bold">
+                          In Progress
+                        </div>
+                      )}
+                      {project.status.complete && (
+                        <div className="rounded-lg bg-green-500 px-2 py-1 text-xs font-bold text-green-200">
+                          Complete
+                        </div>
+                      )}
+                      {project.status.paused && (
+                        <div className="rounded-lg bg-yellow-500 px-2 py-1 text-xs font-bold text-yellow-200">
+                          Paused
+                        </div>
+                      )}
+                      {project.status.cancelled && (
+                        <div className="rounded-lg bg-red-500 px-2 py-1 text-xs font-bold text-red-200">
+                          Cancelled
+                        </div>
+                      )}
+                    </div>
                   </div>
-                </div>
-                <p className="text-left text-xl mt-4">{project.description}</p>
+                  <p className="mt-4 text-left text-xl">
+                    {project.description}
+                  </p>
                 </div>
                 <div className="mt-4 flex w-full flex-row items-center justify-start gap-2">
                   {/*
@@ -461,13 +465,14 @@ export default function Home() {
             </h2>
           </div>
           <p className="mt-2 text-left text-xl">
-            Do you want to say hi or ask me a question? Feel free to send me a message!
+            Do you want to say hi or ask me a question? Feel free to send me a
+            message!
           </p>
         </div>
         <div className="flex w-full flex-col items-center justify-center gap-10 lg:flex-row lg:items-start lg:justify-start">
           <div className="flex w-full flex-col items-start justify-start gap-4 lg:w-1/2">
             <button
-              className="flex w-full items-center justify-start gap-2 rounded-lg bg-neutral-900/30 backdrop-filter backdrop-blur-lg hover:bg-neutral-900/50 px-6 py-4 font-bold text-white shadow-lg transition-colors"
+              className="flex w-full items-center justify-start gap-2 rounded-lg bg-neutral-900/30 px-6 py-4 font-bold text-white shadow-lg backdrop-blur-lg backdrop-filter transition-colors hover:bg-neutral-900/50"
               onClick={() => router.push("mailto:me@binaryblazer.me")}
             >
               <svg
@@ -487,7 +492,7 @@ export default function Home() {
               Email Me
             </button>
             <button
-              className="flex w-full items-center justify-start gap-2 rounded-lg bg-neutral-900/30 backdrop-filter backdrop-blur-lg hover:bg-neutral-900/50 px-6 py-4 font-bold text-white shadow-lg transition-color"
+              className="transition-color flex w-full items-center justify-start gap-2 rounded-lg bg-neutral-900/30 px-6 py-4 font-bold text-white shadow-lg backdrop-blur-lg backdrop-filter hover:bg-neutral-900/50"
               onClick={() => router.push("https://twitter.com/BinaryBlazer")}
             >
               <svg
@@ -507,7 +512,7 @@ export default function Home() {
               Twitter
             </button>
           </div>
-          <form className="flex w-full flex-col items-start justify-start gap-4 rounded-lg bg-neutral-900/30 backdrop-filter backdrop-blur-lg p-4 shadow-lg lg:w-1/2">
+          <form className="flex w-full flex-col items-start justify-start gap-4 rounded-lg bg-neutral-900/30 p-4 shadow-lg backdrop-blur-lg backdrop-filter lg:w-1/2">
             {error && (
               <p className="w-full items-center justify-center rounded-lg bg-red-500/10 p-2 text-center text-red-500">
                 {error}
@@ -517,14 +522,14 @@ export default function Home() {
               <input
                 type="text"
                 placeholder="First Name"
-                className="w-full rounded-lg bg-neutral-900/30 p-3 border-none ring-0 outline-none focus:ring-2 focus:ring-primary-500"
+                className="focus:ring-primary-500 w-full rounded-lg border-none bg-neutral-900/30 p-3 outline-none ring-0 focus:ring-2"
                 value={firstName}
                 onChange={(e) => setFirstName(e.target.value)}
               />
               <input
                 type="text"
                 placeholder="Last Name"
-                className="w-full rounded-lg bg-neutral-900/30 p-3 border-none ring-0 outline-none focus:ring-2 focus:ring-primary-500"
+                className="focus:ring-primary-500 w-full rounded-lg border-none bg-neutral-900/30 p-3 outline-none ring-0 focus:ring-2"
                 value={lastName}
                 onChange={(e) => setLastName(e.target.value)}
               />
@@ -532,13 +537,13 @@ export default function Home() {
             <input
               type="email"
               placeholder="Email"
-              className="w-full rounded-lg bg-neutral-900/30 p-3 border-none ring-0 outline-none focus:ring-2 focus:ring-primary-500"
+              className="focus:ring-primary-500 w-full rounded-lg border-none bg-neutral-900/30 p-3 outline-none ring-0 focus:ring-2"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
             <textarea
               placeholder="Message"
-              className="max-h-[20rem] min-h-[10rem] w-full rounded-lg bg-neutral-900/30 p-3 border-none ring-0 outline-none focus:ring-2 focus:ring-primary-500"
+              className="focus:ring-primary-500 max-h-[20rem] min-h-[10rem] w-full rounded-lg border-none bg-neutral-900/30 p-3 outline-none ring-0 focus:ring-2"
               value={message}
               onChange={(e) => setMessage(e.target.value)}
             />
