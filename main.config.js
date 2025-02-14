@@ -120,7 +120,7 @@ export const projects = [
       paused: false,
       cancelled: false,
     },
-    technologies: ["NextJS", "React", "TypeScript", "TailwindCSS"],
+    technologies: ["NextJS", "React", "JavaScript", "TailwindCSS"],
     image: "https://avatars.githubusercontent.com/u/81481526?v=4",
     banner:
       "https://opengraph.githubassets.com/15ced7abddd056302fa4e531c75f0c1e3510242eca654c93dd8a8f2b5cc92d44/binary-blazer/portfolio",
@@ -156,57 +156,6 @@ export const projects = [
     image: "https://avatars.githubusercontent.com/u/81481526?v=4",
     banner:
       "https://opengraph.githubassets.com/15ced7abddd056302fa4e531c75f0c1e3510242eca654c93dd8a8f2b5cc92d44/binary-blazer/uuml-tool",
-  },
-];
-
-export const testimonials = [
-  {
-    name: "Alice Johnson",
-    title: "Client",
-    message:
-      "BinaryBlazer was a lifesaver for our project. His dedication and expertise turned our vision into reality.",
-  },
-  {
-    name: "Bob Williams",
-    title: "Client",
-    message:
-      "We were impressed by BinaryBlazer's commitment to delivering quality work on time. Our project was a success thanks to him.",
-  },
-  {
-    name: "Charlie Brown",
-    title: "Client",
-    message:
-      "BinaryBlazer's innovative approach helped us stay ahead of the curve. We couldn't have done it without him.",
-  },
-  {
-    name: "Diana Smith",
-    title: "Client",
-    message:
-      "Working with BinaryBlazer was a pleasure. His professionalism and technical skills exceeded our expectations.",
-  },
-  {
-    name: "Ethan Davis",
-    title: "Client",
-    message:
-      "BinaryBlazer's ability to understand and solve complex problems was impressive. He were a valuable asset to our team.",
-  },
-  {
-    name: "Fiona Miller",
-    title: "Client",
-    message:
-      "BinaryBlazer's dedication to our project was instrumental in its success. We're grateful for his hard work.",
-  },
-  {
-    name: "George Wilson",
-    title: "Client",
-    message:
-      "BinaryBlazer's technical skills and dedication were a great asset to our project. We couldn't have asked for a better developer.",
-  },
-  {
-    name: "Hannah Moore",
-    title: "Client",
-    message:
-      "BinaryBlazer's ability to deliver high-quality work on time made our collaboration a success. We highly recommend him.",
   },
 ];
 
