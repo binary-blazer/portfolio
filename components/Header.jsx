@@ -197,12 +197,12 @@ export default function Header() {
   return (
     <>
       <header
-        className={`fixed ${scrolled ? "border border-neutral-700/40" : "border border-neutral-700/0"} ${scrolled ? "top-[1rem] w-[86.3%] rounded-2xl px-4 py-4 shadow-lg" : "top-0 w-[90%] border-none px-4 py-4"} left-1/2 z-50 flex -translate-x-1/2 flex-row items-center justify-between bg-neutral-900 backdrop-blur-lg backdrop-filter transition-all duration-200 ease-in-out`}
+        className={`fixed ${scrolled ? "border border-neutral-700/40" : "border border-neutral-700/0"} ${scrolled ? "top-[1rem] w-[90%] lg:w-[67%] rounded-2xl px-4 py-4 shadow-lg bg-neutral-900/30" : "top-0 w-[95%] lg:w-[70.5%] border-none px-4 py-4"} left-1/2 z-50 flex -translate-x-1/2 flex-row items-center justify-between backdrop-blur-3xl backdrop-filter transition-all duration-200 ease-in-out`}
       >
         <div className="flex flex-row items-center justify-center gap-4">
           <div>
             <button
-              className={`flex items-center justify-center rounded-lg bg-transparent px-3 py-3 font-bold transition-colors hover:bg-white/5 ${socialsOpen ? "text-primary-500 bg-white/5" : "text-white"}`}
+              className={`flex items-center justify-center rounded-lg bg-transparent px-3 py-3 font-bold transition-colors hover:bg-neutral-900/30 ${socialsOpen ? "text-primary-500 bg-white/5" : "text-white"}`}
               onClick={() => setSocialsOpen(!socialsOpen)}
             >
               <svg
@@ -237,7 +237,7 @@ export default function Header() {
               </svg>
             </button>
             <div
-              className="absolute flex flex-col items-start justify-center gap-2 rounded-2xl border border-neutral-800 bg-neutral-900 p-2 shadow-lg"
+              className="absolute flex flex-col items-start justify-center gap-2 rounded-2xl border border-neutral-900 bg-neutral-900/30 backdrop-filter backdrop-blur-lg p-2 shadow-lg"
               style={{
                 display: socialsOpen ? "flex" : "none",
                 transform: "translateY(10px)",
@@ -246,31 +246,31 @@ export default function Header() {
             >
               <div className="flex w-full flex-col items-center justify-center gap-2 lg:hidden">
                 <button
-                  className={`flex w-full items-center justify-center bg-transparent px-3 py-2 ${pathname === "/" ? "text-primary-500 bg-white/5" : "text-white"} rounded-lg transition-colors hover:bg-white/5`}
+                  className={`flex w-full items-center justify-center bg-transparent px-3 py-2 ${pathname === "/" ? "text-primary-500 bg-neutral-900/30" : "text-white"} rounded-lg transition-colors hover:bg-neutral-900/30`}
                   onClick={() => router.push("/")}
                 >
                   Home
                 </button>
                 <button
-                  className={`flex w-full items-center justify-center bg-transparent px-3 py-2 ${pathname === "/about" ? "text-primary-500 bg-white/5" : "text-white"} rounded-lg transition-colors hover:bg-white/5`}
+                  className={`flex w-full items-center justify-center bg-transparent px-3 py-2 ${pathname === "/about" ? "text-primary-500 bg-neutral-900/30" : "text-white"} rounded-lg transition-colors hover:bg-neutral-900/30`}
                   onClick={() => router.push("/about")}
                 >
                   About
                 </button>
                 <button
-                  className={`flex w-full items-center justify-center bg-transparent px-3 py-2 ${pathname.includes("/blog") ? "text-primary-500 bg-white/5" : "text-white"} rounded-lg transition-colors hover:bg-white/5`}
+                  className={`flex w-full items-center justify-center bg-transparent px-3 py-2 ${pathname.includes("/blog") ? "text-primary-500 bg-neutral-900/30" : "text-white"} rounded-lg transition-colors hover:bg-neutral-900/30`}
                   onClick={() => router.push("/blog")}
                 >
                   Blog
                 </button>
                 <button
-                  className={`flex w-full items-center justify-center bg-transparent px-3 py-2 ${pathname === "/projects" ? "text-primary-500 bg-white/5" : "text-white"} rounded-lg transition-colors hover:bg-white/5`}
+                  className={`flex w-full items-center justify-center bg-transparent px-3 py-2 ${pathname === "/projects" ? "text-primary-500 bg-neutral-900/30" : "text-white"} rounded-lg transition-colors hover:bg-neutral-900/30`}
                   onClick={() => router.push("/projects")}
                 >
                   Projects
                 </button>
                 <button
-                  className={`flex w-full items-center justify-center bg-transparent px-3 py-2 ${pathname === "/contact" ? "text-primary-500 bg-white/5" : "text-white"} rounded-lg transition-colors hover:bg-white/5`}
+                  className={`flex w-full items-center justify-center bg-transparent px-3 py-2 ${pathname === "/contact" ? "text-primary-500 bg-neutral-900/30" : "text-white"} rounded-lg transition-colors hover:bg-white/5`}
                   onClick={() => router.push("/contact")}
                 >
                   Contact
@@ -279,7 +279,7 @@ export default function Header() {
               </div>
               <a
                 href="https://twitter.com/BinaryBlazer"
-                className="flex w-full items-center justify-start gap-2 rounded-lg p-2 px-8 text-white transition-colors hover:bg-white/5"
+                className="flex w-full items-center justify-start gap-2 rounded-lg p-2 px-8 text-white transition-colors hover:bg-neutral-900/30"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -297,7 +297,7 @@ export default function Header() {
               </a>
               <a
                 href="https://github.com/binary-blazer"
-                className="flex w-full items-center justify-start gap-2 rounded-lg p-2 px-8 text-white transition-colors hover:bg-white/5"
+                className="flex w-full items-center justify-start gap-2 rounded-lg p-2 px-8 text-white transition-colors hover:bg-neutral-900/30"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -341,7 +341,7 @@ export default function Header() {
               </div>
             ))}
             <div
-              className="absolute bottom-0 left-0 z-[-1] h-[2rem] rounded-md bg-white/5 transition-all duration-300 ease-in-out"
+              className="absolute bottom-0 left-0 z-[-1] h-[2rem] rounded-md bg-neutral-900/30 transition-all duration-300 ease-in-out"
               style={{
                 ...indicatorStyle,
               }}
@@ -351,7 +351,7 @@ export default function Header() {
         <div className="flex flex-row items-center justify-center gap-4">
           <div className="relative">
             <button
-              className={`flex items-center justify-center rounded-lg bg-transparent px-3 py-3 font-bold transition-colors hover:bg-white/5 ${settingsOpen ? "text-primary-500 bg-white/5" : "text-white"}`}
+              className={`flex items-center justify-center rounded-lg bg-transparent px-3 py-3 font-bold transition-colors hover:bg-neutral-900/30 ${settingsOpen ? "text-primary-500 bg-white/5" : "text-white"}`}
               onClick={() => setSettingsOpen(!settingsOpen)}
             >
               <svg
@@ -371,7 +371,7 @@ export default function Header() {
               </svg>
             </button>
             <div
-              className="absolute flex translate-x-[-7rem] translate-y-2 transform flex-col items-start justify-center gap-2 rounded-2xl border border-neutral-800 bg-neutral-900 p-2 shadow-lg lg:translate-x-0 lg:translate-y-[10px]"
+              className="absolute flex translate-x-[-7rem] translate-y-2 transform flex-col items-start justify-center gap-2 rounded-2xl backdrop-filter backdrop-blur-lg border border-neutral-900 bg-neutral-900/30 p-2 shadow-lg lg:translate-x-0 lg:translate-y-[10px]"
               style={{
                 display: settingsOpen ? "flex" : "none",
                 transition: "transform 300ms ease-in-out",
@@ -379,7 +379,7 @@ export default function Header() {
             >
               <div className="relative w-full">
                 <button
-                  className={`flex w-full items-center justify-start gap-2 rounded-lg p-2 px-8 text-white transition-colors ${settingsColorsOpen ? "bg-white/5" : "hover:bg-white/5"}`}
+                  className={`flex w-full items-center justify-start gap-2 rounded-lg p-2 px-8 text-white transition-colors ${settingsColorsOpen ? "bg-neutral-900/30" : "hover:bg-neutral-900/30"}`}
                   onClick={() => {
                     setSettingsColorsOpen(!settingsColorsOpen);
                     setSettingsFontsOpen(false);
@@ -402,7 +402,7 @@ export default function Header() {
                   Colors
                 </button>
                 <div
-                  className="absolute flex flex-col items-start justify-center gap-2 rounded-lg border border-neutral-800 bg-neutral-900 p-2 shadow-lg"
+                  className="absolute flex flex-col items-start justify-center gap-2 rounded-lg border border-neutral-900 bg-neutral-900/30 p-2 shadow-lg backdrop-filter backdrop-blur-lg"
                   style={{
                     display: settingsColorsOpen ? "flex" : "none",
                     transform: "translateX(-180px) translateY(-30px)",
@@ -412,7 +412,7 @@ export default function Header() {
                   {colors.map((color) => (
                     <button
                       key={color.name}
-                      className={`flex w-full items-center justify-start gap-2 rounded-lg p-2 px-8 text-white transition-colors ${currentTheme === color.name.toLocaleLowerCase() ? "bg-white/5" : "hover:bg-white/5"}`}
+                      className={`flex w-full items-center justify-start gap-2 rounded-lg p-2 px-8 text-white transition-colors ${currentTheme === color.name.toLocaleLowerCase() ? "bg-neutral-900/30" : "hover:bg-neutral-900/30"}`}
                       onClick={() => changeColor(color)}
                     >
                       <div
@@ -425,7 +425,7 @@ export default function Header() {
                 </div>
               </div>
               <button
-                className={`flex w-full items-center justify-start gap-2 rounded-lg p-2 px-8 text-white transition-colors ${settingsFontsOpen ? "bg-white/5" : "hover:bg-white/5"}`}
+                className={`flex w-full items-center justify-start gap-2 rounded-lg p-2 px-8 text-white transition-colors ${settingsFontsOpen ? "bg-neutral-900/30" : "hover:bg-neutral-900/30"}`}
                 onClick={() => {
                   setSettingsFontsOpen(!settingsFontsOpen);
                   setSettingsColorsOpen(false);
@@ -448,7 +448,7 @@ export default function Header() {
                 Fonts
               </button>
               <div
-                className="absolute flex flex-col items-start justify-center gap-2 rounded-lg border border-neutral-800 bg-neutral-900 px-2 py-1 shadow-lg"
+                className="absolute flex flex-col items-start justify-center gap-2 rounded-lg border border-neutral-900 bg-neutral-900/30 backdrop-filter backdrop-blur-lg px-2 py-1 shadow-lg"
                 style={{
                   display: settingsFontsOpen ? "flex" : "none",
                   transform: "translateX(-162px) translateY(60px)",
@@ -458,7 +458,7 @@ export default function Header() {
                 {fonts.map((font) => (
                   <button
                     key={font.name}
-                    className={`flex w-full items-center justify-start gap-2 rounded-lg p-2 px-8 text-center text-white transition-colors ${font.font === currentFont ? "bg-white/5" : "hover:bg-white/5"} ${fonts.indexOf(font) === fonts.length - 1 ? "mb-1.5" : ""} ${fonts.indexOf(font) === 0 ? "mt-1.5" : ""}`}
+                    className={`flex w-full items-center justify-start gap-2 rounded-lg p-2 px-8 text-center text-white transition-colors ${font.font === currentFont ? "bg-neutral-900/30" : "hover:bg-neutral-900/30"} ${fonts.indexOf(font) === fonts.length - 1 ? "mb-1.5" : ""} ${fonts.indexOf(font) === 0 ? "mt-1.5" : ""}`}
                     onClick={() => changeFont(font.font)}
                   >
                     {font.name.replace("_", "")}
@@ -475,7 +475,7 @@ export default function Header() {
                 className="relative"
               >
                 <button
-                  className={`flex w-full items-center justify-start gap-2 rounded-lg p-2 px-8 text-white transition-colors ${settingsFireworksOpen ? "bg-white/5" : "hover:bg-white/5"}`}
+                  className={`flex w-full items-center justify-start gap-2 rounded-lg p-2 px-8 text-white transition-colors ${settingsFireworksOpen ? "bg-neutral-900/30" : "hover:bg-neutral-900/30"}`}
                   onClick={() =>
                     setSettingsFireworksOpen(!settingsFireworksOpen)
                   }
@@ -502,7 +502,7 @@ export default function Header() {
                   Fireworks
                 </button>
                 <div
-                  className="absolute flex min-w-[15rem] flex-col items-start justify-center gap-2 rounded-lg border border-neutral-800 bg-neutral-900 p-2 shadow-lg"
+                  className="absolute flex min-w-[15rem] flex-col items-start justify-center gap-2 rounded-lg border border-neutral-900 bg-neutral-900/30 backdrop-filter backdrop-blur-lg p-2 shadow-lg"
                   style={{
                     display: settingsFireworksOpen ? "flex" : "none",
                     transform:
@@ -514,7 +514,7 @@ export default function Header() {
                 >
                   <div
                     onClick={() => changeFireworksEnabled(!fireworksEnabled)}
-                    className="flex w-full cursor-pointer flex-row items-center justify-between gap-2 rounded-lg p-2 transition-colors hover:bg-white/5"
+                    className="flex w-full cursor-pointer flex-row items-center justify-between gap-2 rounded-lg p-2 transition-colors hover:bg-neutral-900/30"
                   >
                     <span>Enabled</span>
                     <Switch
@@ -576,7 +576,7 @@ export default function Header() {
                   </div>
                   <div className="w-full border-b border-neutral-800"></div>
                   <button
-                    className="w-full gap-2 rounded-lg p-2 px-8 text-white transition-colors hover:bg-white/5"
+                    className="w-full gap-2 rounded-lg p-2 px-8 text-white transition-colors hover:bg-neutral-900/30"
                     onClick={() => {
                       setFireworksOpacity(0.25);
                       setFireworksParticles(150);
@@ -590,7 +590,7 @@ export default function Header() {
               <div className="w-full border-b border-neutral-800"></div>
               {/* Please don't touch the below button or change it. I worked hard to make my developer portfolio. */}
               <button
-                className="w-full gap-2 rounded-lg p-2 px-8 text-white transition-colors hover:bg-white/5"
+                className="w-full gap-2 rounded-lg p-2 px-8 text-white transition-colors hover:bg-neutral-900/30"
                 onClick={() => router.push("/socials/github")}
               >
                 Source
@@ -601,7 +601,7 @@ export default function Header() {
             className="bg-primary-500 hover:bg-primary-600 hidden items-center justify-center rounded-lg px-6 py-2 font-bold text-white shadow-lg transition-colors lg:flex"
             onClick={() => router.push("/contact")}
           >
-            Let&apos;s Connect
+            Send me a message
           </button>
         </div>
       </header>

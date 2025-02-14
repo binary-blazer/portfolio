@@ -95,56 +95,69 @@ export const fonts = [
 
 export const projects = [
   {
-    title: "TrestHost",
+    title: "Nyx",
     description:
-      "A advanced web hosting platform with a focus on simplicity and ease of use. Selling cloud and root servers, we also offer a reseller program.",
-    link: "https://trest.host",
+      "Combines the best of Python and JavaScript while remaining fast, stable, resource efficient and reliable. Allowing users to build anything.",
+    link: "https://github.com/nyxland/nyx",
     status: {
-      inProgress: false,
+      inProgress: true,
       complete: false,
-      paused: true,
+      paused: false,
       cancelled: false,
     },
-    technologies: ["NextJS", "NodeJS", "PostgreSQL", "Golang"],
-    image: "/img/projects/tresthost/logo.png",
-    banner: "/img/projects/tresthost/banner.png",
+    technologies: ["TypeScript"],
+    image: "https://avatars.githubusercontent.com/u/192033339?s=200&v=4",
+    banner: "https://opengraph.githubassets.com/15ced7abddd056302fa4e531c75f0c1e3510242eca654c93dd8a8f2b5cc92d44/nyxland/nyx",
   },
   {
-    title: "Flaskyi",
+    title: "Portfolio",
     description:
-      "A AI company working on the text-to-image and image-to-text and image-to-image model Flaskyi, we also offer a API for developers.",
-    link: "https://www.flaskyi.com",
-    status: {
-      inProgress: false,
-      complete: false,
-      paused: true,
-      cancelled: false,
-    },
-    technologies: [
-      "NextJS",
-      "Golang",
-      "NodeJS",
-      "Python",
-      "Tensorflow",
-      "Pytorch",
-    ],
-    image: "/img/projects/flaskyi/logo.png",
-    banner: "/img/projects/flaskyi/banner.png",
-  },
-  {
-    title: "Contenthook",
-    description:
-      "A simple CMS network for Developers. Content (MD/MDX) management made easy and comnected with the cloud. Over 6 million npm downloads recently.",
-    link: "https://www.contenthook.dev",
+      "The portfolio you are currently on",
+    link: "https://github.com/binary-blazer/portfolio",
     status: {
       inProgress: false,
       complete: true,
       paused: false,
       cancelled: false,
     },
-    technologies: ["NextJS", "Golang", "NodeJS", "TypeScript"],
-    image: "https://www.contenthook.dev/img/logo.png",
-    banner: "https://www.contenthook.dev/img/banner.png",
+    technologies: [
+      "NextJS",
+      "React",
+      "TypeScript",
+      "TailwindCSS",
+    ],
+    image: "https://avatars.githubusercontent.com/u/81481526?v=4",
+    banner: "https://opengraph.githubassets.com/15ced7abddd056302fa4e531c75f0c1e3510242eca654c93dd8a8f2b5cc92d44/binary-blazer/portfolio",
+  },
+  {
+    title: "react-effectz",
+    description:
+      "react effects npm package including some effects in form as components",
+    link: "https://github.com/binary-blazer/react-effectz",
+    status: {
+      inProgress: false,
+      complete: true,
+      paused: false,
+      cancelled: false,
+    },
+    technologies: ["React", "TypeScript"],
+    image: "https://avatars.githubusercontent.com/u/81481526?v=4",
+    banner: "https://opengraph.githubassets.com/15ced7abddd056302fa4e531c75f0c1e3510242eca654c93dd8a8f2b5cc92d44/binary-blazer/react-effectz",
+  },
+  {
+    title: "uuml-tool",
+    description:
+      "The UUML Tool is a command-line utility designed to replace German Umlauts in HTML files with their corresponding HTML entities",
+    link: "https://github.com/binary-blazer/uuml-tool",
+    status: {
+      inProgress: false,
+      complete: true,
+      paused: false,
+      cancelled: false,
+    },
+    technologies: ["Rust"],
+    image: "https://avatars.githubusercontent.com/u/81481526?v=4",
+    banner: "https://opengraph.githubassets.com/15ced7abddd056302fa4e531c75f0c1e3510242eca654c93dd8a8f2b5cc92d44/binary-blazer/uuml-tool",
   },
 ];
 

@@ -12,7 +12,6 @@ export default function Page() {
   const [lastName, setLastName] = useState("");
   const [message, setMessage] = useState("");
   const [error, setError] = useState(null);
-  const [blacklistedWords, setBlacklistedWords] = useState([]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -31,50 +30,8 @@ export default function Page() {
           setFirstName("");
           setLastName("");
           setMessage("");
-          setBlacklistedWords([]);
           setError(null);
-        } else {
-          if (data.includes("Message contains not allowed words")) {
-            setError(
-              data + ". Please remove the following words from your message:",
-            );
-            const flaggedWords = data.replace(
-              "Message contains not allowed words ",
-              "",
-            );
-            const array = flaggedWords.split(",");
-            setBlacklistedWords(array);
-          } else if (data.includes("Email contains not allowed words")) {
-            setError(
-              data + " Please remove the following words from your email:",
-            );
-            const flaggedWords = data
-              .replace("Email contains not allowed words ", "")
-              .trim();
-            const array = flaggedWords.split(",").map((word) => word.trim());
-            setBlacklistedWords(array);
-          } else if (data.includes("Last name contains not allowed words")) {
-            setError(
-              data + " Please remove the following words from your last name:",
-            );
-            const flaggedWords = data
-              .replace("Last name contains not allowed words ", "")
-              .trim();
-            const array = flaggedWords.split(",").map((word) => word.trim());
-            setBlacklistedWords(array);
-          } else if (data.includes("First name contains not allowed words")) {
-            setError(
-              data + " Please remove the following words from your first name:",
-            );
-            const flaggedWords = data
-              .replace("First name contains not allowed words ", "")
-              .trim();
-            const array = flaggedWords.split(",").map((word) => word.trim());
-            setBlacklistedWords(array);
-          } else {
-            setBlacklistedWords([]);
-            setError(data);
-          }
+        } else {setError(data);
         }
       });
   };
@@ -85,7 +42,7 @@ export default function Page() {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: 10 }}
       transition={{ duration: 0.5 }}
-      className="mx-auto flex min-h-screen w-full flex-col items-center justify-center p-8 lg:mt-0 lg:p-32"
+      className="mx-auto flex min-h-screen w-full flex-col items-center justify-center lg:mt-0 px-8 lg:px-[20rem]"
     >
       <div className="mb-10 mt-[14rem] flex w-full flex-col items-start justify-center">
         <div className="flex flex-row items-center justify-start gap-2">
@@ -110,13 +67,13 @@ export default function Page() {
           </h2>
         </div>
         <p className="mt-2 text-left text-xl">
-          Want to work together or just say hi? Feel free to reach out to me.
+          Do you want to say hi or ask me a question? Feel free to send me a message!
         </p>
       </div>
       <div className="flex w-full flex-col items-center justify-start gap-10 lg:flex-row lg:items-start">
         <div className="flex w-full flex-col items-start justify-start gap-4 lg:w-1/2">
           <button
-            className="flex w-full items-center justify-start gap-2 rounded-lg bg-neutral-800 px-6 py-4 font-bold text-white shadow-lg transition-colors hover:bg-neutral-700"
+            className="flex w-full items-center justify-start gap-2 rounded-lg bg-neutral-900/30 backdrop-filter backdrop-blur-lg hover:bg-neutral-900/50 px-6 py-4 font-bold text-white shadow-lg transition-colors"
             onClick={() => router.push("mailto:me@binaryblazer.me")}
           >
             <svg
@@ -136,7 +93,7 @@ export default function Page() {
             Email Me
           </button>
           <button
-            className="flex w-full items-center justify-start gap-2 rounded-lg bg-neutral-800 px-6 py-4 font-bold text-white shadow-lg transition-colors hover:bg-neutral-700"
+            className="flex w-full items-center justify-start gap-2 rounded-lg bg-neutral-900/30 backdrop-filter backdrop-blur-lg hover:bg-neutral-900/50 px-6 py-4 font-bold text-white shadow-lg transition-colors"
             onClick={() => router.push("https://twitter.com/BinaryBlazer")}
           >
             <svg
@@ -156,33 +113,24 @@ export default function Page() {
             Twitter
           </button>
         </div>
-        <form className="flex w-full flex-col items-start justify-start gap-4 rounded-lg bg-neutral-800 p-4 shadow-lg lg:w-1/2">
+        <form className="flex w-full flex-col items-start justify-start gap-4 rounded-lg bg-neutral-900/30 backdrop-filter backdrop-blur-lg p-4 shadow-lg lg:w-1/2">
           {error && (
             <p className="w-full items-center justify-center rounded-lg bg-red-500/10 p-2 text-center text-red-500">
               {error}
-              {blacklistedWords.length > 0 && (
-                <ul className="mt-4 grid grid-cols-1 gap-2 rounded-lg bg-red-500/20 p-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-                  {blacklistedWords.map((word, index) => (
-                    <li key={index} className="text-red-400">
-                      {word}
-                    </li>
-                  ))}
-                </ul>
-              )}
             </p>
           )}
           <div className="flex w-full flex-row items-center justify-start gap-4">
             <input
               type="text"
               placeholder="First Name"
-              className="w-full rounded-lg bg-neutral-700 p-3"
+              className="w-full rounded-lg bg-neutral-900/30 p-3 border-none ring-0 outline-none focus:ring-2 focus:ring-primary-500"
               value={firstName}
               onChange={(e) => setFirstName(e.target.value)}
             />
             <input
               type="text"
               placeholder="Last Name"
-              className="w-full rounded-lg bg-neutral-700 p-3"
+              className="w-full rounded-lg bg-neutral-900/30 p-3 border-none ring-0 outline-none focus:ring-2 focus:ring-primary-500"
               value={lastName}
               onChange={(e) => setLastName(e.target.value)}
             />
@@ -190,15 +138,13 @@ export default function Page() {
           <input
             type="email"
             placeholder="Email"
-            className="w-full rounded-lg bg-neutral-700 p-3"
+            className="w-full rounded-lg bg-neutral-900/30 p-3 border-none ring-0 outline-none focus:ring-2 focus:ring-primary-500"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
           <textarea
             placeholder="Message"
-            className={`max-h-[20rem] min-h-[10rem] w-full rounded-lg bg-neutral-700 p-3 ${
-              blacklistedWords && "border-red-500"
-            }`}
+            className="max-h-[20rem] min-h-[10rem] w-full rounded-lg bg-neutral-900/30 p-3 border-none ring-0 outline-none focus:ring-2 focus:ring-primary-50"
             value={message}
             onChange={(e) => setMessage(e.target.value)}
           />

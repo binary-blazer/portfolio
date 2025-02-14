@@ -3,7 +3,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { projects, testimonials } from "@/main.config";
+import { projects } from "@/main.config";
 import { motion, useAnimation } from "framer-motion";
 
 export default function Home() {
@@ -12,58 +12,24 @@ export default function Home() {
   const controls1 = useAnimation();
   const controls2 = useAnimation();
   const controls3 = useAnimation();
-  const controls4 = useAnimation();
 
   const aboutControls = useAnimation();
 
   const projectsControls = useAnimation();
-  const testimonialsControls = useAnimation();
   const contactControls = useAnimation();
 
-  const [isDragging, setIsDragging] = useState(false);
-  const [startX, setStartX] = useState(0);
-  const [scrollLeft, setScrollLeft] = useState(0);
-  const [addTestimonial, setAddTestimonial] = useState(false);
   const [email, setEmail] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [message, setMessage] = useState("");
   const [error, setError] = useState(null);
-  const [blacklistedWords, setBlacklistedWords] = useState([]);
 
-  const scrollContainerRef = useRef(null);
   const border1Ref = useRef();
   const border2Ref = useRef();
   const border3Ref = useRef();
-  const border4Ref = useRef();
   const aboutRef = useRef();
   const projectsRef = useRef();
-  const testimonialsRef = useRef();
   const contactRef = useRef();
-
-  const onMouseDown = (e) => {
-    setIsDragging(true);
-    setStartX(e.pageX - scrollContainerRef.current?.offsetLeft);
-    setScrollLeft(scrollContainerRef.current?.scrollLeft);
-  };
-
-  const onMouseUp = () => {
-    setIsDragging(false);
-  };
-
-  const onMouseLeave = () => {
-    setIsDragging(false);
-  };
-
-  const onMouseMove = (e) => {
-    if (!isDragging) return;
-    e.preventDefault();
-    const x = e.pageX - scrollContainerRef.current?.offsetLeft;
-    const walk = (x - startX) * 2;
-    if (scrollContainerRef.current) {
-      scrollContainerRef.current.scrollLeft = scrollLeft - walk;
-    }
-  };
 
   const sendEmail = (e) => {
     e.preventDefault();
@@ -82,50 +48,9 @@ export default function Home() {
           setFirstName("");
           setLastName("");
           setMessage("");
-          setBlacklistedWords([]);
           setError(null);
         } else {
-          if (data.includes("Message contains not allowed words")) {
-            setError(
-              data + ". Please remove the following words from your message:",
-            );
-            const flaggedWords = data.replace(
-              "Message contains not allowed words ",
-              "",
-            );
-            const array = flaggedWords.split(",");
-            setBlacklistedWords(array);
-          } else if (data.includes("Email contains not allowed words")) {
-            setError(
-              data + " Please remove the following words from your email:",
-            );
-            const flaggedWords = data
-              .replace("Email contains not allowed words ", "")
-              .trim();
-            const array = flaggedWords.split(",").map((word) => word.trim());
-            setBlacklistedWords(array);
-          } else if (data.includes("Last name contains not allowed words")) {
-            setError(
-              data + " Please remove the following words from your last name:",
-            );
-            const flaggedWords = data
-              .replace("Last name contains not allowed words ", "")
-              .trim();
-            const array = flaggedWords.split(",").map((word) => word.trim());
-            setBlacklistedWords(array);
-          } else if (data.includes("First name contains not allowed words")) {
-            setError(
-              data + " Please remove the following words from your first name:",
-            );
-            const flaggedWords = data
-              .replace("First name contains not allowed words ", "")
-              .trim();
-            const array = flaggedWords.split(",").map((word) => word.trim());
-            setBlacklistedWords(array);
-          } else {
-            setBlacklistedWords([]);
-            setError(data);
-          }
+          setError(data);
         }
       });
   };
@@ -135,7 +60,6 @@ export default function Home() {
       { ref: border1Ref, controls: controls1 },
       { ref: border2Ref, controls: controls2 },
       { ref: border3Ref, controls: controls3 },
-      { ref: border4Ref, controls: controls4 },
     ];
     let currentBorderIndex = 0;
 
@@ -169,7 +93,7 @@ export default function Home() {
         }
       }
     };
-  }, [controls1, controls2, controls3, controls4]);
+  }, [controls1, controls2, controls3]);
 
   useEffect(() => {
     const aboutObserver = new IntersectionObserver(
@@ -214,27 +138,6 @@ export default function Home() {
   }, [projectsControls]);
 
   useEffect(() => {
-    const testimonialsObserver = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          testimonialsControls.start("visible");
-        }
-      },
-      { threshold: 0.5 },
-    );
-
-    if (testimonialsRef.current) {
-      testimonialsObserver.observe(testimonialsRef.current);
-    }
-
-    return () => {
-      if (testimonialsRef.current) {
-        testimonialsObserver.unobserve(testimonialsRef.current);
-      }
-    };
-  }, [testimonialsControls]);
-
-  useEffect(() => {
     const contactObserver = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -261,10 +164,10 @@ export default function Home() {
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="mx-auto flex min-h-screen flex-col items-center justify-center p-8 lg:p-32"
+        className="mx-auto flex min-h-screen flex-col items-center justify-center px-8 lg:px-[15rem]"
       >
         <div className="flex w-full flex-col items-center justify-center">
-          <div className="mb-4 rounded-lg bg-neutral-800 p-2 font-medium shadow-lg 2xl:text-lg">
+          <div className="mb-4 rounded-lg bg-neutral-900/30 p-2 font-medium shadow-lg 2xl:text-lg backdrop-filter backdrop-blur-lg">
             <div className="hi">👋</div> Hi There, I&apos;m BinaryBlazer
           </div>
           <h1 className="text-center text-3xl font-bold lg:text-4xl 2xl:text-5xl">
@@ -315,9 +218,9 @@ export default function Home() {
           hidden: { width: 0 },
           visible: { width: "100%", transition: { duration: 0.8, delay: 0 } },
         }}
-        className="mx-auto px-8 lg:px-32"
+        className="mx-auto px-8 lg:px-[20rem]"
       >
-        <div className="mb-4 mt-4 w-full border-t border-neutral-700" />
+        <div className="mb-4 mt-4 w-full border-t border-neutral-900" />
       </motion.div>
 
       <motion.section
@@ -333,7 +236,7 @@ export default function Home() {
           },
         }}
         id="about"
-        className="mx-auto flex min-h-screen w-full flex-col items-center justify-center p-8 lg:flex-row lg:items-start lg:p-32"
+        className="mx-auto flex min-h-screen w-full flex-col items-center justify-center lg:flex-row lg:items-start px-8 py-8 lg:px-[20rem] lg:py-32"
       >
         <div className="flex w-full flex-col items-start justify-center lg:w-2/3">
           <div className="flex flex-row items-center justify-start gap-2">
@@ -385,9 +288,9 @@ export default function Home() {
           hidden: { width: 0 },
           visible: { width: "100%", transition: { duration: 0.8, delay: 0 } },
         }}
-        className="mx-auto px-8 lg:px-32"
+        className="mx-auto px-8 lg:px-[20rem]"
       >
-        <div className="mb-4 mt-4 w-full border-t border-neutral-700" />
+        <div className="mb-4 mt-4 w-full border-t border-neutral-900" />
       </motion.div>
 
       <motion.section
@@ -403,7 +306,7 @@ export default function Home() {
           },
         }}
         id="projects"
-        className="mx-auto flex min-h-screen w-full flex-col items-start justify-center bg-gradient-to-b from-transparent via-neutral-900/90 to-neutral-900 p-8 lg:p-32"
+        className="mx-auto flex min-h-screen w-full flex-col items-start justify-center bg-gradient-to-b from-transparent via-neutral-950/90 to-neutral-950 px-8 py-8 lg:px-[20rem] lg:py-32"
       >
         <div className="flex w-full flex-col items-start justify-center">
           <div className="mb-8 flex w-full flex-col items-start justify-center">
@@ -436,8 +339,9 @@ export default function Home() {
             {projects.slice(0, 2).map((project, index) => (
               <div
                 key={index}
-                className="z-[-1] flex h-full w-full flex-col items-center justify-center gap-4 rounded-lg bg-neutral-800 p-4 shadow-lg"
+                className="z-[-1] flex h-full w-full flex-col items-center justify-between gap-4 rounded-lg bg-neutral-800/30 backdrop-filter backdrop-blur-lg p-4 shadow-lg"
               >
+                <div className="flex w-full flex-col items-start justify-start">
                 <Image
                   src={project.banner}
                   alt={project.title}
@@ -480,7 +384,8 @@ export default function Home() {
                     )}
                   </div>
                 </div>
-                <p className="text-left text-xl">{project.description}</p>
+                <p className="text-left text-xl mt-4">{project.description}</p>
+                </div>
                 <div className="mt-4 flex w-full flex-row items-center justify-start gap-2">
                   {/*
                 <button
@@ -513,104 +418,9 @@ export default function Home() {
           hidden: { width: 0 },
           visible: { width: "100%", transition: { duration: 0.8, delay: 0 } },
         }}
-        className="mx-auto px-8 lg:px-32"
+        className="mx-auto px-8 lg:px-[20rem]"
       >
-        <div className="mb-4 mt-4 w-full border-t border-neutral-700" />
-      </motion.div>
-
-      <motion.section
-        ref={testimonialsRef}
-        initial="hidden"
-        animate={testimonialsControls}
-        variants={{
-          hidden: { opacity: 0, y: 10 },
-          visible: {
-            opacity: 1,
-            y: 0,
-            transition: { duration: 0.5, delay: 0 },
-          },
-        }}
-        id="testimonials"
-        className="mx-auto flex min-h-screen w-full flex-col items-start justify-center p-8 lg:p-32"
-      >
-        <div className="mb-8 flex w-full flex-col items-start justify-center">
-          <div className="flex flex-row items-center justify-start gap-2">
-            <div className="bg-primary-500 rounded-lg p-2">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={1.5}
-                stroke="currentColor"
-                className="h-6 w-6"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
-                ></path>
-              </svg>
-            </div>
-            <h2 className="text-4xl font-bold">
-              Testimonials<span className="text-primary-500">.</span>
-            </h2>
-          </div>
-          <p className="mt-2 text-left text-xl">
-            Here are some testimonials from people I&apos;ve worked with.
-          </p>
-        </div>
-        <div
-          ref={scrollContainerRef}
-          className="flex h-full max-w-full flex-row items-center justify-start gap-4 overflow-x-auto"
-          style={{
-            scrollSnapType: "x mandatory",
-            cursor: isDragging ? "grabbing" : "grab",
-          }}
-          onMouseDown={(e) => onMouseDown(e)}
-          onMouseUp={() => onMouseUp()}
-          onMouseLeave={() => onMouseLeave()}
-          onMouseMove={(e) => onMouseMove(e)}
-        >
-          {testimonials.map((testimonial, index) => (
-            <div
-              key={index}
-              className="mb-4 flex h-full w-full min-w-[38rem] flex-col items-start justify-start gap-4 rounded-lg bg-neutral-800 p-4 shadow-lg"
-            >
-              <div className="flex w-full flex-col items-start justify-center">
-                <h3 className="text-2xl font-bold">{testimonial.name}</h3>
-                <h4 className="text-primary-500 text-xl font-bold">
-                  {testimonial.title}
-                </h4>
-              </div>
-              <p className="text-left text-lg">{testimonial.message}</p>
-            </div>
-          ))}
-          <div
-            className="mb-4 flex h-[10.25rem] w-full min-w-[28rem] cursor-pointer flex-col items-center justify-center gap-4 rounded-lg border border-neutral-800 p-4 shadow-lg transition-all duration-300 ease-in-out hover:border-neutral-500 hover:bg-neutral-700/20"
-            onMouseEnter={() => setAddTestimonial(true)}
-            onMouseLeave={() => setAddTestimonial(false)}
-            onClick={() => router.push("/contact")}
-          >
-            <div
-              className={`flex flex-col px-10 py-8 text-3xl ${addTestimonial ? "bg-neutral-700" : "bg-neutral-800"} items-center justify-center rounded-lg shadow-lg transition-all duration-300 ease-in-out`}
-            >
-              +
-            </div>
-          </div>
-        </div>
-      </motion.section>
-
-      <motion.div
-        ref={border4Ref}
-        initial="hidden"
-        animate={controls4}
-        variants={{
-          hidden: { width: 0 },
-          visible: { width: "100%", transition: { duration: 0.8, delay: 0 } },
-        }}
-        className="mx-auto px-8 lg:px-32"
-      >
-        <div className="mb-4 mt-4 w-full border-t border-neutral-700" />
+        <div className="mb-4 mt-4 w-full border-t border-neutral-900" />
       </motion.div>
 
       <motion.section
@@ -626,7 +436,7 @@ export default function Home() {
           },
         }}
         id="contact"
-        className="mx-auto flex min-h-screen w-full flex-col items-start justify-center p-8 lg:p-32"
+        className="mx-auto flex min-h-screen w-full flex-col items-start justify-center px-8 py-8 lg:px-[20rem] lg:py-32"
       >
         <div className="mb-10 flex w-full flex-col items-start justify-center">
           <div className="flex flex-row items-center justify-start gap-2">
@@ -651,13 +461,13 @@ export default function Home() {
             </h2>
           </div>
           <p className="mt-2 text-left text-xl">
-            Want to work together or just say hi? Feel free to reach out to me.
+            Do you want to say hi or ask me a question? Feel free to send me a message!
           </p>
         </div>
         <div className="flex w-full flex-col items-center justify-center gap-10 lg:flex-row lg:items-start lg:justify-start">
           <div className="flex w-full flex-col items-start justify-start gap-4 lg:w-1/2">
             <button
-              className="flex w-full items-center justify-start gap-2 rounded-lg bg-neutral-800 px-6 py-4 font-bold text-white shadow-lg transition-colors hover:bg-neutral-700"
+              className="flex w-full items-center justify-start gap-2 rounded-lg bg-neutral-900/30 backdrop-filter backdrop-blur-lg hover:bg-neutral-900/50 px-6 py-4 font-bold text-white shadow-lg transition-colors"
               onClick={() => router.push("mailto:me@binaryblazer.me")}
             >
               <svg
@@ -677,7 +487,7 @@ export default function Home() {
               Email Me
             </button>
             <button
-              className="flex w-full items-center justify-start gap-2 rounded-lg bg-neutral-800 px-6 py-4 font-bold text-white shadow-lg transition-colors hover:bg-neutral-700"
+              className="flex w-full items-center justify-start gap-2 rounded-lg bg-neutral-900/30 backdrop-filter backdrop-blur-lg hover:bg-neutral-900/50 px-6 py-4 font-bold text-white shadow-lg transition-color"
               onClick={() => router.push("https://twitter.com/BinaryBlazer")}
             >
               <svg
@@ -697,33 +507,24 @@ export default function Home() {
               Twitter
             </button>
           </div>
-          <form className="flex w-full flex-col items-start justify-start gap-4 rounded-lg bg-neutral-800 p-4 shadow-lg lg:w-1/2">
+          <form className="flex w-full flex-col items-start justify-start gap-4 rounded-lg bg-neutral-900/30 backdrop-filter backdrop-blur-lg p-4 shadow-lg lg:w-1/2">
             {error && (
               <p className="w-full items-center justify-center rounded-lg bg-red-500/10 p-2 text-center text-red-500">
                 {error}
-                {blacklistedWords.length > 0 && (
-                  <ul className="mt-4 grid grid-cols-1 gap-2 rounded-lg bg-red-500/20 p-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-                    {blacklistedWords.map((word, index) => (
-                      <li key={index} className="text-red-400">
-                        {word}
-                      </li>
-                    ))}
-                  </ul>
-                )}
               </p>
             )}
             <div className="flex w-full flex-row items-center justify-start gap-4">
               <input
                 type="text"
                 placeholder="First Name"
-                className="w-full rounded-lg bg-neutral-700 p-3"
+                className="w-full rounded-lg bg-neutral-900/30 p-3 border-none ring-0 outline-none focus:ring-2 focus:ring-primary-500"
                 value={firstName}
                 onChange={(e) => setFirstName(e.target.value)}
               />
               <input
                 type="text"
                 placeholder="Last Name"
-                className="w-full rounded-lg bg-neutral-700 p-3"
+                className="w-full rounded-lg bg-neutral-900/30 p-3 border-none ring-0 outline-none focus:ring-2 focus:ring-primary-500"
                 value={lastName}
                 onChange={(e) => setLastName(e.target.value)}
               />
@@ -731,15 +532,13 @@ export default function Home() {
             <input
               type="email"
               placeholder="Email"
-              className="w-full rounded-lg bg-neutral-700 p-3"
+              className="w-full rounded-lg bg-neutral-900/30 p-3 border-none ring-0 outline-none focus:ring-2 focus:ring-primary-500"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
             <textarea
               placeholder="Message"
-              className={`max-h-[20rem] min-h-[10rem] w-full rounded-lg bg-neutral-700 p-3 ${
-                blacklistedWords && "border-red-500"
-              }`}
+              className="max-h-[20rem] min-h-[10rem] w-full rounded-lg bg-neutral-900/30 p-3 border-none ring-0 outline-none focus:ring-2 focus:ring-primary-500"
               value={message}
               onChange={(e) => setMessage(e.target.value)}
             />

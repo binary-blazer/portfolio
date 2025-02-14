@@ -50,7 +50,7 @@ export default function Page() {
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: 10 }}
         transition={{ duration: 0.5 }}
-        className="mx-auto flex min-h-screen w-full flex-col items-start justify-center p-8 lg:mt-0 lg:p-32"
+        className="mx-auto flex min-h-screen w-full flex-col items-start justify-center lg:mt-0 px-8 lg:px-[20rem]"
       >
         <div className="mb-8 mt-[14rem] flex w-full flex-col items-start justify-center">
           <div className="flex flex-row items-center justify-start gap-2">
@@ -82,8 +82,9 @@ export default function Page() {
           {projects.map((project, index) => (
             <div
               key={index}
-              className="flex h-full w-full flex-col items-center justify-center gap-4 rounded-lg bg-neutral-800 p-4 shadow-lg"
+              className="flex h-full w-full flex-col items-start justify-between gap-4 rounded-lg bg-neutral-700/30 backdrop-filter backdrop-blur-lg p-4 shadow-lg"
             >
+              <div className="flex w-full flex-col items-start justify-start">
               <Image
                 src={project.banner}
                 alt={project.title}
@@ -125,7 +126,8 @@ export default function Page() {
                   )}
                 </div>
               </div>
-              <p className="text-left text-xl">{project.description}</p>
+              <p className="text-left text-xl mt-4">{project.description}</p>
+              </div>
               <div className="mt-4 flex w-full flex-row items-center justify-start gap-2">
                 <button
                   className="bg-primary-500 hover:bg-primary-600 flex items-center justify-center rounded-lg px-6 py-2 font-bold text-white shadow-lg transition-colors"
@@ -181,7 +183,7 @@ export default function Page() {
             <motion.div
               layoutId={index + 1}
               key={index + 1}
-              className="flex h-full w-full cursor-pointer flex-col items-start justify-start gap-4 rounded-lg bg-neutral-800 p-4 shadow-lg"
+              className="flex h-full w-full cursor-pointer flex-col items-start justify-start gap-4 rounded-lg bg-neutral-700/30 backdrop-filter backdrop-blur-lg p-4 shadow-lg"
               onClick={() => {
                 setSelectedRepoId(index + 1);
                 handleRepoClick(repository?.name);

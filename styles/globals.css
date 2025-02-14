@@ -4,7 +4,7 @@
 
 body {
   color: #fff;
-  @apply bg-neutral-900;
+  @apply bg-neutral-950;
   position: relative;
 }
 
@@ -18,19 +18,20 @@ body::before {
   background: repeating-linear-gradient(
       0deg,
       rgba(255, 255, 255, 0.01),
-      rgba(255, 255, 255, 0.05) 1px,
+      rgba(255, 255, 255, 0.08) 1px,
       transparent 1px,
       transparent 50px
     ),
     repeating-linear-gradient(
       90deg,
       rgba(255, 255, 255, 0.01),
-      rgba(255, 255, 255, 0.05) 1px,
+      rgba(255, 255, 255, 0.08) 1px,
       transparent 1px,
       transparent 50px
     );
-  background-size: 400px 400px;
+  background-size: 800px 800px;
   z-index: -1;
+  animation: grid-move 10s linear infinite;
 }
 
 body::after {
@@ -43,9 +44,24 @@ body::after {
   background: radial-gradient(
     circle at center,
     transparent,
-    rgb(23, 23, 23) 70%
+    rgb(10, 10, 10) 70%
   );
   z-index: -1;
+}
+
+@keyframes grid-move {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 400px 400px;
+  }
+}
+
+@media (max-width: 1024px) {
+  body::before {
+    animation: none;
+  }
 }
 
 @keyframes hi {

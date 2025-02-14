@@ -3,7 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import { technologies } from "@/main.config";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 
 export default function About() {
   const [currentTab, setCurrentTab] = React.useState(technologies[0]);
@@ -16,7 +16,7 @@ export default function About() {
       className={`${
         currentTab.name === tab.name
           ? "bg-primary-500 text-neutral-100"
-          : "text-primary-500 bg-neutral-800"
+          : "text-primary-500 bg-neutral-900/30 backdrop-filter backdrop-blur-lg"
       } mb-4 rounded-lg px-4 py-2`}
     >
       {tab.name}
@@ -36,7 +36,7 @@ export default function About() {
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: 10 }}
         transition={{ duration: 0.5 }}
-        className="mx-auto flex min-h-screen w-full flex-col items-center justify-center p-8 lg:mt-0 lg:p-32"
+        className="mx-auto flex min-h-screen w-full flex-col items-center justify-center lg:mt-0 px-8 lg:px-[20rem]"
       >
         <div className="mt-[14rem] flex w-full flex-col items-start justify-center lg:flex-row">
           <div className="flex w-full flex-col items-start justify-center lg:w-2/3">
@@ -126,7 +126,7 @@ export default function About() {
             {currentTab.technologies.map((tech, index) => (
               <motion.div
                 key={tech.name}
-                className="flex w-full transform flex-row items-center justify-start gap-2 rounded-lg bg-neutral-800 p-2 text-center transition-transform duration-150 ease-in-out hover:translate-y-[-4px]"
+                className="flex w-full transform flex-row items-center justify-start gap-2 rounded-lg bg-neutral-900/30 backdrop-filter backdrop-blur-lg p-4 text-center transition-transform duration-150 ease-in-out hover:translate-y-[-4px]"
                 initial={shouldAnimate ? { opacity: 0, y: 10 } : {}}
                 animate={shouldAnimate ? { opacity: 1, y: 0 } : {}}
                 exit={shouldAnimate ? { opacity: 0, y: 10 } : {}}
@@ -134,15 +134,13 @@ export default function About() {
                   shouldAnimate ? { duration: 0.2, delay: index * 0.1 } : {}
                 }
               >
-                <div className="rounded-md bg-neutral-700 p-2">
-                  <Image
-                    src={tech.icon}
-                    alt={tech.name}
-                    className="h-6 w-6"
-                    width={24}
-                    height={24}
-                  />
-                </div>
+                <Image
+                  src={tech.icon}
+                  alt={tech.name}
+                  className="h-10 w-10 rounded-md"
+                  width={24}
+                  height={24}
+                />
                 {tech.name}
               </motion.div>
             ))}

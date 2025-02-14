@@ -17,7 +17,7 @@ export default function Loading() {
       {loading && (
         <motion.div
           exit={{ opacity: 0 }}
-          className="fixed left-0 top-0 z-[9999] flex h-screen w-screen items-center justify-center bg-neutral-900"
+          className="fixed left-0 top-0 z-[9999] flex h-screen w-screen items-center justify-center bg-neutral-950"
         >
           <motion.div
             exit={{ scale: 0 }}
